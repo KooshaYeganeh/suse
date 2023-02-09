@@ -1,0 +1,27 @@
+#!/bin/bash
+
+
+
+
+cd /tmp 
+
+wget https://github.com/KooshaYeganeh/suse/archive/refs/heads/main.zip
+
+unzip main.zip
+
+cd suse-main
+
+sudo mv suse /usr/bin
+
+rm -rf suse-main && rm main.zip
+
+cd
+
+
+SUSE="/usr/bin/suse"
+
+if [ -f "$SUSE" ];then
+	echo "suse Installed [ OK ]"
+else
+	echo "suse Not Installed [ ERROR ]"
+fi
