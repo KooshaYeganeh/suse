@@ -1,0 +1,285 @@
+#!/usr/bin/bash
+
+
+# Leap
+
+leap152=`cat /etc/os-release | grep "suse" | grep leap | grep -o 15.2`
+leap153=`cat /etc/os-release | grep "suse" | grep leap | grep -o 15.3`
+leap154=`cat /etc/os-release | grep "suse" | grep leap | grep -o 15.4`
+leap155=`cat /etc/os-release | grep "suse" | grep leap | grep -o 15.5`
+
+# Tumbleweed
+
+Tumbleweed=`cat /etc/os-release | grep "suse" | grep leap | grep -o Tumbleweed`
+tumbleweed=`cat /etc/os-release | grep "suse" | grep leap | grep -o tumbleweed`
+
+
+green=$(tput setaf 6)
+yellow=$(tput setaf 3)
+red=$(tput setaf 1)
+reset=`tput sgr0`
+
+
+
+android_tools_repo(){
+
+
+	if [ "$Tumbleweed" == "Tumbleweed" ] || [ "$tumbleweed" == "tumbleweed" ];then
+
+		echo -e "\n $green =============== openSUSE Tumbleweed  =============== $reset \n"
+		echo -e "$yellow Repository Name : android-tools from home:GNorth project $reset"
+		
+		echo "sudo zypper addrepo https://download.opensuse.org/repositories/home:GNorth/openSUSE_Tumbleweed/home:GNorth.repo"
+
+		echo "$yellow =============== Repository Name : android-tools from home:ahjolinna project ===============  $reset"
+
+		echo "sudo zypper addrepo https://download.opensuse.org/repositories/home:ahjolinna/openSUSE_Tumbleweed/home:ahjolinna.repo"
+
+	
+		echo "$yellow =============== Repository Name : android-tools from home:mrbadguy project ===============  $reset"
+
+		echo "sudo zypper addrepo https://download.opensuse.org/repositories/home:mrbadguy/openSUSE_Tumbleweed/home:mrbadguy.repo"
+
+
+
+
+	elif [ "$leap152" == "15.2" ];then
+
+		echo -e "$green =============== openSUSE Leap 15.2 =============== $reset \n"
+		echo -e "$yellow Repository Name : android-tools from home:AndnoVember:test project $reset"
+
+		echo "sudo zypper addrepo https://download.opensuse.org/repositories/home:AndnoVember:test/openSUSE_Leap_15.2/home:AndnoVember:test.repo"
+
+	elif [ "$leap153" == "15.3" ];then
+
+		echo -e "$reset =============== openSUSE Leap 15.3 =============== $green \n"
+		
+		echo -e "$yellow Repository Name : android-tools from home:AndnoVember:test project $reset"
+		
+		echo "sudo zypper addrepo https://download.opensuse.org/repositories/home:AndnoVember:test/openSUSE_Leap_15.3/home:AndnoVember:test.repo"
+		
+		echo -e "$yellow Repository Name : android-tools from home:embar-:Lietukas project $reset"
+
+		echo "sudo zypper addrepo https://download.opensuse.org/repositories/home:embar-:Lietukas/openSUSE_Leap_15.3/home:embar-:Lietukas.repo"
+		
+
+	elif [ "$leap154" == "15.4" ];then
+
+		echo -e "$green =============== openSUSE Leap 15.4 =============== $reset \n"
+		
+		echo -e "$yellow Repository Name : android-tools from home:AndnoVember:test project $reset"
+		echo "sudo zypper addrepo https://download.opensuse.org/repositories/home:AndnoVember:test/15.4/home:AndnoVember:test.repo"
+
+		echo -e "$yellow Repository Name : android-tools from home:GNorth project $reset"
+		echo "sudo zypper addrepo https://download.opensuse.org/repositories/home:GNorth/15.4/home:GNorth.repo"
+
+		echo -e "$yellow Repository Name : https://build.opensuse.org/project/show/home:Herbster0815  $reset"
+
+		echo "sudo zypper addrepo https://download.opensuse.org/repositories/home:Herbster0815/openSUSE_Leap_15.4/home:Herbster0815.repo"
+
+		echo "sudo zypper refresh"
+		echo "sudo zypper install android-tools"
+
+		echo -e "$yellow Repository Name : android-tools from home:ahjolinna project $reset"
+
+		echo "sudo zypper addrepo https://download.opensuse.org/repositories/home:ahjolinna/15.4/home:ahjolinna.repo"
+
+		echo -e "$yellow Repository Name : android-tools from home:mrbadguy project $reset"
+		echo "sudo zypper addrepo https://download.opensuse.org/repositories/home:mrbadguy/openSUSE_Leap_15.4/home:mrbadguy.repo"
+
+
+
+	elif [ "$leap155" == "15.5" ];then
+		echo -e "$green =============== openSUSE Leap 15.5 =============== $reset \n"
+		
+		echo -e "$yellow Repository Name : android-tools from home:AndnoVember:test project $reset"
+		echo "sudo zypper addrepo https://download.opensuse.org/repositories/home:AndnoVember:test/15.5/home:AndnoVember:test.repo"
+		
+
+
+		echo -e "$yellow Repository Name : android-tools from home:Herbster0815 project $reset"
+		
+		echo "sudo zypper addrepo https://download.opensuse.org/repositories/home:Herbster0815/openSUSE_Leap_15.5/home:Herbster0815.repo"
+
+
+	fi
+}
+
+android_tools(){
+
+	echo "$yellow android-tools $reset"
+	echo "$yellow Android platform tools $reset"
+	echo -e "\n $green INFO : Android SDK Platform-Tools is a component for the Android SDK. It includes tools that interface with the Android platform.\n $reset"
+	echo "=============== Leap 15.3 ================="
+
+	echo "sudo zypper addrepo https://download.opensuse.org/repositories/home:cabelo:innovators/15.3/home:cabelo:innovators.repo"
+	echo "$yellow or $reset"
+	echo "sudo zypper addrepo https://download.opensuse.org/repositories/home:embar-:Lietukas/openSUSE_Leap_15.3/home:embar-:Lietukas.repo"
+	echo "sudo zypper refresh"
+	echo "sudo zypper install android-tools"
+
+
+}
+
+
+vlc_repo(){
+
+
+	if [ "$leap153" == "15.3" ];then
+		echo "=============== Leap 15.3 ================="
+
+		echo "sudo zypper addrepo https://download.opensuse.org/repositories/openSUSE:Leap:15.3:Update/standard/openSUSE:Leap:15.3:Update.repo"
+	elif [ "$leap154" == "15.4" ];then
+		echo "=============== Leap 15.3 ================="
+		echo "zypper addrepo https://download.opensuse.org/repositories/home:worldcitizen:GoldenCheetah/15.4/home:worldcitizen:GoldenCheetah.repo"
+		echo "zypper addrepo https://download.opensuse.org/repositories/openSUSE:Leap:15.4:Update/standard/openSUSE:Leap:15.4:Update.repo"
+	elif [ "$leap152" == "15.2" ];then
+		echo "sudo zypper addrepo https://download.opensuse.org/repositories/openSUSE:Leap:15.2:Update/standard/openSUSE:Leap:15.2:Update.repo"
+	elif [ "$Tumbleweed" == "Tumbleweed" ] || [ "$tumbleweed" == "tumbleweed" ];then
+		echo "=============== Tumbleweed ================="
+		echo "sudo zypper addrepo https://download.opensuse.org/repositories/home:StefanBruens:branches:multimedia:libs/openSUSE_Tumbleweed/home:StefanBruens:branches:multimedia:libs.repo"
+	fi
+}
+
+
+vlc_app(){
+
+	if [ "$leap153" == "15.3" ];then
+		echo "=============== Leap 15.3 ================="
+
+		echo "sudo zypper addrepo https://download.opensuse.org/repositories/openSUSE:Leap:15.3:Update/standard/openSUSE:Leap:15.3:Update.repo"
+		echo "sudo zypper refresh"
+		echo "sudo zypper install vlc"
+	elif [ "$leap154" == "15.4" ];then
+		echo "=============== Leap 15.4 ================="
+		echo "zypper addrepo https://download.opensuse.org/repositories/home:worldcitizen:GoldenCheetah/15.4/home:worldcitizen:GoldenCheetah.repo"
+		echo "zypper addrepo https://download.opensuse.org/repositories/openSUSE:Leap:15.4:Update/standard/openSUSE:Leap:15.4:Update.repo"
+		echo "sudo zypper refresh"
+		echo "sudo zypper install vlc"
+	elif [ "$leap152" == "15.2" ];then
+		echo "=============== Leap 15.2 ================="
+		echo "sudo zypper addrepo https://download.opensuse.org/repositories/openSUSE:Leap:15.2:Update/standard/openSUSE:Leap:15.2:Update.repo"
+		echo "sudo zypper refresh"
+		echo "sudo zypper install vlc"
+
+	elif [ "$Tumbleweed" == "Tumbleweed" ] || [ "$umbleweed" == "tumbleweed" ];then
+		echo "=============== Tumbleweed ================="
+		echo "sudo zypper addrepo https://download.opensuse.org/repositories/home:StefanBruens:branches:multimedia:libs/openSUSE_Tumbleweed/home:StefanBruens:branches:multimedia:libs.repo"
+		echo "sudo zypper refresh"
+		echo "sudo zypper install vlc"
+	fi
+
+
+
+}
+
+vscode_repo(){
+
+	echo "sudo zypper addrepo https://packages.microsoft.com/yumrepos/vscode vscode"
+
+}
+
+
+vscode_app(){
+
+	echo "sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc"
+	echo "sudo zypper addrepo https://packages.microsoft.com/yumrepos/vscode vscode"
+	echo "sudo zypper refresh"
+	echo "sudo zypper install code"
+}
+# Adndroid Tools
+
+if [ "$0" == "./suse" ];then
+	if [ "$1" == "whereis" ];then
+		if [ "$2" == "android_tools" ] || [ "$2" == "android tools" ] || \
+			[ "$2" == "Android Tools" ] || [ "$2" == "Android_Tools" ];then
+			android_tools_repo
+		fi
+	elif [ "$1" == "howinstall" ];then
+		if [ "$2" == "android_tools" ] || [ "$2" == "android tools" ] || \
+			[ "$2" == "Android Tools" ] || [ "$2" == "Android_Tools" ];then
+			android_tools
+		fi
+	
+	elif [ "$1" == "mydistro" ];then
+		cat /etc/os-release
+		echo "=============================="
+		cat /proc/version
+	elif [ "$1" == "info" ];then
+		echo "A simple software for Sousse users so that they can identify what repositories each software uses or how they can download each software."
+
+		echo "Developer : Koosha Yeganeh"
+		echo "Github : https://github.com/KooshaYeganeh"
+	else
+		echo "I Can't Understand What You Want."
+		echo "You should say whereis or howinstall"
+	fi
+else
+	echo "Your Meaan is suse?"
+	
+fi
+
+
+
+# VLC
+#
+if [ "$0" == "./suse" ];then
+	if [ "$1" == "whereis" ];then
+		if [ "$2" == "vlc" ] || [ "$2" == "VLC" ];then
+			vlc_repo
+		fi
+	elif [ "$1" == "howinstall" ];then
+		if [ "$2" == "vlc" ] || [ "$2" == "VLC" ];then
+			vlc_app
+		fi
+	
+	elif [ "$1" == "mydistro" ];then
+		cat /etc/os-release
+		echo "=============================="
+		cat /proc/version
+	elif [ "$1" == "info" ];then
+		echo "A simple software for Sousse users so that they can identify what repositories each software uses or how they can download each software."
+
+		echo "Developer : Koosha Yeganeh"
+		echo "Github : https://github.com/KooshaYeganeh"
+	else
+		echo "I Can't Understand What You Want."
+		echo "You should say whereis or howinstall"
+	fi
+else
+	echo "Your Meaan is suse?"
+	
+fi
+
+# vscode
+if [ "$0" == "./suse" ];then
+	if [ "$1" == "whereis" ];then
+		if [ "$2" == "vscode" ] || [ "$2" == "VSCODE" ] || \
+			[ "$2" == "visual_stdio_code" ] || [ "$2" == "visual stdio code" ];then
+			vscode_repo
+		fi
+	elif [ "$1" == "howinstall" ];then
+		if [ "$2" == "vscode" ] || [ "$2" == "VSCODE" ] || \
+			[ "$2" == "visual_stdio_code" ] || [ "$2" == "visual stdio code" ];then
+			vscode_app
+		fi
+	
+	elif [ "$1" == "mydistro" ];then
+		cat /etc/os-release
+		echo "=============================="
+		cat /proc/version
+	elif [ "$1" == "info" ];then
+		echo "A simple software for Sousse users so that they can identify what repositories each software uses or how they can download each software."
+
+		echo "Developer : Koosha Yeganeh"
+		echo "Github : https://github.com/KooshaYeganeh"
+	else
+		echo "I Can't Understand What You Want."
+		echo "You should say whereis or howinstall"
+	fi
+else
+	echo "Your Meaan is suse?"
+	
+fi
+
+
