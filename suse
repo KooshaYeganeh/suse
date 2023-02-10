@@ -105,7 +105,7 @@ android_tools_repo(){
 	fi
 }
 
-android_tools(){
+android_tools_app(){
 
 	echo "$yellow android-tools $reset"
 	echo "$yellow Android platform tools $reset"
@@ -188,6 +188,17 @@ vscode_app(){
 	echo "sudo zypper install code"
 }
 
+
+
+vscode_install(){
+
+	sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+	sudo zypper addrepo https://packages.microsoft.com/yumrepos/vscode vscode
+	sudo zypper refresh
+	sudo zypper -n install code
+
+
+}
 
 
 mediacodec_repo(){
@@ -342,12 +353,22 @@ postgre_app(){
 }
 
 
+postgre_install(){
+
+	echo "Start Install PostgreSQL10"
+	sudo zypper install postgresql10-server  postgresql10
+	echo "PostgreSQL Installed [ OK ]"
 
 
+}
+
+
+
+# clean unneeded
 
 remove_unneeded(){
 
-	# clean out all unneeded autoinstalled dependencies
+	# This Function clean out all unneeded autoinstalled dependencies
 	echo "$red Start clean out all unneeded autoinstalled dependencies $reset"
 	zypper packages --unneeded | awk -F'|' 'NR==0 || NR==1 || NR==2 || NR==3 || NR==4 {next} {print $3}' > list
 	while read p; do sudo zypper -n rm -y "$p"; done < list
@@ -370,98 +391,66 @@ if [ "$0" == "./suse" ];then
 		if [ "$2" == "android_tools" ] || [ "$2" == "android tools" ] || \
 			[ "$2" == "Android Tools" ] || [ "$2" == "Android_Tools" ];then
 			android_tools_repo
+		
+		elif [ "$2" == "vlc" ] || [ "$2" == "VLC" ];then
+			vlc_repo
+
+		elif [ "$2" == "vscode" ] || [ "$2" == "VSCODE" ] || \
+			[ "$2" == "code" ] || [ "$2" == "CODE" ] || \
+				[ "$2" == "visual_stdio_code" ] || [ "$2" == "visual stdio code" ];then
+					vscode_repo
+		elif [ "$2" == "codec" ] || [ "$2" == "CODEC" ] || \
+			[ "$2" == "multimedia codec" ] || [ "$2" == "multimedia_codec" ] || \
+				[ "$2" == "MultiMedia Codec" ] || [ "$2" == "MultiMedia_Codec" ];then
+					codec_repo
+
+		elif [ "$2" == "mariadb" ] || [ "$2" == "Mariadb" ] || \
+			[ "$2" == "mariaDB" ] || [ "$2" == "MariaDB" ];then
+				mariadb_repo
+
+		elif [ "$2" == "postgre" ] || [ "$2" == "Postgre" ] || \
+			[ "$2" == "postgresql" ] || [ "$2" == "postgreSQL" ] || \
+			[ "$2" == "PostgreSQL" ];then
+				postgre_repo
 		fi
 	elif [ "$1" == "howinstall" ];then
 		if [ "$2" == "android_tools" ] || [ "$2" == "android tools" ] || \
 			[ "$2" == "Android Tools" ] || [ "$2" == "Android_Tools" ];then
-			android_tools
-		fi
-	
-	else
-		echo "I Can't Understand What You Want."
-		echo "You should say whereis or howinstall"
-	fi
-else
-	echo "Do you mean suse?"
-	
-fi
+			android_tools_app
+		elif [ "$2" == "mariadb" ] || [ "$2" == "Mariadb" ] || \
+			[ "$2" == "mariaDB" ] || [ "$2" == "MariaDB" ];then
+				mariadb_app
 
+		elif [ "$2" == "postgre" ] || [ "$2" == "Postgre" ] || \
+			[ "$2" == "postgresql" ] || [ "$2" == "postgreSQL" ] || \
+				[ "$2" == "PostgreSQL" ];then
+					postgre_app
 
-
-# VLC
-#
-if [ "$0" == "./suse" ];then
-	if [ "$1" == "whereis" ];then
-		if [ "$2" == "vlc" ] || [ "$2" == "VLC" ];then
-			vlc_repo
-		fi
-	elif [ "$1" == "howinstall" ];then
-		if [ "$2" == "vlc" ] || [ "$2" == "VLC" ];then
+		elif [ "$2" == "vlc" ] || [ "$2" == "VLC" ];then
 			vlc_app
-		fi
-	
-	else
-		echo "I Can't Understand What You Want."
-		echo "You should say whereis or howinstall"
-	fi
-else
-	echo "Do you mean suse?"
-	
-fi
-
-# vscode
-if [ "$0" == "./suse" ];then
-	if [ "$1" == "whereis" ];then
-		if [ "$2" == "vscode" ] || [ "$2" == "VSCODE" ] || \
-			[ "$2" == "code" ] || [ "$2" == "CODE" ] || \
-				[ "$2" == "visual_stdio_code" ] || [ "$2" == "visual stdio code" ];then
-					vscode_repo
-		fi
-	elif [ "$1" == "howinstall" ];then
-		if [ "$2" == "vscode" ] || [ "$2" == "VSCODE" ] || \
+		
+		elif [ "$2" == "vscode" ] || [ "$2" == "VSCODE" ] || \
 			[ "$2" == "code" ] || [ "$2" == "CODE" ] || \
 			[ "$2" == "visual_stdio_code" ] || [ "$2" == "visual stdio code" ];then
 				vscode_app
-		fi
-	
-	else
-		echo "I Can't Understand What You Want."
-		echo "You should say whereis or howinstall"
-	fi
-else
-	echo "Do you mean suse?"
-	
-fi
-
-# codec
-if [ "$0" == "./suse" ];then
-	if [ "$1" == "whereis" ];then
-		if [ "$2" == "codec" ] || [ "$2" == "CODEC" ] || \
-			[ "$2" == "multimedia codec" ] || [ "$2" == "multimedia_codec" ] || \
-				[ "$2" == "MultiMedia Codec" ] || [ "$2" == "MultiMedia_Codec" ];then
-					codec_repo
-		fi
-	elif [ "$1" == "howinstall" ];then
-		if [ "$2" == "codec" ] || [ "$2" == "CODEC" ] || \
+		
+		elif [ "$2" == "codec" ] || [ "$2" == "CODEC" ] || \
 			[ "$2" == "multimedia codec" ] || [ "$2" == "multimedia_codec" ] || \
 				[ "$2" == "MultiMedia Codec" ] || [ "$2" == "MultiMedia_Codec" ];then
 					codec_app
 		fi
 	
-	else
-		echo "I Can't Understand What You Want."
-		echo "You should say whereis or howinstall"
-	fi
-else
-	echo "Do you mean suse?"
-	
-fi
-
-
-# unneed
-if [ "$0" == "./suse" ];then
-	if [ "$1" == "clean_unneed" ];then
+	elif [ "$1" == "clean_unneed" ] || [ "$1" == "clean unneed" ];then
 		clean_unneeded
+
+	elif [ "$1" == "help" ] || [ "$1" == "Help" ] || \
+		[ "$1" == "HELP" ] || [ "$1" == "man" ] || \
+		[ "$1" == "manual" ];then
+			echo "man"
+	
+	elif [ "$1" == "info" ] || [ "$1" == "INFO" ] || \
+		[ "$1" == "Info" ];then
+			echo "info"
 	
 	else
 		echo "I Can't Understand What You Want."
@@ -472,29 +461,10 @@ else
 	
 fi
 
-if [ "$0" == "./suse" ];then
-	if [ "$1" == "help" ];then
-		echo "help and Manual"
-	
-	else
-		echo "I Can't Understand What You Want."
-		echo "You should say whereis or howinstall"
-	fi
-else
-	echo "Do you mean suse?"
-	
-fi
 
-if [ "$0" == "./suse" ];then
-	if [ "$1" == "info" ];then
-		echo -e "convenient and Simple with Better Functionality For openSUSE\n Developer : Koosha Yeganeh \n GitHub : https://github.com/KooshaYeganeh\n"
-	else
-		echo "I Can't Understand What You Want."
-		echo "You should say whereis or howinstall"
-	fi
-else
-	echo "Do you mean suse?"
-	
-fi
+
+
+
+
 
 
