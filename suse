@@ -187,6 +187,69 @@ vscode_app(){
 	echo "sudo zypper refresh"
 	echo "sudo zypper install code"
 }
+
+
+
+mediacodec_repo(){
+
+	if [ "$leap153" == "15.3" ];then
+		echo "=============== Leap 15.3 ================="
+
+		echo "sudo zypper addrepo https://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Leap_15.3/"
+	elif [ "$leap154" == "15.4" ];then
+		echo "=============== Leap 15.4 ================="
+		echo "zypper addrepo https://download.opensuse.org/repositories/openSUSE:Leap:15.4:Update/standard/openSUSE:Leap:15.4:Update.repo"
+	elif [ "$leap152" == "15.2" ];then
+		echo "=============== Leap 15.2 ================="
+		echo "sudo zypper addrepo https://download.opensuse.org/repositories/openSUSE:Leap:15.2:Update/standard/openSUSE:Leap:15.2:Update.repo"
+
+	elif [ "$Tumbleweed" == "Tumbleweed" ] || [ "$umbleweed" == "tumbleweed" ];then
+		echo "=============== Tumbleweed ================="
+		echo "sudo zypper addrepo https://download.opensuse.org/repositories/home:StefanBruens:branches:multimedia:libs/openSUSE_Tumbleweed/home:StefanBruens:branches:multimedia:libs.repo"
+	fi
+
+
+
+
+
+}
+
+
+mediacodec_app(){
+
+	if [ "$leap153" == "15.3" ];then
+		echo "=============== Leap 15.3 ================="
+
+		echo "sudo zypper addrepo https://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Leap_15.3/"
+		echo "sudo zypper refresh"
+		echo "sudo zypper install vlc"
+	elif [ "$leap154" == "15.4" ];then
+		echo "=============== Leap 15.4 ================="
+		echo "sudo zypper addrepo https://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Leap_15.4/" 
+		echo "zypper addrepo https://download.opensuse.org/repositories/openSUSE:Leap:15.4:Update/standard/openSUSE:Leap:15.4:Update.repo"
+		echo "sudo zypper refresh"
+		echo "sudo zypper install vlc"
+	elif [ "$leap152" == "15.2" ];then
+		echo "=============== Leap 15.2 ================="
+		echo "sudo zypper addrepo https://download.opensuse.org/repositories/openSUSE:Leap:15.2:Update/standard/openSUSE:Leap:15.2:Update.repo"
+		echo "sudo zypper refresh"
+		echo "sudo zypper install vlc"
+
+	elif [ "$Tumbleweed" == "Tumbleweed" ] || [ "$umbleweed" == "tumbleweed" ];then
+		echo "=============== Tumbleweed ================="
+		echo "sudo zypper addrepo https://download.opensuse.org/repositories/home:StefanBruens:branches:multimedia:libs/openSUSE_Tumbleweed/home:StefanBruens:branches:multimedia:libs.repo"
+		echo "sudo zypper refresh"
+		echo "sudo zypper install vlc"
+	fi
+
+
+
+
+
+
+}
+
+
 # Adndroid Tools
 
 if [ "$0" == "./suse" ];then
@@ -201,15 +264,6 @@ if [ "$0" == "./suse" ];then
 			android_tools
 		fi
 	
-	elif [ "$1" == "mydistro" ];then
-		cat /etc/os-release
-		echo "=============================="
-		cat /proc/version
-	elif [ "$1" == "info" ];then
-		echo "A simple software for Sousse users so that they can identify what repositories each software uses or how they can download each software."
-
-		echo "Developer : Koosha Yeganeh"
-		echo "Github : https://github.com/KooshaYeganeh"
 	else
 		echo "I Can't Understand What You Want."
 		echo "You should say whereis or howinstall"
@@ -233,15 +287,6 @@ if [ "$0" == "./suse" ];then
 			vlc_app
 		fi
 	
-	elif [ "$1" == "mydistro" ];then
-		cat /etc/os-release
-		echo "=============================="
-		cat /proc/version
-	elif [ "$1" == "info" ];then
-		echo "A simple software for Sousse users so that they can identify what repositories each software uses or how they can download each software."
-
-		echo "Developer : Koosha Yeganeh"
-		echo "Github : https://github.com/KooshaYeganeh"
 	else
 		echo "I Can't Understand What You Want."
 		echo "You should say whereis or howinstall"
@@ -255,24 +300,17 @@ fi
 if [ "$0" == "./suse" ];then
 	if [ "$1" == "whereis" ];then
 		if [ "$2" == "vscode" ] || [ "$2" == "VSCODE" ] || \
-			[ "$2" == "visual_stdio_code" ] || [ "$2" == "visual stdio code" ];then
-			vscode_repo
+			[ "$2" == "code" ] || [ "$2" == "CODE" ] || \
+				[ "$2" == "visual_stdio_code" ] || [ "$2" == "visual stdio code" ];then
+					vscode_repo
 		fi
 	elif [ "$1" == "howinstall" ];then
 		if [ "$2" == "vscode" ] || [ "$2" == "VSCODE" ] || \
+			[ "$2" == "code" ] || [ "$2" == "CODE" ] || \
 			[ "$2" == "visual_stdio_code" ] || [ "$2" == "visual stdio code" ];then
-			vscode_app
+				vscode_app
 		fi
 	
-	elif [ "$1" == "mydistro" ];then
-		cat /etc/os-release
-		echo "=============================="
-		cat /proc/version
-	elif [ "$1" == "info" ];then
-		echo "A simple software for Sousse users so that they can identify what repositories each software uses or how they can download each software."
-
-		echo "Developer : Koosha Yeganeh"
-		echo "Github : https://github.com/KooshaYeganeh"
 	else
 		echo "I Can't Understand What You Want."
 		echo "You should say whereis or howinstall"
@@ -282,4 +320,27 @@ else
 	
 fi
 
+# codec
+if [ "$0" == "./suse" ];then
+	if [ "$1" == "whereis" ];then
+		if [ "$2" == "codec" ] || [ "$2" == "CODEC" ] || \
+			[ "$2" == "multimedia codec" ] || [ "$2" == "multimedia_codec" ] || \
+				[ "$2" == "MultiMedia Codec" ] || [ "$2" == "MultiMedia_Codec" ];then
+					codec_repo
+		fi
+	elif [ "$1" == "howinstall" ];then
+		if [ "$2" == "codec" ] || [ "$2" == "CODEC" ] || \
+			[ "$2" == "multimedia codec" ] || [ "$2" == "multimedia_codec" ] || \
+				[ "$2" == "MultiMedia Codec" ] || [ "$2" == "MultiMedia_Codec" ];then
+					codec_app
+		fi
+	
+	else
+		echo "I Can't Understand What You Want."
+		echo "You should say whereis or howinstall"
+	fi
+else
+	echo "Your Meaan is suse?"
+	
+fi
 
