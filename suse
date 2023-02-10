@@ -250,7 +250,120 @@ mediacodec_app(){
 }
 
 
-# Adndroid Tools
+
+# MariaDB
+
+mariadb_repo(){
+
+	echo "=============== openSUSE 15 ==============="
+	echo "https://yum.mariadb.org/RPM-GPG-KEY-MariaDB"
+	echo "https://yum.mariadb.org/10.5/opensuse/15/x86_64"
+
+}
+
+
+
+mariadb_app(){
+
+	echo "sudo rpm --import https://yum.mariadb.org/RPM-GPG-KEY-MariaDB"
+	echo "sudo zypper --gpg-auto-import-keys refresh"
+	echo "sudo zypper addrepo --gpgcheck --refresh https://yum.mariadb.org/10.5/opensuse/15/x86_64 mariadb"
+  	echo "sudo zypper install MariaDB-server MariaDB-client"
+	echo "sudo zypper install galera MariaDB-shared MariaDB-backup MariaDB-common"
+
+
+}
+
+
+mariadb_install(){
+
+	sudo rpm --import https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
+	sudo zypper --gpg-auto-import-keys refresh
+	sudo zypper addrepo --gpgcheck --refresh https://yum.mariadb.org/10.5/opensuse/15/x86_64 mariadb
+  	sudo zypper install MariaDB-server MariaDB-client
+	sudo zypper install galera MariaDB-shared MariaDB-backup MariaDB-common
+
+
+}
+
+
+
+
+
+# postgreSQL
+
+postgre_repo(){
+
+	echo "$red Attention : PostgreSQL 10 is available to install on openSUSE from default repositories $reset"
+
+	echo "$yellow postgresql from home:EDV_Lotse:postgresql10 project  $reset"
+
+	echo "=============== openSUSE Leap 15.2  ==============="
+	echo "sudo zypper addrepo https://download.opensuse.org/repositories/home:EDV_Lotse:postgresql10/openSUSE_Leap_15.2_images/home:EDV_Lotse:postgresql10.repo"
+
+	echo "=============== openSUSE 15.4 ==============="
+	echo "sudo zypper addrepo https://download.opensuse.org/repositories/home:EDV_Lotse:postgresql10/15.4/home:EDV_Lotse:postgresql10.repo"
+	echo "=============== openSUSE 15.3 ==============="
+	echo "sudo zypper addrepo https://download.opensuse.org/repositories/home:EDV_Lotse:postgresql10/15.3/home:EDV_Lotse:postgresql10.repo"
+	echo "=============== openSUSE Leap 15.1 ==============="
+	echo "sudo zypper addrepo https://download.opensuse.org/repositories/home:EDV_Lotse:postgresql10/openSUSE_Leap_15.1_images/home:EDV_Lotse:postgresql10.repo"
+
+
+}
+
+postgre_app(){
+
+	echo "=============== postgreSQL 10 ==============="
+	echo "sudo zypper install postgresql10-server  postgresql10"
+
+	echo "$yellow PostgreSQL comes in the official repositories of the distribution and its installation is quite simple. However, it is convenient to add your repository to always get the latest versions available. $reset"
+
+	echo "=============== openSUSE Leap 15.2  ==============="
+	echo "sudo zypper addrepo https://download.opensuse.org/repositories/home:EDV_Lotse:postgresql10/openSUSE_Leap_15.2_images/home:EDV_Lotse:postgresql10.repo"
+	echo "sudo zypper refresh"
+	echo "sudo zypper install postgresql"
+
+	echo "=============== openSUSE 15.4 ==============="
+	echo "sudo zypper addrepo https://download.opensuse.org/repositories/home:EDV_Lotse:postgresql10/15.4/home:EDV_Lotse:postgresql10.repo"
+
+	echo "sudo zypper refresh"
+	echo "sudo zypper install postgresql"
+	echo "=============== openSUSE 15.3 ==============="
+	echo "sudo zypper addrepo https://download.opensuse.org/repositories/home:EDV_Lotse:postgresql10/15.3/home:EDV_Lotse:postgresql10.repo"
+
+	echo "sudo zypper refresh"
+	echo "sudo zypper install postgresql"
+	echo "=============== openSUSE Leap 15.1 ==============="
+	echo "sudo zypper addrepo https://download.opensuse.org/repositories/home:EDV_Lotse:postgresql10/openSUSE_Leap_15.1_images/home:EDV_Lotse:postgresql10.repo"
+	echo "sudo zypper refresh"
+	echo "sudo zypper install postgresql"
+
+
+}
+
+
+
+
+
+remove_unneeded(){
+
+	# clean out all unneeded autoinstalled dependencies
+	echo "$red Start clean out all unneeded autoinstalled dependencies $reset"
+	zypper packages --unneeded | awk -F'|' 'NR==0 || NR==1 || NR==2 || NR==3 || NR==4 {next} {print $3}' > list
+	while read p; do sudo zypper -n rm -y "$p"; done < list
+	rm -rf list
+
+	echo "all unneeded autoinstalled dependencies cleaned $green [ OK ] $reset"
+
+
+
+}
+
+
+
+
+
+# Android Tools
 
 if [ "$0" == "./suse" ];then
 	if [ "$1" == "whereis" ];then
@@ -269,7 +382,7 @@ if [ "$0" == "./suse" ];then
 		echo "You should say whereis or howinstall"
 	fi
 else
-	echo "Your Meaan is suse?"
+	echo "Do you mean suse?"
 	
 fi
 
@@ -292,7 +405,7 @@ if [ "$0" == "./suse" ];then
 		echo "You should say whereis or howinstall"
 	fi
 else
-	echo "Your Meaan is suse?"
+	echo "Do you mean suse?"
 	
 fi
 
@@ -316,7 +429,7 @@ if [ "$0" == "./suse" ];then
 		echo "You should say whereis or howinstall"
 	fi
 else
-	echo "Your Meaan is suse?"
+	echo "Do you mean suse?"
 	
 fi
 
@@ -340,7 +453,48 @@ if [ "$0" == "./suse" ];then
 		echo "You should say whereis or howinstall"
 	fi
 else
-	echo "Your Meaan is suse?"
+	echo "Do you mean suse?"
 	
 fi
+
+
+# unneed
+if [ "$0" == "./suse" ];then
+	if [ "$1" == "clean_unneed" ];then
+		clean_unneeded
+	
+	else
+		echo "I Can't Understand What You Want."
+		echo "You should say whereis or howinstall"
+	fi
+else
+	echo "Do you mean suse?"
+	
+fi
+
+if [ "$0" == "./suse" ];then
+	if [ "$1" == "help" ];then
+		echo "help and Manual"
+	
+	else
+		echo "I Can't Understand What You Want."
+		echo "You should say whereis or howinstall"
+	fi
+else
+	echo "Do you mean suse?"
+	
+fi
+
+if [ "$0" == "./suse" ];then
+	if [ "$1" == "info" ];then
+		echo -e "convenient and Simple with Better Functionality For openSUSE\n Developer : Koosha Yeganeh \n GitHub : https://github.com/KooshaYeganeh\n"
+	else
+		echo "I Can't Understand What You Want."
+		echo "You should say whereis or howinstall"
+	fi
+else
+	echo "Do you mean suse?"
+	
+fi
+
 
