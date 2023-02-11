@@ -383,11 +383,148 @@ remove_unneeded(){
 
 
 
+info(){
+
+
+
+	echo "A simple and straightforward package manager for OpenSUSE that can make everyday tasks easier for developers and system administrators."
+	echo " - Supported Distrubutions : Leap and Tumbleweed"
+	echo " - update and Upgrade and dist upgrade Like ubuntu and Fedora"
+	echo " - Remove Unneed packages"
+	echo " - show Package Providers"
+	echo " - List Installed Apps"
+	echo " - show repositories"
+	echo " - show Installation Manual"
+	echo " - Support for software that is not supported by the main package manager"
+	echo ""
+	echo "========================================================================="
+	echo " There is no claim that this package manager is better or more optimal than the others."
+	echo " The goal is to improve platforms or make things easier."
+	echo " I wrote this package manager for my daily tasks I am in this philosophy that "
+	echo "I try to write everything I need myself and I wanted to make it available to others."
+	echo "Use and support and accompany us to make the conditions better for ourselves."
+	echo "=========================================================================="
+	echo ""
+	echo "> Developer : Koosha Yeganeh"
+	echo "> GitHub : https://github.com/KooshaYeganeh"
+	echo "> DockerHub : https://hub.docker.com/u/kooshakooshadv"
+	echo "> GitBooks : kooshayeganeh.gitbook.io"
+	echo "> and Some More :)"
+
+}
+
+
+support_systems(){
+
+	echo "=============== Tumbleweed ==============="
+	echo "For Developers, openSUSE Contributors, Gamers and Linux/FOSS Enthusiasts"
+	echo "Rolling release with the latest packages provided by the openSUSE Project."
+	
+	echo "=============== Leap ==============="
+	echo "For Sysadmins, Enterprise Developers, and ‘Regular’ Desktop Users"
+	echo "Regular release with the benefits of both enterprise-grade engineering and community-developed innovation."
+
+
+}
+
+
+list_repo(){
+
+	repos=`ls /etc/zypp/repos.d`
+	for repo in $repos;do
+		echo " > $repo"
+		echo "------------------------------------"
+	done
+
+	total=`ls /etc/zypp/repos.d | wc -l`
+	echo "Total Number of Repositories : $total"
+
+
+
+}
+
+man(){
+
+	echo "suse Package Manager"
+	echo "suse <command> "
+	echo "--whereis : Each software shows in which repository it is located or which repositories provide this software. "
+	echo "> example : suse --whereis vlc"
+	echo "************************************************"
+	echo "--howinstall : It shows the installation steps. It shows which steps you should go through to install the relevant software on your system."
+	echo "> example : suse --howinstall vlc"
+	echo "************************************************"
+	echo "--info : show information"
+	echo"> example : suse --info"
+	echo "************************************************"
+	echo "man : suse man ; show manuals"
+	echo "************************************************"
+	echo "--install : use this command to install a software"
+	echo "> exapmle : suse install vscode"
+	echo "************************************************"
+	echo "--remove : use this command to remove a software"
+	echo "> example: suse --remove"
+	echo "************************************************"
+	echo "--list-app : List Installed apps "
+	echo "example : suse --list-app"
+	echo "************************************************"
+	echo "--search-app : Serach in installed Apps"
+	echo "> example : suse --search-app xfce"
+	echo "************************************************"
+	echo "--clean-unneed : clean out all unneeded autoinstalled dependencies "
+       	echo "> exmple : suse --clean-unneed"
+	echo "************************************************"
+	echo "--suport-sytems : Which distributions does this package manager support"
+       	echo "> example : suse --support-systems"
+	echo "************************************************"
+	echo "--list-repo : list of repositories in system" 
+	echo "> example : suse --list-repo"
+	echo "************************************************"
+	echo "--update : update Packages "
+	echo "> example : suse --update"
+	echo "************************************************"
+	echo "--upgrade : upgrade packages "
+       	echo "> example : suse --upgrade"
+	echo "************************************************"
+	echo "--dist-upgrade : Distribution Upgrade "
+	echo "> example : suse --dist-upgrade"
+
+}
+
+
+
+
+list_install(){
+
+	echo "installed apps"
+	rpm -qa
+
+
+}
+
+
+update (){
+
+
+
+	sudo zypper refresh
+
+}
+
+
+upgrade (){
+
+
+	sudo zypper update
+}
+
+
+
+
 
 # Android Tools
 
 if [ "$0" == "./suse" ];then
-	if [ "$1" == "whereis" ];then
+	if [ "$1" == "--whereis" ];then
 		if [ "$2" == "android_tools" ] || [ "$2" == "android tools" ] || \
 			[ "$2" == "Android Tools" ] || [ "$2" == "Android_Tools" ];then
 			android_tools_repo
@@ -413,9 +550,8 @@ if [ "$0" == "./suse" ];then
 			[ "$2" == "PostgreSQL" ];then
 				postgre_repo
 		fi
-	elif [ "$1" == "howinstall" ];then
-		if [ "$2" == "android_tools" ] || [ "$2" == "android tools" ] || \
-			[ "$2" == "Android Tools" ] || [ "$2" == "Android_Tools" ];then
+	elif [ "$1" == "--howinstall" ];then
+		if [ "$2" == "android_tools" ] || [ "$2" == "Android_Tools" ];then
 			android_tools_app
 		elif [ "$2" == "mariadb" ] || [ "$2" == "Mariadb" ] || \
 			[ "$2" == "mariaDB" ] || [ "$2" == "MariaDB" ];then
@@ -435,23 +571,29 @@ if [ "$0" == "./suse" ];then
 				vscode_app
 		
 		elif [ "$2" == "codec" ] || [ "$2" == "CODEC" ] || \
-			[ "$2" == "multimedia codec" ] || [ "$2" == "multimedia_codec" ] || \
-				[ "$2" == "MultiMedia Codec" ] || [ "$2" == "MultiMedia_Codec" ];then
+			[ "$2" == "multimedia_codec" ] || [ "$2" == "MultiMedia_Codec" ];then
 					codec_app
 		fi
 	
-	elif [ "$1" == "clean_unneed" ] || [ "$1" == "clean unneed" ];then
+	elif [ "$1" == "--clean-unneed" ];then
 		clean_unneeded
 
-	elif [ "$1" == "help" ] || [ "$1" == "Help" ] || \
-		[ "$1" == "HELP" ] || [ "$1" == "man" ] || \
+	elif [ "$1" == "--help" ] || [ "$1" == "--Help" ] || \
+		[ "$1" == "--HELP" ] || [ "$1" == "man" ] || \
 		[ "$1" == "manual" ];then
-			echo "man"
+			man
 	
-	elif [ "$1" == "info" ] || [ "$1" == "INFO" ] || \
-		[ "$1" == "Info" ];then
-			echo "info"
-	
+	elif [ "$1" == "--info" ] || [ "$1" == "--INFO" ] || \
+		[ "$1" == "--Info" ];then
+			info
+
+
+	elif [ "$1" == "--search-app" ];then
+		rpm -qa | grep $2
+
+	elif [ "$1" == "--list-repo" ];then
+		list_repo
+		
 	else
 		echo "I Can't Understand What You Want."
 		echo "You should say whereis or howinstall"
