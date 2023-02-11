@@ -180,25 +180,8 @@ vscode_repo(){
 }
 
 
-vvscode(){
-	
-	
-	
-	
-	
-}vscode(){
 
-
-
-
-
-}vscode(){
-
-
-
-
-
-}scode_app(){
+vscode_app(){
 
 	echo "sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc"
 	echo "sudo zypper addrepo https://packages.microsoft.com/yumrepos/vscode vscode"
@@ -206,17 +189,6 @@ vvscode(){
 	echo "sudo zypper install code"
 }
 
-
-
-vscode_install(){
-
-	sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
-	sudo zypper addrepo https://packages.microsoft.com/yumrepos/vscode vscode
-	sudo zypper refresh
-	sudo zypper -n install code
-
-
-}
 
 
 mediacodec_repo(){
@@ -304,17 +276,6 @@ mariadb_app(){
 }
 
 
-mariadb_install(){
-
-	sudo rpm --import https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
-	sudo zypper --gpg-auto-import-keys refresh
-	sudo zypper addrepo --gpgcheck --refresh https://yum.mariadb.org/10.5/opensuse/15/x86_64 mariadb
-  	sudo zypper install MariaDB-server MariaDB-client
-	sudo zypper install galera MariaDB-shared MariaDB-backup MariaDB-common
-
-
-}
-
 
 
 
@@ -370,15 +331,6 @@ postgre_app(){
 
 }
 
-
-postgre_install(){
-
-	echo "Start Install PostgreSQL10"
-	sudo zypper install postgresql10-server  postgresql10
-	echo "PostgreSQL Installed [ OK ]"
-
-
-}
 
 
 
@@ -667,6 +619,143 @@ vim(){
 
 
 
+# Database
+
+
+
+
+mariadb(){
+
+	sudo rpm --import https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
+	sudo zypper --gpg-auto-import-keys refresh
+	if [ -f "/etc/zypp/repos.d/mariadb.repo" ];then
+		sudo rm /etc/zypp/repos.d/mariadb.repo
+		sudo zypper addrepo --gpgcheck --refresh https://yum.mariadb.org/10.5/opensuse/15/x86_64 mariadb
+		sudo zypper install MariaDB-server MariaDB-client
+		sudo zypper install galera MariaDB-shared MariaDB-backup MariaDB-common
+
+
+	else
+	
+		sudo rm /etc/zypp/repos.d/mariadb.repo
+		sudo zypper addrepo --gpgcheck --refresh https://yum.mariadb.org/10.5/opensuse/15/x86_64 mariadb
+		sudo zypper install MariaDB-server MariaDB-client
+		sudo zypper install galera MariaDB-shared MariaDB-backup MariaDB-common
+	fi
+	
+
+
+	if [ -f "/usr/bin/mariadb" ];then
+		echo "mariaDB installed [ OK ]"
+	else
+		echo "Error on mariaDB Installation"
+	fi
+}
+
+
+
+postgre(){
+
+	echo "Start Install PostgreSQL10"
+	sudo zypper install postgresql10-server  postgresql10
+	echo "PostgreSQL Installed [ OK ]"
+
+	if [ -f "/usr/bin/psql" ];then
+		echo "postgreSQL installed [ OK ]"
+	else
+		echo "Error on postgreSQL Installation"
+	fi
+}
+
+
+
+sqlite(){
+
+
+	sudo zypper -n install sqlite3
+
+
+	if [ -f "/usr/bin/sqlite3" ];then
+		echo "sqlite3 installed [ OK ]"
+	else
+		echo "Error on sqlite3 Installation"
+	fi
+}
+
+
+influx(){
+
+
+	sudo zypper -n install influxdb
+
+
+	if [ -f "/usr/bin/influxdb" ];then
+		echo "Vim installed [ OK ]"
+	else
+		echo "Error on Vim Installation"
+	fi
+
+}
+
+
+mongodb(){
+
+	sudo zypper -n install mongodb
+
+
+	if [ -f "/usr/bin/mongodb" ];then
+		echo "mongodb installed [ OK ]"
+	else
+		echo "Error on mongodb Installation"
+	fi
+
+
+}
+
+
+
+#web server
+
+nginx(){
+
+
+	sudo zypper -n install nginx
+
+	if [ -f "/usr/sbin/nginx" ] && [ -f "/etc/nginx" ];then
+		echo "nginx installed [ OK ]"
+	else
+		echo "Error on Vim Installation"
+	fi
+
+
+
+}
+
+
+
+
+apache(){
+
+	sudo zypper -n install apache2
+
+	if [ -f "/etc/sysconfig/apache2" ] || [ -f "/etc/apache2/" ];then
+		echo "Apache installed [ OK ]"
+	else
+		echo "Error on Apache Installation"
+	fi
+
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -752,11 +841,3 @@ else
 	echo "Do you mean suse?"
 	
 fi
-
-
-
-
-
-
-
-
