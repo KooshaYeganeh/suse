@@ -930,6 +930,123 @@ adb(){
 
 
 
+clamav_repo(){
+	if [ "$leap153" == "15.3" ];then
+		echo "$yellow Repository Name: clamav from home:ecsos project $reset"
+		echo "=============== Leap 15.3 ================="
+		echo "zypper addrepo https://download.opensuse.org/repositories/home:ecsos/15.3/home:ecsos.repo"
+	elif [ "$leap154" == "15.4" ];then
+		echo "=============== Leap 15.4 ================="
+		echo "sudo zypper addrepo https://download.opensuse.org/repositories/home:ecsos/15.4/home:ecsos.repo"
+	elif [ "$leap155" == "15.5" ];then
+		echo "sudo zypper addrepo https://download.opensuse.org/repositories/home:ecsos/15.5/home:ecsos.repo"
+	elif [ "$Tumbleweed" == "Tumbleweed" ] || [ "$tumbleweed" == "tumbleweed" ];then
+		echo "=============== Tumbleweed ================="
+		echo "sudo zypper addrepo https://download.opensuse.org/repositories/home:ecsos/15.5/home:ecsos.repo"
+	fi
+}
+
+
+
+clamav(){
+
+	sudo zypper -n install clamav
+	if [ -f "/usr/bin/clamscan" ];then
+		echo "clamAV installed [ OK ]"
+	else
+		echo "Error on clamAV installation"
+	fi
+}
+
+
+maldet(){
+
+	if [ -f "/usr/bin/wget" ];then
+		cd /tmp
+		wget http://www.rfxn.com/downloads/maldetect-current.tar.gz
+		tar xfz maldetect-current.tar.gz
+		cd maldetect-1.6.4
+		./install.sh
+		cd
+		if [ -f "/usr/local/sbin/maldet" ];then
+			echo "Malware Detect Installed [ OK ]"
+		else
+			echo "Error on Malware Detect installation"
+		fi
+	else
+		sudo zypper -n install wget
+		cd /tmp
+		wget http://www.rfxn.com/downloads/maldetect-current.tar.gz
+		tar xfz maldetect-current.tar.gz
+		cd maldetect-1.6.4
+		./install.sh
+		cd
+		if [ -f "/usr/local/sbin/maldet" ];then
+			echo "Malware Detect Installed [ OK ]"
+		else
+			echo "Error on Malware Detect installation"
+		fi
+	fi
+}
+
+
+rkhunter(){
+
+	sudo zypper -n install rkhunter
+
+	if [ -f "/usr/bin/rkhunter" ];then
+		echo "rkhunter Installed [ OK ]"
+	else
+		echo "Error on rkhunterinstallation"
+	fi
+
+}
+
+
+
+
+
+
+
+
+
+jpg(){
+
+	sudo zypper -n install jpegotim
+
+
+	if [ -f "/usr/bin/jpegoptim" ];then
+		echo "jpegoptim Installed [ OK ]"
+	else
+		echo "Error on jpegoptim installation"
+	fi
+
+}
+
+png(){
+
+	sudo zypper -n install optipng
+
+
+	if [ -f "/usr/bin/optipng" ];then
+		echo "optipng Installed [ OK ]"
+	else
+		echo "Error on optipng installation"
+	fi
+
+}
+
+
+image_optimizer(){
+
+
+	jpg
+	png
+
+}
+
+
+
 
 # Android Tools
 
@@ -1009,6 +1126,10 @@ if [ "$0" == "./suse" ];then
 			echo "https://doc.opensuse.org/documentation/leap/reference/html/book-reference/cha-apache2.html"
 		elif [ "$2" == "nginx" ];then
 			echo "https://www.osradar.com/how-to-install-nginx-on-opensuse-suse-15/"
+		elif [ "$2" == "clamav" ];then
+			echo "https://en.opensuse.org/ClamAV"
+			echo "https://linuxhint.com/install_clamav_ubuntu/"
+			echo "https://github.com/KooshaYeganeh/OpenSuse4Developers#clamav"
 		fi
 
 	else
