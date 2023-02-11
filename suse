@@ -1188,12 +1188,16 @@ image_optimizer(){
 
 telegram(){
 
-	cd ~/Downloads
+	cd /home/$USER/Downloads
 	wget https://updates.tdesktop.com/tlinux/tsetup.4.6.2.tar.xz
 
-	tar xf tar xf tsetup.4.6.2.tar.xz
+	tar xf tsetup.4.6.2.tar.xz
 	cd Telegram
-	./Telegram
+	cd /usr/bin
+	sudo ln -s /home/$USER/Downloads/Telegram/Telagram Telegram
+	sudo ln -s /home/$USER/Downloads/Telegram/Updater Telegram_Updater
+	cd /home/$USER/Downloads/Telegram
+	./Telegram&
 }
 
 
