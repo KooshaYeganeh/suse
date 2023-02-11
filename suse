@@ -180,7 +180,25 @@ vscode_repo(){
 }
 
 
-vscode_app(){
+vvscode(){
+	
+	
+	
+	
+	
+}vscode(){
+
+
+
+
+
+}vscode(){
+
+
+
+
+
+}scode_app(){
 
 	echo "sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc"
 	echo "sudo zypper addrepo https://packages.microsoft.com/yumrepos/vscode vscode"
@@ -516,6 +534,138 @@ upgrade (){
 
 	sudo zypper update
 }
+
+
+
+
+gcc(){
+
+	sudo zypper -n install gcc
+
+	if [ -f "/usr/bin/gcc" ];then
+		echo "gcc installed [ OK ]"
+	else
+		echo "Error on gcc Installation"
+	fi
+}
+
+git(){
+
+	sudo zypper -n install git
+	if [ -f "/usr/bin/git" ];then
+		echo "git installed [ OK ]"
+	else
+		echo "Error on git Installation"
+	fi
+}
+
+zsh(){
+	sudo zypper -n install zsh
+}
+
+
+
+ohmyzsh(){
+	
+	
+	sudo zypper -n install zsh
+	sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+
+	if [ -f "~/.zshrc" ];then
+		echo "oh-my-zsh installed [ OK ]"
+	else
+		echo "Error on Ohmyzsh Installation"
+	fi
+	echo "exec zsh" >> ~/.bashrc
+
+
+}
+
+
+lshardware(){
+	
+	sudo zypper -n install lshw
+	if [ -f "/usr/sbin/lshw" ];then
+		echo "lshw installed [ OK ]"
+	else
+		echo "Error on lshw Installation"
+	fi
+
+}
+
+
+openconnect(){
+
+	sudo zypper -n install openconnect
+
+	if [ -f "/usr/sbin/openconnect" ];then
+		echo "openconnect installed [ OK ]"
+	else
+		echo "Error on openconnect Installation"
+	fi
+}
+
+
+
+
+openvpn(){
+
+	sudo zypper -n install openvpn
+
+	if [ -f "/usr/sbin/openvpn" ];then
+		echo "openvpn installed [ OK ]"
+	else
+		echo "Error on openvpn Installation"
+	fi
+}
+
+
+
+
+# Editos
+
+vscode(){
+
+
+	sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+	sudo zypper addrepo https://packages.microsoft.com/yumrepos/vscode vscode
+	sudo zypper refresh
+	sudo zypper -n install code
+
+	if [ -f "/usr/bin/code" ];then
+		echo "VScode installed [ OK ]"
+	else
+		echo "Error on VScode Installation"
+	fi
+}
+
+
+
+# vim
+
+vim(){
+
+
+	sudo zypper -n install vim
+
+	if [ -f "/usr/bin/git" ];then
+		git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+	else
+		sudo zypper install git
+		git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+	fi
+	
+	if [ -f "/usr/bin/vim" ];then
+		echo "Vim installed [ OK ]"
+	else
+		echo "Error on Vim Installation"
+	fi
+
+
+
+}
+
+
 
 
 
