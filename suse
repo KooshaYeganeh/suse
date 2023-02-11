@@ -997,23 +997,149 @@ rkhunter(){
 	if [ -f "/usr/bin/rkhunter" ];then
 		echo "rkhunter Installed [ OK ]"
 	else
-		echo "Error on rkhunterinstallation"
+		echo "Error on rkhunter installation"
 	fi
 
+}
+
+
+lynis(){
+	sudo zypper -n install lynis
+
+	if [ -f "/usr/bin/lynis" ];then
+		echo "lynis Installed [ OK ]"
+	else
+		echo "Error on lynis installation"
+	fi
+}
+
+
+antivirus(){
+
+
+	clamav
+	maldet
+	rkhunter
+	lynis
 }
 
 
 
 
 
+fail2ban(){
+
+
+	sudo zypper -n install fail2ban
+
+	if [ -f "/etc/fail2ban" ];then
+		echo "fail2ban Installed [ OK ]"
+	else
+		echo "Error on fail2ban installation"
+	fi
+}
+
+
+tcpwrapper(){
+
+	sudo zypper -n install tcpd
+
+	if [ -f "/usr/sbin/tcpd" ];then
+		echo "tcpwrapper Installed [ OK ]"
+	else
+		echo "Error on tcpwrapper installation"
+	fi
+
+
+}
+
+firewalld(){
+
+
+	sudo zypper -n install firewalld
+
+	if [ -f "/usr/sbin/firewalld" ];then
+		echo "firewalld Installed [ OK ]"
+	else
+		echo "Error on firewalld installation"
+	fi
+
+
+}
 
 
 
+network_security(){
+
+	firewalld
+	tcpwrapper
+	fail2ban
+
+
+
+}
+
+
+# WAF : Web Application Firewall
+
+apache_waf(){
+
+
+	sudo zypper -n install modsecurity
+}
+
+
+nginx_waf(){
+
+
+	sudo zypper -n install nginx-module-modsecurity
+
+
+}
+
+
+openssh(){
+
+
+	sudo zypper -n install openssh-server
+
+	if [ "/etc/sshd/sshd.config" ];then
+		echo "openssh Installed [ OK ]"
+	else
+		echo "Error on openssh installation"
+	fi
+}
+
+
+sshfs(){
+
+
+	sudo zypper -n install sshfs
+
+	if [ "/usr/bin/sshfs" ];then
+		echo "sshfs Installed [ OK ]"
+	else
+		echo "Error on sshfs installation"
+	fi
+
+}
+
+
+
+usbguard(){
+	sudo zypper -n install usbguard
+
+	if [ "/etc/usbguard" ];then
+		echo "usbguard Installed [ OK ]"
+	else
+		echo "Error on usbguard installation"
+	fi
+
+}
 
 jpg(){
 
 	sudo zypper -n install jpegotim
-
 
 	if [ -f "/usr/bin/jpegoptim" ];then
 		echo "jpegoptim Installed [ OK ]"
@@ -1037,13 +1163,124 @@ png(){
 }
 
 
+exif(){
+
+	sudo zypper install exiftool
+
+	if [ -f "/usr/bin/exiftool" ];then
+		echo "exiftool installed [ OK ]"
+	else
+		echo "Error on exiftool installation"
+	fi
+
+}
+
 image_optimizer(){
 
 
 	jpg
 	png
+	exif
 
 }
+
+
+
+telegram(){
+
+	cd ~/Downloads
+	wget https://updates.tdesktop.com/tlinux/tsetup.4.6.2.tar.xz
+
+	tar xf tar xf tsetup.4.6.2.tar.xz
+	cd Telegram
+	./Telegram
+}
+
+
+ansible(){
+
+	sudo zypper -n install ansible
+
+	if [ "/usr/bin/ansible" ];then
+		echo "Ansible Installed [ OK ]"
+	else
+		echo "Error on Ansible installation"
+	fi
+
+
+
+}
+
+
+
+
+
+
+# Develper
+
+develope(){
+
+	version_check=`python3 --version | grep -o "3.6*"`
+	if [ "$version_check" == "3.6" ];then
+		sudo zypper install -n python39
+		sudo pip3.9 install virtualenv
+		if [ -f "/usr/bin/code" ];then
+			code --install-extension ajanuw.bs5
+			code --install-extension cstrap.flask-snippets
+			code --install-extension ecmel.vscode-html-css
+			code --install-extension WyattFerguson.jinja2-snippet-kit
+			code --install-extension donjayamanne.jquerysnippets
+			code --install-extension tushortz.python-extended-snippets
+			code --install-extension KevinRose.vsc-python-indent
+			code --install-extension ms-vscode.cpptools
+			code --install-extension rogalmic.bash-debug
+		else
+			vscode
+
+			code --install-extension ajanuw.bs5
+			code --install-extension cstrap.flask-snippets
+			code --install-extension ecmel.vscode-html-css
+			code --install-extension WyattFerguson.jinja2-snippet-kit
+			code --install-extension donjayamanne.jquerysnippets
+			code --install-extension tushortz.python-extended-snippets
+			code --install-extension KevinRose.vsc-python-indent
+			code --install-extension ms-vscode.cpptools
+			code --install-extension rogalmic.bash-debug
+		fi
+	else
+		if [ -f "/usr/bin/code" ];then
+			code --install-extension ajanuw.bs5
+			code --install-extension cstrap.flask-snippets
+			code --install-extension ecmel.vscode-html-css
+			code --install-extension WyattFerguson.jinja2-snippet-kit
+			code --install-extension donjayamanne.jquerysnippets
+			code --install-extension tushortz.python-extended-snippets
+			code --install-extension KevinRose.vsc-python-indent
+			code --install-extension ms-vscode.cpptools
+			code --install-extension rogalmic.bash-debug
+		else
+			vscode
+
+			code --install-extension ajanuw.bs5
+			code --install-extension cstrap.flask-snippets
+			code --install-extension ecmel.vscode-html-css
+			code --install-extension WyattFerguson.jinja2-snippet-kit
+			code --install-extension donjayamanne.jquerysnippets
+			code --install-extension tushortz.python-extended-snippets
+			code --install-extension KevinRose.vsc-python-indent
+			code --install-extension ms-vscode.cpptools
+			code --install-extension rogalmic.bash-debug
+		fi
+	fi
+
+
+}
+
+
+
+
+
+
 
 
 
