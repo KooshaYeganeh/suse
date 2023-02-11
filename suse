@@ -859,6 +859,78 @@ network_tools(){
 
 
 
+docker(){
+
+
+	sudo zypper -n install docker
+
+
+	if [ -f "/usr/bin/docker" ];then
+		echo "docker installed [ OK ]"
+	else
+		echo "Error on docker Installation"
+	fi
+
+
+
+}
+
+
+
+
+adb(){
+
+
+
+
+	if [ "$Tumbleweed" == "Tumbleweed" ] || [ "$tumbleweed" == "tumbleweed" ];then
+
+		sudo zypper addrepo https://download.opensuse.org/repositories/home:GNorth/openSUSE_Tumbleweed/home:GNorth.repo
+		sudo zypper refresh
+		sudo zypper -n install android-tools
+		if [ -f "/usr/bin/adb" ];then
+			echo "Android Tools Installed [ OK ]"
+		else
+			echo "Error on Adnroid Tools installaion [ ERROR ]"
+		fi
+		
+
+	elif [ "$leap152" == "15.2" ];then
+		sudo zypper addrepo https://download.opensuse.org/repositories/home:AndnoVember:test/openSUSE_Leap_15.2/home:AndnoVember:test.repo
+
+		sudo zypper refresh
+		sudo zypper -n install android-tools
+		if [ -f "/usr/bin/adb" ];then
+			echo "Android Tools Installed [ OK ]"
+		else
+			echo "Error on Adnroid Tools installaion [ ERROR ]"
+		fi
+	elif [ "$leap154" == "15.4" ];then
+		sudo zypper addrepo https://download.opensuse.org/repositories/home:AndnoVember:test/15.4/home:AndnoVember:test.repo
+		sudo zypper refresh
+		sudo zypper -n install android-tools
+
+		if [ -f "/usr/bin/adb" ];then
+			echo "Android Tools Installed [ OK ]"
+		else
+			echo "Error on Adnroid Tools installaion [ ERROR ]"
+		fi
+	elif [ "$leap153" == "15.3" ];then
+		sudo zypper addrepo https://download.opensuse.org/repositories/home:cabelo:innovators/15.3/home:cabelo:innovators.repo"
+		sudo zypper addrepo https://download.opensuse.org/repositories/home:embar-:Lietukas/openSUSE_Leap_15.3/home:embar-:Lietukas.repo"
+		sudo zypper refresh"
+		sudo zypper -n install android-tools"
+		if [ -f "/usr/bin/adb" ];then
+			echo "Android Tools Installed [ OK ]"
+		else
+			echo "Error on Adnroid Tools installaion [ ERROR ]"
+		fi
+	fi
+}
+
+
+
+
 # Android Tools
 
 if [ "$0" == "./suse" ];then
