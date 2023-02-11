@@ -513,8 +513,33 @@ git(){
 
 zsh(){
 	sudo zypper -n install zsh
+
+	if [ -f "/usr/bin/zsh" ];then
+		echo "zsh installed [ OK ]"
+	else
+		echo "Error on zsh Installation"
+	fi
 }
 
+
+
+# Basic Tools
+
+basic_tools(){
+
+	sudo zypper -n installl git
+	sudo zypper -n install wget
+	sudo zypper -n install curl
+	sudo zypper -n net-tools-deprecated
+
+	
+	if [ -f "/usr/bin/git" ] && [ -f "/usr/bin/wget" ] && [ -f "/usr/bin/curl" ];then
+		echo "basic Tools installed [ OK ]"
+	else
+		echo "Error on Basic tools Installation"
+	fi
+
+}
 
 
 ohmyzsh(){
@@ -749,14 +774,88 @@ apache(){
 
 
 
+# Network Tools
+
+
+nmap(){
+
+
+	sudo zypper -n install nmap
+
+	if [ -f "/usr/bin/nmap" ];then
+		echo "nmap installed [ OK ]"
+	else
+		echo "Error on nmap Installation"
+	fi
+
+
+}
 
 
 
+tcpdump(){
+
+
+	sudo zypper -n install tcpdump
+
+	if [ -f "/usr/bin/tcpdump" ];then
+		echo "tcpdump installed [ OK ]"
+	else
+		echo "Error on tcpdump Installation"
+	fi
+
+
+}
+
+
+wireshark(){
+
+
+	sudo zypper -n install wireshark
+
+	if [ -f "/usr/sbin/wireshrk" ];then
+		echo "wireshark installed [ OK ]"
+	else
+		echo "Error on wireshark Installation"
+	fi
+
+
+}
+
+
+iptraf(){
+
+
+	sudo zypper -n install iptraf-ng
+
+	if [ -f "/usr/bin/iptraf-ng" ];then
+		echo "iptraf-ng installed [ OK ]"
+	else
+		echo "Error on iptraf-ng Installation"
+	fi
+
+
+}
 
 
 
+# Network_Tools_All
+
+network_tools(){
 
 
+	sudo zypper -n install nmap
+	sudo zypper -n install tcpdump
+	sudo zypper -n install wireshark
+	sudo zypper -n install iptraf-ng
+
+	if [ -f "/usr/bin/iptraf-ng" ] && [ -f "/usr/sbin/wireshark" ] && \
+	       	[ -f "/usr/bin/nmap" ] && [ -f "/usr/bin/tcpdump" ];then
+		echo "Network Tools installed [ OK ]"
+	else
+		echo "Error on Network_Tools Installation"
+	fi
+}
 
 
 
@@ -833,6 +932,13 @@ if [ "$0" == "./suse" ];then
 	elif [ "$1" == "--list-repo" ];then
 		list_repo
 		
+	elif [ "$1" == "--document" ];then
+		if [ "$2" == "apache" ];then
+			echo "https://doc.opensuse.org/documentation/leap/reference/html/book-reference/cha-apache2.html"
+		elif [ "$2" == "nginx" ];then
+			echo "https://www.osradar.com/how-to-install-nginx-on-opensuse-suse-15/"
+		fi
+
 	else
 		echo "I Can't Understand What You Want."
 		echo "You should say whereis or howinstall"
