@@ -105,6 +105,13 @@ android_tools_repo(){
 	fi
 }
 
+
+
+# Android Tools Application  Install procedure Just Developed For 
+# openusse Leap 15.3
+# if You want to Develope for Your Own System
+# You should Add New Function For application procedure Functions
+
 android_tools_app(){
 
 	echo "$yellow android-tools $reset"
@@ -120,6 +127,113 @@ android_tools_app(){
 
 
 }
+
+
+
+android_debug_bridge(){
+
+
+
+	if [ "$Tumbleweed" == "Tumbleweed" ] || [ "$tumbleweed" == "tumbleweed" ];then
+
+		echo -e "\n $green =============== openSUSE Tumbleweed  =============== $reset \n"
+		echo -e "$yellow Repository Name : android-tools from home:GNorth project $reset"
+		
+		echo "$yellow I Add 3 Repository For opensuse Tumbleweed.If you do not receive a response from the server, delete the repository $reset"
+
+		sudo zypper addrepo https://download.opensuse.org/repositories/home:GNorth/openSUSE_Tumbleweed/home:GNorth.repo
+
+		echo "$yellow =============== Repository Name : android-tools from home:ahjolinna project ===============  $reset"
+
+		sudo zypper addrepo https://download.opensuse.org/repositories/home:ahjolinna/openSUSE_Tumbleweed/home:ahjolinna.repo
+
+	
+		echo "$yellow =============== Repository Name : android-tools from home:mrbadguy project ===============  $reset"
+
+		sudo zypper addrepo https://download.opensuse.org/repositories/home:mrbadguy/openSUSE_Tumbleweed/home:mrbadguy.repo
+
+
+		sudo zypper refresh
+		sudo zypper install android-tools
+
+	elif [ "$leap152" == "15.2" ];then
+
+		echo -e "$green =============== openSUSE Leap 15.2 =============== $reset \n"
+		echo -e "$yellow Repository Name : android-tools from home:AndnoVember:test project $reset"
+
+		sudo zypper addrepo https://download.opensuse.org/repositories/home:AndnoVember:test/openSUSE_Leap_15.2/home:AndnoVember:test.repo
+
+		sudo zypper refresh
+		sudo zypper install android-tools
+
+
+	elif [ "$leap153" == "15.3" ];then
+
+		echo -e "$reset =============== openSUSE Leap 15.3 =============== $green \n"
+		echo "$yellow I Add 2 Repository For opensuse Tumbleweed.If you do not receive a response from the server, delete the repository $reset"
+		echo ""
+		echo -e "$yellow Repository Name : android-tools from home:AndnoVember:test project $reset"
+		
+		sudo zypper addrepo https://download.opensuse.org/repositories/home:AndnoVember:test/openSUSE_Leap_15.3/home:AndnoVember:test.repo
+		
+		echo -e "$yellow Repository Name : android-tools from home:embar-:Lietukas project $reset"
+
+		sudo zypper addrepo https://download.opensuse.org/repositories/home:embar-:Lietukas/openSUSE_Leap_15.3/home:embar-:Lietukas.repo
+		
+		sudo zypper refresh
+		sudo zypper install android-tools
+
+
+	elif [ "$leap154" == "15.4" ];then
+
+		echo -e "$green =============== openSUSE Leap 15.4 =============== $reset \n"
+		echo "$yellow I Add 2 Repository For opensuse Tumbleweed.If you do not receive a response from the server, delete the repository $reset"
+		echo ""
+		echo -e "$yellow Repository Name : android-tools from home:AndnoVember:test project $reset"
+		sudo zypper addrepo https://download.opensuse.org/repositories/home:AndnoVember:test/15.4/home:AndnoVember:test.repo
+
+		echo -e "$yellow Repository Name : android-tools from home:GNorth project $reset"
+		sudo zypper addrepo https://download.opensuse.org/repositories/home:GNorth/15.4/home:GNorth.repo
+
+		echo -e "$yellow Repository Name : https://build.opensuse.org/project/show/home:Herbster0815  $reset"
+
+		sudo zypper addrepo https://download.opensuse.org/repositories/home:Herbster0815/openSUSE_Leap_15.4/home:Herbster0815.repo
+
+		echo -e "$yellow Repository Name : android-tools from home:ahjolinna project $reset"
+
+		sudo zypper addrepo https://download.opensuse.org/repositories/home:ahjolinna/15.4/home:ahjolinna.repo
+
+		echo -e "$yellow Repository Name : android-tools from home:mrbadguy project $reset"
+		sudo zypper addrepo https://download.opensuse.org/repositories/home:mrbadguy/openSUSE_Leap_15.4/home:mrbadguy.repo
+
+		sudo zypper refresh
+		sudo zypper install android-tools
+
+	elif [ "$leap155" == "15.5" ];then
+		echo -e "$green =============== openSUSE Leap 15.5 =============== $reset \n"
+
+		echo "$yellow I Add 2 Repository For opensuse Tumbleweed.If you do not receive a response from the server, delete the repository $reset"
+
+		echo ""
+		
+		echo -e "$yellow Repository Name : android-tools from home:AndnoVember:test project $reset"
+		sudo zypper addrepo https://download.opensuse.org/repositories/home:AndnoVember:test/15.5/home:AndnoVember:test.repo
+		
+
+
+		echo -e "$yellow Repository Name : android-tools from home:Herbster0815 project $reset"
+		
+		sudo zypper addrepo https://download.opensuse.org/repositories/home:Herbster0815/openSUSE_Leap_15.5/home:Herbster0815.repo
+
+
+		sudo zypper refresh
+		sudo zypper install android-tools
+	fi
+
+
+}
+
+
 
 
 vlc_repo(){
@@ -172,6 +286,50 @@ vlc_app(){
 
 
 }
+
+
+
+
+
+
+vlc(){
+
+	if [ "$leap153" == "15.3" ];then
+		echo "=============== Leap 15.3 ================="
+
+		sudo zypper addrepo https://download.opensuse.org/repositories/openSUSE:Leap:15.3:Update/standard/openSUSE:Leap:15.3:Update.repo
+		sudo zypper refresh
+		sudo zypper install vlc
+	elif [ "$leap154" == "15.4" ];then
+		echo "=============== Leap 15.4 ================="
+		zypper addrepo https://download.opensuse.org/repositories/home:worldcitizen:GoldenCheetah/15.4/home:worldcitizen:GoldenCheetah.repo
+		zypper addrepo https://download.opensuse.org/repositories/openSUSE:Leap:15.4:Update/standard/openSUSE:Leap:15.4:Update.repo
+		sudo zypper refresh
+		sudo zypper install vlc
+	elif [ "$leap152" == "15.2" ];then
+		echo "=============== Leap 15.2 ================="
+		sudo zypper addrepo https://download.opensuse.org/repositories/openSUSE:Leap:15.2:Update/standard/openSUSE:Leap:15.2:Update.repo
+		sudo zypper refresh
+		sudo zypper install vlc
+
+	elif [ "$Tumbleweed" == "Tumbleweed" ] || [ "$umbleweed" == "tumbleweed" ];then
+		echo "=============== Tumbleweed ================="
+		sudo zypper addrepo https://download.opensuse.org/repositories/home:StefanBruens:branches:multimedia:libs/openSUSE_Tumbleweed/home:StefanBruens:branches:multimedia:libs.repo
+		sudo zypper refresh
+		sudo zypper install vlc
+	fi
+
+
+
+}
+
+
+
+
+
+
+
+
 
 vscode_repo(){
 
@@ -244,11 +402,51 @@ mediacodec_app(){
 	fi
 
 
+}
 
 
+
+
+
+mediacodec(){
+
+	if [ "$leap153" == "15.3" ];then
+		echo "=============== Leap 15.3 ================="
+
+		sudo zypper addrepo https://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Leap_15.3/
+		sudo zypper refresh
+		sudo zypper install vlc
+	elif [ "$leap154" == "15.4" ];then
+		echo "=============== Leap 15.4 ================="
+		sudo zypper addrepo https://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Leap_15.4/
+		zypper addrepo https://download.opensuse.org/repositories/openSUSE:Leap:15.4:Update/standard/openSUSE:Leap:15.4:Update.repo
+		sudo zypper refresh
+		sudo zypper install vlc
+	elif [ "$leap152" == "15.2" ];then
+		echo "=============== Leap 15.2 ================="
+		sudo zypper addrepo https://download.opensuse.org/repositories/openSUSE:Leap:15.2:Update/standard/openSUSE:Leap:15.2:Update.repo
+		sudo zypper refresh
+		sudo zypper install vlc
+
+
+
+	elif [ "$Tumbleweed" == "Tumbleweed" ] || [ "$umbleweed" == "tumbleweed" ];then
+		echo "=============== Tumbleweed ================="
+		sudo zypper addrepo https://download.opensuse.org/repositories/home:StefanBruens:branches:multimedia:libs/openSUSE_Tumbleweed/home:StefanBruens:branches:multimedia:libs.repo
+		sudo zypper refresh
+		sudo zypper install vlc
+	fi
 
 
 }
+
+
+
+
+
+
+
+
 
 
 
@@ -276,6 +474,19 @@ mariadb_app(){
 }
 
 
+
+
+
+mariadb(){
+
+	sudo rpm --import https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
+	sudo zypper --gpg-auto-import-keys refresh
+	sudo zypper addrepo --gpgcheck --refresh https://yum.mariadb.org/10.5/opensuse/15/x86_64 mariadb
+  	sudo zypper install MariaDB-server MariaDB-client
+	sudo zypper install galera MariaDB-shared MariaDB-backup MariaDB-common
+
+
+}
 
 
 
@@ -330,6 +541,41 @@ postgre_app(){
 
 
 }
+
+
+
+
+
+postgreSQL_Installler(){
+
+
+
+	#"=============== openSUSE 15.2 ==============="
+	sudo zypper addrepo https://download.opensuse.org/repositories/home:EDV_Lotse:postgresql10/openSUSE_Leap_15.2_images/home:EDV_Lotse:postgresql10.repo
+	sudo zypper refresh
+	sudo zypper install postgresql
+
+	# "=============== openSUSE 15.4 ==============="
+	sudo zypper addrepo https://download.opensuse.org/repositories/home:EDV_Lotse:postgresql10/15.4/home:EDV_Lotse:postgresql10.repo
+
+	sudo zypper refresh
+	sudo zypper install postgresql
+	# "=============== openSUSE 15.3 ==============="
+	sudo zypper addrepo https://download.opensuse.org/repositories/home:EDV_Lotse:postgresql10/15.3/home:EDV_Lotse:postgresql10.repo
+
+	sudo zypper refresh
+	sudo zypper install postgresql
+	# =============== openSUSE Leap 15.1 ==============="
+	sudo zypper addrepo https://download.opensuse.org/repositories/home:EDV_Lotse:postgresql10/openSUSE_Leap_15.1_images/home:EDV_Lotse:postgresql10.repo
+	sudo zypper refresh
+	sudo zypper install postgresql
+
+
+}
+
+
+
+
 
 
 
@@ -559,6 +805,20 @@ ohmyzsh(){
 }
 
 
+
+
+command_line_tools(){
+
+		zsh
+		ohmyzsh
+
+
+
+}
+
+
+
+
 lshardware(){
 	
 	sudo zypper -n install lshw
@@ -569,6 +829,12 @@ lshardware(){
 	fi
 
 }
+
+
+
+
+
+
 
 
 openconnect(){
@@ -916,10 +1182,10 @@ adb(){
 			echo "Error on Adnroid Tools installaion [ ERROR ]"
 		fi
 	elif [ "$leap153" == "15.3" ];then
-		sudo zypper addrepo https://download.opensuse.org/repositories/home:cabelo:innovators/15.3/home:cabelo:innovators.repo"
-		sudo zypper addrepo https://download.opensuse.org/repositories/home:embar-:Lietukas/openSUSE_Leap_15.3/home:embar-:Lietukas.repo"
-		sudo zypper refresh"
-		sudo zypper -n install android-tools"
+		sudo zypper addrepo https://download.opensuse.org/repositories/home:cabelo:innovators/15.3/home:cabelo:innovators.repo
+		sudo zypper addrepo https://download.opensuse.org/repositories/home:embar-:Lietukas/openSUSE_Leap_15.3/home:embar-:Lietukas.repo
+		sudo zypper refresh
+		sudo zypper -n install android-tools
 		if [ -f "/usr/bin/adb" ];then
 			echo "Android Tools Installed [ OK ]"
 		else
@@ -944,6 +1210,30 @@ clamav_repo(){
 		echo "=============== Tumbleweed ================="
 		echo "sudo zypper addrepo https://download.opensuse.org/repositories/home:ecsos/15.5/home:ecsos.repo"
 	fi
+}
+
+clamav_app()
+
+	if [ "$leap153" == "15.3" ];then
+		echo "zypper addrepo https://download.opensuse.org/repositories/home:ecsos/15.3/home:ecsos.repo"
+		echo "sudo zypper refresh"
+		echo "sudo zypper -n install clamav"
+	elif [ "$leap154" == "15.4" ];then
+		echo "=============== Leap 15.4 ================="
+		echo "sudo zypper addrepo https://download.opensuse.org/repositories/home:ecsos/15.4/home:ecsos.repo"
+		echo "sudo zypper refresh"
+		echo "sudo zypper -n install clamav"
+	elif [ "$leap155" == "15.5" ];then
+		echo "sudo zypper addrepo https://download.opensuse.org/repositories/home:ecsos/15.5/home:ecsos.repo"
+		echo "sudo zypper refresh"
+		echo "sudo zypper -n install clamav"
+	elif [ "$Tumbleweed" == "Tumbleweed" ] || [ "$tumbleweed" == "tumbleweed" ];then
+		echo "sudo zypper addrepo https://download.opensuse.org/repositories/home:ecsos/15.5/home:ecsos.repo"
+		echo "sudo zypper refresh"
+		echo "sudo zypper -n install clamav"
+	fi
+
+
 }
 
 
@@ -1068,12 +1358,32 @@ firewalld(){
 }
 
 
+psad(){
+
+
+
+	mkdir /tmp/psad
+	cd /tmp/psad
+	wget http://www.cipherdyne.org/psad/download/psad-2.2-1.x86_64.rpm
+	rpm -ivh psad-2.2-1.x86_64.rpm 
+	cd ..
+	rm -rf psad
+
+	if [ -d "/etc/psad" ];then
+		echo "psad Installed Successfully [ OK ]"
+	else
+		echo "Error on psad installation"
+	fi
+
+}
+
 
 network_security(){
 
 	firewalld
 	tcpwrapper
 	fail2ban
+	psad
 
 
 
@@ -1205,7 +1515,7 @@ ansible(){
 
 	sudo zypper -n install ansible
 
-	if [ "/usr/bin/ansible" ];then
+	if [ -f "/usr/bin/ansible" ];then
 		echo "Ansible Installed [ OK ]"
 	else
 		echo "Error on Ansible installation"
@@ -1218,7 +1528,196 @@ ansible(){
 
 
 
+puppet_repo(){
 
+
+	echo "$yellow Repository Name : puppet from home:steffens:lvermgeo:server project $reset"
+
+	echo "=============== SUSE 15.4  ==============="
+	echo "zypper addrepo https://download.opensuse.org/repositories/home:steffens:lvermgeo:server/SUSE_15.4/home:steffens:lvermgeo:server.repo"
+	echo "=============== SLE 15 SP3 ==============="
+	echo "sudo zypper addrepo https://download.opensuse.org/repositories/home:steffens:lvermgeo:server/SLE_15_SP3/home:steffens:lvermgeo:server.repo"
+	echo "=============== SLE 15 SP2 ==============="
+	echo "zypper addrepo https://download.opensuse.org/repositories/home:steffens:lvermgeo:server/SLE_15_SP2/home:steffens:lvermgeo:server.repo"
+
+
+
+
+}
+
+
+
+
+puppet(){
+
+
+	sudo zypper -n install puppet-agent
+	if [ -f "/opt/puppetlabs/bin/puppet" ];then
+		echo "Puppet Installed [ OK ]"
+	else
+		echo "Error on Puppet installation"
+	fi
+
+
+}
+
+
+
+
+tuned(){
+
+	
+	sudo zypper -n install tuned tuned-utils tuned-utils-systemtap
+
+	if [ -f "/usr/sbin/tuned" ];then
+		echo "tuned Installed [ OK ]"
+	else
+		echo "Error on tuned installation"
+	fi
+}
+
+
+
+
+
+
+# Monitoring
+
+htop(){
+
+	
+	sudo zypper -n install htop
+
+	if [ -f "/usr/bin/htop" ];then
+		echo "htop Installed [ OK ]"
+	else
+		echo "Error on htop installation"
+	fi
+}
+
+
+munin(){
+
+	
+	sudo zypper -n install munin
+
+	if [ -f "/etc/munin" ] && [ -f "/usr/lib/munin" ];then
+		echo "tuned Installed [ OK ]"
+	else
+		echo "Error on tuned installation"
+	fi
+}
+
+
+
+munin_remove(){
+
+	sudo zypper -n remove FastCGI fcgiwrap fcgiwrap-nginx libdbi3 libfcgi0 librrd8 logdigest logtail munin munin-node perl-CGI perl-Crypt-DES perl-Crypt-Rijndael perl-Date-Manip perl-FastCGI perl-File-Copy-Recursive perl-File-Path perl-HTML-Template perl-IO-Socket-INET6 perl-Log-Log4perl perl-Net-Server perl-Net-SNMP perl-rrdtool perl-Socket6 rrdtool spawn-fcgi sysstat
+
+	echo "All Dependencies Removed From System [ OK ]"
+}
+
+terraform(){
+
+
+	echo "This Will be Install Packages Below : "
+	echo "1- terraform"
+	echo "2- terraform-provider-openstack"
+	echo "3- terraform-provider-local"
+	echo "4- terraform-provider-kubernetes"
+	echo "5- terraform-provider-helm"
+	echo "6- terraform-provider-aws"
+	echo "7- terraform-provider-azurerm"
+	
+	sudo zypper -n install terraform
+	sudo zypper -n install terraform-provider-openstack
+	sudo zypper -n install terraform-provider-local
+	sudo zypper -n install terraform-provider-kubernetes
+	sudo zypper -n install terraform-provider-helm
+	sudo zypper -n install terraform-provider-aws
+	sudo zypper -n install terraform-provider-azurerm
+
+
+	if [ -f "/usr/bin/terraform" ];then
+		echo "terraform Installed [ OK ]"
+	else
+		echo "Error on terraform installation"
+	fi
+}
+
+
+
+
+
+
+
+# Develper
+
+develope(){
+
+	python36=`ls /usr/bin | grep -o "^python3.6"` # check python version for 3.6
+	python39=`ls /usr/bin | grep -o "^python3.9"` # check python version for 3.9 
+	if [ "$python36" != "3.6" ];then
+		sudo zypper install -n python39
+		sudo pip3.9 install virtualenv
+		if [ -f "/usr/bin/code" ];then
+			code --install-extension ajanuw.bs5
+			code --install-extension cstrap.flask-snippets
+			code --install-extension ecmel.vscode-html-css
+			code --install-extension WyattFerguson.jinja2-snippet-kit
+			code --install-extension donjayamanne.jquerysnippets
+			code --install-extension tushortz.python-extended-snippets
+			code --install-extension KevinRose.vsc-python-indent
+			code --install-extension ms-vscode.cpptools
+			code --install-extension rogalmic.bash-debug
+		else
+			vscode
+			
+			code --install-extension ajanuw.bs5
+			code --install-extension cstrap.flask-snippets
+			code --install-extension ecmel.vscode-html-css
+			code --install-extension WyattFerguson.jinja2-snippet-kit
+			code --install-extension donjayamanne.jquerysnippets
+			code --install-extension tushortz.python-extended-snippets
+			code --install-extension KevinRose.vsc-python-indent
+			code --install-extension ms-vscode.cpptools
+			code --install-extension rogalmic.bash-debug
+		fi
+	elif  [ "$python39" == "3.9" ];then
+		sudo pip3.9 install virtualenv
+		if [ -f "/usr/bin/code" ];then
+			code --install-extension ajanuw.bs5
+			code --install-extension cstrap.flask-snippets
+			code --install-extension ecmel.vscode-html-css
+			code --install-extension WyattFerguson.jinja2-snippet-kit
+			code --install-extension donjayamanne.jquerysnippets
+			code --install-extension tushortz.python-extended-snippets
+			code --install-extension KevinRose.vsc-python-indent
+			code --install-extension ms-vscode.cpptools
+			code --install-extension rogalmic.bash-debug
+
+		else
+			vscode
+			
+			code --install-extension ajanuw.bs5
+			code --install-extension cstrap.flask-snippets
+			code --install-extension ecmel.vscode-html-css
+			code --install-extension WyattFerguson.jinja2-snippet-kit
+			code --install-extension donjayamanne.jquerysnippets
+			code --install-extension tushortz.python-extended-snippets
+			code --install-extension KevinRose.vsc-python-indent
+			code --install-extension ms-vscode.cpptools
+			code --install-extension rogalmic.bash-debug
+		fi
+	else
+		echo "Error on Installtin Python"
+		echo "1- Check python Version"
+		echo "2- Try install python3.9 Manuallly"
+		
+
+	fi
+
+}
 
 # Develper
 
@@ -1284,26 +1783,35 @@ develope(){
 
 
 
+openstack(){
+
+	sudo zypper -n install openstack
+
+
+
+
+}
 
 
 
 
 
-# Android Tools
+
+
 
 if [ "$0" == "./suse" ];then
 	if [ "$1" == "--whereis" ];then
 		if [ "$2" == "android_tools" ] || [ "$2" == "android tools" ] || \
 			[ "$2" == "Android Tools" ] || [ "$2" == "Android_Tools" ];then
-			android_tools_repo
+				android_tools_repo	
 		
 		elif [ "$2" == "vlc" ] || [ "$2" == "VLC" ];then
-			vlc_repo
+			vlc_repo 
 
 		elif [ "$2" == "vscode" ] || [ "$2" == "VSCODE" ] || \
 			[ "$2" == "code" ] || [ "$2" == "CODE" ] || \
 				[ "$2" == "visual_stdio_code" ] || [ "$2" == "visual stdio code" ];then
-					vscode_repo
+					vscode_repo 
 		elif [ "$2" == "codec" ] || [ "$2" == "CODEC" ] || \
 			[ "$2" == "multimedia codec" ] || [ "$2" == "multimedia_codec" ] || \
 				[ "$2" == "MultiMedia Codec" ] || [ "$2" == "MultiMedia_Codec" ];then
@@ -1317,6 +1825,14 @@ if [ "$0" == "./suse" ];then
 			[ "$2" == "postgresql" ] || [ "$2" == "postgreSQL" ] || \
 			[ "$2" == "PostgreSQL" ];then
 				postgre_repo
+		elif [ "$2" == "multimedia_codec" ] || [ "$2" == "MultiMedia_Codec" ] || \
+				[ "$2" == "multimediacodec" ] || [ "$2" == "MultimediaCodec" ] || \
+					[ "$2" == "codec" ] || [ "$2" == "Codec" ];then
+						mediacodec_repo
+		elif [ "$2" == "clamAV" ] || [ "$2" == "clamav" ] || \
+			[ "$2" == "CLAMAV" ];then
+				clamav_repo
+
 		fi
 	elif [ "$1" == "--howinstall" ];then
 		if [ "$2" == "android_tools" ] || [ "$2" == "Android_Tools" ];then
@@ -1341,6 +1857,10 @@ if [ "$0" == "./suse" ];then
 		elif [ "$2" == "codec" ] || [ "$2" == "CODEC" ] || \
 			[ "$2" == "multimedia_codec" ] || [ "$2" == "MultiMedia_Codec" ];then
 					codec_app
+		elif [ "$2" == "clamAV" ] || [ "$2" == "clamav" ] || \
+			[ "$2" == "CLAMAV" ];then
+				clamav_app
+
 		fi
 	
 	elif [ "$1" == "--clean-unneed" ];then
@@ -1371,7 +1891,233 @@ if [ "$0" == "./suse" ];then
 			echo "https://en.opensuse.org/ClamAV"
 			echo "https://linuxhint.com/install_clamav_ubuntu/"
 			echo "https://github.com/KooshaYeganeh/OpenSuse4Developers#clamav"
+		elif [ "$2" == "tuned" ] || [ "$2" == "Tuned" ];then
+			echo "https://doc.opensuse.org/documentation/leap/tuning/single-html/book-tuning/"
+			echo "https://www.redhat.com/en/blog/tuning-your-system-tuned"
+			echo "https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/monitoring_and_managing_system_status_and_performance/getting-started-with-tuned_monitoring-and-managing-system-status-and-performance"
+		elif [ "$2" == "openstack" ] || [ "$2" == "open_stack" ] || [ "$2" == "OpenStack" ] || [ "$2" == "Open_Stack" ];then
+			echo "https://docs.openstack.org/mitaka/install-guide-obs/"
 		fi
+	# INSTALL Block
+	elif [ "$1" == "--install" ];then
+		if [ "$2" == "android_debug_bridge" ] || [ "$2" == "adb" ] || \
+			[ "$2" == "Android_Debug_Bridge" ] || [ "$2" == "ADB"];then
+				android_debug_bridge
+		elif [ "$2" == "vlc" ] || [ "$2" == "VLC" ];then
+			vlc
+
+		elif [ "$2" == "mariadb" ] || [ "$2" == "mariaDB" ] || [ "$2" ==  "MariaDB" ];then
+			mariadb
+
+		elif [ "$2" == "posgresql" ] || [ "$2" == "postgreSQL" ] || [ "$2" ==  "Postgresql" ] || \
+				[ "$2" == "PostgreSQL" ];then
+					postgreSQL_Installler
+		elif [ "$2" == "code" ] || [ "$2" == "vscode" ] || [ "$2" ==  "VSCODE" ] || \
+				[ "$2" == "VScode" ] || [ "$2" == "visual_stdio_code" ];then
+					vscode
+		elif [ "$2" == "codec" ] || [ "$2" == "CODEC" ] || \
+			[ "$2" == "multimedia_codec" ] || [ "$2" == "MultiMedia_Codec" ];then
+				mediacodec
+		elif [ "$2" == "git" ] || [ "$2" == "Git" ] || \
+			[ "$2" == "GIT" ];then
+				git
+
+		elif [ "$2" == "gcc" ] || [ "$2" == "GCC" ] || \
+			[ "$2" == "Gcc" ];then
+					gcc
+		elif [ "$2" == "zsh" ] || [ "$2" == "ZSH" ] || \
+			[ "$2" == "Zsh" ];then
+					zsh		
+		
+		elif [ "$2" == "Basic_Tools" ] || [ "$2" == "basic_tools" ] || \
+			[ "$2" == "BasicTools" ] || [ "$2" == "basictools" ];then		
+				Basic_tools
+			
+		elif [ "$2" == "ohmyzsh" ] || [ "$2" == "OhMyZsh" ] || \
+			[ "$2" == "oh-my-zsh" ];then
+					ohmyzsh			
+
+		elif [ "$2" == "command_line_tools" ] || [ "$2" == "Command_Line_Tools" ] || \
+			[ "$2" == "CommandLineTools" ] || [ "$2" == "COMMAND_LINE_TOOLS" ];then
+					command_line_tools
+		
+		elif [ "$2" == "lshw" ] || [ "$2" == "lshardware" ] || \
+			[ "$2" == "listhardware" ];then
+				lshardware
+		
+		elif [ "$2" == "openconnect" ] || [ "$2" == "open-connect" ] || \
+			[ "$2" == "open_connect" ];then
+					openconnect
+						
+		elif [ "$2" == "openvpn" ] || [ "$2" == "open-vpn" ] || \
+			[ "$2" == "OpenVpn" ];then
+						
+		elif [ "$2" == "VIM" ] || [ "$2" == "Vim" ] || \
+			[ "$2" == "vim" ];then
+					vim
+		
+		elif [ "$2" == "sqlite" ] || [ "$2" == "SQlite" ] || \
+			[ "$2" == "SQLite" ];then
+				sqlite
+						
+		elif [ "$2" == "influx" ] || [ "$2" == "influxdb" ] || \
+			[ "$2" == "InfluxDB" ];then
+				influx
+						
+		elif [ "$2" == "mongoDB" ] || [ "$2" == "mongo" ] || \
+			[ "$2" == "MongoDB" ];then
+					mongodb
+						
+		elif [ "$2" == "nginx" ] || [ "$2" == "Nginx" ] || \
+			[ "$2" == "NGINX" ];then
+					nginx
+		
+		elif [ "$2" == "Apache" ] || [ "$2" == "Apache2" ] || \
+			[ "$2" == "apache" ] || [ "$2" == "apache2" ];then						
+					apache
+
+
+		elif [ "$2" == "nmap" ] || [ "$2" == "Nmap" ] || \
+			[ "$2" == "NMAP" ];then
+					nmap
+
+		elif [ "$2" == "TcpDump" ] || [ "$2" == "tcpdump" ] || \
+			[ "$2" == "TCPDUMP" ];then
+					tcpdump
+
+		elif [ "$2" == "wireshark" ] || [ "$2" == "Wireshark" ] || \
+			[ "$2" == "WireShark" ];then
+
+				wireshark
+
+		elif [ "$2" == "iptraf" ] || [ "$2" == "iptraf-ng" ] || \
+			[ "$2" == "iptrafng" ];then
+					iptraf
+
+		elif [ "$2" == "network_tools_all" ] || [ "$2" == "Network_Tools_All" ] || \
+			[ "$2" == "NetworkToolsAll" ] || [ "$2" == "nettoolsall" ];then
+				network_tools
+
+		elif [ "$2" == "" ] || [ "$2" == "" ] || \
+			[ "$2" == "" ];then
+
+
+		elif [ "$2" == "docker" ] || [ "$2" == "Docker" ] || \
+			[ "$2" == "DOCKER" ];then
+					docker
+
+
+		elif [ "$2" == "clamAV" ] || [ "$2" == "clamav" ] || \
+			[ "$2" == "ClamAV" ];then
+					clamav
+
+		elif [ "$2" == "maldet" ] || [ "$2" == "malware_detect" ] || \
+			[ "$2" == "malware-detect" ] || [ "$2" == "Maldet" ] || \
+				[ "$2" == "Malware-Detect" ] || [ "$2" == "LMD" ] || ;then
+						maldet
+
+
+		elif [ "$2" == "rkhunter" ] || [ "$2" == "Rkhunter" ] || \
+			[ "$2" == "RootKitHunter" ] || [ "$2" == "rootkithunter" ];then
+					rkhunter
+
+		elif [ "$2" == "lynis" ] || [ "$2" == "Lynis" ] || \
+			[ "$2" == "LYNIS" ];then
+					lynis
+
+		elif [ "$2" == "AV" ] || [ "$2" == "Antivirus" ] || \
+			[ "$2" == "antivirus" ];then
+					antivirus
+
+		elif [ "$2" == "fail2ban" ] || [ "$2" == "Fail2ban" ] || \
+			[ "$2" == "FAIL2BAN" ];then
+					fail2ban
+
+
+		elif [ "$2" == "tcpwrapper" ] || [ "$2" == "tcp-wrapper" ] || \
+			[ "$2" == "TcpWrapper" ] || [ "$2" == "Tcp-Wrapper" ];then
+					tcpwrapper
+
+
+		elif [ "$2" == "firewalld" ] || [ "$2" == "FirewallD" ] || \
+			[ "$2" == "Firewall-Cmd" ] || [ "$2" == "firewall-cmd" ];then
+					firewalld
+		elif [ "$2" == "psad" ] || [ "$2" == "PSad" ] || \
+			[ "$2" == "PSAD" ];then
+				psad
+
+		elif [ "$2" == "network_security" ] || [ "$2" == "Network_Securiey" ] || \
+			[ "$2" == "NetworkSecurity" ];then
+				network_security
+		
+		elif [ "$2" == "apache_waf" ] || [ "$2" == "Apache_Waf" ] || \
+				[ "$2" == "Apache2_Waf" ] || [ "$2" == "apache2_waf" ] || \
+					[ "$2" == "Apache2Waf" ] || [ "$2" == "apache2waf" ] ;then
+							apache_waf
+
+		elif [ "$2" == "Nginx_Waf" ] || [ "$2" == "nginx_waf" ] || \
+				[ "$2" == "Nginx-waf" ] || [ "$2" == "Nginx-Waf" ] || \
+					[ "$2" == "NginxWaf" ] || [ "$2" == "nginxwaf" ];then
+							nginx_waf
+
+		elif [ "$2" == "openssh" ] || [ "$2" == "Openssh" ] || \
+				[ "$2" == "Openssh-server" ] || [ "$2" == "openssh-server" ];then
+					openssh
+		elif [ "$2" == "sshfs" ] || [ "$2" == "SSHFS" ] || \
+				[ "$2" == "fuse-sshfs" ] || [ "$2" == "Fuse-SSHFS" ];then
+						sshfs
+		elif [ "$2" == "usbguard" ] || [ "$2" == "USBGuard" ] || \
+			[ "$2" == "usb-guard" ] || [ "$2" == "USB-Guard" ];then
+				usbguard
+
+		elif [ "$2" == "jpegoptim" ] || [ "$2" == "jpgoptim" ] || \
+			[ "$2" == "JpegOptim" ] || [ "$2" == "jpegoptimizer" ] || \
+				[ "$2" == "jpgoptimizer" ];then
+					jpg
+
+		elif [ "$2" == "optimpng" ] || [ "$2" == "optipng" ] || \
+			[ "$2" == "optimizepng" ] || [ "$2" == "optimizePNG" ];then
+					png
+
+		elif [ "$2" == "exif-remover" ] || [ "$2" == "Exif-Remover" ] || \
+			[ "$2" == "ExifRemover" ] || [ "$2" == "exiftools" ] || \
+				[ "$2" == "Exif-Tools" ] || [ "$2" == "exif-tools" ];then
+					exif
+
+
+		elif [ "$2" == "image-optimizer" ] || [ "$2" == "imageoptimizer" ] || \
+			[ "$2" == "Image-Optmizer" ] || [ "$2" == "Image_Optmizer" ] || \
+				[ "$2" == "image_optmizer" ];then
+					image_optimizer
+
+
+		elif [ "$2" == "telegram" ] || [ "$2" == "Telegram-Desktop" ] || \
+			[ "$2" == "Telegram" ] || [ "$2" == "telegram-desktop" ];then
+				telegram
+
+		elif [ "$2" == "Ansible" ] || [ "$2" == "ansible" ] || \
+			[ "$2" == "ANSIBLE" ];then
+				ansible
+
+		elif [ "$2" == "tuned" ] || [ "$2" == "Tuned" ] || \
+			[ "$2" == ""tuned ];then
+				tuned
+
+		elif [ "$2" == "htop" ] || [ "$2" == "Htop" ];then
+				htop
+
+		elif [ "$2" == "munin" ] || [ "$2" == "Munin" ];then
+				munin
+
+		elif [ "$2" == "terraform" ] || [ "$2" == "Terraform" ] || \
+			[ "$2" == "TERRAFORM" ];then
+				terraform
+
+		elif [ "$2" == "develope" ] || [ "$2" == "Develope" ] || \
+			[ "$2" == "DEVELOPE" ];then
+
+				develope
+
 
 	else
 		echo "I Can't Understand What You Want."
