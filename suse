@@ -1212,7 +1212,7 @@ clamav_repo(){
 	fi
 }
 
-clamav_app()
+clamav_app(){
 
 	if [ "$leap153" == "15.3" ];then
 		echo "zypper addrepo https://download.opensuse.org/repositories/home:ecsos/15.3/home:ecsos.repo"
@@ -1785,10 +1785,12 @@ develope(){
 
 openstack(){
 
+
+	# You can install OpenStack by using packages on openSUSE Leap 42.3, openSUSE Leap 15, 
+	# SUSE Linux Enterprise Server 12 SP4, SUSE Linux Enterprise Server 15 
+	# through the Open Build Service Cloud repository
+	
 	sudo zypper -n install openstack
-
-
-
 
 }
 
@@ -1901,7 +1903,7 @@ if [ "$0" == "./suse" ];then
 	# INSTALL Block
 	elif [ "$1" == "--install" ];then
 		if [ "$2" == "android_debug_bridge" ] || [ "$2" == "adb" ] || \
-			[ "$2" == "Android_Debug_Bridge" ] || [ "$2" == "ADB"];then
+			[ "$2" == "Android_Debug_Bridge" ] || [ "$2" == "ADB" ];then
 				android_debug_bridge
 		elif [ "$2" == "vlc" ] || [ "$2" == "VLC" ];then
 			vlc
@@ -1951,7 +1953,7 @@ if [ "$0" == "./suse" ];then
 						
 		elif [ "$2" == "openvpn" ] || [ "$2" == "open-vpn" ] || \
 			[ "$2" == "OpenVpn" ];then
-						
+					openvpn
 		elif [ "$2" == "VIM" ] || [ "$2" == "Vim" ] || \
 			[ "$2" == "vim" ];then
 					vim
@@ -1998,9 +2000,6 @@ if [ "$0" == "./suse" ];then
 			[ "$2" == "NetworkToolsAll" ] || [ "$2" == "nettoolsall" ];then
 				network_tools
 
-		elif [ "$2" == "" ] || [ "$2" == "" ] || \
-			[ "$2" == "" ];then
-
 
 		elif [ "$2" == "docker" ] || [ "$2" == "Docker" ] || \
 			[ "$2" == "DOCKER" ];then
@@ -2013,7 +2012,7 @@ if [ "$0" == "./suse" ];then
 
 		elif [ "$2" == "maldet" ] || [ "$2" == "malware_detect" ] || \
 			[ "$2" == "malware-detect" ] || [ "$2" == "Maldet" ] || \
-				[ "$2" == "Malware-Detect" ] || [ "$2" == "LMD" ] || ;then
+				[ "$2" == "Malware-Detect" ] || [ "$2" == "LMD" ];then
 						maldet
 
 
@@ -2118,10 +2117,16 @@ if [ "$0" == "./suse" ];then
 
 				develope
 
+		elif [ "$2" == "openstack" ] || [ "$2" == "open-stack" ] || \
+			[ "$2" == "OpenStack" ];then
+				openstack
+		else
+				echo "Sorry.App Not Found in Repository"
+		fi
 
 	else
 		echo "I Can't Understand What You Want."
-		echo "You should say whereis or howinstall"
+		echo "You should have entered the install command Please tyr Again with --install"
 	fi
 else
 	echo "Do you mean suse?"
