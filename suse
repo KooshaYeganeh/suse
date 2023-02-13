@@ -1900,9 +1900,9 @@ optipng_remover(){
 
 }
 
-exif(){
+exiftool(){
 
-	sudo zypper install exiftool
+	sudo zypper -n install exiftool
 
 	if [ -f "/usr/bin/exiftool" ];then
 		echo "exiftool installed [ OK ]"
@@ -2636,9 +2636,9 @@ if [ "$0" == "./suse" ];then
 				optipng_remover
 				remove_unneeded
 
-		elif [ "$2" == "exif-remover" ] || [ "$2" == "Exif-Remover" ] || \
-			[ "$2" == "ExifRemover" ] || [ "$2" == "exiftools" ] || \
-				[ "$2" == "Exif-Tools" ] || [ "$2" == "exif-tools" ];then
+		elif [ "$2" == "exiftool" ] || [ "$2" == "Exif-Tool" ] || \
+			[ "$2" == "ExifTool" ] || [ "$2" == "exiftools" ] || \
+				[ "$2" == "ExifTools" ] || [ "$2" == "Exif-Tools" ];then
 					exiftool_remover
 					remove_unneeded
 
@@ -2893,10 +2893,10 @@ if [ "$0" == "./suse" ];then
 			[ "$2" == "optimizepng" ] || [ "$2" == "optimizePNG" ];then
 					png
 
-		elif [ "$2" == "exif-remover" ] || [ "$2" == "Exif-Remover" ] || \
-			[ "$2" == "ExifRemover" ] || [ "$2" == "exiftools" ] || \
+		elif [ "$2" == "exiftool" ] || [ "$2" == "ExifTool" ] || \
+			[ "$2" == "ExifTools" ] || [ "$2" == "exiftools" ] || \
 				[ "$2" == "Exif-Tools" ] || [ "$2" == "exif-tools" ];then
-					exif
+					exiftool
 
 
 		elif [ "$2" == "image-optimizer" ] || [ "$2" == "imageoptimizer" ] || \
