@@ -236,6 +236,10 @@ android_debug_bridge(){
 
 
 
+
+
+
+
 vlc_repo(){
 
 
@@ -292,6 +296,8 @@ vlc_app(){
 
 
 
+
+
 vlc(){
 
 	if [ "$leap153" == "15.3" ];then
@@ -328,6 +334,36 @@ vlc(){
 
 
 
+vlc_remover(){
+
+	if [ "$leap153" == "15.3" ];then
+
+
+		sudo rm /etc/zypp/repos.d/Update.repo
+		sudo zypper refresh
+		sudo zypper -n remove vlc
+	elif [ "$leap154" == "15.4" ];then
+
+		sudo rm /etc/zypp/repos.d/GoldenCheetah.repo
+		sudo rm /etc/zypp/repos.d/Update.repo
+		sudo zypper refresh
+		sudo zypper install vlc
+	elif [ "$leap152" == "15.2" ];then
+
+		sudo rm /etc/zypp/repos.d/Update.repo
+		sudo zypper refresh
+		sudo zypper install vlc
+
+	elif [ "$Tumbleweed" == "Tumbleweed" ] || [ "$umbleweed" == "tumbleweed" ];then
+		echo "=============== Tumbleweed ================="
+		sudo rm /etc/zypp/repos.d/libs.repo
+		sudo zypper refresh
+		sudo zypper install vlc
+	fi
+
+
+
+}
 
 
 
@@ -346,6 +382,10 @@ vscode_app(){
 	echo "sudo zypper refresh"
 	echo "sudo zypper install code"
 }
+
+
+
+
 
 
 
@@ -491,6 +531,14 @@ mariadb(){
 
 
 
+mariadb_remover(){
+	sudo rm /etc/zypp/repos.d/mariadb.repo
+  	sudo zypper -n remove MariaDB-server MariaDB-client
+	sudo zypper -n remove galera MariaDB-shared MariaDB-backup MariaDB-common
+}
+
+
+
 # postgreSQL
 
 postgre_repo(){
@@ -580,6 +628,9 @@ postgreSQL_Installler(){
 
 
 
+
+
+
 # clean unneeded
 
 remove_unneeded(){
@@ -603,29 +654,33 @@ info(){
 
 
 
-	echo "A simple and straightforward package manager for OpenSUSE that can make everyday tasks easier for developers and system administrators."
-	echo " - Supported Distrubutions : Leap and Tumbleweed"
-	echo " - update and Upgrade and dist upgrade Like ubuntu and Fedora"
-	echo " - Remove Unneed packages"
-	echo " - show Package Providers"
-	echo " - List Installed Apps"
-	echo " - show repositories"
-	echo " - show Installation Manual"
-	echo " - Support for software that is not supported by the main package manager"
+	echo " A simple and Straightforward Package Manager for OpenSUSE that can make Everyday Tasks Easier" 
+	echo " for developers and system administrators."
 	echo ""
-	echo "========================================================================="
-	echo " There is no claim that this package manager is better or more optimal than the others."
-	echo " The goal is to improve platforms or make things easier."
-	echo " I wrote this package manager for my daily tasks I am in this philosophy that "
-	echo "I try to write everything I need myself and I wanted to make it available to others."
-	echo "Use and support and accompany us to make the conditions better for ourselves."
-	echo "=========================================================================="
+	echo "- Supported Distrubutions : Leap and Tumbleweed"
+	echo "- update and Upgrade and dist upgrade Like ubuntu and Fedora"
+	echo "- Remove Unneed packages"
+	echo "- show Package Providers"
+	echo "- List Installed Apps"
+	echo "- show repositories"
+	echo "- show Installation Manual"
+	echo "- Support for software that is not supported by the main package manager"
+	echo ""
+	echo "$yellow ========================================================================= $reset"
+	echo ""
+	echo "$yellow There is no claim that this package manager is better or more optimal than the others. $reset"
+	echo "$yellow The goal is to improve platforms or make things easier.$reset"
+	echo "$yellow I wrote this package manager for my daily tasks I am in this philosophy that $reset"
+	echo "$yellow I try to write everything I need myself and I wanted to make it available to others.$reset "
+	echo "$yellow and support and accompany us to make the conditions better for ourselves. $reset"
+	echo ""
+	echo "$yellow ========================================================================== $reset"
 	echo ""
 	echo "> Developer : Koosha Yeganeh"
 	echo "> GitHub : https://github.com/KooshaYeganeh"
 	echo "> DockerHub : https://hub.docker.com/u/kooshakooshadv"
 	echo "> GitBooks : kooshayeganeh.gitbook.io"
-	echo "> and Some More :)"
+	echo "> and Some More $yellow :) $reset"
 
 }
 
@@ -654,57 +709,11 @@ list_repo(){
 
 	total=`ls /etc/zypp/repos.d | wc -l`
 	echo "Total Number of Repositories : $total"
-
-
-
 }
 
-man(){
 
-	echo "suse Package Manager"
-	echo "suse <command> "
-	echo "--whereis : Each software shows in which repository it is located or which repositories provide this software. "
-	echo "> example : suse --whereis vlc"
-	echo "************************************************"
-	echo "--howinstall : It shows the installation steps. It shows which steps you should go through to install the relevant software on your system."
-	echo "> example : suse --howinstall vlc"
-	echo "************************************************"
-	echo "--info : show information"
-	echo"> example : suse --info"
-	echo "************************************************"
-	echo "man : suse man ; show manuals"
-	echo "************************************************"
-	echo "--install : use this command to install a software"
-	echo "> exapmle : suse install vscode"
-	echo "************************************************"
-	echo "--remove : use this command to remove a software"
-	echo "> example: suse --remove"
-	echo "************************************************"
-	echo "--list-app : List Installed apps "
-	echo "example : suse --list-app"
-	echo "************************************************"
-	echo "--search-app : Serach in installed Apps"
-	echo "> example : suse --search-app xfce"
-	echo "************************************************"
-	echo "--clean-unneed : clean out all unneeded autoinstalled dependencies "
-       	echo "> exmple : suse --clean-unneed"
-	echo "************************************************"
-	echo "--suport-sytems : Which distributions does this package manager support"
-       	echo "> example : suse --support-systems"
-	echo "************************************************"
-	echo "--list-repo : list of repositories in system" 
-	echo "> example : suse --list-repo"
-	echo "************************************************"
-	echo "--update : update Packages "
-	echo "> example : suse --update"
-	echo "************************************************"
-	echo "--upgrade : upgrade packages "
-       	echo "> example : suse --upgrade"
-	echo "************************************************"
-	echo "--dist-upgrade : Distribution Upgrade "
-	echo "> example : suse --dist-upgrade"
 
-}
+
 
 
 
@@ -735,6 +744,32 @@ upgrade (){
 
 
 
+dist_upgrade(){
+
+	echo "$red This command will upgrade your Suse Linux version to the latest version $reset"
+	echo "$red Are You Sure $reset $green(y/n)$reset"
+	read sure_reponse
+	if [ "$sure_reponse" == "y" ] || [ "$sure_reponse" == "Y" ] || \
+		[ "$sure_reponse" == "yes" ] || [ "$sure_reponse" == "YES" ];then
+		sudo zypper refresh
+		sudo zypper update 
+		zypper modifyrepo –enable repo-update
+		echo "Enter Current Version"
+		read current_version
+		sudo sed -i 's/$current_version/${releasever}/g' /etc/zypp/repos.d/*.repo 
+		sudo zypper --releasever=15.4 refresh
+		sudo zypper --releasever=15.4 dup  --force-resolution
+	elif [ "$sure_reponse" == "n" ] || [ "$sure_reponse" == "N" ] || \
+			[ "$sure_reponse" == "no" ] || [ "$sure_reponse" == "NO" ];then
+				echo "You have given up on upgrading your system."
+				echo "Good luck"
+	else
+		echo "please Enter Valid Response"
+	fi
+
+}
+
+
 
 gcc(){
 
@@ -747,6 +782,20 @@ gcc(){
 	fi
 }
 
+
+gcc_remover(){
+	echo "This file is required to run the rest of the files. Do you want to delete this file?(y/n)"
+	read gcc_reponse
+	if [ "$gcc_reponse" == "Y" ] || [ "$gcc_reponse" == "y" ];then
+			sudo zypper -n remove gcc
+	elif [ "$gcc_reponse" == "N" ] || [ "$gcc_reponse" == "n" ];then
+			true
+	else
+		echo "Enter Valid Response"
+		exit 0
+	fi
+}	
+
 git(){
 
 	sudo zypper -n install git
@@ -756,6 +805,12 @@ git(){
 		echo "Error on git Installation"
 	fi
 }
+
+
+git_remover(){
+	sudo zypper -n remove "git*"
+}
+
 
 zsh(){
 	sudo zypper -n install zsh
@@ -767,7 +822,11 @@ zsh(){
 	fi
 }
 
+zsh_remover(){
 
+	sudo zypper -n remove "zsh*"
+
+}
 
 # Basic Tools
 
@@ -787,6 +846,15 @@ basic_tools(){
 
 }
 
+basic_tools_remover(){
+
+	gcc_remover
+	git_remover
+	sudo zypper -n remove wget curl
+}
+
+
+
 
 ohmyzsh(){
 	
@@ -804,6 +872,10 @@ ohmyzsh(){
 
 }
 
+ohmyzsh_remover(){
+	sudo rm ~/.zshrc
+	
+}
 
 
 
@@ -811,12 +883,15 @@ command_line_tools(){
 
 		zsh
 		ohmyzsh
-
-
-
 }
 
 
+command_line_tools_remover(){
+	
+	zsh_remover
+	sudo rm ~/.zshrc
+
+}
 
 
 lshardware(){
@@ -848,6 +923,9 @@ openconnect(){
 	fi
 }
 
+openconnect_remover(){
+	sudo zypper -n remove openconnect
+}
 
 
 
@@ -863,7 +941,9 @@ openvpn(){
 }
 
 
-
+openvpn_remover(){
+	sudo zypper -n remove openvpn
+}
 
 # Editos
 
@@ -881,6 +961,17 @@ vscode(){
 		echo "Error on VScode Installation"
 	fi
 }
+
+
+
+vscode_remove(){
+
+
+	sudo rm /etc/zypp/repos.d/vscode
+	sudo zypper -n remove code
+}
+
+
 
 
 
@@ -904,6 +995,14 @@ vim(){
 		echo "Error on Vim Installation"
 	fi
 
+}
+
+
+
+vim_remover(){
+
+	sudo zypper -n remove vim
+	sudo rm ~/.vimrc
 
 
 }
@@ -945,6 +1044,19 @@ mariadb(){
 
 
 
+
+
+mariadb_remover(){
+
+
+	sudo rm /etc/zypp/repos.d/mariadb
+	sudo zypper -n remove MariaDB-server MariaDB-client
+	sudo zypper -n remove galera MariaDB-shared MariaDB-backup MariaDB-common
+
+
+}
+
+
 postgre(){
 
 	echo "Start Install PostgreSQL10"
@@ -958,6 +1070,33 @@ postgre(){
 	fi
 }
 
+
+
+
+postgre_remover(){
+
+
+
+	#"=============== openSUSE 15.2 ==============="
+	sudo rm /etc/zypp/repos.d/postgresql10.repo
+	sudo zypper refresh
+	sudo zypper -n remove postgresql
+
+	# "=============== openSUSE 15.4 ==============="
+	sudo rm /etc/zypp/repos.d/postgresql10.repo
+	sudo zypper refresh
+	sudo zypper -n remove postgresql
+	# "=============== openSUSE 15.3 ==============="
+	sudo rm /etc/zypp/repos.d/postgresql10.repo
+	sudo zypper refresh
+	sudo zypper -n remove postgresql
+	# =============== openSUSE Leap 15.1 ==============="
+	sudo rm /etc/zypp/repos.d/postgresql10.repo
+	sudo zypper refresh
+	sudo zypper -n remove postgresql
+
+
+}
 
 
 sqlite(){
@@ -974,6 +1113,12 @@ sqlite(){
 }
 
 
+
+
+sqlite_remover(){
+	sudo zypper -n remove "sqlite*"
+}
+
 influx(){
 
 
@@ -987,6 +1132,16 @@ influx(){
 	fi
 
 }
+
+
+
+influx_remover(){
+
+
+
+	sudo zypper -n remove "influx*"
+}
+
 
 
 mongodb(){
@@ -1003,6 +1158,12 @@ mongodb(){
 
 }
 
+
+mongodb_remover(){
+
+
+	sudo zypper -n remove "mongodb*"
+}
 
 
 #web server
@@ -1023,6 +1184,9 @@ nginx(){
 }
 
 
+nginx_remover(){
+	sudo zypper -n remove "nginx*"
+}
 
 
 apache(){
@@ -1038,6 +1202,12 @@ apache(){
 }
 
 
+apache_remover(){
+
+
+	sudo zypper -n remove "apache*"
+	sudo zypper -n remove modsecurity
+}
 
 
 # Network Tools
@@ -1058,6 +1228,12 @@ nmap(){
 }
 
 
+nmap_remover(){
+
+
+	sudo zypper -n remove nmap
+}
+
 
 tcpdump(){
 
@@ -1074,6 +1250,13 @@ tcpdump(){
 }
 
 
+
+
+
+tcpdump(){
+	sudo zypper -n remove tcpdump
+}
+
 wireshark(){
 
 
@@ -1089,6 +1272,13 @@ wireshark(){
 }
 
 
+wireshrk_remover(){
+
+
+
+	sudo zypper -n remove wireshark
+}
+
 iptraf(){
 
 
@@ -1103,6 +1293,13 @@ iptraf(){
 
 }
 
+
+iptraf_remover(){
+
+
+	sudo zypper -n remove iptraf-ng
+
+}
 
 
 # Network_Tools_All
@@ -1124,6 +1321,18 @@ network_tools(){
 }
 
 
+network_tools_remover(){
+
+
+	sudo zypper -n remove nmap
+	sudo zypper -n remove tcpdump
+	sudo zypper -n remove wireshark
+	sudo zypper -n remove iptraf-ng
+
+
+}
+
+
 
 docker(){
 
@@ -1142,7 +1351,12 @@ docker(){
 }
 
 
+docker_remover(){
 
+
+
+	sudo zypper -n remove docker
+}
 
 adb(){
 
@@ -1193,6 +1407,81 @@ adb(){
 		fi
 	fi
 }
+
+
+
+
+adb_remover(){
+
+
+
+	if [ "$Tumbleweed" == "Tumbleweed" ] || [ "$tumbleweed" == "tumbleweed" ];then
+
+		
+		
+
+		sudo rm /etc/zypp/repos.d/GNorth.repo
+		sudo rm /etc/zypp/repos.d/ahjolinna.repo
+		sudo rm /etc/zypp/repos.d/mrbadguy.repo
+
+		sudo zypper refresh
+		sudo zypper -n remove android-tools
+
+	elif [ "$leap152" == "15.2" ];then
+
+
+
+		sudo rm /etc/zypp/repos.d/test.repo
+
+		sudo zypper refresh
+		sudo zypper -n remove android-tools
+
+
+	elif [ "$leap153" == "15.3" ];then
+		
+		sudo rm /etc/zypp/repos.d/test.repo
+		
+		sudo rm /etc/zypp/repos.d/Lietukas.repo
+		
+		sudo zypper refresh
+		sudo zypper install android-tools
+
+
+	elif [ "$leap154" == "15.4" ];then
+
+
+		sudo rm /etc/zypp/repos.d/test.repo
+
+		sudo rm /etc/zypp/repos.d/GNorth.repo
+
+		sudo rm /etc/zypp/repos.d/erbster0815.repo
+
+		sudo rm /etc/zypp/repos.d/ahjolinna.repo
+		
+		sudo rm /etc/zypp/repos.d/mrbadguy.repo
+
+		sudo zypper refresh
+		sudo zypper -n remove android-tools
+
+	elif [ "$leap155" == "15.5" ];then
+
+		sudo rm /etc/zypp/repos.d/test.repo
+
+		sudo rm /etc/zypp/repos.d/Herbster0815.repo
+
+
+		sudo zypper refresh
+		sudo zypper -n remove android-tools
+	else
+		echo "Can not Detect Distibutions"
+	fi
+}
+
+
+
+
+
+
 
 
 
@@ -1249,6 +1538,35 @@ clamav(){
 }
 
 
+clamav_remover(){
+
+	if [ "$leap153" == "15.3" ];then
+		sudo rm /etc/zypp/repos.d/ecsos.repo
+		sudo zypper refresh
+		sudo zypper -n remove clamav
+	elif [ "$leap154" == "15.4" ];then
+		echo "=============== Leap 15.4 ================="
+		sudo rm /etc/zypp/repos.d/ecsos.repo
+		sudo zypper refresh
+		sudo zypper -n remove clamav
+	elif [ "$leap155" == "15.5" ];then
+		sudo rm /etc/zypp/repos.d/ecsos.repo
+		sudo zypper refresh
+		sudo zypper -n remove clamav
+	elif [ "$Tumbleweed" == "Tumbleweed" ] || [ "$tumbleweed" == "tumbleweed" ];then
+		sudo rm /etc/zypp/repos.d/ecsos.repo
+		sudo zypper refresh
+		sudo zypper -n remove clamav
+	fi
+
+
+
+
+
+
+}
+
+
 maldet(){
 
 	if [ -f "/usr/bin/wget" ];then
@@ -1280,6 +1598,14 @@ maldet(){
 }
 
 
+malware_detect_remover(){
+
+	sudo rm /usr/local/sbin/maldet
+
+
+}
+
+
 rkhunter(){
 
 	sudo zypper -n install rkhunter
@@ -1293,6 +1619,13 @@ rkhunter(){
 }
 
 
+rkhunter_remover(){
+
+
+	sudo zypper -n remove rkhunter
+
+}
+
 lynis(){
 	sudo zypper -n install lynis
 
@@ -1301,6 +1634,15 @@ lynis(){
 	else
 		echo "Error on lynis installation"
 	fi
+}
+
+
+
+lynis_remover(){
+
+	sudo zypper -n remove lynis
+
+
 }
 
 
@@ -1314,7 +1656,14 @@ antivirus(){
 }
 
 
+antivirus_remover(){
 
+
+	clamav_remover
+	malware_detect_remover
+	rkhunter_remover
+	lynis_remover
+}
 
 
 fail2ban(){
@@ -1330,6 +1679,14 @@ fail2ban(){
 }
 
 
+
+fail2ban_remover(){
+
+	sudo zypper -n install fail2ban
+}
+
+
+
 tcpwrapper(){
 
 	sudo zypper -n install tcpd
@@ -1342,6 +1699,14 @@ tcpwrapper(){
 
 
 }
+
+
+tcpwrapper_remover(){
+
+
+	sudo zypper -n remove tcpd
+}
+
 
 firewalld(){
 
@@ -1357,6 +1722,11 @@ firewalld(){
 
 }
 
+
+firewalld_remover(){
+
+	sudo zypper -n remove firewalld
+}
 
 psad(){
 
@@ -1378,6 +1748,14 @@ psad(){
 }
 
 
+psad_remover(){
+
+	sudo rm /etc/psda
+
+}
+
+
+
 network_security(){
 
 	firewalld
@@ -1390,6 +1768,17 @@ network_security(){
 }
 
 
+network_security_remover(){
+
+
+	psad_remover
+	firewalld_remover
+	tcpwrapper_remover
+	fail2ban_remover
+
+}
+
+
 # WAF : Web Application Firewall
 
 apache_waf(){
@@ -1397,6 +1786,9 @@ apache_waf(){
 
 	sudo zypper -n install modsecurity
 }
+
+
+
 
 
 nginx_waf(){
@@ -1421,6 +1813,13 @@ openssh(){
 }
 
 
+
+openssh_remover(){
+
+
+	sudo zypper -n remove "openssh*"
+}
+
 sshfs(){
 
 
@@ -1435,6 +1834,11 @@ sshfs(){
 }
 
 
+sshfs_remover(){
+
+	sudo zypper -n remove sshfs
+}
+
 
 usbguard(){
 	sudo zypper -n install usbguard
@@ -1447,6 +1851,12 @@ usbguard(){
 
 }
 
+usbguard_remover(){
+
+
+	sudo zypper -n remove usbguard
+}
+
 jpg(){
 
 	sudo zypper -n install jpegotim
@@ -1456,6 +1866,14 @@ jpg(){
 	else
 		echo "Error on jpegoptim installation"
 	fi
+
+}
+
+
+jpgoptim_remover(){
+
+	sudo zypper -n remove jpegotim
+
 
 }
 
@@ -1473,6 +1891,12 @@ png(){
 }
 
 
+optipng_remover(){
+
+	sudo zypper -n remove optipng
+
+}
+
 exif(){
 
 	sudo zypper install exiftool
@@ -1485,6 +1909,13 @@ exif(){
 
 }
 
+
+exiftool_remover(){
+	sudo zypper -n remove exiftool
+}
+
+
+
 image_optimizer(){
 
 
@@ -1494,6 +1925,14 @@ image_optimizer(){
 
 }
 
+
+
+image_optimizer_remover(){
+
+	jpegotim_remover
+	optipng_remover
+	exiftool_remover
+}
 
 
 telegram(){
@@ -1511,6 +1950,17 @@ telegram(){
 }
 
 
+
+telegram_remover(){
+
+	sudo zypper -n remove telegram
+	sudo rm /usr/bin/Telegram
+	sudo rm /usr/bin/Telegram_Updater
+	sudo rm /opt/Telegram
+	sudo rm /home/$USER/Downloads/Telegram
+
+}
+
 ansible(){
 
 	sudo zypper -n install ansible
@@ -1521,11 +1971,13 @@ ansible(){
 		echo "Error on Ansible installation"
 	fi
 
-
-
 }
 
 
+ansible_remover(){
+
+	sudo zypper -n remove ansible
+}
 
 
 puppet_repo(){
@@ -1562,7 +2014,11 @@ puppet(){
 }
 
 
+puppet_remover(){
 
+	sudo zypper -n remove puppet-agent
+	sudo rm /opt/puppetlabs/bin/puppet
+}
 
 tuned(){
 
@@ -1577,7 +2033,10 @@ tuned(){
 }
 
 
+tuned_remover(){
 
+	sudo zypper -n remove tuned tuned-utils tuned-utils-systemtap
+}
 
 
 
@@ -1596,6 +2055,10 @@ htop(){
 }
 
 
+htop_remover(){
+	sudo zypper -n remove htop
+}
+
 munin(){
 
 	
@@ -1610,7 +2073,7 @@ munin(){
 
 
 
-munin_remove(){
+munin_remover(){
 
 	sudo zypper -n remove FastCGI fcgiwrap fcgiwrap-nginx libdbi3 libfcgi0 librrd8 logdigest logtail munin munin-node perl-CGI perl-Crypt-DES perl-Crypt-Rijndael perl-Date-Manip perl-FastCGI perl-File-Copy-Recursive perl-File-Path perl-HTML-Template perl-IO-Socket-INET6 perl-Log-Log4perl perl-Net-Server perl-Net-SNMP perl-rrdtool perl-Socket6 rrdtool spawn-fcgi sysstat
 
@@ -1647,7 +2110,9 @@ terraform(){
 
 
 
-
+terraform_remover(){
+	sudo zypper -n remove "terraform*"
+}
 
 
 
@@ -1658,7 +2123,7 @@ develope(){
 	python36=`ls /usr/bin | grep -o "^python3.6"` # check python version for 3.6
 	python39=`ls /usr/bin | grep -o "^python3.9"` # check python version for 3.9 
 	if [ "$python36" != "3.6" ];then
-		sudo zypper install -n python39
+		sudo zypper -n install python39
 		sudo pip3.9 install virtualenv
 		if [ -f "/usr/bin/code" ];then
 			code --install-extension ajanuw.bs5
@@ -1721,58 +2186,58 @@ develope(){
 
 # Develper
 
-develope(){
+develope_remover(){
 
 	version_check=`python3 --version | grep -o "3.6*"`
 	if [ "$version_check" == "3.6" ];then
-		sudo zypper install -n python39
-		sudo pip3.9 install virtualenv
+		sudo zypper -n  uninstall python39
+		sudo pip3.9 uninstall virtualenv
 		if [ -f "/usr/bin/code" ];then
-			code --install-extension ajanuw.bs5
-			code --install-extension cstrap.flask-snippets
-			code --install-extension ecmel.vscode-html-css
-			code --install-extension WyattFerguson.jinja2-snippet-kit
-			code --install-extension donjayamanne.jquerysnippets
-			code --install-extension tushortz.python-extended-snippets
-			code --install-extension KevinRose.vsc-python-indent
-			code --install-extension ms-vscode.cpptools
-			code --install-extension rogalmic.bash-debug
+			code --uninstall-extension ajanuw.bs5
+			code --uninstall-extension cstrap.flask-snippets
+			code --uninstall-extension ecmel.vscode-html-css
+			code --uninstall-extension WyattFerguson.jinja2-snippet-kit
+			code --uninstall-extension donjayamanne.jquerysnippets
+			code --uninstall-extension tushortz.python-extended-snippets
+			code --uninstall-extension KevinRose.vsc-python-indent
+			code --uninstall-extension ms-vscode.cpptools
+			code --uninstall-extension rogalmic.bash-debug
 		else
 			vscode
 
-			code --install-extension ajanuw.bs5
-			code --install-extension cstrap.flask-snippets
-			code --install-extension ecmel.vscode-html-css
-			code --install-extension WyattFerguson.jinja2-snippet-kit
-			code --install-extension donjayamanne.jquerysnippets
-			code --install-extension tushortz.python-extended-snippets
-			code --install-extension KevinRose.vsc-python-indent
-			code --install-extension ms-vscode.cpptools
-			code --install-extension rogalmic.bash-debug
+			code --uninstall-extension ajanuw.bs5
+			code --uninstall-extension cstrap.flask-snippets
+			code --uninstall-extension ecmel.vscode-html-css
+			code --uninstall-extension WyattFerguson.jinja2-snippet-kit
+			code --uninstall-extension donjayamanne.jquerysnippets
+			code --uninstall-extension tushortz.python-extended-snippets
+			code --uninstall-extension KevinRose.vsc-python-indent
+			code --uninstall-extension ms-vscode.cpptools
+			code --uninstall-extension rogalmic.bash-debug
 		fi
 	else
 		if [ -f "/usr/bin/code" ];then
-			code --install-extension ajanuw.bs5
-			code --install-extension cstrap.flask-snippets
-			code --install-extension ecmel.vscode-html-css
-			code --install-extension WyattFerguson.jinja2-snippet-kit
-			code --install-extension donjayamanne.jquerysnippets
-			code --install-extension tushortz.python-extended-snippets
-			code --install-extension KevinRose.vsc-python-indent
-			code --install-extension ms-vscode.cpptools
-			code --install-extension rogalmic.bash-debug
+			code --uninstall-extension ajanuw.bs5
+			code --uninstall-extension cstrap.flask-snippets
+			code --uninstall-extension ecmel.vscode-html-css
+			code --uninstall-extension WyattFerguson.jinja2-snippet-kit
+			code --uninstall-extension donjayamanne.jquerysnippets
+			code --uninstall-extension tushortz.python-extended-snippets
+			code --uninstall-extension KevinRose.vsc-python-indent
+			code --uninstall-extension ms-vscode.cpptools
+			code --uninstall-extension rogalmic.bash-debug
 		else
 			vscode
 
-			code --install-extension ajanuw.bs5
-			code --install-extension cstrap.flask-snippets
-			code --install-extension ecmel.vscode-html-css
-			code --install-extension WyattFerguson.jinja2-snippet-kit
-			code --install-extension donjayamanne.jquerysnippets
-			code --install-extension tushortz.python-extended-snippets
-			code --install-extension KevinRose.vsc-python-indent
-			code --install-extension ms-vscode.cpptools
-			code --install-extension rogalmic.bash-debug
+			code --uninstall-extension ajanuw.bs5
+			code --uninstall-extension cstrap.flask-snippets
+			code --uninstall-extension ecmel.vscode-html-css
+			code --uninstall-extension WyattFerguson.jinja2-snippet-kit
+			code --uninstall-extension donjayamanne.jquerysnippets
+			code --uninstall-extension tushortz.python-extended-snippets
+			code --uninstall-extension KevinRose.vsc-python-indent
+			code --uninstall-extension ms-vscode.cpptools
+			code --uninstall-extension rogalmic.bash-debug
 		fi
 	fi
 
@@ -1797,7 +2262,57 @@ openstack(){
 
 
 
+openstack_remover(){
 
+	sudo zypper -n remove "openstack*"
+}
+
+man(){
+
+	echo "suse Package Manager"
+	echo "suse <command> "
+	echo "--whereis : Each software shows in which repository it is located or which repositories provide this software. "
+	echo "> example : suse --whereis vlc"
+	echo "************************************************"
+	echo "--howinstall : It shows the installation steps. It shows which steps you should go through to install the relevant software on your system."
+	echo "> example : suse --howinstall vlc"
+	echo "************************************************"
+	echo "--info : show information"
+	echo"> example : suse --info"
+	echo "************************************************"
+	echo "man : suse man ; show manuals"
+	echo "************************************************"
+	echo "--install : use this command to install a software"
+	echo "> exapmle : suse install vscode"
+	echo "************************************************"
+	echo "--remove : use this command to remove a software"
+	echo "> example: suse --remove"
+	echo "************************************************"
+	echo "--list-app : List Installed apps "
+	echo "example : suse --list-app"
+	echo "************************************************"
+	echo "--search-app : Serach in installed Apps"
+	echo "> example : suse --search-app vlc"
+	echo "************************************************"
+	echo "--clean-unneed : clean out all unneeded autoinstalled dependencies "
+    echo "> exmple : suse --clean-unneed"
+	echo "************************************************"
+	echo "--suport-sytems : Which distributions does this package manager support"
+    echo "> example : suse --support-systems"
+	echo "************************************************"
+	echo "--list-repo : list of repositories in system" 
+	echo "> example : suse --list-repo"
+	echo "************************************************"
+	echo "--update : update Packages "
+	echo "> example : suse --update"
+	echo "************************************************"
+	echo "--upgrade : upgrade packages "
+    echo "> example : suse --upgrade"
+	echo "************************************************"
+	echo "--dist-upgrade : Distribution Upgrade "
+	echo "> example : suse --dist-upgrade"
+
+}
 
 
 
@@ -1866,7 +2381,7 @@ if [ "$0" == "./suse" ];then
 		fi
 	
 	elif [ "$1" == "--clean-unneed" ];then
-		clean_unneeded
+		remove_unneeded
 
 	elif [ "$1" == "--help" ] || [ "$1" == "--Help" ] || \
 		[ "$1" == "--HELP" ] || [ "$1" == "man" ] || \
@@ -1881,9 +2396,299 @@ if [ "$0" == "./suse" ];then
 	elif [ "$1" == "--search-app" ];then
 		rpm -qa | grep $2
 
+
+
+	elif [ "$1" == "--app-count" ];then
+		app_count=`rpm -qa | wc -l`
+		echo "Number of Installed App : $app_count"
+
+
+
 	elif [ "$1" == "--list-repo" ];then
 		list_repo
+
+
+	# Remover
+	## The uninstaller tries to remove the software along with everything that was added during installation
+	## For Exapmle Repositories
+	## Finally, it will automatically run the clean_unneeded script
+
+	elif [ "$1" == "--remove" ];then
+		if [ "$2" == "mariadb" ] || [ "$2" == "mariaDB" ] || \
+			[ "$2" == "MariaDB" ];then
+				mariadb_remover
+				remove_unneeded
+		elif [ "$2" == "postgresql" ] || [ "$2" == "PostgreSQL" ] || \
+			[ "$2" == "postgreSQL" ];then
+				postgre_remover
+				remove_unneeded 
+		elif [ "$2" == "adb" ] || [ "$2" == "Android-Dubug-Bridge" ] || \
+			[ "$2" == "ADB" ] || [ "$2" == "Android_Dubug_Bridge" ] || \
+				[ "$2" == "android_dubug_bridge" ] || [ "$2" == "android-dubug-bridge" ] || \
+					[ "$2" == "Android_Tools" ] || [ "$2" == "android_tools" ];then
+							adb_remover
+							remove_unneeded
 		
+		elif [ "$2" == "vlc" ] || [ "$2" == "VLC" ];then 
+				vlc_remover
+				remove_unneeded
+
+		elif [ "$2" == "vscode" ] || [ "$2" == "code" ] || \
+			[ "$2" == "VScode" ] || [ "$2" == "visual_stdio_code" ];then
+				code_remover
+				remove_unneeded
+
+		elif [ "$2" == "clamAV" ] || [ "$2" == "clamav" ];then
+				clamav_remover
+				remove_unneeded
+		elif [ "$2" == "git" ] || [ "$2" == "Git" ] || \
+			[ "$2" == "GIT" ];then
+				git_remover
+				remove_unneeded
+		elif [ "$2" == "gcc" ] || [ "$2" == "GCC" ] || \
+			[ "$2" == "Gcc" ];then
+				gcc_remover
+				remove_unneeded
+		elif [ "$2" == "zsh" ] || [ "$2" == "ZSH" ] || \
+			[ "$2" == "Zsh" ];then
+				zsh_remover
+				remove_unneeded		
+		
+		elif [ "$2" == "Basic_Tools" ] || [ "$2" == "basic_tools" ] || \
+			[ "$2" == "BasicTools" ] || [ "$2" == "basictools" ];then		
+				basic_tools_remover
+				remove_unneeded
+			
+		elif [ "$2" == "ohmyzsh" ] || [ "$2" == "OhMyZsh" ] || \
+			[ "$2" == "oh-my-zsh" ];then
+				ohmyzsh_remover		
+				remove_unneeded
+
+		elif [ "$2" == "command_line_tools" ] || [ "$2" == "Command_Line_Tools" ] || \
+			[ "$2" == "CommandLineTools" ] || [ "$2" == "COMMAND_LINE_TOOLS" ];then
+				command_line_tools_remover
+				remove_unneeded
+
+		elif [ "$2" == "lshw" ] || [ "$2" == "lshardware" ] || \
+			[ "$2" == "listhardware" ];then
+				sudo zypper -n remove lshw
+				remove_unneeded
+				
+		elif [ "$2" == "openconnect" ] || [ "$2" == "open-connect" ] || \
+			[ "$2" == "open_connect" ];then
+				openconnect_remover
+				remove_unneeded
+						
+		elif [ "$2" == "openvpn" ] || [ "$2" == "open-vpn" ] || \
+			[ "$2" == "OpenVpn" ];then
+				openvpn_remover
+				remove_unneeded
+
+
+		elif [ "$2" == "VIM" ] || [ "$2" == "Vim" ] || \
+			[ "$2" == "vim" ];then
+				
+				vim_remover
+				remove_unneeded
+
+		elif [ "$2" == "sqlite" ] || [ "$2" == "SQlite" ] || \
+			[ "$2" == "SQLite" ];then
+				sqlite_remover
+				remove_unneeded
+
+		elif [ "$2" == "influx" ] || [ "$2" == "influxdb" ] || \
+			[ "$2" == "InfluxDB" ];then
+				influx_remover
+				remove_unneeded
+						
+		elif [ "$2" == "mongoDB" ] || [ "$2" == "mongo" ] || \
+			[ "$2" == "MongoDB" ];then
+				mongodb_remover
+				remove_unneeded
+						
+		elif [ "$2" == "nginx" ] || [ "$2" == "Nginx" ] || \
+			[ "$2" == "NGINX" ];then
+				nginx_remover
+				remove_unneeded
+		
+		elif [ "$2" == "Apache" ] || [ "$2" == "Apache2" ] || \
+			[ "$2" == "apache" ] || [ "$2" == "apache2" ];then						
+				apache_remover
+				remove_unneeded
+
+		elif [ "$2" == "nmap" ] || [ "$2" == "Nmap" ] || \
+			[ "$2" == "NMAP" ];then
+				nmap_remover
+				remove_unneeded
+
+		elif [ "$2" == "TcpDump" ] || [ "$2" == "tcpdump" ] || \
+			[ "$2" == "TCPDUMP" ];then
+				tcpdump_remover
+				remove_unneeded
+
+		elif [ "$2" == "wireshark" ] || [ "$2" == "Wireshark" ] || \
+			[ "$2" == "WireShark" ];then
+
+				wireshark_remover
+				remove_unneeded
+
+		elif [ "$2" == "iptraf" ] || [ "$2" == "iptraf-ng" ] || \
+			[ "$2" == "iptrafng" ];then
+				iptraf_remover
+				remove_unneeded
+
+		elif [ "$2" == "network_tools_all" ] || [ "$2" == "Network_Tools_All" ] || \
+			[ "$2" == "NetworkToolsAll" ] || [ "$2" == "nettoolsall" ];then
+				network_tools_remover
+				remove_unneeded
+
+
+		elif [ "$2" == "docker" ] || [ "$2" == "Docker" ] || \
+			[ "$2" == "DOCKER" ];then
+				docker_remover
+				remove_unneeded
+
+
+		elif [ "$2" == "clamAV" ] || [ "$2" == "clamav" ] || \
+			[ "$2" == "ClamAV" ];then
+				clamav_remover
+				remove_unneeded
+
+		elif [ "$2" == "maldet" ] || [ "$2" == "malware_detect" ] || \
+			[ "$2" == "malware-detect" ] || [ "$2" == "Maldet" ] || \
+				[ "$2" == "Malware-Detect" ] || [ "$2" == "LMD" ];then
+					maldet_remover
+					remove_unneeded
+
+
+		elif [ "$2" == "rkhunter" ] || [ "$2" == "Rkhunter" ] || \
+			[ "$2" == "RootKitHunter" ] || [ "$2" == "rootkithunter" ];then
+				rkhunter_remover
+				remove_unneeded
+
+		elif [ "$2" == "lynis" ] || [ "$2" == "Lynis" ] || \
+			[ "$2" == "LYNIS" ];then
+				lynis_remover
+				remove_unneeded
+
+		elif [ "$2" == "AV" ] || [ "$2" == "Antivirus" ] || \
+			[ "$2" == "antivirus" ];then
+				echo "$red This command will remove all antivirus packages from your system $reset"
+				antivirus_remover
+				remove_unneeded
+
+		elif [ "$2" == "fail2ban" ] || [ "$2" == "Fail2ban" ] || \
+			[ "$2" == "FAIL2BAN" ];then
+				fail2ban_remover
+				remove_unneeded	
+
+
+		elif [ "$2" == "tcpwrapper" ] || [ "$2" == "tcp-wrapper" ] || \
+			[ "$2" == "TcpWrapper" ] || [ "$2" == "Tcp-Wrapper" ];then
+				tcpwrapper_remover
+				remove_unneeded
+
+
+		elif [ "$2" == "firewalld" ] || [ "$2" == "FirewallD" ] || \
+			[ "$2" == "Firewall-Cmd" ] || [ "$2" == "firewall-cmd" ];then
+				firewalld_remover
+				remove_unneeded
+
+		elif [ "$2" == "psad" ] || [ "$2" == "PSad" ] || \
+			[ "$2" == "PSAD" ];then
+				psad_remover
+				remove_unneeded
+
+		elif [ "$2" == "network_security" ] || [ "$2" == "Network_Securiey" ] || \
+			[ "$2" == "NetworkSecurity" ];then
+				network_security_remover
+				remove_unneeded
+
+		elif [ "$2" == "openssh" ] || [ "$2" == "Openssh" ] || \
+				[ "$2" == "Openssh-server" ] || [ "$2" == "openssh-server" ];then
+					openssh_remover
+					remove_unneeded
+		elif [ "$2" == "sshfs" ] || [ "$2" == "SSHFS" ] || \
+				[ "$2" == "fuse-sshfs" ] || [ "$2" == "Fuse-SSHFS" ];then
+					sshfs_remover
+					remove_unneeded
+
+		elif [ "$2" == "usbguard" ] || [ "$2" == "USBGuard" ] || \
+			[ "$2" == "usb-guard" ] || [ "$2" == "USB-Guard" ];then
+				usbguard_remover
+				remove_unneeded
+
+		elif [ "$2" == "jpegoptim" ] || [ "$2" == "jpgoptim" ] || \
+			[ "$2" == "JpegOptim" ] || [ "$2" == "jpegoptimizer" ] || \
+				[ "$2" == "jpgoptimizer" ];then
+					jpgoptim_remover
+					remove_unneeded
+
+
+		elif [ "$2" == "optimpng" ] || [ "$2" == "optipng" ] || \
+			[ "$2" == "optimizepng" ] || [ "$2" == "optimizePNG" ];then
+				optipng_remover
+				remove_unneeded
+
+		elif [ "$2" == "exif-remover" ] || [ "$2" == "Exif-Remover" ] || \
+			[ "$2" == "ExifRemover" ] || [ "$2" == "exiftools" ] || \
+				[ "$2" == "Exif-Tools" ] || [ "$2" == "exif-tools" ];then
+					exiftool_remover
+					remove_unneeded
+
+
+		elif [ "$2" == "image-optimizer" ] || [ "$2" == "imageoptimizer" ] || \
+			[ "$2" == "Image-Optmizer" ] || [ "$2" == "Image_Optmizer" ] || \
+				[ "$2" == "image_optmizer" ];then
+					image_optimizer_remover
+					remove_unneeded
+
+
+		elif [ "$2" == "telegram" ] || [ "$2" == "Telegram-Desktop" ] || \
+			[ "$2" == "Telegram" ] || [ "$2" == "telegram-desktop" ];then
+				telegram_remover
+				remove_unneeded
+
+		elif [ "$2" == "Ansible" ] || [ "$2" == "ansible" ] || \
+			[ "$2" == "ANSIBLE" ];then
+				ansible_remover
+				remove_unneeded
+
+		elif [ "$2" == "tuned" ] || [ "$2" == "Tuned" ] || \
+			[ "$2" == ""tuned ];then
+				tuned_remover
+				remove_unneeded
+
+		elif [ "$2" == "htop" ] || [ "$2" == "Htop" ];then
+				htop_remover
+				remove_unneeded
+
+		elif [ "$2" == "munin" ] || [ "$2" == "Munin" ];then
+				munin_remover
+				remove_unneeded
+
+		elif [ "$2" == "terraform" ] || [ "$2" == "Terraform" ] || \
+			[ "$2" == "TERRAFORM" ];then
+				terraform_remover
+				remove_unneeded
+
+		elif [ "$2" == "develope" ] || [ "$2" == "Develope" ] || \
+			[ "$2" == "DEVELOPE" ];then
+
+				develope_remover
+				remove_unneeded
+
+		elif [ "$2" == "openstack" ] || [ "$2" == "open-stack" ] || \
+			[ "$2" == "OpenStack" ];then
+				openstack_remover
+				remove_unneeded
+		else
+				echo "Sorry.App Not Found in Repository"
+		fi
+		
+		
+
+
 	elif [ "$1" == "--document" ];then
 		if [ "$2" == "apache" ];then
 			echo "https://doc.opensuse.org/documentation/leap/reference/html/book-reference/cha-apache2.html"
@@ -1900,7 +2705,11 @@ if [ "$0" == "./suse" ];then
 		elif [ "$2" == "openstack" ] || [ "$2" == "open_stack" ] || [ "$2" == "OpenStack" ] || [ "$2" == "Open_Stack" ];then
 			echo "https://docs.openstack.org/mitaka/install-guide-obs/"
 		fi
+
+
 	# INSTALL Block
+	
+	
 	elif [ "$1" == "--install" ];then
 		if [ "$2" == "android_debug_bridge" ] || [ "$2" == "adb" ] || \
 			[ "$2" == "Android_Debug_Bridge" ] || [ "$2" == "ADB" ];then
