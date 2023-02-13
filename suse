@@ -2386,8 +2386,9 @@ if [ "$0" == "./suse" ];then
 
 		fi
 	
-	elif [ "$1" == "--clean-unneed" ];then
-		remove_unneeded
+	elif [ "$1" == "--clean-unneed" ] || [ "$1" == "--remove-unneed" ] || \
+			[ "$1" == "--purge" ];then
+				remove_unneeded
 
 	elif [ "$1" == "--help" ] || [ "$1" == "--Help" ] || \
 		[ "$1" == "--HELP" ] || [ "$1" == "man" ] || \
