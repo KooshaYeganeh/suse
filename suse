@@ -665,6 +665,9 @@ info(){
 	echo "- show repositories"
 	echo "- show Installation Manual"
 	echo "- Support for software that is not supported by the main package manager"
+	echo "- My own open source software has also been added to this script."
+	echo "- Recommending documents to read about the requested software"
+	echo " - Install and Remove Packages"
 	echo ""
 	echo "$yellow ========================================================================= $reset"
 	echo ""
@@ -2278,14 +2281,14 @@ man(){
 	echo "> example : suse --howinstall vlc"
 	echo "************************************************"
 	echo "--info : show information"
-	echo"> example : suse --info"
+	echo "> example : suse --info"
 	echo "************************************************"
 	echo "man : suse man ; show manuals"
 	echo "************************************************"
 	echo "--install : use this command to install a software"
 	echo "> exapmle : suse install vscode"
 	echo "************************************************"
-	echo "--remove : use this command to remove a software"
+	echo "--remove : use this command to remove a software and try to remove dependencies"
 	echo "> example: suse --remove"
 	echo "************************************************"
 	echo "--list-app : List Installed apps "
@@ -2311,6 +2314,9 @@ man(){
 	echo "************************************************"
 	echo "--dist-upgrade : Distribution Upgrade "
 	echo "> example : suse --dist-upgrade"
+	echo "************************************************"
+	echo "--document : show recomended Documents Links "
+	echo "> example : suse --document clamav"
 
 }
 
@@ -2686,7 +2692,7 @@ if [ "$0" == "./suse" ];then
 				echo "Sorry.App Not Found in Repository"
 		fi
 		
-		
+		au
 
 
 	elif [ "$1" == "--document" ];then
