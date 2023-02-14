@@ -2289,21 +2289,34 @@ admin_fstep(){
 	sudo zypper -n install lshw
 	sudo zypper -n install demidecode
 	
-	sleep 2
-	echo "$red Note : You Should Run this Script with sudo $reset"
-
 	cd /tmp	
 	mkdir KYGnus
 	cd KYGnus
 	wget https://github.com/KooshaYeganeh/Admin_Fstep/archive/refs/heads/main.zip
-	unzip main.zip
-	cd Admin_Fstep-main
-	sudo mv /usr/bin
-	cd
-	sleep 1
-	echo "Admin FStep Installed $green [ OK ] $reset"
+	if [ -f "/tmp/KYGnus/main.zip" ];then
+
+		unzip main.zip
+		cd Admin_Fstep-main
+		sudo mv Fstep /usr/bin
+		cd
+		rm -rf /tmp/KYGnus
+		rm /tmp/main.zip
+		sleep 2
+		echo "$red Note : You Should Run this Script with sudo $reset"
+		echo "Admin FStep Installed $green [ OK ] $reset"
+	else
+		echo "$red Sorry.Can Not Get File From Source $reset"
+		echo "$red check Network Connection and Try Again $reset"
+	fi
 }
 
+
+
+admin_fstep_remover(){
+
+	sudo rm /usr/bin/Fstep
+	echo "Admin FStep Removed $green [ OK ] $reset"
+}
 
 
 # Scan your WordPress WebSite Simply
@@ -2315,19 +2328,32 @@ wpscan(){
 	mkdir KYGnus
 	cd KYGnus
 	wget https://github.com/KooshaYeganeh/WPscan/archive/refs/heads/main.zip
+	if [ -f "/tmp/KYGnus/main.zip" ];then
+		unzip main.zip
+		cd WPscan-main
+		./install
+		sudo mv wpscan /usr/bin
+		rm -rf /tmp/KYGnus
+		rm /tmp/main.zip
+		cd
+		sleep 1
+		echo "Wpscan Installed $green [ OK ] $reset"
+	else
+		echo "$red Sorry.Can Not Get File From Source $reset"
+		echo "$red check Network Connection and Try Again $reset"
+	fi
 
-	unzip main.zip
-	cd WPscan-main
-	./install
-	sudo mv wpscan /usr/bin
 
-	cd
-
-	sleep 1
-	echo "Wpscan Installed $green [ OK ] $reset"
 
 }
 
+
+wpscan_remover(){
+
+	sudo rm /usr/bin/wpscan
+	echo "Wpscan Removed $green [ OK ] $reset"
+
+}
 
 
 kygnus_guard(){
@@ -2342,6 +2368,11 @@ kygnus_guard(){
 	if [ -f "/tmp/KYGnus/main.zip" ];then
 		unzip main.zip && mv KYGnus-Guard-community-main KYGnus_Guard
 		sudo mv KYGnus_Guard /opt
+		cd /opt/KYGnus_Guard
+		
+		# Create SoftLink From Main .sh File
+		cd /usr/bin
+		sudo ln -s /opt/KYGnus_Guard/KYGnus_Guard.sh KYGnus_Guard
 		cd /opt/KYGnus_Guard
 		
 		sudo pip3 install -r requirements.txt
@@ -2424,6 +2455,10 @@ kygnus_guard(){
 		wget https://github.com/KooshaYeganeh/KYGnus-Guard-community/archive/refs/heads/main.zip
 		unzip main.zip && mv KYGnus-Guard-community-main KYGnus_Guard
 		sudo mv KYGnus_Guard /opt
+		cd /opt/KYGnus_Guard
+
+		cd /usr/bin
+		sudo ln -s /opt/KYGnus_Guard/KYGnus_Guard.sh KYGnus_Guard
 		cd /opt/KYGnus_Guard
 		
 		sudo pip3 install -r requirements.txt
@@ -2508,6 +2543,601 @@ kygnus_guard(){
 
 
 
+kygnus_guard_remover(){
+
+		sudo iptables -F
+		cd /opt/KYGnus_Guard
+		sudo pip3 uninstall -r requirements.txt
+		cd ..
+		sudo rm -rf KYGnus_Guard
+		sudo rm /usr/bin/KYGnus_Guard.sh
+		mysql --execute="DROP DATABASE malware;"
+		sudo rm /etc/systemd/system/KYGnus_Guard.service
+		sudo rm -rf /var/log/KYGnus_Guard
+		sudo rm -rf /etc/KYGnus_Guard
+
+		echo "$green KYGnus Guard Removed [ OK ] $reset"
+}
+
+
+
+
+
+
+
+Android_Malware_Detect_App()
+{
+	echo "check Android Debug Bridge Installed or Not for opensuse Leap 15.4"
+	echo"sudo zypper addrepo https://download.opensuse.org/repositories/home:AndnoVember:test/15.4/home:AndnoVember:test.repo"
+	echo "sudo zypper refresh"
+	echo "sudo zypper -n install android-tools"
+	echo "check This Link For More Details:https://github.com/KooshaYeganeh/AMD"
+
+}
+
+Android_Malware_Detect(){
+
+	if [ -f "/usr/bin/adb" ];then
+		if [ -f "/usr/bin/mariadb" ];then
+			if [ -f "/usr/bin/python3.9" ];then
+				sudo pip3.9 install virtualenv
+				mkdir /home/$USER/AMD && cd /home/$USER/AMD
+				wget https://github.com/KooshaYeganeh/AMD/archive/refs/heads/main.zip && unzip main.zip && mv AMD-main Source && cd Source && mv config.py.sample config.py && rm main.zip
+				if [ -f "/usr/local/bin/virtualenv" ];then
+					# check python virtualenv Installed on system
+					virtualenv venv && source vemv/bin/activate
+					pip3.9 install -r requirements.txt
+					# Install python Packages
+					sudo mv AMD /usr/bin
+					# Create Softlink From config File
+					sudo mkdir /etc/AMD && cd /etc/AMD && sudo ln -s /home/$USER/AMD/Source/config.py AMD.conf
+					# check Passwqord and Username of cnf File of Mariadb To AutoLogin
+					client=`cat /etc/my.cnf | grep -o "\[client\]"`
+					cnf_user=`cat /etc/my.cnf | grep -o "user"`
+					cnf_password=`cat /etc/my.cnf | grep -o "password"`
+
+					if [ "$client" == "[client]" ] && \
+					   [ "cnf_user" == "user" ] && \
+					   [ "cnf_password" == "password" ];then
+						mysql --execute="CREATE DATABASE Android_Malware;"
+						mysql Android_Malware < ./Android_Malware.sql
+					else
+						printf "Enter mysql_user:"
+						read mysql_user
+						# Create Database and Restore Database 
+						mysql -u $mysql_user -p --execute="CREATE DATABASE Android_Malware;"
+						mysql -u $mysql_user -p Android_Malware < ./Android_Malware.sql
+					fi
+				else
+					sudo pip3.9 install virtualenv
+					virtualenv venv && source vemv/bin/activate
+					pip3.9 install -r requirements.txt
+					# Install python Packages
+					sudo mv AMD /usr/bin
+					# Create Softlink From config File
+					sudo mkdir /etc/AMD && cd /etc/AMD && sudo ln -s /home/$USER/AMD/Source/config.py AMD.conf
+					# check Passwqord and Username of cnf File of Mariadb To AutoLogin
+					client=`cat /etc/my.cnf | grep -o "\[client\]"`
+					cnf_user=`cat /etc/my.cnf | grep -o "user"`
+					cnf_password=`cat /etc/my.cnf | grep -o "password"`
+
+					if [ "$client" == "[client]" ] && \
+					   [ "cnf_user" == "user" ] && \
+					   [ "cnf_password" == "password" ];then
+						mysql --execute="CREATE DATABASE Android_Malware;"
+						mysql Android_Malware < ./Android_Malware.sql
+					else
+						printf "Enter mysql_user:"
+						read mysql_user
+						# Create Database and Restore Database 
+						mysql -u $mysql_user -p --execute="CREATE DATABASE Android_Malware;"
+						mysql -u $mysql_user -p Android_Malware < ./Android_Malware.sql
+					
+					fi
+				fi
+			else
+				sudo zypper -n install python39
+				sudo pip3.9 install virtualenv
+				mkdir /home/$USER/AMD && cd /home/$USER/AMD
+				wget https://github.com/KooshaYeganeh/AMD/archive/refs/heads/main.zip && unzip main.zip && mv AMD-main Source && cd Source && mv config.py.sample config.py && rm main.zip
+
+				virtualenv venv && source vemv/bin/activate
+				pip3.9 install -r requirements.txt
+				# Install python Packages
+				sudo mv AMD /usr/bin
+				# Create Softlink From config File
+				sudo mkdir /etc/AMD && cd /etc/AMD && sudo ln -s /home/$USER/AMD/Source/config.py AMD.conf
+				# check Passwqord and Username of cnf File of Mariadb To AutoLogin
+				client=`cat /etc/my.cnf | grep -o "\[client\]"`
+				cnf_user=`cat /etc/my.cnf | grep -o "user"`
+				cnf_password=`cat /etc/my.cnf | grep -o "password"`
+
+				if [ "$client" == "[client]" ] && \
+					[ "cnf_user" == "user" ] && \
+					[ "cnf_password" == "password" ];then
+					mysql --execute="CREATE DATABASE Android_Malware;"
+					mysql Android_Malware < ./Android_Malware.sql
+				else
+					printf "Enter mysql_user:"
+					read mysql_user
+					# Create Database and Restore Database 
+					mysql -u $mysql_user -p --execute="CREATE DATABASE Android_Malware;"
+					mysql -u $mysql_user -p Android_Malware < ./Android_Malware.sql
+				fi
+			fi
+		else
+			maradb
+			if [ -f "/usr/bin/python3.9" ];then
+				sudo pip3.9 install virtualenv
+				mkdir /home/$USER/AMD && cd /home/$USER/AMD
+				wget https://github.com/KooshaYeganeh/AMD/archive/refs/heads/main.zip && unzip main.zip && mv AMD-main Source && cd Source && mv config.py.sample config.py && rm main.zip
+				if [ -f "/usr/local/bin/virtualenv" ];then
+					# check python virtualenv Installed on system
+					virtualenv venv && source vemv/bin/activate
+					pip3.9 install -r requirements.txt
+					# Install python Packages
+					sudo mv AMD /usr/bin
+					# Create Softlink From config File
+					sudo mkdir /etc/AMD && cd /etc/AMD && sudo ln -s /home/$USER/AMD/Source/config.py AMD.conf
+					# check Passwqord and Username of cnf File of Mariadb To AutoLogin
+					client=`cat /etc/my.cnf | grep -o "\[client\]"`
+					cnf_user=`cat /etc/my.cnf | grep -o "user"`
+					cnf_password=`cat /etc/my.cnf | grep -o "password"`
+
+					if [ "$client" == "[client]" ] && \
+					   [ "cnf_user" == "user" ] && \
+					   [ "cnf_password" == "password" ];then
+						mysql --execute="CREATE DATABASE Android_Malware;"
+						mysql Android_Malware < ./Android_Malware.sql
+					else
+						printf "Enter mysql_user:"
+						read mysql_user
+						# Create Database and Restore Database 
+						mysql -u $mysql_user -p --execute="CREATE DATABASE Android_Malware;"
+						mysql -u $mysql_user -p Android_Malware < ./Android_Malware.sql
+					fi
+				else
+					sudo pip3.9 install virtualenv
+					virtualenv venv && source vemv/bin/activate
+					pip3.9 install -r requirements.txt
+					# Install python Packages
+					sudo mv AMD /usr/bin
+					# Create Softlink From config File
+					sudo mkdir /etc/AMD && cd /etc/AMD && sudo ln -s /home/$USER/AMD/Source/config.py AMD.conf
+					# check Passwqord and Username of cnf File of Mariadb To AutoLogin
+					client=`cat /etc/my.cnf | grep -o "\[client\]"`
+					cnf_user=`cat /etc/my.cnf | grep -o "user"`
+					cnf_password=`cat /etc/my.cnf | grep -o "password"`
+
+					if [ "$client" == "[client]" ] && \
+					   [ "cnf_user" == "user" ] && \
+					   [ "cnf_password" == "password" ];then
+						mysql --execute="CREATE DATABASE Android_Malware;"
+						mysql Android_Malware < ./Android_Malware.sql
+					else
+						printf "Enter mysql_user:"
+						read mysql_user
+						# Create Database and Restore Database 
+						mysql -u $mysql_user -p --execute="CREATE DATABASE Android_Malware;"
+						mysql -u $mysql_user -p Android_Malware < ./Android_Malware.sql
+					
+					fi
+				fi
+			else
+				sudo zypper -n install python39
+				sudo pip3.9 install virtualenv
+				mkdir /home/$USER/AMD && cd /home/$USER/AMD
+				wget https://github.com/KooshaYeganeh/AMD/archive/refs/heads/main.zip && unzip main.zip && mv AMD-main Source && cd Source && mv config.py.sample config.py && rm main.zip
+
+				virtualenv venv && source vemv/bin/activate
+				pip3.9 install -r requirements.txt
+				# Install python Packages
+				sudo mv AMD /usr/bin
+				# Create Softlink From config File
+				sudo mkdir /etc/AMD && cd /etc/AMD && sudo ln -s /home/$USER/AMD/Source/config.py AMD.conf
+				# check Passwqord and Username of cnf File of Mariadb To AutoLogin
+				client=`cat /etc/my.cnf | grep -o "\[client\]"`
+				cnf_user=`cat /etc/my.cnf | grep -o "user"`
+				cnf_password=`cat /etc/my.cnf | grep -o "password"`
+
+				if [ "$client" == "[client]" ] && \
+					[ "cnf_user" == "user" ] && \
+					[ "cnf_password" == "password" ];then
+					mysql --execute="CREATE DATABASE Android_Malware;"
+					mysql Android_Malware < ./Android_Malware.sql
+				else
+					printf "Enter mysql_user:"
+					read mysql_user
+					# Create Database and Restore Database 
+					mysql -u $mysql_user -p --execute="CREATE DATABASE Android_Malware;"
+					mysql -u $mysql_user -p Android_Malware < ./Android_Malware.sql
+				fi
+			fi
+		fi
+	else
+		adb
+			maradb
+			if [ -f "/usr/bin/python3.9" ];then
+				sudo pip3.9 install virtualenv
+				mkdir /home/$USER/AMD && cd /home/$USER/AMD
+				wget https://github.com/KooshaYeganeh/AMD/archive/refs/heads/main.zip && unzip main.zip && mv AMD-main Source && cd Source && mv config.py.sample config.py && rm main.zip
+				if [ -f "/usr/local/bin/virtualenv" ];then
+					# check python virtualenv Installed on system
+					virtualenv venv && source vemv/bin/activate
+					pip3.9 install -r requirements.txt
+					# Install python Packages
+					sudo mv AMD /usr/bin
+					# Create Softlink From config File
+					sudo mkdir /etc/AMD && cd /etc/AMD && sudo ln -s /home/$USER/AMD/Source/config.py AMD.conf
+					# check Passwqord and Username of cnf File of Mariadb To AutoLogin
+					client=`cat /etc/my.cnf | grep -o "\[client\]"`
+					cnf_user=`cat /etc/my.cnf | grep -o "user"`
+					cnf_password=`cat /etc/my.cnf | grep -o "password"`
+
+					if [ "$client" == "[client]" ] && \
+					   [ "cnf_user" == "user" ] && \
+					   [ "cnf_password" == "password" ];then
+						mysql --execute="CREATE DATABASE Android_Malware;"
+						mysql Android_Malware < ./Android_Malware.sql
+					else
+						printf "Enter mysql_user:"
+						read mysql_user
+						# Create Database and Restore Database 
+						mysql -u $mysql_user -p --execute="CREATE DATABASE Android_Malware;"
+						mysql -u $mysql_user -p Android_Malware < ./Android_Malware.sql
+					fi
+				else
+					sudo pip3.9 install virtualenv
+					virtualenv venv && source vemv/bin/activate
+					pip3.9 install -r requirements.txt
+					# Install python Packages
+					sudo mv AMD /usr/bin
+					# Create Softlink From config File
+					sudo mkdir /etc/AMD && cd /etc/AMD && sudo ln -s /home/$USER/AMD/Source/config.py AMD.conf
+					# check Passwqord and Username of cnf File of Mariadb To AutoLogin
+					client=`cat /etc/my.cnf | grep -o "\[client\]"`
+					cnf_user=`cat /etc/my.cnf | grep -o "user"`
+					cnf_password=`cat /etc/my.cnf | grep -o "password"`
+
+					if [ "$client" == "[client]" ] && \
+					   [ "cnf_user" == "user" ] && \
+					   [ "cnf_password" == "password" ];then
+						mysql --execute="CREATE DATABASE Android_Malware;"
+						mysql Android_Malware < ./Android_Malware.sql
+					else
+						printf "Enter mysql_user:"
+						read mysql_user
+						# Create Database and Restore Database 
+						mysql -u $mysql_user -p --execute="CREATE DATABASE Android_Malware;"
+						mysql -u $mysql_user -p Android_Malware < ./Android_Malware.sql
+					
+					fi
+				fi
+			else
+				sudo zypper -n install python39
+				sudo pip3.9 install virtualenv
+				mkdir /home/$USER/AMD && cd /home/$USER/AMD
+				wget https://github.com/KooshaYeganeh/AMD/archive/refs/heads/main.zip && unzip main.zip && mv AMD-main Source && cd Source && mv config.py.sample config.py && rm main.zip
+
+				virtualenv venv && source vemv/bin/activate
+				pip3.9 install -r requirements.txt
+				# Install python Packages
+				sudo mv AMD /usr/bin
+				# Create Softlink From config File
+				sudo mkdir /etc/AMD && cd /etc/AMD && sudo ln -s /home/$USER/AMD/Source/config.py AMD.conf
+				# check Passwqord and Username of cnf File of Mariadb To AutoLogin
+				client=`cat /etc/my.cnf | grep -o "\[client\]"`
+				cnf_user=`cat /etc/my.cnf | grep -o "user"`
+				cnf_password=`cat /etc/my.cnf | grep -o "password"`
+
+				if [ "$client" == "[client]" ] && \
+					[ "cnf_user" == "user" ] && \
+					[ "cnf_password" == "password" ];then
+					mysql --execute="CREATE DATABASE Android_Malware;"
+					mysql Android_Malware < ./Android_Malware.sql
+				else
+					printf "Enter mysql_user:"
+					read mysql_user
+					# Create Database and Restore Database 
+					mysql -u $mysql_user -p --execute="CREATE DATABASE Android_Malware;"
+					mysql -u $mysql_user -p Android_Malware < ./Android_Malware.sql
+				fi
+			fi
+		fi	
+
+}
+	
+
+
+clone_disk(){
+
+
+	cd /tmp 
+	mkdir KYGnus
+	cd KYGnus
+	wget https://github.com/KooshaYeganeh/clone-disk/archive/refs/heads/main.zip 
+	if [ -f "/tmp/KYGnus/main.zip" ];then
+		
+		unzip main.zip 
+		cd clone-disk-main 
+		sudo mv clone /usr/bin 
+		cd
+		rm -rf /tmp/KYGnus
+		rm -f /tmp/main.zip
+		if [ -f "/usr/bin/clone" ];then
+			echo "Clone Disk Insatlled [ OK ]"
+		else
+			echo "Error on Clone_Disk Installation"
+		fi
+	else
+		echo "Sorry.Can Not Get File From Sourec ERROR !!!!"
+		echo "check Network Connection and Try Again"
+
+	fi
+
+}	
+
+clone_disk_remover(){
+
+	rm /usr/bin/clone
+	echo "$green Clone Disk Removed [ OK ]"
+
+
+}
+
+
+
+
+perm_check(){
+
+	cd /tmp 
+	mkdir KYGnus
+	cd KYGnus
+	wget https://github.com/KooshaYeganeh/perm_check/archive/refs/heads/main.zip
+	if [ -f "/tmp/KYGnus/main.zip" ];then
+		
+		unzip main.zip 
+		cd perm_check-main
+		sudo mv permcheck /usr/bin
+		cd
+		rm -rf /tmp/KYGnus
+		rm -f /tmp/main.zip
+		if [ -f "/usr/bin/clone" ];then
+			echo "Clone Disk Insatlled [ OK ]"
+		else
+			echo "Error on Perm_check Installation"
+		fi
+	else
+		echo "Sorry.Can Not Get File From Sourec ERROR !!!!"
+		echo "check Network Connection and Try Again"
+
+	fi
+
+
+
+}
+
+
+perm_check_remover(){
+
+	rm /usr/bin/permcheck
+	echo "$green permcheck Removed [ OK ]"
+}
+
+
+lv(){
+
+
+	cd /tmp 
+	mkdir KYGnus
+	cd KYGnus
+	wget https://github.com/KooshaYeganeh/Linux_Verification/archive/refs/heads/main.zip
+	if [ -f "/tmp/KYGnus/main.zip" ];then
+		
+		unzip main.zip 
+		cd Linux_Verification-main
+		sudo mv LV /usr/bin/
+		cd
+		rm -rf /tmp/KYGnus
+		rm -f /tmp/main.zip
+		if [ -f "/usr/bin/LV" ];then
+			echo "Linux Verfication Insatlled [ OK ]"
+		else
+			echo "Error on Perm_check Installation"
+		fi
+	else
+		echo "Sorry.Can Not Get File From Sourec ERROR !!!!"
+		echo "check Network Connection and Try Again"
+
+	fi
+
+
+}
+
+
+lv_remove(){
+
+	sudo rm /usr/bin/LV
+	echo "$green Linux Verfication Removed [ OK ]"
+}
+
+
+
+
+fs(){
+
+
+	cd /tmp 
+	mkdir KYGnus
+	cd KYGnus
+	wget https://github.com/KooshaYeganeh/FS/archive/refs/heads/main.zip
+	if [ -f "/tmp/KYGnus/main.zip" ];then
+		
+		unzip main.zip 
+		cd FS-main
+		sudo mv FS-sort /usr/bin
+		cd
+		rm -rf /tmp/KYGnus
+		rm -f /tmp/main.zip
+		if [ -f "/usr/bin/FS-sort" ];then
+			echo "FS Insatlled [ OK ]"
+		else
+			echo "Error on FS Installation"
+		fi
+	else
+		echo "Sorry.Can Not Get File From Sourec ERROR !!!!"
+		echo "check Network Connection and Try Again"
+
+	fi
+
+}
+
+
+
+
+fs_remover(){
+
+
+	sudo rm /usr/bin/Fs-sort
+	if [ -f "/usr/bin/FS-sort" ]
+		echo "FS-sort Removed [ OK ]"
+	else
+		echo "Error When Removing Fs-sort Files"
+	fi
+}
+
+
+
+KYGnus_Backup(){
+
+
+	cd /tmp 
+	mkdir KYGnus
+	cd KYGnus
+	wget https://github.com/KooshaYeganeh/KYGnus-Backup/archive/refs/heads/main.zip
+	if [ -f "/tmp/KYGnus/main.zip" ];then
+		
+		unzip main.zip 
+		cd KYGnus-Backup-main
+		sudo mv KYGnus_Backup /usr/bin
+		cd
+		rm -rf /tmp/KYGnus
+		rm -f /tmp/main.zip
+		if [ -f "/usr/bin/KYGnus_Backup" ];then
+			echo "KYGnus_Backup Insatlled [ OK ]"
+			echo "add This cron */3 * * *  to Better Funtionality or edit with Your choice"
+		else
+			echo "Error on KYGnus_Backup Installation"
+		fi
+	else
+		echo "Sorry.Can Not Get File From Sourec ERROR !!!!"
+		echo "check Network Connection and Try Again"
+
+	fi
+}
+
+
+
+KYGnus_Backup_remover(){
+
+	sudo rm /usr/bin/KYGnus_Backup
+	if [ -f "/usr/bin/KYGnus_Backup" ]
+		echo "KYGnus_Backup Removed [ OK ]"
+	else
+		echo "Error When Removing Fs-sort Files"
+	fi
+
+}
+
+
+
+exifremover(){
+
+	if [ -f "/usr/bin/exiftool" ];then
+		wget https://github.com/KooshaYeganeh/exif_remover/archive/refs/heads/main.zip
+		if [ -f "/tmp/KYGnus/main.zip" ];then
+			
+			unzip main.zip 
+			cd exif_remover-main
+			sudo mv exifremover /usr/bin
+			cd
+			rm -rf /tmp/KYGnus
+			rm -f /tmp/main.zip
+			if [ -f "/usr/bin/exifremover" ];then
+				echo "exifremover Insatlled [ OK ]"
+			else
+				echo "Error on exifremover Installation"
+			fi
+		else
+			echo "Sorry.Can Not Get File From Sourec ERROR !!!!"
+			echo "check Network Connection and Try Again"
+
+		fi
+	else
+		
+		sudo zypper -n install exiftool
+		wget https://github.com/KooshaYeganeh/exif_remover/archive/refs/heads/main.zip
+		if [ -f "/tmp/KYGnus/main.zip" ];then
+			
+			unzip main.zip 
+			cd exif_remover-main
+			sudo mv exifremover /usr/bin
+			cd
+			rm -rf /tmp/KYGnus
+			rm -f /tmp/main.zip
+			if [ -f "/usr/bin/exifremover" ];then
+				echo "exifremover Insatlled [ OK ]"
+			else
+				echo "Error on exifremover Installation"
+			fi
+		else
+			echo "Sorry.Can Not Get File From Sourec ERROR !!!!"
+			echo "check Network Connection and Try Again"
+
+		fi
+	fi
+
+
+}	
+
+exiremover_remover(){
+	sudo rm -rf /usr/bin/exifremover
+	sudo zypper -n remove exiftool
+}
+
+
+
+
+antideface(){
+		
+		
+		wget https://github.com/KooshaYeganeh/AntiDeface/archive/refs/heads/main.zip
+		if [ -f "/tmp/KYGnus/main.zip" ];then
+			
+			unzip main.zip 
+			cd AntiDeface-main
+			chmod 755 AntiDeface
+			sudo mv AntiDeface /usr/bin
+			cd
+			rm -rf /tmp/KYGnus
+			rm -f /tmp/main.zip
+			if [ -f "/usr/bin/AntiDeface" ];then
+				echo "AntiDeface Insatlled [ OK ]"
+			else
+				echo "Error on AntiDeface Installation"
+				echo "$yellow I recommend that you add this script to the cron system file as needed $reset"
+			fi
+		else
+			echo "Sorry.Can Not Get File From Sourec ERROR !!!!"
+			echo "check Network Connection and Try Again"
+
+		fi
+}
+
+antideface_remover(){
+	sudo rm /usr/bin/AntiDeface
+	echo "if You add cron Remove it"
+}
 
 
 
