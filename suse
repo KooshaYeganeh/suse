@@ -639,6 +639,7 @@ remove_unneeded(){
 
 	# This Function clean out all unneeded autoinstalled dependencies
 	echo "$red Start clean out all unneeded autoinstalled dependencies $reset"
+	sleep 2
 	zypper packages --unneeded | awk -F'|' 'NR==0 || NR==1 || NR==2 || NR==3 || NR==4 {next} {print $3}' > list
 	while read p; do sudo zypper -n rm -y "$p"; done < list
 	rm -rf list
@@ -669,7 +670,7 @@ info(){
 	echo "- Support for software that is not supported by the main package manager"
 	echo "- My own open source software has also been added to this script."
 	echo "- Recommending documents to read about the requested software"
-	echo " - Install and Remove Packages"
+	echo "- Install and Remove Packages"
 	echo ""
 	echo "$yellow ========================================================================= $reset"
 	echo ""
@@ -2272,6 +2273,247 @@ openstack_remover(){
 	sudo zypper -n remove "openstack*"
 }
 
+
+
+
+
+# KYGnus Softwares
+# In this section, I wrote my own open source software.
+# To learn about the software, you can go to the following address
+# https://github.com/KooshaYeganeh
+
+
+admin_fstep(){
+
+
+	sudo zypper -n install lshw
+	sudo zypper -n install demidecode
+	
+	sleep 2
+	echo "$red Note : You Should Run this Script with sudo $reset"
+
+	cd /tmp	
+	mkdir KYGnus
+	cd KYGnus
+	wget https://github.com/KooshaYeganeh/Admin_Fstep/archive/refs/heads/main.zip
+	unzip main.zip
+	cd Admin_Fstep-main
+	sudo mv /usr/bin
+	cd
+	sleep 1
+	echo "Admin FStep Installed $green [ OK ] $reset"
+}
+
+
+
+# Scan your WordPress WebSite Simply
+# Scan Your Remote system with Local AV
+
+wpscan(){
+
+	cd /tmp
+	mkdir KYGnus
+	cd KYGnus
+	wget https://github.com/KooshaYeganeh/WPscan/archive/refs/heads/main.zip
+
+	unzip main.zip
+	cd WPscan-main
+	./install
+	sudo mv wpscan /usr/bin
+
+	cd
+
+	sleep 1
+	echo "Wpscan Installed $green [ OK ] $reset"
+
+}
+
+
+
+kygnus_guard(){
+
+
+	cd /tmp
+	echo "Create Directory for Project in /tmp"
+	mkdir KYGnus
+	cd KYGnus
+	wget https://github.com/KooshaYeganeh/KYGnus-Guard-community/archive/refs/heads/main.zip
+
+	if [ -f "/tmp/KYGnus/main.zip" ];then
+		unzip main.zip && mv KYGnus-Guard-community-main KYGnus_Guard
+		sudo mv KYGnus_Guard /opt
+		cd /opt/KYGnus_Guard
+		
+		sudo pip3 install -r requirements.txt
+		if [ -f "/usr/local/bin/virtualenv" ];then
+			echo "virtualenv Not Installed on system"
+			sudo pip3 install virtualenv
+		else
+			echo "virtualenv is already installed in the system $green[ OK ]$reset"
+
+		fi
+		echo "Did you Get an error during the installation process?"
+
+		read response
+		if [ "$response" == "y" ] || [ "$response" == "Y" ];then
+			./pkg
+		else
+			true
+		fi
+		
+		sudo zypper -n intall restorecond policycoreutils setools-console
+
+		# check Mariadb Installed on system
+		if [ -f "/usr/bin/mariadb" ] || [ -f "/usr/bin/mysql" ];then
+			mariadb_status=`sudo systemctl status mariadb | grep -o  "Active: active"`
+			if [ "$mariadb_status" == "Active: active" ];then
+				mariadb --execute="create database malware;"
+				mariadb -u root -p  malware < malware.sql
+				./insert_mysql
+			else
+				echo "MariaDB is Not Active and I Try to Start MariaDB"
+				sudo systemctl start mariadb
+				sudo systemctl enable mariadb
+				mariadb --execute="create database malware;"
+				mariadb -u root -p  malware < malware.sql
+				./insert_mysql
+			fi
+		else
+			echo "MariaDB is Not Installed"
+			echo "I try to Install Mariadb10"
+			mariadb
+			sudo mariadb_secure_installation
+			printf "Enter Username for MariaDB: "
+			read mysql_user
+			printf "Enter Password for MariaDB: "
+			read mysql_pass
+			sudo mariadb --execute="GRANT ALL ON *.* TO '$mysql_user'@'localhost' IDENTIFIED BY '$mysql_pass' WITH GRANT OPTION;"
+			sudo mariadb --execute="FLUSH PRIVILEGES;"
+			sudo systemctl start mariadb
+			mariadb --execute="create database malware;"
+			mariadb -u root -p malware < malware.sql
+			./insert_mysql
+
+		fi
+
+
+
+		# Create Service File 
+		sudo cp KYGnus_Guard.service  /etc/systemd/system directory
+		cd /etc/systemd/system/
+		sudo systemctl enable --now KYGnus_Guard.service
+		cd
+		# Create Log File and log Directory
+		
+		cd /var/log
+		sudo mkdir KYGnus_Guard
+		cd KYGnus_Guard
+		ln -s /opt/KYGnus-Guard-community-main/Log/KYGnus_Guard.log KYGnus_Guard.log
+		cd
+
+		# Create config File and Config Dirtectory
+		cd /etc
+		sudo mkdir KYGnus_Guard
+		cd KYGnus_Guard
+		ln -s /opt/KYGnus-Guard-community-main/config.py KYGnus_Guard.conf
+
+		# For Better Security Run This command
+		sudo iptables -t filter -A INPUT -p tcp -i any --dport 8080 -j DROP
+
+	else
+		wget https://github.com/KooshaYeganeh/KYGnus-Guard-community/archive/refs/heads/main.zip
+		unzip main.zip && mv KYGnus-Guard-community-main KYGnus_Guard
+		sudo mv KYGnus_Guard /opt
+		cd /opt/KYGnus_Guard
+		
+		sudo pip3 install -r requirements.txt
+		if [ -f "/usr/local/bin/virtualenv" ];then
+			echo "virtualenv Not Installed on system"
+			sudo pip3 install virtualenv
+		else
+			echo "virtualenv is already installed in the system $green[ OK ]$reset"
+
+		fi
+		echo "Did you Get an error during the installation process?"
+
+		read response
+		if [ "$response" == "y" ] || [ "$response" == "Y" ];then
+			./pkg
+		else
+			true
+		fi
+		
+		sudo zypper -n intall restorecond policycoreutils setools-console
+
+		# check Mariadb Installed on system
+		if [ -f "/usr/bin/mariadb" ] || [ -f "/usr/bin/mysql" ];then
+			mariadb_status=`sudo systemctl status mariadb | grep -o  "Active: active"`
+			if [ "$mariadb_status" == "Active: active" ];then
+				mariadb --execute="create database malware;"
+				mariadb -u root -p  malware < malware.sql
+				./insert_mysql
+			else
+				echo "MariaDB is Not Active and I Try to Start MariaDB"
+				sudo systemctl start mariadb
+				sudo systemctl enable mariadb
+				mariadb --execute="create database malware;"
+				mariadb -u root -p  malware < malware.sql
+				./insert_mysql
+			fi
+		else
+			echo "MariaDB is Not Installed"
+			echo "I try to Install Mariadb10"
+			mariadb
+			sudo mariadb_secure_installation
+			printf "Enter Username for MariaDB: "
+			read mysql_user
+			printf "Enter Password for MariaDB: "
+			read mysql_pass
+			sudo mariadb --execute="GRANT ALL ON *.* TO '$mysql_user'@'localhost' IDENTIFIED BY '$mysql_pass' WITH GRANT OPTION;"
+			sudo mariadb --execute="FLUSH PRIVILEGES;"
+			sudo systemctl start mariadb
+			mariadb --execute="create database malware;"
+			mariadb -u root -p malware < malware.sql
+			./insert_mysql
+
+		fi
+
+
+
+		# Create Service File 
+		sudo cp KYGnus_Guard.service  /etc/systemd/system directory
+		cd /etc/systemd/system/
+		sudo systemctl enable --now KYGnus_Guard.service
+		cd
+		# Create Log File and log Directory
+		
+		cd /var/log
+		sudo mkdir KYGnus_Guard
+		cd KYGnus_Guard
+		ln -s /opt/KYGnus-Guard-community-main/Log/KYGnus_Guard.log KYGnus_Guard.log
+		cd
+
+		# Create config File and Config Dirtectory
+		cd /etc
+		sudo mkdir KYGnus_Guard
+		cd KYGnus_Guard
+		ln -s /opt/KYGnus-Guard-community-main/config.py KYGnus_Guard.conf
+
+		# For Better Security Run This command
+		sudo iptables -t filter -A INPUT -p tcp -i any --dport 8080 -j DROP
+
+
+	fi	
+}
+
+
+
+
+
+
+
+
+
 man(){
 
 	echo "suse Package Manager"
@@ -2321,6 +2563,8 @@ man(){
 	echo "> example : suse --document clamav"
 
 }
+
+
 
 
 
@@ -2695,8 +2939,6 @@ if [ "$0" == "./suse" ];then
 				echo "Sorry.App Not Found in Repository"
 		fi
 		
-		au
-
 
 	elif [ "$1" == "--document" ];then
 		if [ "$2" == "apache" ];then
