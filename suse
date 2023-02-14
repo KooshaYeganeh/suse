@@ -533,6 +533,8 @@ mariadb(){
 
 mariadb_remover(){
 	sudo rm /etc/zypp/repos.d/mariadb.repo
+	sudo rm /usr/bin/mysql
+	sudo rm -rf /usr/share/mysql
   	sudo zypper -n remove MariaDB-server MariaDB-client
 	sudo zypper -n remove galera MariaDB-shared MariaDB-backup MariaDB-common
 }
