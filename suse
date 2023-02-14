@@ -3259,6 +3259,10 @@ if [ "$0" == "./suse" ];then
 		elif [ "$2" == "clamAV" ] || [ "$2" == "clamav" ] || \
 			[ "$2" == "CLAMAV" ];then
 				clamav_app
+		elif [ "$2" == "amd" ] || [ "$2" == "AMD" ] || \
+			[ "$2" == "Android_Malware_Detect" ] || [ "" == "android_malware_detect" ] || \
+				[ "$2" == "AndroidMalwareDetect" ];then
+					Android_Malware_Detect_App
 
 		fi
 	
@@ -3565,6 +3569,63 @@ if [ "$0" == "./suse" ];then
 			[ "$2" == "OpenStack" ];then
 				openstack_remover
 				remove_unneeded
+		
+		# Start of my own software section
+
+		elif [ "$2" == "admin_fstep" ] || [ "$2" == "Admin_Fstep" ] || \
+			[ "$2" == "AdminFstep" ] || [ "$2" == "Admin-Fstep" ];then
+				admin_fstep_remover
+				remove_unneeded
+		
+		elif [ "$2" == "wpscan" ] || [ "$2" == "WpScan" ] || \
+			[ "$2" == "wp-scan" ];then
+				wpscan_remover
+				remove_unneeded
+
+
+		elif [ "$2" == "kygnus_guard" ] || [ "$2" == "KYGnus_Guard" ] || \
+			[ "$2" == "KYGnusGuard" ] || [ "kygnusguard" == "" ];then
+				kygnus_guard	
+				remove_unneeded
+
+		elif [ "$2" == "Android_Malware_Detect" ] || [ "$2" == "AndroidMalwareDetect" ] || \
+				[ "$2" == "android_malware_detect" ] || [ "$2" == "AMD" ] || \
+				[ "$2" == "amd" ];then
+					true
+					remove_unneeded
+
+		elif [ "$2" == "clone_disk" ] || [ "$2" == "CloneDisk" ] || \
+			[ "$2" == "clone-disk" ] || [ "$2" == "clonedisk" ];then
+				clone_disk_remover
+				remove_unneeded
+
+		elif [ "$2" == "perm_check" ] || [ "$2" == "permcheck" ] || \
+			[ "$2" == "PermCheck" ] || [ "$2" == "perm-check" ];then
+				perm_check_remover
+				remove_unneeded
+
+
+		elif [ "$2" == "LV" ] || [ "$2" == "LinuxVerification" ];then
+				lv_remover
+				
+				remove_unneeded
+
+
+		elif [ "$2" == "fs" ] || [ "$2" == "FS" ];then
+				fs_remover
+				remove_unneeded
+
+		elif [ "$2" == "exifremover" ] || [ "$2" == "ExifRemover" ] || \
+			[ "$2" == "exif_remover" ] || [ "$2" == "Exif_Remover" ];then
+				exiremover_remover
+				remove_unneeded
+
+		elif [ "$2" == "antideface" ] || [ "$2" == "AntiDeface" ] || \
+			[ "$2" == "Anti-deface" ] || [ "$2" == "anti-deface" ];then
+				antideface_remover
+				remove_unneeded
+
+
 		else
 				echo "Sorry.App Not Found in Repository"
 		fi
@@ -3810,6 +3871,58 @@ if [ "$0" == "./suse" ];then
 		elif [ "$2" == "openstack" ] || [ "$2" == "open-stack" ] || \
 			[ "$2" == "OpenStack" ];then
 				openstack
+		# Start of my own software section
+
+		elif [ "$2" == "admin_fstep" ] || [ "$2" == "Admin_Fstep" ] || \
+			[ "$2" == "AdminFstep" ] || [ "$2" == "Admin-Fstep" ];then
+
+				admin_fstep
+		
+		elif [ "$2" == "wpscan" ] || [ "$2" == "WpScan" ] || \
+			[ "$2" == "wp-scan" ];then
+				wpscan
+				
+
+
+		elif [ "$2" == "kygnus_guard" ] || [ "$2" == "KYGnus_Guard" ] || \
+			[ "$2" == "KYGnusGuard" ] || [ "kygnusguard" == "" ];then
+					
+					kygnus_guard
+
+		elif [ "$2" == "Android_Malware_Detect" ] || [ "$2" == "AndroidMalwareDetect" ] || \
+				[ "$2" == "android_malware_detect" ] || [ "$2" == "AMD" ] || \
+				[ "$2" == "amd" ];then
+					Android_Malware_Detect
+					
+
+		elif [ "$2" == "clone_disk" ] || [ "$2" == "CloneDisk" ] || \
+			[ "$2" == "clone-disk" ] || [ "$2" == "clonedisk" ];then
+					clone_disk
+					
+
+		elif [ "$2" == "perm_check" ] || [ "$2" == "permcheck" ] || \
+			[ "$2" == "PermCheck" ] || [ "$2" == "perm-check" ];then
+					perm_check
+				
+
+
+		elif [ "$2" == "LV" ] || [ "$2" == "LinuxVerification" ];then
+				lv
+				
+
+		elif [ "$2" == "fs" ] || [ "$2" == "FS" ];then
+				fs
+				
+
+		elif [ "$2" == "exifremover" ] || [ "$2" == "ExifRemover" ] || \
+			[ "$2" == "exif_remover" ] || [ "$2" == "Exif_Remover" ];then
+				exifremover
+				
+
+		elif [ "$2" == "antideface" ] || [ "$2" == "AntiDeface" ] || \
+			[ "$2" == "Anti-deface" ] || [ "$2" == "anti-deface" ];then
+				antideface
+				
 		else
 				echo "Sorry.App Not Found in Repository"
 		fi
