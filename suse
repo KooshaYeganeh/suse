@@ -734,7 +734,7 @@ list_install(){
 }
 
 
-update (){
+update(){
 
 
 
@@ -3353,6 +3353,15 @@ if [ "$0" == "./suse" ];then
 	elif [ "$1" == "--search-app" ];then
 		rpm -qa | grep $2
 
+	elif [ "$1" == "--update" ];then
+		update
+	
+	elif [ "$1" == "--upgrade" ];then
+		upgrade
+
+	elif [ "$1" == "dist-upgrade" ];then
+		dist_upgrade
+
 
 
 	elif [ "$1" == "--app-count" ];then
@@ -3751,20 +3760,55 @@ if [ "$0" == "./suse" ];then
 		
 
 	elif [ "$1" == "--document" ];then
-		if [ "$2" == "apache" ];then
-			echo "https://doc.opensuse.org/documentation/leap/reference/html/book-reference/cha-apache2.html"
+		if [ "$2" == "Apache2" ] || [ "$2" == "apache" ];then
+			echo "=> https://doc.opensuse.org/documentation/leap/reference/html/book-reference/cha-apache2.html"
 		elif [ "$2" == "nginx" ];then
-			echo "https://www.osradar.com/how-to-install-nginx-on-opensuse-suse-15/"
+			echo "=> https://www.osradar.com/how-to-install-nginx-on-opensuse-suse-15/"
 		elif [ "$2" == "clamav" ];then
-			echo "https://en.opensuse.org/ClamAV"
-			echo "https://linuxhint.com/install_clamav_ubuntu/"
-			echo "https://github.com/KooshaYeganeh/OpenSuse4Developers#clamav"
+			echo "=> https://en.opensuse.org/ClamAV"
+			echo "=> https://linuxhint.com/install_clamav_ubuntu/"
+			echo "=> https://github.com/KooshaYeganeh/OpenSuse4Developers#clamav"
 		elif [ "$2" == "tuned" ] || [ "$2" == "Tuned" ];then
-			echo "https://doc.opensuse.org/documentation/leap/tuning/single-html/book-tuning/"
-			echo "https://www.redhat.com/en/blog/tuning-your-system-tuned"
-			echo "https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/monitoring_and_managing_system_status_and_performance/getting-started-with-tuned_monitoring-and-managing-system-status-and-performance"
+			echo "=> https://doc.opensuse.org/documentation/leap/tuning/single-html/book-tuning/"
+			echo "=> https://www.redhat.com/en/blog/tuning-your-system-tuned"
+			echo "=> https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/monitoring_and_managing_system_status_and_performance/getting-started-with-tuned_monitoring-and-managing-system-status-and-performance"
 		elif [ "$2" == "openstack" ] || [ "$2" == "open_stack" ] || [ "$2" == "OpenStack" ] || [ "$2" == "Open_Stack" ];then
-			echo "https://docs.openstack.org/mitaka/install-guide-obs/"
+			echo "=> https://docs.openstack.org/mitaka/install-guide-obs/"
+		elif [ "$2" == "firewalld" ] || [ "$2" == "FirewallD" ] || \
+			[ "$2" == "iptables" ] || [ "$2" == "Iptables" ];then
+				echo "=> https://www.unixmen.com/iptables-vs-firewalld/"
+				echo "=> https://kooshayeganeh.gitbook.io/iptables/"
+				echo "=> https://kooshayeganeh.gitbook.io/firewalld/"
+		elif [ "$2" == "mysql" ] || [ "$2" == "mariaDB" ] || [ "$2" == "MariaDB" ];then
+				echo "=> https://linuxhint.com/backup-mysql-database-using-mysqldump/"
+				echo "=> https://kooshayeganeh.gitbook.io/mariadb-handbooks/"
+		elif [ "$2" == "SQlite" ] || [ "$2" == "sqlite" ] || [ "$2" == "SQLite" ];then
+				echo "=> https://www.sqlitetutorial.net/sqlite-sample-database/"
+		elif [ "$2" == "tcpdump" ] || [ "$2" == "Tcpdump" ];then
+				echo "=> https://linuxize.com/post/tcpdump-command-in-linux/"
+				echo "=> https://danielmiessler.com/study/tcpdump/"
+		elif [ "$2" == "nmap" ] || [ "$2" == "Nmap" ];then
+				echo "=> https://phoenixnap.com/kb/nmap-commands"
+		elif [ "$2" == "tcpwrapper" ] || [ "$2" == "Tcpwrapper" ] || \
+			[ "$2" == "tcpd" ] || [ "$2" == "tcpwrapper" ] || [ "$2" == "TcpWrapper" ];then
+				echo "=> https://www.tecmint.com/secure-linux-tcp-wrappers-hosts-allow-deny-restrict-access/"
+				echo "=> https://ostechnix.com/restrict-access-linux-servers-using-tcp-wrappers/"
+		elif [ "$2" == "usbguard" ] || [ "$2" == "USBguard" ] || [ "$2" == "USBGuard" ];then
+				echo "=> https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/security_guide/sec-using-usbguard"
+		elif [ "$2" == "psad" ] || [ "$2" == "Psad" ];then
+				echo "=> https://www.digitalocean.com/community/tutorials/how-to-use-psad-to-detect-network-intrusion-attempts-on-an-ubuntu-vps"
+		elif [ "$2" == "Docker" ] || [ "$2" == "docker" ];then	
+				echo "=> https://www.digitalocean.com/community/tutorial_collections/how-to-install-and-use-docker"
+				echo "=> https://kooshayeganeh.gitbook.io/docker/"
+		elif [ "$2" == "Ansible" ] || [ "$2" == "ansible" ];then
+				echo "=> https://www.redhat.com/en/technologies/management/ansible/what-is-ansible"
+				echo "=> https://www.digitalocean.com/community/cheatsheets/how-to-use-ansible-cheat-sheet-guide"
+		elif [ "$2" == "vim" ] || [ "$2" == "Vim" ];then
+				echo "=> https://kooshayeganeh.gitbook.io/vim/"
+		elif [ "$2" == "git" ] || [ "$2" == "Git" ];then
+				echo "=> https://kooshayeganeh.gitbook.io/git/"
+		elif [ "$2" == "SeLinux" ] || [ "$2" == "selinux" ];then
+				echo "=> https://kooshayeganeh.gitbook.io/selinux/"
 		fi
 
 
