@@ -3,25 +3,51 @@
 
 
 
-cd /tmp 
+main_app(){
 
-wget https://github.com/KooshaYeganeh/suse/archive/refs/heads/main.zip
+	wget https://github.com/KooshaYeganeh/suse/archive/refs/heads/main.zip
 
-unzip main.zip
-
-cd suse-main
-
-sudo mv suse /usr/bin
-
-rm -rf suse-main && rm main.zip
-
-cd
+	unzip main.zip
+	cd suse-main
+	sudo mv suse /usr/bin
+	rm -rf suse-main && rm main.zip
+	cd
 
 
-SUSE="/usr/bin/suse"
+	SUSE="/usr/bin/suse"
 
-if [ -f "$SUSE" ];then
-	echo "suse Installed [ OK ]"
+	if [ -f "$SUSE" ];then
+		echo "suse Installed [ OK ]"
+	else
+		echo "suse Not Installed [ ERROR ]"
+	fi
+
+}
+
+
+
+
+network_check=`sudo systemctl status Network_Manager | grep -o "Active: active"`
+
+if [ "network_check" == "Active: active" ];then
+	check_ip=`ip addr show | grep -o "192.168.1.*"`
+	if [ "$check_ip"];then
+		cd /tmp 
+		if [ -f "/tmp/KYGnus" ];then
+			main_app
+		else
+			mkdir /tmp/KYGnus
+			main_app
+		fi
+	else 
+		echo "!!! ERROR !!! check NetworkConnections"
+		echo "More Help : "
+		echo "1- sudo systemctl start NetworkManager"
+		echo "2- ip addr show | grep -o '192.168.*' "
+		echo "3- ping 4.2.2.4"
+	fi
 else
-	echo "suse Not Installed [ ERROR ]"
+	systemctl start NetworkManager
+	main_app
+
 fi
