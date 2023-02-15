@@ -19,7 +19,7 @@ A simple software for **openSUSE** users.
 that can Make Everyday Tasks Easier for Developers and System Administrators.
 
 
- ### Clearing misunderstandings and explaining the project   
+ ### Clearing Misunderstandings and Explaining the Project   
 
 There is no claim that this package manager is better or more optimal than the others
 The goal is to improve platforms or make things easier
@@ -53,7 +53,6 @@ and support and accompany us to make the conditions better for ourselves.
 ## Basic Tutorial
 
 **suse Package Manager**
-suse <command>  
 
 
 **--whereis** <appname>: Each software shows in which repository it is located or which repositories provide this software. 
@@ -67,7 +66,7 @@ suse <command>
 **--info** : show information
 > example : suse --info
 
-**man** : suse man ; show manuals
+**man** : suse man ( Manual )
 
 **--install** : use this command to install a software
 > exapmle : suse install vscode
@@ -75,7 +74,7 @@ suse <command>
 **--remove** <appname> : use this command to remove a software and try to remove dependencies
 > example: suse --remove
 
-**--list-app** : List Installed apps
+**--list-app** : List Installed apps  
 example : suse --list-app
 
 **--search-app** <appname>: Serach in installed Apps
@@ -91,7 +90,7 @@ example : suse --list-app
 > example : suse --list-repo
 
 **--list --known** <app name> : Known Apps to suse
-> example : suse --list --known security
+> example : suse --list --known security-tools
 
 **--update** : update Packages
 > example : suse --update
