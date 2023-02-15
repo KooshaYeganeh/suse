@@ -1,8 +1,8 @@
 # suse
 
 ![SUSE](https://en.opensuse.org/images/f/f2/Button-laptop-colour.png)
-![Tumbleweed](https://www.opensuse.org/build/images/tumbleweed-icon.svg)
-![Leap](https://www.opensuse.org/build/images/opensuse-regular-release-icon.svg)
+![Tumbleweed](https://raw.githubusercontent.com/openSUSE/artwork/91b8588d3416894e125859f3afdc1371270afca1/logos/distros/Tumbleweed-green.svg)
+![Leap](https://raw.githubusercontent.com/openSUSE/artwork/91b8588d3416894e125859f3afdc1371270afca1/logos/distros/Leap-green.svg)
 
 - [**INFO**]()
     - [Explain](https://github.com/KooshaYeganeh/suse#clearing-misunderstandings-and-explaining-the-project)
@@ -119,6 +119,6 @@ sudo rm /usr/bin/suse
 > [**DockerHub** ](https://hub.docker.com/u/kooshakooshadv)   
 > [**GitBooks** ](kooshayeganeh.gitbook.io)
 
-and Some More $yellow :) 
+and Some More :) 
 
 
