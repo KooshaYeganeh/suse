@@ -1,5 +1,6 @@
 # suse
 
+![SUSE](https://en.opensuse.org/images/f/f2/Button-laptop-colour.png)
 ![Tumbleweed](https://www.opensuse.org/build/images/tumbleweed-icon.svg)
 ![Leap](https://www.opensuse.org/build/images/opensuse-regular-release-icon.svg)
 
