@@ -29,17 +29,17 @@ and support and accompany us to make the conditions better for ourselves.
 
 ### Basic Information
 
-> Supported Distrubutions : Leap and Tumbleweed
-> Update and Upgrade and dist upgrade Like ubuntu and Fedora
-> Remove Unneed packages
-> show Package Providers
-> List Installed Apps
-> Show repositories
-> Show known apps
-> Show Installation Manual
-> Support for software that is not supported by the main package manager
-> My own open source software has also been added to this script.
-> Recommending documents to read about the requested software
+> Supported Distrubutions : "Leap" and "Tumbleweed"  
+> Update and Upgrade and dist upgrade Like ubuntu and Fedora  
+> Remove Unneed packages  
+> show Package Providers  
+> List Installed Apps  
+> Show repositories  
+> Show known apps  
+> Show Installation Manual  
+> Support for software that is not supported by the main package manager  
+> My own open source software has also been added to this script.  
+> Recommending documents to read about the requested software  
 > Install and Remove Packages
 
 
@@ -56,54 +56,54 @@ and support and accompany us to make the conditions better for ourselves.
 suse <command>  
 
 
-**--whereis** <appname>: Each software shows in which repository it is located or which repositories provide this software. "
-> example : suse --whereis vlc"
+**--whereis** <appname>: Each software shows in which repository it is located or which repositories provide this software. 
+> example : suse --whereis vlc
 
 
-**--howinstall** <appname>: It shows the installation steps. It shows which steps you should go through to install the relevant software on your system."  
-> example : suse --howinstall vlc"
+**--howinstall** <appname>: It shows the installation steps. It shows which steps you should go through to install the relevant software on your system.
+> example : suse --howinstall vlc
 
 
-**--info** : show information"
-> example : suse --info"
+**--info** : show information
+> example : suse --info
 
-**man** : suse man ; show manuals"
+**man** : suse man ; show manuals
 
-**--install** : use this command to install a software"
-> exapmle : suse install vscode"
+**--install** : use this command to install a software
+> exapmle : suse install vscode
 
-**--remove** <appname> : use this command to remove a software and try to remove dependencies"
-> example: suse --remove"
+**--remove** <appname> : use this command to remove a software and try to remove dependencies
+> example: suse --remove
 
-**--list-app** : List Installed apps "
-example : suse --list-app"
+**--list-app** : List Installed apps
+example : suse --list-app
 
-**--search-app** <appname>: Serach in installed Apps"
-> example : suse --search-app vlc"
+**--search-app** <appname>: Serach in installed Apps
+> example : suse --search-app vlc
 
-**--clean-unneed** : clean out all unneeded autoinstalled dependencies "
-> exmple : suse --clean-unneed"
+**--clean-unneed** : clean out all unneeded autoinstalled dependencies
+> exmple : suse --clean-unneed
 
-**--suport-sytems** : Which distributions does this package manager support"
-> example : suse --support-systems"
+**--suport-sytems** : Which distributions does this package manager support
+> example : suse --support-systems
 
-**--list-repository** : list of repositories in system" 
-> example : suse --list-repo"
+**--list-repository** : list of repositories in system
+> example : suse --list-repo
 
-**--list --known*** <app name> : Known Apps to suse" 
-> example : suse --list --known security"
+**--list --known** <app name> : Known Apps to suse
+> example : suse --list --known security
 
-**--update** : update Packages "
-> example : suse --update"
+**--update** : update Packages
+> example : suse --update
 
-**--upgrade** : upgrade packages "
-> example : suse --upgrade"
+**--upgrade** : upgrade packages
+> example : suse --upgrade
 
-**--dist-upgrade** : Distribution Upgrade "
-> example : suse --dist-upgrade"
+**--dist-upgrade** : Distribution Upgrade
+> example : suse --dist-upgrade
 
-**--document** : show recomended Documents Links "
-> example : suse --document clamav"
+**--document** : show recomended Documents Links
+> example : suse --document clamav
 
 
 ## Remove 
