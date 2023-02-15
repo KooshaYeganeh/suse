@@ -666,6 +666,7 @@ info(){
 	echo "- show Package Providers"
 	echo "- List Installed Apps"
 	echo "- show repositories"
+	echo "- show known apps"
 	echo "- show Installation Manual"
 	echo "- Support for software that is not supported by the main package manager"
 	echo "- My own open source software has also been added to this script."
