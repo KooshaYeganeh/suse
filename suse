@@ -3357,8 +3357,9 @@ if [ "$0" == "./suse" ];then
 
 
 
-	elif [ "$1" == "--list-repo" ];then
-		list_repo
+	elif [ "$1" == "--list-repository" ];then
+			list_repo
+
 
 
 	# List Known Apps
@@ -3392,8 +3393,8 @@ if [ "$0" == "./suse" ];then
 					echo "=> Nginx - Apache"
 					
 			elif [ "$3" == "VPN" ] || [ "$3" == "vpn" ];then
-					echo "openconnect"
-					echo "openvpn"
+					echo "=> openconnect"
+					echo "=> openvpn"
 			elif [ "$3" == "BasicTools" ] || [ "$3" == "basictools" ] || \
 				 [ "$3" == "Basic-Tools" ] || [ "$3" == "BasicTools" ];then
 				 	echo " => wget - curl - gcc - git -mercurial"
