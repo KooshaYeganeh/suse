@@ -2,6 +2,13 @@
 
 
 
+green=$(tput setaf 6)
+yellow=$(tput setaf 3)
+red=$(tput setaf 1)
+reset=`tput sgr0`
+
+
+
 
 main_app(){
 
@@ -17,9 +24,9 @@ main_app(){
 	SUSE="/usr/bin/suse"
 
 	if [ -f "$SUSE" ];then
-		echo "suse Installed [ OK ]"
+		echo "suse Installed $green [ OK ] $reset"
 	else
-		echo "suse Not Installed [ ERROR ]"
+		echo "suse Not Installed $red [ ERROR ] $reset"
 	fi
 
 }
@@ -41,10 +48,10 @@ if [ "network_check" == "Active: active" ];then
 		fi
 	else 
 		echo "!!! ERROR !!! check NetworkConnections"
-		echo "More Help : "
-		echo "1- sudo systemctl start NetworkManager"
-		echo "2- ip addr show | grep -o '192.168.*' "
-		echo "3- ping 4.2.2.4"
+		echo "$yellow More Help : $reset"
+		echo "$yellow 1- sudo systemctl start NetworkManager $reset"
+		echo "$yellow 2- ip addr show | grep -o '192.168.*' $reset"
+		echo "$yellow 3- ping 4.2.2.4 $reset"
 	fi
 else
 	systemctl start NetworkManager
