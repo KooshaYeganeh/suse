@@ -1,16 +1,16 @@
 # suse
 
-![Tumbleweed](https://www.opensuse.org/build/images/opensuse-regular-release-icon.svg)
+![Tumbleweed](https://www.opensuse.org/build/images/tumbleweed-icon.svg)
 ![Leap](https://www.opensuse.org/build/images/opensuse-regular-release-icon.svg)
 
 - [**INFO**]()
-    - [Explain]()
-    - [Basic Info]()
+    - [Explain](https://github.com/KooshaYeganeh/suse#clearing-misunderstandings-and-explaining-the-project)
+    - [Basic Info](https://github.com/KooshaYeganeh/suse#basic-information)
 
-- [**Install**]()
-- [**Basic Tutorial**]()
-- [**Remove**]()
-- [**AboutME**]()
+- [**Install**](https://github.com/KooshaYeganeh/suse#install)
+- [**Basic Tutorial**](https://github.com/KooshaYeganeh/suse#basic-tutorial)
+- [**Remove**](https://github.com/KooshaYeganeh/suse#remove)
+- [**AboutME**](https://github.com/KooshaYeganeh/suse#aboutme)
 
 
 A simple software for **openSUSE** users.
@@ -113,11 +113,11 @@ sudo rm /usr/bin/suse
 
 ## AboutME
 
-> Developer : Koosha Yeganeh
-> [**GitHub :**](https://github.com/KooshaYeganeh)
-> [**DockerHub :** ](https://hub.docker.com/u/kooshakooshadv)
-> [**GitBooks :** ](kooshayeganeh.gitbook.io)
-```diff
-! and Some More $yellow :) "
-```
+> Developer : Koosha Yeganeh  
+> [**GitHub**](https://github.com/KooshaYeganeh)  
+> [**DockerHub** ](https://hub.docker.com/u/kooshakooshadv)   
+> [**GitBooks** ](kooshayeganeh.gitbook.io)
+
+and Some More $yellow :) 
+
 
