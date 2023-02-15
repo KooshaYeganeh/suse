@@ -818,6 +818,26 @@ git_remover(){
 }
 
 
+
+mercurial(){
+	# simple version Control App Like Git
+	sudo zypper -n install mercurial
+	if [ -f "/usr/bin/hg" ];then
+		echo "Mercurial installed [ OK ]"
+	else
+		echo "Error on Mercurial Installation"
+	fi
+	
+}
+
+
+mercurial_remover(){
+	sudo zypper -n remove mercurial
+
+}
+
+
+
 zsh(){
 	sudo zypper -n install zsh
 
@@ -1967,6 +1987,52 @@ telegram_remover(){
 
 }
 
+
+
+
+viber(){
+	echo "Start Get Viber From Source"
+	
+	cd /tmp
+	wget https://download.cdn.viber.com/desktop/Linux/viber.rpm
+	rpm -ivh viber.rpm
+	cd
+}
+
+
+
+
+
+slack(){
+
+	cd /tmp
+	
+	wget https://downloads.slack-edge.com/releases/linux/4.29.149/prod/x64/slack-4.29.149-0.1.el8.x86_64.rpm
+	
+	rpm -ivh slack-4.29.149-0.1.el8.x86_64.rpm
+	cd
+	
+
+}
+
+
+
+jami(){
+
+	if [ "$154" == "15.4" ];then
+		sudo zypper addrepo https://dl.jami.net/nightly/opensuse-leap_15.4/jami-nightly.repo
+		sudo zypper install jami
+	elif [ "$153" == "15.3" ];then
+		sudo zypper addrepo https://dl.jami.net/nightly/opensuse-leap_15.3/jami-nightly.repo
+		sudo zypper install jami
+
+	else
+		echo "I Can Not Detect Distributions"
+	fi
+
+}
+
+
 ansible(){
 
 	sudo zypper -n install ansible
@@ -2999,10 +3065,10 @@ fs_remover(){
 
 
 	sudo rm /usr/bin/Fs-sort
-	if [ -f "/usr/bin/FS-sort" ]
+	if [ -f "/usr/bin/FS-sort" ];then
 		echo "FS-sort Removed [ OK ]"
 	else
-		echo "Error When Removing Fs-sort Files"
+		echo " Error When Removing Fs-sort Files "
 	fi
 }
 
@@ -3041,7 +3107,7 @@ KYGnus_Backup(){
 KYGnus_Backup_remover(){
 
 	sudo rm /usr/bin/KYGnus_Backup
-	if [ -f "/usr/bin/KYGnus_Backup" ]
+	if [ -f "/usr/bin/KYGnus_Backup" ];then
 		echo "KYGnus_Backup Removed [ OK ]"
 	else
 		echo "Error When Removing Fs-sort Files"
@@ -3293,6 +3359,52 @@ if [ "$0" == "./suse" ];then
 
 	elif [ "$1" == "--list-repo" ];then
 		list_repo
+
+
+	# List Known Apps
+	# This part shows the user what software knows about the searched item.
+	# Like Security Tools or Image Tools or App name
+	elif [ "$1" == "--list" ];then
+		if [ "$2" == "--known" ];then
+			if [ "$3" == "Security-Tools" ] || [ "$3" == "security-tools" ] || \
+				[ "$3" == "Security_Tools" ] || [ "$3" == "security_tools" ] || \
+				[ "$3" == "SecurityTools" ] || [ "$3" == "securitytools" ];then
+					echo "=> clamAV - Rkhunter - Maldet - Lynis"
+					echo "=> Fail2ban - Firewalld - Nmap - TcpDump - Wireshark "
+					echo "=> WAF => ModSecurity - Nginx-Modsecurity"
+					echo "=> USBGuard - TcpWrappers"
+			elif [ "$3" == "Database" ] || [ "$3" == "database" ];then
+					echo "=> MariaDB - PostgreSQL - SQLite - InfluxDB"
+			elif [ "$3" == "monitoring" ] || [ "$3" == "Monitoring" ];then
+					echo "=> htop - Munin - iptrafng"
+			elif [ "$3" == "Editor" ] || [ "$3" == "editor" ] || \
+				[ "$3" == "editors" ] || [ "$3" == "Editors" ];then
+					echo "=> Vim - VScode"
+			elif [ "$3" == "Massenger" ] || [ "$3" == "massenger" ];then
+				echo "=> Telegram"
+			elif [ "$3" == "Developer-Tools" ] || [ "$3" == "developer-tools" ] || \
+				[ "$3" == "DeveloperTools" ];then
+					echo "=> ohmyzsh - vscode - vim - vundle - sshfs ( for Mount Server Directory to Your Local system)"
+					echo "=> Docker - OpenStack - Terraform - puppet - Ansible"
+					echo "=> Android-debug-bridge"
+					echo "=> Git - mercurial"
+					echo "=> Preparing the system for Python programming (check Developer Function)"
+					echo "=> Nginx - Apache"
+					
+			elif [ "$3" == "VPN" ] || [ "$3" == "vpn" ];then
+					echo "openconnect"
+					echo "openvpn"
+			elif [ "$3" == "BasicTools" ] || [ "$3" == "basictools" ] || \
+				 [ "$3" == "Basic-Tools" ] || [ "$3" == "BasicTools" ];then
+				 	echo " => wget - curl - gcc - git -mercurial"
+			else	
+					echo "$yellow !!!  I did not understand the command you gave for my software list. $yellow !!! $reset"
+					echo "Note :In the $green Future $reset,the man software will add your needs to the script."
+			fi
+		else
+			echo "Did Your Mean --known?"
+			echo "Edit command and Try Again"
+		fi
 
 
 	# Remover
@@ -3607,7 +3719,6 @@ if [ "$0" == "./suse" ];then
 
 		elif [ "$2" == "LV" ] || [ "$2" == "LinuxVerification" ];then
 				lv_remover
-				
 				remove_unneeded
 
 
@@ -3624,6 +3735,9 @@ if [ "$0" == "./suse" ];then
 			[ "$2" == "Anti-deface" ] || [ "$2" == "anti-deface" ];then
 				antideface_remover
 				remove_unneeded
+		
+		elif [ "$2" == "mercurial" ] || [ "$2" == "Mercurial" ];then
+				mercurial_remover
 
 
 		else
@@ -3674,6 +3788,9 @@ if [ "$0" == "./suse" ];then
 		elif [ "$2" == "git" ] || [ "$2" == "Git" ] || \
 			[ "$2" == "GIT" ];then
 				git
+		
+		elif [ "$2" == "mercurial" ] || [ "$2" == "Mercurial" ];then
+				mercurial
 
 		elif [ "$2" == "gcc" ] || [ "$2" == "GCC" ] || \
 			[ "$2" == "Gcc" ];then
