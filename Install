@@ -11,15 +11,20 @@ reset=`tput sgr0`
 
 
 main_app(){
+	
 
+	echo "(1/4) .................... Start to Get app From Source.Please Wait ..."
 	wget https://github.com/KooshaYeganeh/suse/archive/refs/heads/main.zip
 
+	echo "(2/4) .................... Unzip main File"
 	unzip main.zip
 	cd suse-main
 	sudo mv suse /usr/bin
+	echo "(3/4) .................... Move Main File to /usr/bin"
 	rm -rf suse-main && rm main.zip
 	cd
 
+	echo "(4/4) .................... remove Unuse Files and Directories"
 
 	SUSE="/usr/bin/suse"
 
@@ -47,7 +52,7 @@ if [ "network_check" == "Active: active" ];then
 			main_app
 		fi
 	else 
-		echo "!!! ERROR !!! check NetworkConnections"
+		echo "$red !!! ERROR !!! $reset check NetworkConnections"
 		echo "$yellow More Help : $reset"
 		echo "$yellow 1- sudo systemctl start NetworkManager $reset"
 		echo "$yellow 2- ip addr show | grep -o '192.168.*' $reset"
