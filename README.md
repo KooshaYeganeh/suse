@@ -41,7 +41,9 @@ and support and accompany us to make the conditions better for ourselves.
 > My own open source software has also been added to this script.  
 > Recommending documents to read about the requested software  
 > Install and Remove Packages
-
+> Optimization of software search: It has been tried to reduce the sensitivity to upper and lowercase letters 
+  or having a dash or not having a dash in the search for software, etc., and 
+  if you know the name of the software, you can search or install it without any trouble. do.
 
 
 ## Install
@@ -69,7 +71,7 @@ and support and accompany us to make the conditions better for ourselves.
 **man** : suse man ( Manual )
 
 **--install** : use this command to install a software
-> exapmle : suse install vscode
+> exapmle : suse --install vscode
 
 **--remove** <appname> : use this command to remove a software and try to remove dependencies
 > example: suse --remove
@@ -99,8 +101,9 @@ example : suse --list-app
 > example : suse --upgrade
 
 **--dist-upgrade** : Distribution Upgrade
-> example : suse --dist-upgrade
-
+```
+suse --dist-upgrade
+```
 **--document** : show recomended Documents Links
 > example : suse --document clamav
 
