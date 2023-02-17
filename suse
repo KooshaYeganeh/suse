@@ -132,7 +132,7 @@ android_tools_app(){
 
 android_debug_bridge(){
 
-
+	echo "Start Install $yellow Android Tools(ADB) $reset Please Wait ... "
 
 	if [ "$Tumbleweed" == "Tumbleweed" ] || [ "$tumbleweed" == "tumbleweed" ];then
 
@@ -300,6 +300,8 @@ vlc_app(){
 
 vlc(){
 
+	echo "Start Install $yellow vlc $reset Please Wait ... "
+	
 	if [ "$leap153" == "15.3" ];then
 		echo "=============== Leap 15.3 ================="
 
@@ -450,6 +452,8 @@ mediacodec_app(){
 
 mediacodec(){
 
+	echo "Start Install $yellow MultiMediaCodec  $reset Please Wait ... "
+	
 	if [ "$leap153" == "15.3" ];then
 		echo "=============== Leap 15.3 ================="
 
@@ -519,6 +523,8 @@ mariadb_app(){
 
 mariadb(){
 
+	echo "Start Install $yellow Mariadb 10.5  $reset Please Wait ... "
+	
 	sudo rpm --import https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
 	sudo zypper --gpg-auto-import-keys refresh
 	sudo zypper addrepo --gpgcheck --refresh https://yum.mariadb.org/10.5/opensuse/15/x86_64 mariadb
@@ -599,6 +605,7 @@ postgre_app(){
 postgreSQL_Installler(){
 
 
+	echo "Start Install $yellow postgreSQL $reset Please Wait ... "
 
 	#"=============== openSUSE 15.2 ==============="
 	sudo zypper addrepo https://download.opensuse.org/repositories/home:EDV_Lotse:postgresql10/openSUSE_Leap_15.2_images/home:EDV_Lotse:postgresql10.repo
@@ -727,7 +734,7 @@ list_repo(){
 
 list_install(){
 
-	echo "installed apps"
+	echo "installed $yellow Apps $reset"
 	rpm -qa
 
 
@@ -780,6 +787,8 @@ dist_upgrade(){
 
 gcc(){
 
+	echo "Start Install $yellow gcc  $reset Please Wait ... "
+	
 	sudo zypper -n install gcc
 
 	if [ -f "/usr/bin/gcc" ];then
@@ -805,6 +814,7 @@ gcc_remover(){
 
 git(){
 
+	echo "Start Install $yellow Git $reset Please Wait ... "
 	sudo zypper -n install git
 	if [ -f "/usr/bin/git" ];then
 		echo "git installed [ OK ]"
@@ -821,6 +831,9 @@ git_remover(){
 
 
 mercurial(){
+	
+	echo "Start Install $yellow Mercurial $reset Please Wait ... "
+	
 	# simple version Control App Like Git
 	sudo zypper -n install mercurial
 	if [ -f "/usr/bin/hg" ];then
@@ -840,8 +853,13 @@ mercurial_remover(){
 
 
 zsh(){
+
+
+	
 	sudo zypper -n install zsh
 
+	echo "Start Install $yellow zsh  $reset Please Wait ... "
+	
 	if [ -f "/usr/bin/zsh" ];then
 		echo "zsh installed [ OK ]"
 	else
@@ -859,6 +877,8 @@ tmux (){
 
 
 	sudo zypper -n install tmux
+
+	echo "Start Install $yellow Tmux  $reset Please Wait ... "
 }
 
 tmux_remover(){
@@ -872,6 +892,8 @@ tmux_remover(){
 
 basic_tools(){
 
+	echo "Start Install $yellow Basic Tools  $reset Please Wait ... "
+	echo "Basic Tools : $yellow 1- Git 2- wget 3- curl 4- net-tools-deprecated $reset"
 	sudo zypper -n installl git
 	sudo zypper -n install wget
 	sudo zypper -n install curl
@@ -899,6 +921,9 @@ ohmyzsh(){
 	
 	
 	sudo zypper -n install zsh
+
+	echo "Start Install $yellow ohmyzsh $reset Please Wait ... "
+	
 	sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
 
 	if [ -f "~/.zshrc" ];then
@@ -920,8 +945,11 @@ ohmyzsh_remover(){
 
 command_line_tools(){
 
+		echo "Start Install $yellow Command Line Tools $reset Please Wait ... "
+		echo "Start Install $yellow 1- zsh 2- ohmyzsh 3- Tmux  $reset Please Wait ... "
 		zsh
 		ohmyzsh
+		tmux
 }
 
 
@@ -929,6 +957,7 @@ command_line_tools_remover(){
 	
 	zsh_remover
 	sudo rm ~/.zshrc
+	tmux_remover
 
 }
 
@@ -936,7 +965,7 @@ command_line_tools_remover(){
 
 
 picocom(){
-
+	echo "Start to Install $yellow picocom $reset Please Wait ..."
 	sudo zypper -n install picocom
 }
 
@@ -948,6 +977,7 @@ picocom_remover(){
 
 lshardware(){
 	
+	echo "Start Install $yellow lshw $reset Please Wait ... "
 	sudo zypper -n install lshw
 	if [ -f "/usr/sbin/lshw" ];then
 		echo "lshw installed [ OK ]"
@@ -966,6 +996,8 @@ lshardware(){
 
 openconnect(){
 
+	echo "Start Install $yellow openconnect  $reset Please Wait ... "
+	
 	sudo zypper -n install openconnect
 
 	if [ -f "/usr/sbin/openconnect" ];then
@@ -983,6 +1015,8 @@ openconnect_remover(){
 
 openvpn(){
 
+	echo "Start Install $yellow openvpn  $reset Please Wait ... "
+	
 	sudo zypper -n install openvpn
 
 	if [ -f "/usr/sbin/openvpn" ];then
@@ -1002,6 +1036,8 @@ openvpn_remover(){
 vscode(){
 
 
+	echo "Start Install $yellow Microsoft vscode $reset Please Wait ... "
+	
 	sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 	sudo zypper addrepo https://packages.microsoft.com/yumrepos/vscode vscode
 	sudo zypper refresh
@@ -1031,6 +1067,8 @@ vscode_remove(){
 
 vim(){
 
+	echo "Start Install $yellow vim ( vi Imporeved ) $reset Please Wait ... "
+	
 
 	sudo zypper -n install vim
 
@@ -1067,7 +1105,9 @@ vim_remover(){
 
 
 mariadb(){
-
+	
+	echo "Start Install $yellow MariaDB $reset Please Wait ... "
+	
 	sudo rpm --import https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
 	sudo zypper --gpg-auto-import-keys refresh
 	if [ -f "/etc/zypp/repos.d/mariadb.repo" ];then
@@ -1154,6 +1194,7 @@ postgre_remover(){
 sqlite(){
 
 
+	echo "Start Install $yellow SQLite3  $reset Please Wait ... "
 	sudo zypper -n install sqlite3
 
 
@@ -1174,6 +1215,7 @@ sqlite_remover(){
 influx(){
 
 
+	echo "Start Install $yellow InfuxDB  $reset Please Wait ... "
 	sudo zypper -n install influxdb
 
 
@@ -1198,6 +1240,8 @@ influx_remover(){
 
 mongodb(){
 
+	echo "Start Install $yellow mongoDB  $reset Please Wait ... "
+	
 	sudo zypper -n install mongodb
 
 
@@ -1223,6 +1267,8 @@ mongodb_remover(){
 nginx(){
 
 
+	echo "Start Install $yellow Nginx  $reset Please Wait ... "
+	
 	sudo zypper -n install nginx
 
 	if [ -f "/usr/sbin/nginx" ] && [ -f "/etc/nginx" ];then
@@ -1243,6 +1289,7 @@ nginx_remover(){
 
 apache(){
 
+	echo "Start Install $yellow Apache Web Server  $reset Please Wait ... "
 	sudo zypper -n install apache2
 
 	if [ -f "/etc/sysconfig/apache2" ] || [ -f "/etc/apache2/" ];then
@@ -1267,6 +1314,7 @@ apache_remover(){
 
 nmap(){
 
+	echo "Start Install $yellow Nmep ( Network Mapper ) $reset Please Wait ... "
 
 	sudo zypper -n install nmap
 
@@ -1290,6 +1338,7 @@ nmap_remover(){
 tcpdump(){
 
 
+	echo "Start Install $yellow TcpDump ( data-network packet analyzer ) $reset Please Wait ... "
 	sudo zypper -n install tcpdump
 
 	if [ -f "/usr/bin/tcpdump" ];then
@@ -1312,6 +1361,8 @@ tcpdump(){
 wireshark(){
 
 
+	echo "Start Install $yellow ( Wireshark )  $reset Please Wait ... "
+	
 	sudo zypper -n install wireshark
 
 	if [ -f "/usr/sbin/wireshrk" ];then
@@ -1333,6 +1384,7 @@ wireshrk_remover(){
 
 iptraf(){
 
+	echo "Start Install $yellow iptraf-ng $reset Please Wait ... "
 
 	sudo zypper -n install iptraf-ng
 
@@ -1358,6 +1410,8 @@ iptraf_remover(){
 
 network_tools(){
 
+	echo "Start Install $yellow network tools  $reset Please Wait ... "
+	echo "Start Install $yellow 1- Nmap 2- TcpDump 3- wireshark 4- iptraf-ng $reset Please Wait ... "
 
 	sudo zypper -n install nmap
 	sudo zypper -n install tcpdump
@@ -1389,6 +1443,8 @@ network_tools_remover(){
 docker(){
 
 
+	echo "Start Install $yellow Docker $reset Please Wait ... "
+	
 	sudo zypper -n install docker
 
 
@@ -1415,6 +1471,8 @@ adb(){
 
 
 
+	echo "Start Install $yellow Android_Tools  $reset Please Wait ... "
+	
 	if [ "$Tumbleweed" == "Tumbleweed" ] || [ "$tumbleweed" == "tumbleweed" ];then
 
 		sudo zypper addrepo https://download.opensuse.org/repositories/home:GNorth/openSUSE_Tumbleweed/home:GNorth.repo
@@ -1581,6 +1639,9 @@ clamav_app(){
 
 clamav(){
 
+
+	echo "Start Install $yellow clamAV ( Antivirus For Linux )  $reset Please Wait ... "
+	
 	sudo zypper -n install clamav
 	if [ -f "/usr/bin/clamscan" ];then
 		echo "clamAV installed [ OK ]"
@@ -1621,6 +1682,8 @@ clamav_remover(){
 
 maldet(){
 
+	echo "Start Install $yellow LMD ( Linux Malware Detect )  $reset Please Wait ... "
+	
 	if [ -f "/usr/bin/wget" ];then
 		cd /tmp
 		wget http://www.rfxn.com/downloads/maldetect-current.tar.gz
@@ -1660,6 +1723,8 @@ malware_detect_remover(){
 
 rkhunter(){
 
+	echo "Start Install $yellow RKHunter $reset Please Wait ... "
+	
 	sudo zypper -n install rkhunter
 
 	if [ -f "/usr/bin/rkhunter" ];then
@@ -1679,6 +1744,9 @@ rkhunter_remover(){
 }
 
 lynis(){
+
+	echo "Start Install $yellow Lynis $reset Please Wait ... "
+	
 	sudo zypper -n install lynis
 
 	if [ -f "/usr/bin/lynis" ];then
@@ -1701,6 +1769,8 @@ lynis_remover(){
 antivirus(){
 
 
+	echo "Start Install $yellow Antivirus $reset Please Wait ... "
+	echo "Start Install This Tools : $yellow 1- clamAV 2- RKHunter 3- Lynis  $reset Please Wait ... "
 	clamav
 	maldet
 	rkhunter
@@ -1721,6 +1791,7 @@ antivirus_remover(){
 fail2ban(){
 
 
+	echo "Start Install $yellow Fail2Ban $reset Please Wait ... "
 	sudo zypper -n install fail2ban
 
 	if [ -f "/etc/fail2ban" ];then
@@ -1741,6 +1812,8 @@ fail2ban_remover(){
 
 tcpwrapper(){
 
+	echo "Start Install $yellow TcpWrapper $reset Please Wait ... "
+	
 	sudo zypper -n install tcpd
 
 	if [ -f "/usr/sbin/tcpd" ];then
@@ -1763,6 +1836,8 @@ tcpwrapper_remover(){
 firewalld(){
 
 
+	echo "Start Install $yellow FirewallD  $reset Please Wait ... "
+	
 	sudo zypper -n install firewalld
 
 	if [ -f "/usr/sbin/firewalld" ];then
@@ -1783,6 +1858,7 @@ firewalld_remover(){
 psad(){
 
 
+	echo "Start Install $yellow Psad ( port scans and other suspicious traffic Detector ) $reset Please Wait ... "
 
 	mkdir /tmp/psad
 	cd /tmp/psad
@@ -1810,6 +1886,9 @@ psad_remover(){
 
 network_security(){
 
+	echo "Start Install $yellow  $reset Please Wait ... "
+	echo "Start Install $yellow 1- FirewallD 2- TcpWrapper 3- Fail2Ban 3- Psad  $reset "
+	
 	firewalld
 	tcpwrapper
 	fail2ban
@@ -1835,7 +1914,8 @@ network_security_remover(){
 
 apache_waf(){
 
-
+	
+	echo "Start Install $yellow Apache2 ( ModSecurity ) $reset Please Wait ... "
 	sudo zypper -n install modsecurity
 }
 
@@ -1846,6 +1926,8 @@ apache_waf(){
 nginx_waf(){
 
 
+	echo "Start Install $yellow Nginx ( Modsecurity )  $reset Please Wait ... "
+	
 	sudo zypper -n install nginx-module-modsecurity
 
 
@@ -1855,6 +1937,8 @@ nginx_waf(){
 openssh(){
 
 
+	echo "Start Install $yellow openssh  $reset Please Wait ... "
+	
 	sudo zypper -n install openssh-server
 
 	if [ "/etc/sshd/sshd.config" ];then
@@ -1875,6 +1959,8 @@ openssh_remover(){
 sshfs(){
 
 
+	echo "Start Install $yellow SSHFS ( Transferring files over an SSH connection and Mount Remote Directory by Using SSH )  $reset Please Wait ... "
+	
 	sudo zypper -n install sshfs
 
 	if [ "/usr/bin/sshfs" ];then
@@ -1893,6 +1979,9 @@ sshfs_remover(){
 
 
 usbguard(){
+
+	echo "Start Install $yellow USBGuard $reset Please Wait ... "
+	
 	sudo zypper -n install usbguard
 
 	if [ "/etc/usbguard" ];then
@@ -1909,8 +1998,11 @@ usbguard_remover(){
 	sudo zypper -n remove usbguard
 }
 
+
 jpg(){
 
+	echo "Start Install $yellow jpegoptim $reset Please Wait ... "
+	
 	sudo zypper -n install jpegotim
 
 	if [ -f "/usr/bin/jpegoptim" ];then
@@ -1931,6 +2023,8 @@ jpgoptim_remover(){
 
 png(){
 
+	echo "Start Install $yellow optipng $reset Please Wait ... "
+	
 	sudo zypper -n install optipng
 
 
@@ -1951,6 +2045,8 @@ optipng_remover(){
 
 exiftool(){
 
+	echo "Start Install $yellow ExifTools  $reset Please Wait ... "
+	
 	sudo zypper -n install exiftool
 
 	if [ -f "/usr/bin/exiftool" ];then
@@ -1970,6 +2066,8 @@ exiftool_remover(){
 
 image_optimizer(){
 
+	echo "Start Install $yellow  $reset Please Wait ... "
+	echo "Start Install $yellow 1- jpegoptim 2- optipng 3- ExifTool  $reset"
 
 	jpg
 	png
@@ -1989,6 +2087,8 @@ image_optimizer_remover(){
 
 telegram(){
 
+	echo "Start Install $yellow Telegram $reset Please Wait ... "
+	
 	cd /home/$USER/Downloads
 	wget https://updates.tdesktop.com/tlinux/tsetup.4.6.2.tar.xz
 
@@ -2017,7 +2117,8 @@ telegram_remover(){
 
 
 viber(){
-	echo "Start Get Viber From Source"
+	
+	echo "Start Get $yellow Viber $reset From Source"
 	
 	cd /tmp
 	wget https://download.cdn.viber.com/desktop/Linux/viber.rpm
@@ -2031,6 +2132,7 @@ viber(){
 
 slack(){
 
+	echo "Start Install $yellow Slack  $reset Please Wait ... "
 	cd /tmp
 	
 	wget https://downloads.slack-edge.com/releases/linux/4.29.149/prod/x64/slack-4.29.149-0.1.el8.x86_64.rpm
@@ -2045,6 +2147,7 @@ slack(){
 
 jami(){
 
+	echo "Start Install $yellow Jami  $reset Please Wait ... "
 	if [ "$154" == "15.4" ];then
 		sudo zypper addrepo https://dl.jami.net/nightly/opensuse-leap_15.4/jami-nightly.repo
 		sudo zypper install jami
@@ -2061,6 +2164,7 @@ jami(){
 
 ansible(){
 
+	echo "Start Install $yellow Ansible $reset Please Wait ... "
 	sudo zypper -n install ansible
 
 	if [ -f "/usr/bin/ansible" ];then
@@ -2081,6 +2185,8 @@ ansible_remover(){
 puppet_repo(){
 
 
+	echo "Start Install $yellow Puppet $reset Please Wait ... "
+	
 	echo "$yellow Repository Name : puppet from home:steffens:lvermgeo:server project $reset"
 
 	echo "=============== SUSE 15.4  ==============="
@@ -2121,6 +2227,7 @@ puppet_remover(){
 tuned(){
 
 	
+	echo "Start Install $yellow Tuned $reset Please Wait ... "
 	sudo zypper -n install tuned tuned-utils tuned-utils-systemtap
 
 	if [ -f "/usr/sbin/tuned" ];then
@@ -2143,6 +2250,7 @@ tuned_remover(){
 htop(){
 
 	
+	echo "Start Install $yellow htop $reset Please Wait ... "
 	sudo zypper -n install htop
 
 	if [ -f "/usr/bin/htop" ];then
@@ -2160,6 +2268,7 @@ htop_remover(){
 munin(){
 
 	
+	echo "Start Install $yellow Munin $reset Please Wait ... "
 	sudo zypper -n install munin
 
 	if [ -f "/etc/munin" ] && [ -f "/usr/lib/munin" ];then
@@ -2181,6 +2290,7 @@ munin_remover(){
 terraform(){
 
 
+	echo "Start Install $yellow Terraform $reset Please Wait ... "
 	echo "This Will be Install Packages Below : "
 	echo "1- terraform"
 	echo "2- terraform-provider-openstack"
@@ -2218,6 +2328,9 @@ terraform_remover(){
 
 develope(){
 
+
+
+	echo "Start Install $yellow Tools for Developers and Ready to Develope and Start project $reset Please Wait ... "
 	python36=`ls /usr/bin | grep -o "^python3.6"` # check python version for 3.6
 	python39=`ls /usr/bin | grep -o "^python3.9"` # check python version for 3.9 
 	if [ "$python36" != "3.6" ];then
@@ -2349,6 +2462,7 @@ develope_remover(){
 openstack(){
 
 
+	echo "Start Install $yellow OpenStack  $reset Please Wait ... "
 	# You can install OpenStack by using packages on openSUSE Leap 42.3, openSUSE Leap 15, 
 	# SUSE Linux Enterprise Server 12 SP4, SUSE Linux Enterprise Server 15 
 	# through the Open Build Service Cloud repository
@@ -2377,6 +2491,7 @@ openstack_remover(){
 
 admin_fstep(){
 
+	echo "Start Install $yellow Admin First Step  $reset Please Wait ... "
 
 	sudo zypper -n install lshw
 	sudo zypper -n install demidecode
@@ -2416,6 +2531,7 @@ admin_fstep_remover(){
 
 wpscan(){
 
+	echo "Start Install $yellow WordPress Scanner $reset Please Wait ... "
 	cd /tmp
 	mkdir KYGnus
 	cd KYGnus
@@ -2450,6 +2566,7 @@ wpscan_remover(){
 
 kygnus_guard(){
 
+	echo "Start Install $yellow KYGnus Guard $reset Please Wait ... "
 
 	cd /tmp
 	echo "Create Directory for Project in /tmp"
@@ -2944,6 +3061,7 @@ Android_Malware_Detect(){
 clone_disk(){
 
 
+	echo "Start Install $yellow Clone Disk $reset Please Wait ... "
 	cd /tmp 
 	mkdir KYGnus
 	cd KYGnus
@@ -2982,6 +3100,7 @@ clone_disk_remover(){
 
 perm_check(){
 
+	echo "Start Install $yellow Permission check  $reset Please Wait ... "
 	cd /tmp 
 	mkdir KYGnus
 	cd KYGnus
@@ -3020,6 +3139,7 @@ perm_check_remover(){
 lv(){
 
 
+	echo "Start Install $yellow Linux Verfication $reset Please Wait ... "
 	cd /tmp 
 	mkdir KYGnus
 	cd KYGnus
@@ -3059,6 +3179,7 @@ lv_remove(){
 fs(){
 
 
+	echo "Start Install $yellow FileSort $reset Please Wait ... "
 	cd /tmp 
 	mkdir KYGnus
 	cd KYGnus
@@ -3102,6 +3223,7 @@ fs_remover(){
 
 KYGnus_Backup(){
 
+	echo "Start Install $yellow KYGnus Backup  $reset Please Wait ... "
 
 	cd /tmp 
 	mkdir KYGnus
@@ -3145,6 +3267,8 @@ KYGnus_Backup_remover(){
 
 exifremover(){
 
+
+	echo "Start Install $yellow ExifRemover  $reset Please Wait ... "
 	if [ -f "/usr/bin/exiftool" ];then
 		wget https://github.com/KooshaYeganeh/exif_remover/archive/refs/heads/main.zip
 		if [ -f "/tmp/KYGnus/main.zip" ];then
@@ -3203,6 +3327,7 @@ exiremover_remover(){
 antideface(){
 		
 		
+		echo "Start Install $yellow AntiDeface $reset Please Wait ... "
 		wget https://github.com/KooshaYeganeh/AntiDeface/archive/refs/heads/main.zip
 		if [ -f "/tmp/KYGnus/main.zip" ];then
 			
@@ -3257,6 +3382,9 @@ man(){
 	echo "--remove : use this command to remove a software and try to remove dependencies"
 	echo "> example: suse --remove"
 	echo "************************************************"
+	echo "--remove <app> --clean-unneed : remove + clean_unnneded"
+	echo "> example: suse --remove"
+	echo "************************************************"
 	echo "--list-app : List Installed apps "
 	echo "example : suse --list-app"
 	echo "************************************************"
@@ -3293,7 +3421,7 @@ man(){
 
 
 
-if [ "$0" == "./suse" ];then
+if [ "$0" == "suse" ];then
 	if [ "$1" == "--whereis" ];then
 		if [ "$2" == "android_tools" ] || [ "$2" == "android tools" ] || \
 			[ "$2" == "Android Tools" ] || [ "$2" == "Android_Tools" ];then
@@ -3459,345 +3587,1010 @@ if [ "$0" == "./suse" ];then
 		if [ "$2" == "mariadb" ] || [ "$2" == "mariaDB" ] || \
 			[ "$2" == "MariaDB" ];then
 				mariadb_remover
-				remove_unneeded
+				
 		elif [ "$2" == "postgresql" ] || [ "$2" == "PostgreSQL" ] || \
 			[ "$2" == "postgreSQL" ];then
 				postgre_remover
-				remove_unneeded 
+				 
 		elif [ "$2" == "adb" ] || [ "$2" == "Android-Dubug-Bridge" ] || \
 			[ "$2" == "ADB" ] || [ "$2" == "Android_Dubug_Bridge" ] || \
 				[ "$2" == "android_dubug_bridge" ] || [ "$2" == "android-dubug-bridge" ] || \
 					[ "$2" == "Android_Tools" ] || [ "$2" == "android_tools" ];then
 							adb_remover
-							remove_unneeded
+							
 		
 		elif [ "$2" == "vlc" ] || [ "$2" == "VLC" ];then 
 				vlc_remover
-				remove_unneeded
+				
 
 		elif [ "$2" == "vscode" ] || [ "$2" == "code" ] || \
 			[ "$2" == "VScode" ] || [ "$2" == "visual_stdio_code" ];then
 				code_remover
-				remove_unneeded
+				
 
 		elif [ "$2" == "clamAV" ] || [ "$2" == "clamav" ];then
 				clamav_remover
-				remove_unneeded
+				
 		elif [ "$2" == "git" ] || [ "$2" == "Git" ] || \
 			[ "$2" == "GIT" ];then
 				git_remover
-				remove_unneeded
+				
 		elif [ "$2" == "gcc" ] || [ "$2" == "GCC" ] || \
 			[ "$2" == "Gcc" ];then
 				gcc_remover
-				remove_unneeded
+				
 		elif [ "$2" == "zsh" ] || [ "$2" == "ZSH" ] || \
 			[ "$2" == "Zsh" ];then
 				zsh_remover
-				remove_unneeded		
+						
 		
 		elif [ "$2" == "Basic_Tools" ] || [ "$2" == "basic_tools" ] || \
 			[ "$2" == "BasicTools" ] || [ "$2" == "basictools" ];then		
 				basic_tools_remover
-				remove_unneeded
+				
 			
 		elif [ "$2" == "ohmyzsh" ] || [ "$2" == "OhMyZsh" ] || \
 			[ "$2" == "oh-my-zsh" ];then
 				ohmyzsh_remover		
-				remove_unneeded
+				
 
 		elif [ "$2" == "command_line_tools" ] || [ "$2" == "Command_Line_Tools" ] || \
 			[ "$2" == "CommandLineTools" ] || [ "$2" == "COMMAND_LINE_TOOLS" ];then
 				command_line_tools_remover
-				remove_unneeded
+				
 
 		elif [ "$2" == "lshw" ] || [ "$2" == "lshardware" ] || \
 			[ "$2" == "listhardware" ];then
 				sudo zypper -n remove lshw
-				remove_unneeded
+				
 				
 		elif [ "$2" == "openconnect" ] || [ "$2" == "open-connect" ] || \
 			[ "$2" == "open_connect" ];then
 				openconnect_remover
-				remove_unneeded
+				
 						
 		elif [ "$2" == "openvpn" ] || [ "$2" == "open-vpn" ] || \
 			[ "$2" == "OpenVpn" ];then
 				openvpn_remover
-				remove_unneeded
+				
 
 
 		elif [ "$2" == "VIM" ] || [ "$2" == "Vim" ] || \
 			[ "$2" == "vim" ];then
 				
 				vim_remover
-				remove_unneeded
+				
 
 		elif [ "$2" == "sqlite" ] || [ "$2" == "SQlite" ] || \
 			[ "$2" == "SQLite" ];then
 				sqlite_remover
-				remove_unneeded
+				
 
 		elif [ "$2" == "influx" ] || [ "$2" == "influxdb" ] || \
 			[ "$2" == "InfluxDB" ];then
 				influx_remover
-				remove_unneeded
+				
 						
 		elif [ "$2" == "mongoDB" ] || [ "$2" == "mongo" ] || \
 			[ "$2" == "MongoDB" ];then
 				mongodb_remover
-				remove_unneeded
+				
 						
 		elif [ "$2" == "nginx" ] || [ "$2" == "Nginx" ] || \
 			[ "$2" == "NGINX" ];then
 				nginx_remover
-				remove_unneeded
+				
 		
 		elif [ "$2" == "Apache" ] || [ "$2" == "Apache2" ] || \
 			[ "$2" == "apache" ] || [ "$2" == "apache2" ];then						
 				apache_remover
-				remove_unneeded
+				
 
 		elif [ "$2" == "nmap" ] || [ "$2" == "Nmap" ] || \
 			[ "$2" == "NMAP" ];then
 				nmap_remover
-				remove_unneeded
+				
 
 		elif [ "$2" == "TcpDump" ] || [ "$2" == "tcpdump" ] || \
 			[ "$2" == "TCPDUMP" ];then
 				tcpdump_remover
-				remove_unneeded
+				
 
 		elif [ "$2" == "wireshark" ] || [ "$2" == "Wireshark" ] || \
 			[ "$2" == "WireShark" ];then
 
 				wireshark_remover
-				remove_unneeded
+				
 
 		elif [ "$2" == "iptraf" ] || [ "$2" == "iptraf-ng" ] || \
 			[ "$2" == "iptrafng" ];then
 				iptraf_remover
-				remove_unneeded
+				
 
 		elif [ "$2" == "network_tools_all" ] || [ "$2" == "Network_Tools_All" ] || \
 			[ "$2" == "NetworkToolsAll" ] || [ "$2" == "nettoolsall" ];then
 				network_tools_remover
-				remove_unneeded
+				
 
 
 		elif [ "$2" == "docker" ] || [ "$2" == "Docker" ] || \
 			[ "$2" == "DOCKER" ];then
 				docker_remover
-				remove_unneeded
+				
 
 
 		elif [ "$2" == "clamAV" ] || [ "$2" == "clamav" ] || \
 			[ "$2" == "ClamAV" ];then
 				clamav_remover
-				remove_unneeded
+				
 
 		elif [ "$2" == "maldet" ] || [ "$2" == "malware_detect" ] || \
 			[ "$2" == "malware-detect" ] || [ "$2" == "Maldet" ] || \
 				[ "$2" == "Malware-Detect" ] || [ "$2" == "LMD" ];then
 					maldet_remover
-					remove_unneeded
+					
 
 
 		elif [ "$2" == "rkhunter" ] || [ "$2" == "Rkhunter" ] || \
 			[ "$2" == "RootKitHunter" ] || [ "$2" == "rootkithunter" ];then
 				rkhunter_remover
-				remove_unneeded
+				
 
 		elif [ "$2" == "lynis" ] || [ "$2" == "Lynis" ] || \
 			[ "$2" == "LYNIS" ];then
 				lynis_remover
-				remove_unneeded
+				
 
 		elif [ "$2" == "AV" ] || [ "$2" == "Antivirus" ] || \
 			[ "$2" == "antivirus" ];then
 				echo "$red This command will remove all antivirus packages from your system $reset"
 				antivirus_remover
-				remove_unneeded
+				
 
 		elif [ "$2" == "fail2ban" ] || [ "$2" == "Fail2ban" ] || \
 			[ "$2" == "FAIL2BAN" ];then
 				fail2ban_remover
-				remove_unneeded	
+					
 
 
 		elif [ "$2" == "tcpwrapper" ] || [ "$2" == "tcp-wrapper" ] || \
 			[ "$2" == "TcpWrapper" ] || [ "$2" == "Tcp-Wrapper" ];then
 				tcpwrapper_remover
-				remove_unneeded
+				
 
 
 		elif [ "$2" == "firewalld" ] || [ "$2" == "FirewallD" ] || \
 			[ "$2" == "Firewall-Cmd" ] || [ "$2" == "firewall-cmd" ];then
 				firewalld_remover
-				remove_unneeded
+				
 
 		elif [ "$2" == "psad" ] || [ "$2" == "PSad" ] || \
 			[ "$2" == "PSAD" ];then
 				psad_remover
-				remove_unneeded
+				
 
 		elif [ "$2" == "network_security" ] || [ "$2" == "Network_Securiey" ] || \
 			[ "$2" == "NetworkSecurity" ];then
 				network_security_remover
-				remove_unneeded
+				
 
 		elif [ "$2" == "openssh" ] || [ "$2" == "Openssh" ] || \
 				[ "$2" == "Openssh-server" ] || [ "$2" == "openssh-server" ];then
 					openssh_remover
-					remove_unneeded
+					
 		elif [ "$2" == "sshfs" ] || [ "$2" == "SSHFS" ] || \
 				[ "$2" == "fuse-sshfs" ] || [ "$2" == "Fuse-SSHFS" ];then
 					sshfs_remover
-					remove_unneeded
+					
 
 		elif [ "$2" == "usbguard" ] || [ "$2" == "USBGuard" ] || \
 			[ "$2" == "usb-guard" ] || [ "$2" == "USB-Guard" ];then
 				usbguard_remover
-				remove_unneeded
+				
 
 		elif [ "$2" == "jpegoptim" ] || [ "$2" == "jpgoptim" ] || \
 			[ "$2" == "JpegOptim" ] || [ "$2" == "jpegoptimizer" ] || \
 				[ "$2" == "jpgoptimizer" ];then
 					jpgoptim_remover
-					remove_unneeded
+					
 
 
 		elif [ "$2" == "optimpng" ] || [ "$2" == "optipng" ] || \
 			[ "$2" == "optimizepng" ] || [ "$2" == "optimizePNG" ];then
 				optipng_remover
-				remove_unneeded
+				
 
 		elif [ "$2" == "exiftool" ] || [ "$2" == "Exif-Tool" ] || \
 			[ "$2" == "ExifTool" ] || [ "$2" == "exiftools" ] || \
 				[ "$2" == "ExifTools" ] || [ "$2" == "Exif-Tools" ];then
 					exiftool_remover
-					remove_unneeded
+					
 
 
 		elif [ "$2" == "image-optimizer" ] || [ "$2" == "imageoptimizer" ] || \
 			[ "$2" == "Image-Optmizer" ] || [ "$2" == "Image_Optmizer" ] || \
 				[ "$2" == "image_optmizer" ];then
 					image_optimizer_remover
-					remove_unneeded
+					
 
 
 		elif [ "$2" == "telegram" ] || [ "$2" == "Telegram-Desktop" ] || \
 			[ "$2" == "Telegram" ] || [ "$2" == "telegram-desktop" ];then
 				telegram_remover
-				remove_unneeded
+				
 
 		elif [ "$2" == "Ansible" ] || [ "$2" == "ansible" ] || \
 			[ "$2" == "ANSIBLE" ];then
 				ansible_remover
-				remove_unneeded
+				
 
 		elif [ "$2" == "tuned" ] || [ "$2" == "Tuned" ] || \
 			[ "$2" == ""tuned ];then
 				tuned_remover
-				remove_unneeded
+				
 
 		elif [ "$2" == "htop" ] || [ "$2" == "Htop" ];then
 				htop_remover
-				remove_unneeded
+				
 
 		elif [ "$2" == "munin" ] || [ "$2" == "Munin" ];then
 				munin_remover
-				remove_unneeded
+				
 
 		elif [ "$2" == "terraform" ] || [ "$2" == "Terraform" ] || \
 			[ "$2" == "TERRAFORM" ];then
 				terraform_remover
-				remove_unneeded
+				
 
 		elif [ "$2" == "develope" ] || [ "$2" == "Develope" ] || \
 			[ "$2" == "DEVELOPE" ];then
 
 				develope_remover
-				remove_unneeded
+				
 
 		elif [ "$2" == "openstack" ] || [ "$2" == "open-stack" ] || \
 			[ "$2" == "OpenStack" ];then
 				openstack_remover
-				remove_unneeded
+				
 		
 		# Start of my own software section
 
 		elif [ "$2" == "admin_fstep" ] || [ "$2" == "Admin_Fstep" ] || \
 			[ "$2" == "AdminFstep" ] || [ "$2" == "Admin-Fstep" ];then
 				admin_fstep_remover
-				remove_unneeded
+				
 		
 		elif [ "$2" == "wpscan" ] || [ "$2" == "WpScan" ] || \
 			[ "$2" == "wp-scan" ];then
 				wpscan_remover
-				remove_unneeded
+				
 
 
 		elif [ "$2" == "kygnus_guard" ] || [ "$2" == "KYGnus_Guard" ] || \
 			[ "$2" == "KYGnusGuard" ] || [ "kygnusguard" == "" ];then
 				kygnus_guard	
-				remove_unneeded
+				
 
 		elif [ "$2" == "Android_Malware_Detect" ] || [ "$2" == "AndroidMalwareDetect" ] || \
 				[ "$2" == "android_malware_detect" ] || [ "$2" == "AMD" ] || \
 				[ "$2" == "amd" ];then
 					true
-					remove_unneeded
+					
 
 		elif [ "$2" == "clone_disk" ] || [ "$2" == "CloneDisk" ] || \
 			[ "$2" == "clone-disk" ] || [ "$2" == "clonedisk" ];then
 				clone_disk_remover
-				remove_unneeded
+				
 
 		elif [ "$2" == "perm_check" ] || [ "$2" == "permcheck" ] || \
 			[ "$2" == "PermCheck" ] || [ "$2" == "perm-check" ];then
 				perm_check_remover
-				remove_unneeded
+				
 
 
 		elif [ "$2" == "LV" ] || [ "$2" == "LinuxVerification" ];then
 				lv_remover
-				remove_unneeded
+				
 
 
 		elif [ "$2" == "fs" ] || [ "$2" == "FS" ];then
 				fs_remover
-				remove_unneeded
+				
 
 		elif [ "$2" == "exifremover" ] || [ "$2" == "ExifRemover" ] || \
 			[ "$2" == "exif_remover" ] || [ "$2" == "Exif_Remover" ];then
 				exiremover_remover
-				remove_unneeded
+				
 
 		elif [ "$2" == "antideface" ] || [ "$2" == "AntiDeface" ] || \
 			[ "$2" == "Anti-deface" ] || [ "$2" == "anti-deface" ];then
 				antideface_remover
-				remove_unneeded
+				
 		
 		elif [ "$2" == "mercurial" ] || [ "$2" == "Mercurial" ];then
 				mercurial_remover
-				remove_unneeded
+				
 
 
 		elif [ "$2" == "tmux" ] || [ "$2" == "Tmux" ] || \
 			[ "$2" == "Tmux" ];then
 				tmux_remover
-				remove_unneeded
+				
 
 		elif [ "$2" == "picocom" ] || [ "$2" == "Picocom" ] || \
 			[ "$2" == "PICOCOM" ];then
 				picocom_remover
-				remove_unneeded
 		else
 				echo "Sorry.App Not Found in Repository"
 		fi
 		
+	elif [ "$1" == "--remove" ];then
+		if [ "$2" == "mariadb" ] || [ "$2" == "mariaDB" ] || \
+			[ "$2" == "MariaDB" ];then
+				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+					mariadb_remover
+					remove_unneeded
+				else
+					echo "Do you mean --unneed or --unneeded?"
+					echo "check Check the spelling of the command and try again"
+				fi
+		elif [ "$2" == "postgresql" ] || [ "$2" == "PostgreSQL" ] || \
+			[ "$2" == "postgreSQL" ];then
+				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+					postgre_remover
+					remove_unneeded 
+				else
+					echo "Do you mean --unneed or --unneeded?"
+					echo "check Check the spelling of the command and try again"
+				fi
+		elif [ "$2" == "adb" ] || [ "$2" == "Android-Dubug-Bridge" ] || \
+			[ "$2" == "ADB" ] || [ "$2" == "Android_Dubug_Bridge" ] || \
+				[ "$2" == "android_dubug_bridge" ] || [ "$2" == "android-dubug-bridge" ] || \
+					[ "$2" == "Android_Tools" ] || [ "$2" == "android_tools" ];then
+						if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+							adb_remover
+							remove_unneeded
+		
+				else
+					echo "Do you mean --unneed or --unneeded?"
+					echo "check Check the spelling of the command and try again"
+				fi
+		elif [ "$2" == "vlc" ] || [ "$2" == "VLC" ];then 
+			if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+				vlc_remover
+				remove_unneeded
 
+			else
+				echo "Do you mean --unneed or --unneeded?"
+				echo "check Check the spelling of the command and try again"
+			fi
+		elif [ "$2" == "vscode" ] || [ "$2" == "code" ] || \
+			[ "$2" == "VScode" ] || [ "$2" == "visual_stdio_code" ];then
+				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+					code_remover
+					remove_unneeded
+
+				else
+					echo "Do you mean --unneed or --unneeded?"
+					echo "check Check the spelling of the command and try again"
+				fi
+		elif [ "$2" == "clamAV" ] || [ "$2" == "clamav" ];then
+			if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+				clamav_remover
+				remove_unneeded
+
+			else
+				echo "Do you mean --unneed or --unneeded?"
+				echo "check Check the spelling of the command and try again"
+			fi
+		elif [ "$2" == "git" ] || [ "$2" == "Git" ] || \
+			[ "$2" == "GIT" ];then
+				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+					git_remover
+					remove_unneeded
+
+				else
+					echo "Do you mean --unneed or --unneeded?"
+					echo "check Check the spelling of the command and try again"
+				fi
+		elif [ "$2" == "gcc" ] || [ "$2" == "GCC" ] || \
+			[ "$2" == "Gcc" ];then
+				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+					gcc_remover
+					remove_unneeded
+
+				else
+					echo "Do you mean --unneed or --unneeded?"
+					echo "check Check the spelling of the command and try again"
+				fi
+		elif [ "$2" == "zsh" ] || [ "$2" == "ZSH" ] || \
+			[ "$2" == "Zsh" ];then
+				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+					zsh_remover
+					remove_unneeded		
+		
+				else
+					echo "Do you mean --unneed or --unneeded?"
+					echo "check Check the spelling of the command and try again"
+				fi
+		elif [ "$2" == "Basic_Tools" ] || [ "$2" == "basic_tools" ] || \
+			[ "$2" == "BasicTools" ] || [ "$2" == "basictools" ];then		
+				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+					basic_tools_remover
+					remove_unneeded
+			
+				else
+					echo "Do you mean --unneed or --unneeded?"
+					echo "check Check the spelling of the command and try again"
+				fi
+		elif [ "$2" == "ohmyzsh" ] || [ "$2" == "OhMyZsh" ] || \
+			[ "$2" == "oh-my-zsh" ];then
+				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+					ohmyzsh_remover		
+					remove_unneeded
+
+				else
+					echo "Do you mean --unneed or --unneeded?"
+					echo "check Check the spelling of the command and try again"
+				fi
+		elif [ "$2" == "command_line_tools" ] || [ "$2" == "Command_Line_Tools" ] || \
+			[ "$2" == "CommandLineTools" ] || [ "$2" == "COMMAND_LINE_TOOLS" ];then
+				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+					command_line_tools_remover
+					remove_unneeded
+
+				else
+					echo "Do you mean --unneed or --unneeded?"
+					echo "check Check the spelling of the command and try again"
+				fi
+		elif [ "$2" == "lshw" ] || [ "$2" == "lshardware" ] || \
+			[ "$2" == "listhardware" ];then
+				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+					sudo zypper -n remove lshw
+					remove_unneeded
+				
+				else
+					echo "Do you mean --unneed or --unneeded?"
+					echo "check Check the spelling of the command and try again"
+				fi
+		elif [ "$2" == "openconnect" ] || [ "$2" == "open-connect" ] || \
+			[ "$2" == "open_connect" ];then
+				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+					openconnect_remover
+					remove_unneeded
+						
+				else
+					echo "Do you mean --unneed or --unneeded?"
+					echo "check Check the spelling of the command and try again"
+				fi
+		elif [ "$2" == "openvpn" ] || [ "$2" == "open-vpn" ] || \
+			[ "$2" == "OpenVpn" ];then
+				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+					openvpn_remover
+					remove_unneeded
+
+
+				else
+					echo "Do you mean --unneed or --unneeded?"
+					echo "check Check the spelling of the command and try again"
+				fi
+		elif [ "$2" == "VIM" ] || [ "$2" == "Vim" ] || \
+			[ "$2" == "vim" ];then
+				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+					vim_remover
+					remove_unneeded
+
+				else
+					echo "Do you mean --unneed or --unneeded?"
+					echo "check Check the spelling of the command and try again"
+				fi
+		elif [ "$2" == "sqlite" ] || [ "$2" == "SQlite" ] || \
+			[ "$2" == "SQLite" ];then
+				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+					sqlite_remover
+					remove_unneeded
+
+				else
+					echo "Do you mean --unneed or --unneeded?"
+					echo "check Check the spelling of the command and try again"
+				fi
+		elif [ "$2" == "influx" ] || [ "$2" == "influxdb" ] || \
+			[ "$2" == "InfluxDB" ];then
+				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+					influx_remover
+					remove_unneeded
+						
+				else
+					echo "Do you mean --unneed or --unneeded?"
+					echo "check Check the spelling of the command and try again"
+				fi
+		elif [ "$2" == "mongoDB" ] || [ "$2" == "mongo" ] || \
+			[ "$2" == "MongoDB" ];then
+				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+					mongodb_remover
+					remove_unneeded
+						
+				else
+					echo "Do you mean --unneed or --unneeded?"
+					echo "check Check the spelling of the command and try again"
+				fi
+		elif [ "$2" == "nginx" ] || [ "$2" == "Nginx" ] || \
+			[ "$2" == "NGINX" ];then
+				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+					nginx_remover
+					remove_unneeded
+		
+				else
+					echo "Do you mean --unneed or --unneeded?"
+					echo "check Check the spelling of the command and try again"
+				fi
+		elif [ "$2" == "Apache" ] || [ "$2" == "Apache2" ] || \
+			[ "$2" == "apache" ] || [ "$2" == "apache2" ];then						
+				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+					apache_remover
+					remove_unneeded
+
+				else
+					echo "Do you mean --unneed or --unneeded?"
+					echo "check Check the spelling of the command and try again"
+				fi
+		elif [ "$2" == "nmap" ] || [ "$2" == "Nmap" ] || \
+			[ "$2" == "NMAP" ];then
+				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+					nmap_remover
+					remove_unneeded
+
+				else
+					echo "Do you mean --unneed or --unneeded?"
+					echo "check Check the spelling of the command and try again"
+				fi
+		elif [ "$2" == "TcpDump" ] || [ "$2" == "tcpdump" ] || \
+			[ "$2" == "TCPDUMP" ];then
+				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+					tcpdump_remover
+					remove_unneeded
+
+				else
+					echo "Do you mean --unneed or --unneeded?"
+					echo "check Check the spelling of the command and try again"
+				fi
+		elif [ "$2" == "wireshark" ] || [ "$2" == "Wireshark" ] || \
+			[ "$2" == "WireShark" ];then
+				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+					wireshark_remover
+					remove_unneeded
+
+				else
+					echo "Do you mean --unneed or --unneeded?"
+					echo "check Check the spelling of the command and try again"
+				fi
+		elif [ "$2" == "iptraf" ] || [ "$2" == "iptraf-ng" ] || \
+			[ "$2" == "iptrafng" ];then
+				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+					iptraf_remover
+					remove_unneeded
+
+				else
+					echo "Do you mean --unneed or --unneeded?"
+					echo "check Check the spelling of the command and try again"
+				fi
+		elif [ "$2" == "network_tools_all" ] || [ "$2" == "Network_Tools_All" ] || \
+			[ "$2" == "NetworkToolsAll" ] || [ "$2" == "nettoolsall" ];then
+				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+					network_tools_remover
+					remove_unneeded
+
+
+				else
+					echo "Do you mean --unneed or --unneeded?"
+					echo "check Check the spelling of the command and try again"
+				fi
+		elif [ "$2" == "docker" ] || [ "$2" == "Docker" ] || \
+			[ "$2" == "DOCKER" ];then
+				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+					docker_remover
+					remove_unneeded
+
+				else
+					echo "Do you mean --unneed or --unneeded?"
+					echo "check Check the spelling of the command and try again"
+				fi
+		elif [ "$2" == "clamAV" ] || [ "$2" == "clamav" ] || \
+			[ "$2" == "ClamAV" ];then
+				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+					clamav_remover
+					remove_unneeded
+
+				else
+					echo "Do you mean --unneed or --unneeded?"
+					echo "check Check the spelling of the command and try again"
+				fi
+		elif [ "$2" == "maldet" ] || [ "$2" == "malware_detect" ] || \
+			[ "$2" == "malware-detect" ] || [ "$2" == "Maldet" ] || \
+				[ "$2" == "Malware-Detect" ] || [ "$2" == "LMD" ];then
+						if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+							maldet_remover
+							remove_unneeded
+
+						else
+							echo "Do you mean --unneed or --unneeded?"
+							echo "check Check the spelling of the command and try again"
+						fi
+		elif [ "$2" == "rkhunter" ] || [ "$2" == "Rkhunter" ] || \
+			[ "$2" == "RootKitHunter" ] || [ "$2" == "rootkithunter" ];then
+				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+					rkhunter_remover
+					remove_unneeded
+
+				else
+					echo "Do you mean --unneed or --unneeded?"
+					echo "check Check the spelling of the command and try again"
+				fi
+		elif [ "$2" == "lynis" ] || [ "$2" == "Lynis" ] || \
+			[ "$2" == "LYNIS" ];then
+				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+					lynis_remover
+					remove_unneeded
+
+				else
+					echo "Do you mean --unneed or --unneeded?"
+					echo "check Check the spelling of the command and try again"
+				fi
+		elif [ "$2" == "AV" ] || [ "$2" == "Antivirus" ] || \
+			[ "$2" == "antivirus" ];then
+				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+					echo "$red This command will remove all antivirus packages from your system $reset"
+					antivirus_remover
+					remove_unneeded
+
+				else
+					echo "Do you mean --unneed or --unneeded?"
+					echo "check Check the spelling of the command and try again"
+				fi
+		elif [ "$2" == "fail2ban" ] || [ "$2" == "Fail2ban" ] || \
+			[ "$2" == "FAIL2BAN" ];then
+				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+					fail2ban_remover
+					remove_unneeded	
+
+
+				else
+					echo "Do you mean --unneed or --unneeded?"
+					echo "check Check the spelling of the command and try again"
+				fi
+		elif [ "$2" == "tcpwrapper" ] || [ "$2" == "tcp-wrapper" ] || \
+			[ "$2" == "TcpWrapper" ] || [ "$2" == "Tcp-Wrapper" ];then
+				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+					tcpwrapper_remover
+					remove_unneeded
+
+
+				else
+					echo "Do you mean --unneed or --unneeded?"
+					echo "check Check the spelling of the command and try again"
+				fi
+		elif [ "$2" == "firewalld" ] || [ "$2" == "FirewallD" ] || \
+			[ "$2" == "Firewall-Cmd" ] || [ "$2" == "firewall-cmd" ];then
+				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+					firewalld_remover
+					remove_unneeded
+
+				else
+					echo "Do you mean --unneed or --unneeded?"
+					echo "check Check the spelling of the command and try again"
+				fi
+		elif [ "$2" == "psad" ] || [ "$2" == "PSad" ] || \
+			[ "$2" == "PSAD" ];then
+				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+					psad_remover
+					remove_unneeded
+
+				else
+					echo "Do you mean --unneed or --unneeded?"
+					echo "check Check the spelling of the command and try again"
+				fi
+		elif [ "$2" == "network_security" ] || [ "$2" == "Network_Securiey" ] || \
+			[ "$2" == "NetworkSecurity" ];then
+				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+					network_security_remover
+					remove_unneeded
+
+				else
+					echo "Do you mean --unneed or --unneeded?"
+					echo "check Check the spelling of the command and try again"
+				fi
+		elif [ "$2" == "openssh" ] || [ "$2" == "Openssh" ] || \
+				[ "$2" == "Openssh-server" ] || [ "$2" == "openssh-server" ];then
+					if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+						openssh_remover
+						remove_unneeded
+					else
+						echo "Do you mean --unneed or --unneeded?"
+						echo "check Check the spelling of the command and try again"
+					fi
+		elif [ "$2" == "sshfs" ] || [ "$2" == "SSHFS" ] || \
+				[ "$2" == "fuse-sshfs" ] || [ "$2" == "Fuse-SSHFS" ];then
+						if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+							sshfs_remover
+							remove_unneeded
+
+						else
+							echo "Do you mean --unneed or --unneeded?"
+							echo "check Check the spelling of the command and try again"
+						fi
+		elif [ "$2" == "usbguard" ] || [ "$2" == "USBGuard" ] || \
+			[ "$2" == "usb-guard" ] || [ "$2" == "USB-Guard" ];then
+				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+					usbguard_remover
+					remove_unneeded
+
+				else
+					echo "Do you mean --unneed or --unneeded?"
+					echo "check Check the spelling of the command and try again"
+				fi
+		elif [ "$2" == "jpegoptim" ] || [ "$2" == "jpgoptim" ] || \
+			[ "$2" == "JpegOptim" ] || [ "$2" == "jpegoptimizer" ] || \
+				[ "$2" == "jpgoptimizer" ];then
+						if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+							jpgoptim_remover
+							remove_unneeded
+
+						else
+							echo "Do you mean --unneed or --unneeded?"
+							echo "check Check the spelling of the command and try again"
+						fi
+
+		elif [ "$2" == "optimpng" ] || [ "$2" == "optipng" ] || \
+			[ "$2" == "optimizepng" ] || [ "$2" == "optimizePNG" ];then
+				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+					optipng_remover
+					remove_unneeded
+
+				else
+					echo "Do you mean --unneed or --unneeded?"
+					echo "check Check the spelling of the command and try again"
+				fi
+		elif [ "$2" == "exiftool" ] || [ "$2" == "Exif-Tool" ] || \
+			[ "$2" == "ExifTool" ] || [ "$2" == "exiftools" ] || \
+				[ "$2" == "ExifTools" ] || [ "$2" == "Exif-Tools" ];then
+						if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+							exiftool_remover
+							remove_unneeded
+
+						else
+							echo "Do you mean --unneed or --unneeded?"
+							echo "check Check the spelling of the command and try again"
+						fi
+
+		elif [ "$2" == "image-optimizer" ] || [ "$2" == "imageoptimizer" ] || \
+			[ "$2" == "Image-Optmizer" ] || [ "$2" == "Image_Optmizer" ] || \
+				[ "$2" == "image_optmizer" ];then
+						if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+							image_optimizer_remover
+							remove_unneeded
+
+
+						else
+							echo "Do you mean --unneed or --unneeded?"
+							echo "check Check the spelling of the command and try again"
+						fi
+		elif [ "$2" == "telegram" ] || [ "$2" == "Telegram-Desktop" ] || \
+			[ "$2" == "Telegram" ] || [ "$2" == "telegram-desktop" ];then
+				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+					telegram_remover
+					remove_unneeded
+
+				else
+					echo "Do you mean --unneed or --unneeded?"
+					echo "check Check the spelling of the command and try again"
+				fi
+		elif [ "$2" == "Ansible" ] || [ "$2" == "ansible" ] || \
+			[ "$2" == "ANSIBLE" ];then
+				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+
+					ansible_remover
+					remove_unneeded
+
+				else
+					echo "Do you mean --unneed or --unneeded?"
+					echo "check Check the spelling of the command and try again"
+				fi
+		elif [ "$2" == "tuned" ] || [ "$2" == "Tuned" ] || \
+			[ "$2" == ""tuned ];then
+				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+					tuned_remover
+					remove_unneeded
+
+				else
+					echo "Do you mean --unneed or --unneeded?"
+					echo "check Check the spelling of the command and try again"
+				fi
+		elif [ "$2" == "htop" ] || [ "$2" == "Htop" ];then
+			if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+				htop_remover
+				remove_unneeded
+
+			else
+				echo "Do you mean --unneed or --unneeded?"
+				echo "check Check the spelling of the command and try again"
+			fi
+		elif [ "$2" == "munin" ] || [ "$2" == "Munin" ];then
+			if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+				munin_remover
+				remove_unneeded
+
+			else
+				echo "Do you mean --unneed or --unneeded?"
+				echo "check Check the spelling of the command and try again"
+			fi
+		elif [ "$2" == "terraform" ] || [ "$2" == "Terraform" ] || \
+			[ "$2" == "TERRAFORM" ];then
+					if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+						terraform_remover
+						remove_unneeded
+
+					else
+						echo "Do you mean --unneed or --unneeded?"
+						echo "check Check the spelling of the command and try again"
+					fi
+		elif [ "$2" == "develope" ] || [ "$2" == "Develope" ] || \
+			[ "$2" == "DEVELOPE" ];then
+					if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+
+						develope_remover
+						remove_unneeded
+
+					else
+						echo "Do you mean --unneed or --unneeded?"
+						echo "check Check the spelling of the command and try again"
+					fi
+		elif [ "$2" == "openstack" ] || [ "$2" == "open-stack" ] || \
+			[ "$2" == "OpenStack" ];then
+					if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+						openstack_remover
+						remove_unneeded
+		
+					else
+						echo "Do you mean --unneed or --unneeded?"
+						echo "check Check the spelling of the command and try again"
+					fi
+		# Start of my own software section
+
+		elif [ "$2" == "admin_fstep" ] || [ "$2" == "Admin_Fstep" ] || \
+			[ "$2" == "AdminFstep" ] || [ "$2" == "Admin-Fstep" ];then
+					if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+						admin_fstep_remover
+						remove_unneeded
+		
+					else
+						echo "Do you mean --unneed or --unneeded?"
+						echo "check Check the spelling of the command and try again"
+					fi
+		elif [ "$2" == "wpscan" ] || [ "$2" == "WpScan" ] || \
+			[ "$2" == "wp-scan" ];then
+					if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+						wpscan_remover
+						remove_unneeded
+
+
+					else
+						echo "Do you mean --unneed or --unneeded?"
+						echo "check Check the spelling of the command and try again"
+					fi
+		elif [ "$2" == "kygnus_guard" ] || [ "$2" == "KYGnus_Guard" ] || \
+			[ "$2" == "KYGnusGuard" ] || [ "kygnusguard" == "" ];then
+					if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+						kygnus_guard	
+						remove_unneeded
+
+					else
+						echo "Do you mean --unneed or --unneeded?"
+						echo "check Check the spelling of the command and try again"
+					fi
+		elif [ "$2" == "Android_Malware_Detect" ] || [ "$2" == "AndroidMalwareDetect" ] || \
+				[ "$2" == "android_malware_detect" ] || [ "$2" == "AMD" ] || \
+				[ "$2" == "amd" ];then
+						if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+							true
+							#remove_unneeded
+
+						else
+							echo "Do you mean --unneed or --unneeded?"
+							echo "check Check the spelling of the command and try again"
+						fi
+		elif [ "$2" == "clone_disk" ] || [ "$2" == "CloneDisk" ] || \
+			[ "$2" == "clone-disk" ] || [ "$2" == "clonedisk" ];then
+					if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+						clone_disk_remover
+						remove_unneeded
+
+					else
+						echo "Do you mean --unneed or --unneeded?"
+						echo "check Check the spelling of the command and try again"
+					fi
+		elif [ "$2" == "perm_check" ] || [ "$2" == "permcheck" ] || \
+			[ "$2" == "PermCheck" ] || [ "$2" == "perm-check" ];then
+					if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+						perm_check_remover
+						remove_unneeded
+
+
+					else
+						echo "Do you mean --unneed or --unneeded?"
+						echo "check Check the spelling of the command and try again"
+					fi
+		elif [ "$2" == "LV" ] || [ "$2" == "LinuxVerification" ];then
+			if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+				lv_remover
+				remove_unneeded
+
+			else
+				echo "Do you mean --unneed or --unneeded?"
+				echo "check Check the spelling of the command and try again"
+			fi
+
+		elif [ "$2" == "fs" ] || [ "$2" == "FS" ];then
+			if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+				fs_remover
+				remove_unneeded
+
+			else
+				echo "Do you mean --unneed or --unneeded?"
+				echo "check Check the spelling of the command and try again"
+			fi
+		elif [ "$2" == "exifremover" ] || [ "$2" == "ExifRemover" ] || \
+			[ "$2" == "exif_remover" ] || [ "$2" == "Exif_Remover" ];then
+					if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+						exiremover_remover
+						remove_unneeded
+
+					else
+						echo "Do you mean --unneed or --unneeded?"
+						echo "check Check the spelling of the command and try again"
+					fi
+		elif [ "$2" == "antideface" ] || [ "$2" == "AntiDeface" ] || \
+			[ "$2" == "Anti-deface" ] || [ "$2" == "anti-deface" ];then
+					if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+						antideface_remover
+						remove_unneeded
+		
+					else
+						echo "Do you mean --unneed or --unneeded?"
+						echo "check Check the spelling of the command and try again"
+					fi
+		elif [ "$2" == "mercurial" ] || [ "$2" == "Mercurial" ];then
+			if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+				mercurial_remover
+				remove_unneeded
+
+
+			else
+				echo "Do you mean --unneed or --unneeded?"
+				echo "check Check the spelling of the command and try again"
+			fi
+		elif [ "$2" == "tmux" ] || [ "$2" == "Tmux" ] || \
+			[ "$2" == "Tmux" ];then
+					if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+						tmux_remover
+						remove_unneeded
+
+					else
+						echo "Do you mean --unneed or --unneeded?"
+						echo "check Check the spelling of the command and try again"
+					fi
+		elif [ "$2" == "picocom" ] || [ "$2" == "Picocom" ] || \
+			[ "$2" == "PICOCOM" ];then
+					if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+						picocom_remover
+						remove_unneeded
+					else
+						echo "Do you mean --unneed or --unneeded?"
+						echo "check Check the spelling of the command and try again"
+					fi
+		else
+				echo "Sorry.App Not Found in Repository"
+		fi
+		
 	elif [ "$1" == "--document" ];then
 		if [ "$2" == "Apache2" ] || [ "$2" == "apache" ];then
 			echo "=> https://doc.opensuse.org/documentation/leap/reference/html/book-reference/cha-apache2.html"
