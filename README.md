@@ -58,57 +58,85 @@ and support and accompany us to make the conditions better for ourselves.
 
 
 **--whereis** <appname>: Each software shows in which repository it is located or which repositories provide this software. 
-> example : suse --whereis vlc
-
+*Example :*
+```
+ suse --whereis vlc
+```
 
 **--howinstall** <appname>: It shows the installation steps. It shows which steps you should go through to install the relevant software on your system.
-> example : suse --howinstall vlc
-
+*Example :*
+```
+suse --howinstall vlc
+```
 
 **--info** : show information
-> example : suse --info
 
+```
+suse --info
+```
 **man** : suse man ( Manual )
 
 **--install** : use this command to install a software
-> exapmle : suse --install vscode
-
+*Example :*
+```
+suse --install vscode
+```
 **--remove** <appname> : use this command to remove a software and try to remove dependencies
-> example: suse --remove
 
+*Example :*
+```
+suse --remove vlc
+```
 **--remove** <appname> **--clean-unnneded** : remove + clean_unnneded
 
 **--list-app** : List Installed apps  
-example : suse --list-app
-
+```
+suse --list-app
+```
 **--search-app** <appname>: Serach in installed Apps
-> example : suse --search-app vlc
 
+*Example :*
+```
+suse --search-app vlc
+```
 **--clean-unneed** : clean out all unneeded autoinstalled dependencies
-> exmple : suse --clean-unneed
 
+```
+suse --clean-unneed
+```
 **--suport-sytems** : Which distributions does this package manager support
-> example : suse --support-systems
 
+```
+suse --support-systems
+```
 **--list-repository** : list of repositories in system
-> example : suse --list-repo
 
+```
+suse --list-repo
+```
 **--list --known** <app name> : Known Apps to suse
-> example : suse --list --known security-tools
 
+*Exapmle :*
+```
+suse --list --known security-tools
+```
 **--update** : update Packages
-> example : suse --update
-
+```
+suse --update
+```
 **--upgrade** : upgrade packages
-> example : suse --upgrade
-
+```
+suse --upgrade
+```
 **--dist-upgrade** : Distribution Upgrade
 ```
 suse --dist-upgrade
 ```
 **--document** : show recomended Documents Links
-> example : suse --document clamav
-
+*Example :*
+```
+suse --document clamav
+```
 
 ## Remove 
 
