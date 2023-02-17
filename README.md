@@ -82,7 +82,7 @@ suse --info
 suse --install vscode
 ```
 **--remove** <appname> : use this command to remove a software and try to remove dependencies  
-Example :*
+*Example :*
 ```
 suse --remove vlc
 ```
