@@ -76,6 +76,8 @@ and support and accompany us to make the conditions better for ourselves.
 **--remove** <appname> : use this command to remove a software and try to remove dependencies
 > example: suse --remove
 
+**--remove** <appname> **--clean-unnneded** : remove + clean_unnneded
+
 **--list-app** : List Installed apps  
 example : suse --list-app
 
