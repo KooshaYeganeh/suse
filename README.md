@@ -29,19 +29,19 @@ and support and accompany us to make the conditions better for ourselves.
 
 ### Basic Information
 
-> Supported Distrubutions : "Leap" and "Tumbleweed"  
-> Update and Upgrade and dist upgrade Like ubuntu and Fedora  
-> Remove Unneed packages  
-> show Package Providers  
-> List Installed Apps  
-> Show repositories  
-> Show known apps  
-> Show Installation Manual  
-> Support for software that is not supported by the main package manager  
-> My own open source software has also been added to this script.  
-> Recommending documents to read about the requested software  
-> Install and Remove Packages
-> Optimization of software search: It has been tried to reduce the sensitivity to upper and lowercase letters 
+> 1 - Supported Distrubutions : "Leap" and "Tumbleweed"  
+> 2 - Update and Upgrade and dist upgrade Like ubuntu and Fedora  
+> 3 - Remove Unneed packages  
+> 4 - show Package Providers  
+> 5 - List Installed Apps  
+> 6 - Show repositories  
+> 7 - Show known apps  
+> 8 - Show Installation Manual  
+> 9 - Support for software that is not supported by the main package manager  
+> 10 - My own open source software has also been added to this script.  
+> 11 - Recommending documents to read about the requested software  
+> 12 - Install and Remove Packages
+> 13 - Optimization of software search: It has been tried to reduce the sensitivity to upper and lowercase letters 
   or having a dash or not having a dash in the search for software, etc., and 
   if you know the name of the software, you can search or install it without any trouble. do.
 
