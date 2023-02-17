@@ -3405,12 +3405,12 @@ if [ "$0" == "./suse" ];then
 	# Like Security Tools or Image Tools or App name
 	elif [ "$1" == "--list" ];then
 		if [ "$2" == "--known" ];then
-			if [ "$3" == "Security-Tools" ] || [ "$3" == "security-tools" ] || \
+			if [ "$3" == "Security-Tools" ] || [ "$3" == "securitytools" ] || [ "$3" == "security-tools" ] || \
 				[ "$3" == "Security_Tools" ] || [ "$3" == "security_tools" ] || \
 				[ "$3" == "SecurityTools" ] || [ "$3" == "securitytools" ];then
 					echo "=> clamAV - Rkhunter - Maldet - Lynis"
 					echo "=> Fail2ban - Firewalld - Nmap - TcpDump - Wireshark "
-					echo "=> WAF => ModSecurity - Nginx-Modsecurity"
+					echo "=> WAF ( Web Application Firewall )=> ModSecurity - Nginx-Modsecurity"
 					echo "=> USBGuard - TcpWrappers"
 			elif [ "$3" == "Database" ] || [ "$3" == "database" ];then
 					echo "=> MariaDB - PostgreSQL - SQLite - InfluxDB"
@@ -3422,13 +3422,17 @@ if [ "$0" == "./suse" ];then
 			elif [ "$3" == "Massenger" ] || [ "$3" == "massenger" ];then
 				echo "=> Telegram"
 			elif [ "$3" == "Developer-Tools" ] || [ "$3" == "developer-tools" ] || \
-				[ "$3" == "DeveloperTools" ];then
-					echo "=> ohmyzsh - vscode - vim - vundle - sshfs ( for Mount Server Directory to Your Local system)"
+				[ "$3" == "DeveloperTools" ] || [ "$3" == "developertools" ];then
+					echo "=> ohmyzsh "
+				       	echo "=> vscode - vim - vundle "
+					echo "=> sshfs ( for Mount Server Directory to Your Local system)"
 					echo "=> Docker - OpenStack - Terraform - puppet - Ansible"
-					echo "=> Android-debug-bridge"
+					echo "=> Android-debug-bridge : The Android Debug Bridge is a programming tool used for the debugging of Android-based devices."
 					echo "=> Git - mercurial"
 					echo "=> Preparing the system for Python programming (check Developer Function)"
 					echo "=> Nginx - Apache"
+					echo "=> Tmux : It allows multiple terminal sessions to be accessed simultaneously in a single window. "
+					echo "=> Picocom : s a minimal dumb-terminal emulation program that is great for accessing a serial port based Linux console"
 					
 			elif [ "$3" == "VPN" ] || [ "$3" == "vpn" ];then
 					echo "=> openconnect"
