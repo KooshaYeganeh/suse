@@ -855,6 +855,19 @@ zsh_remover(){
 
 }
 
+tmux (){
+
+
+	sudo zypper -n install tmux
+}
+
+tmux_remover(){
+	sudo zypper -n remove tmux
+}
+
+
+
+
 # Basic Tools
 
 basic_tools(){
@@ -863,8 +876,7 @@ basic_tools(){
 	sudo zypper -n install wget
 	sudo zypper -n install curl
 	sudo zypper -n net-tools-deprecated
-
-	
+	tmux
 	if [ -f "/usr/bin/git" ] && [ -f "/usr/bin/wget" ] && [ -f "/usr/bin/curl" ];then
 		echo "basic Tools installed [ OK ]"
 	else
@@ -918,6 +930,19 @@ command_line_tools_remover(){
 	zsh_remover
 	sudo rm ~/.zshrc
 
+}
+
+
+
+
+picocom(){
+
+	sudo zypper -n install picocom
+}
+
+
+picocom_remover(){
+	sudo zypper -n remove picocom
 }
 
 
@@ -3752,8 +3777,18 @@ if [ "$0" == "./suse" ];then
 		
 		elif [ "$2" == "mercurial" ] || [ "$2" == "Mercurial" ];then
 				mercurial_remover
+				remove_unneeded
 
 
+		elif [ "$2" == "tmux" ] || [ "$2" == "Tmux" ] || \
+			[ "$2" == "Tmux" ];then
+				tmux_remover
+				remove_unneeded
+
+		elif [ "$2" == "picocom" ] || [ "$2" == "Picocom" ] || \
+			[ "$2" == "PICOCOM" ];then
+				picocom_remover
+				remove_unneeded
 		else
 				echo "Sorry.App Not Found in Repository"
 		fi
@@ -4089,6 +4124,13 @@ if [ "$0" == "./suse" ];then
 			[ "$2" == "Anti-deface" ] || [ "$2" == "anti-deface" ];then
 				antideface
 				
+		elif [ "$2" == "tmux" ] || [ "$2" == "Tmux" ] || \
+			[ "$2" == "Tmux" ];then
+				tmux
+
+		elif [ "$2" == "picocom" ] || [ "$2" == "Picocom" ] || \
+			[ "$2" == "PICOCOM" ];then
+				picocom
 		else
 				echo "Sorry.App Not Found in Repository"
 		fi
