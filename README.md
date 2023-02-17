@@ -87,11 +87,16 @@ Example :*
 suse --remove vlc
 ```
 **--remove** <appname> **--clean-unnneded** : remove + clean_unnneded  
-*Example : suse --remove vlc --remove-unneeded*
+*Example :* 
+```
+suse --remove vlc --remove-unneeded
+```  
+
 **--list-app** : List Installed apps  
 ```
 suse --list-app
 ```
+
 **--search-app** <appname>: Serach in installed Apps  
 *Example :*
 ```
