@@ -63,7 +63,7 @@ and support and accompany us to make the conditions better for ourselves.
  suse --whereis vlc
 ```
 
-**--howinstall** <appname>: It shows the installation steps. It shows which steps you should go through to install the relevant software on your system.
+**--howinstall** <appname>: It shows the installation steps. It shows which steps you should go through to install the relevant software on your system.  
 *Example :*
 ```
 suse --howinstall vlc
@@ -76,25 +76,23 @@ suse --info
 ```
 **man** : suse man ( Manual )
 
-**--install** : use this command to install a software
+**--install** : use this command to install a software  
 *Example :*
 ```
 suse --install vscode
 ```
-**--remove** <appname> : use this command to remove a software and try to remove dependencies
-
-*Example :*
+**--remove** <appname> : use this command to remove a software and try to remove dependencies  
+Example :*
 ```
 suse --remove vlc
 ```
-**--remove** <appname> **--clean-unnneded** : remove + clean_unnneded
-
+**--remove** <appname> **--clean-unnneded** : remove + clean_unnneded  
+*Example : suse --remove vlc --remove-unneeded*
 **--list-app** : List Installed apps  
 ```
 suse --list-app
 ```
-**--search-app** <appname>: Serach in installed Apps
-
+**--search-app** <appname>: Serach in installed Apps  
 *Example :*
 ```
 suse --search-app vlc
@@ -114,8 +112,7 @@ suse --support-systems
 ```
 suse --list-repo
 ```
-**--list --known** <app name> : Known Apps to suse
-
+**--list --known** <app name> : Known Apps to suse  
 *Exapmle :*
 ```
 suse --list --known security-tools
@@ -132,7 +129,7 @@ suse --upgrade
 ```
 suse --dist-upgrade
 ```
-**--document** : show recomended Documents Links
+**--document** : show recomended Documents Links  
 *Example :*
 ```
 suse --document clamav
