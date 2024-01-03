@@ -975,6 +975,23 @@ picocom_remover(){
 }
 
 
+vlang(){
+
+	echo "start Install Vlang From Source ..."
+	cd
+	git clone https://github.com/vlang/v
+	echo "File Downloaded form GitHub [ OK ]"
+	cd v 
+	make
+	sudo ./v symlink
+	echo "Symbolik Link is Created [ OK ]"
+	echo "VLang Installed Successfully [ OK ]"
+
+}
+
+
+
+
 lshardware(){
 	
 	echo "Start Install $yellow lshw $reset Please Wait ... "
@@ -4928,6 +4945,10 @@ if [ "$0" == "suse" ];then
 		elif [ "$2" == "picocom" ] || [ "$2" == "Picocom" ] || \
 			[ "$2" == "PICOCOM" ];then
 				picocom
+
+		elif [ "$2" == "v" ] || [ "$2" == "vlang" ] || \
+			[ "$2" == "V" ] || [ "$2" == "VLANG" ];then
+				vlang
 		else
 				echo "Sorry.App Not Found in Repository"
 		fi
