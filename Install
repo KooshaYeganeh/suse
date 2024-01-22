@@ -8,6 +8,17 @@ red=$(tput setaf 1)
 reset=`tput sgr0`
 
 
+SCRIPT="/opt/script"
+
+if [ -d "$SCRIPT" ];then
+	true
+else
+	mkdir /opt/script
+fi
+
+
+
+
 
 
 main_app(){
@@ -19,17 +30,18 @@ main_app(){
 	echo "(2/4) .................... Unzip main File"
 	unzip main.zip
 	cd suse-main
-	sudo mv suse /usr/bin
-	echo "(3/4) .................... Move Main File to /usr/bin"
+	sudo mv suse /opt/script
+	echo "(3/4) .................... Move Main File to /opt/script"
 	rm -rf suse-main && rm main.zip
 	cd
 
 	echo "(4/4) .................... remove Unuse Files and Directories"
 
-	SUSE="/usr/bin/suse"
+	SUSE="/opt/script/suse"
 
 	if [ -f "$SUSE" ];then
 		echo "suse Installed $green [ OK ] $reset"
+		echo "$green To use the script, go to /opt /script/ and run the software $reset"
 	else
 		echo "suse Not Installed $red [ ERROR ] $reset"
 	fi
