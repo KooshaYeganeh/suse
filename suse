@@ -1,5 +1,4 @@
-#!/usr/bin/bash
-
+#!/bin/bash
 
 # Leap
 
@@ -410,10 +409,8 @@ mediacodec_repo(){
 	fi
 
 
-
-
-
 }
+
 
 
 mediacodec_app(){
@@ -483,12 +480,6 @@ mediacodec(){
 
 
 }
-
-
-
-
-
-
 
 
 
@@ -3374,7 +3365,15 @@ antideface_remover(){
 }
 
 
+list_app(){
+	
+	echo "Find installed Apps in System"
+	sleep 2
+	zypper search --installed-only
+	echo "Done"
 
+
+}
 
 
 
@@ -3438,7 +3437,7 @@ man(){
 
 
 
-if [ "$0" == "suse" ];then
+if [ "$0" == "./suse" ];then
 	if [ "$1" == "--whereis" ];then
 		if [ "$2" == "android_tools" ] || [ "$2" == "android tools" ] || \
 			[ "$2" == "Android Tools" ] || [ "$2" == "Android_Tools" ];then
@@ -3500,12 +3499,15 @@ if [ "$0" == "suse" ];then
 			[ "$2" == "CLAMAV" ];then
 				clamav_app
 		elif [ "$2" == "amd" ] || [ "$2" == "AMD" ] || \
-			[ "$2" == "Android_Malware_Detect" ] || [ "" == "android_malware_detect" ] || \
+			[ "$2" == "Android_Malware_Detect" ] || [ "$2" == "android_malware_detect" ] || \
 				[ "$2" == "AndroidMalwareDetect" ];then
 					Android_Malware_Detect_App
 
 		fi
 	
+	elif [ "$1" == "--list-app" ];then
+		list_app
+
 	elif [ "$1" == "--clean-unneed" ] || [ "$1" == "--remove-unneed" ] || \
 			[ "$1" == "--purge" ];then
 				remove_unneeded
@@ -3884,7 +3886,7 @@ if [ "$0" == "suse" ];then
 
 
 		elif [ "$2" == "kygnus_guard" ] || [ "$2" == "KYGnus_Guard" ] || \
-			[ "$2" == "KYGnusGuard" ] || [ "kygnusguard" == "" ];then
+			[ "$2" == "KYGnusGuard" ] || [ "$2" == "kygnusguard" ];then
 				kygnus_guard	
 				
 
@@ -4495,7 +4497,7 @@ if [ "$0" == "suse" ];then
 						echo "check Check the spelling of the command and try again"
 					fi
 		elif [ "$2" == "kygnus_guard" ] || [ "$2" == "KYGnus_Guard" ] || \
-			[ "$2" == "KYGnusGuard" ] || [ "kygnusguard" == "" ];then
+			[ "$2" == "KYGnusGuard" ] || [ "$2" == "kygnusguard" ];then
 					if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
 						kygnus_guard	
 						remove_unneeded
@@ -4900,7 +4902,7 @@ if [ "$0" == "suse" ];then
 
 
 		elif [ "$2" == "kygnus_guard" ] || [ "$2" == "KYGnus_Guard" ] || \
-			[ "$2" == "KYGnusGuard" ] || [ "kygnusguard" == "" ];then
+			[ "$2" == "KYGnusGuard" ] || [ "$2" == "kygnusguard" ];then
 					
 					kygnus_guard
 
