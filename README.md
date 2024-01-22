@@ -56,94 +56,95 @@ and support and accompany us to make the conditions better for ourselves.
 
 **suse Package Manager**
 
+**Note : To use the script, go to /opt /script/ and run the software => ./suse --list-app or Some More**
 
 **--whereis** <appname>: Each software shows in which repository it is located or which repositories provide this software. 
 *Example :*
 ```
- suse --whereis vlc
+./suse --whereis clamav
 ```
 
 **--howinstall** <appname>: It shows the installation steps. It shows which steps you should go through to install the relevant software on your system.  
 *Example :*
 ```
-suse --howinstall vlc
+./suse --howinstall clamav
 ```
 
 **--info** : show information
 
 ```
-suse --info
+./suse --info
 ```
 **man** : suse man ( Manual )
 
 **--install** : use this command to install a software  
 *Example :*
 ```
-suse --install vscode
+./suse --install vscode
 ```
 **--remove** <appname> : use this command to remove a software and try to remove dependencies  
 *Example :*
 ```
-suse --remove vlc
+./suse --remove clamav
 ```
 **--remove** <appname> **--clean-unnneded** : remove + clean_unnneded  
 *Example :* 
 ```
-suse --remove vlc --remove-unneeded
+./suse --remove clamav --remove-unneeded
 ```  
 
 **--list-app** : List Installed apps  
 ```
-suse --list-app
+./suse --list-app
 ```
 
 **--search-app** <appname>: Serach in installed Apps  
 *Example :*
 ```
-suse --search-app vlc
+./suse --search-app clamav
 ```
 **--clean-unneed** : clean out all unneeded autoinstalled dependencies
 
 ```
-suse --clean-unneed
+./suse --clean-unneed
 ```
 **--suport-sytems** : Which distributions does this package manager support
 
 ```
-suse --support-systems
+./suse --support-systems
 ```
 **--list-repository** : list of repositories in system
 
 ```
-suse --list-repo
+./suse --list-repo
 ```
 **--list --known** <app name> : Known Apps to suse  
 *Exapmle :*
 ```
-suse --list --known security-tools
+./suse --list --known security-tools
 ```
 **--update** : update Packages
 ```
-suse --update
+./suse --update
 ```
 **--upgrade** : upgrade packages
 ```
-suse --upgrade
+./suse --upgrade
 ```
 **--dist-upgrade** : Distribution Upgrade
 ```
-suse --dist-upgrade
+./suse --dist-upgrade
 ```
 **--document** : show recomended Documents Links  
 *Example :*
 ```
-suse --document clamav
+./suse --document clamav
 ```
 
 ## Remove 
 
 ```
-sudo rm /usr/bin/suse
+sudo rm /opt/script/suse
 ```
 
 ## AboutME
