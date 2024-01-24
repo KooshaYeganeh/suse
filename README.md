@@ -14,7 +14,7 @@
 - [**AboutME**](https://github.com/KooshaYeganeh/suse#aboutme)
 
 
-A simple software for **openSUSE** users.
+Simplified Package Manager for openSUSE
 
 that can Make Everyday Tasks Easier for Developers and System Administrators.
 
