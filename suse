@@ -961,9 +961,32 @@ picocom(){
 }
 
 
+
+
+
 picocom_remover(){
 	sudo zypper -n remove picocom
 }
+
+
+firejail(){
+
+
+	echo "Start to Install $yellow FireJail $reset Please Wait ..."
+	sudo zypper -n install firejail
+	
+}
+
+
+firejail_remover(){
+
+
+	echo "Start to Remove $yellow FireJail $reset Please Wait ..."
+	sudo zypper -n remove firejail
+	
+}
+
+
 
 
 vlang(){
@@ -3939,8 +3962,12 @@ if [ "$0" == "./suse" ];then
 		elif [ "$2" == "picocom" ] || [ "$2" == "Picocom" ] || \
 			[ "$2" == "PICOCOM" ];then
 				picocom_remover
+
+		elif [ "$2" == "firejail" ] || [ "$2" == "Firejail" ] || \
+			[ "$2" == "FireJail" ];then
+				firejail_remover
 		else
-				echo "Sorry.App Not Found in Repository"
+			echo "Sorry.App Not Found in Repository"
 		fi
 		
 	elif [ "$1" == "--remove" ];then
@@ -4948,12 +4975,20 @@ if [ "$0" == "./suse" ];then
 			[ "$2" == "PICOCOM" ];then
 				picocom
 
+		elif [ "$2" == "firejail" ] || [ "$2" == "Firejail" ] || \
+			[ "$2" == "FireJail" ];then
+				firejail
+
+		elif [ "$2" == "v" ] || [ "$2" == "vlang" ] || \
+			[ "$2" == "V" ] || [ "$2" == "VLANG" ];then
+				vlang
 		elif [ "$2" == "v" ] || [ "$2" == "vlang" ] || \
 			[ "$2" == "V" ] || [ "$2" == "VLANG" ];then
 				vlang
 		else
 				echo "Sorry.App Not Found in Repository"
 		fi
+
 
 	else
 		echo "I Can't Understand What You Want."
@@ -4963,3 +4998,7 @@ else
 	echo "Do you mean suse?"
 	
 fi
+
+
+
+
