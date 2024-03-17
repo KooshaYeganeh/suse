@@ -988,6 +988,35 @@ firejail_remover(){
 
 
 
+tiger(){
+	
+	cd /tmp
+	wget  -c  http://download.savannah.gnu.org/releases/tiger/tiger-3.2rc3.tar.gz
+	tar -xzf tiger-3.2rc3.tar.gz
+	if [ -d /opt/scripts ];then
+		mv tiger-3.* /opt
+		sleep 1
+		echo "tiger installed Successfully"
+		echo "The Script Path is /opt/scripts"
+	else
+		sudo mkdir /opt/scripts
+		mv tiger-3.* /opt/scripts
+		echo "tiger installed Successfully"
+		echo "The Script Path is /opt/scripts"
+	fi
+
+}
+
+
+
+tiger_remover(){
+
+	sudo rm -rvf /opr/scripts/tiger-3.*
+	sleep 1
+	echo "tiger removed Successfully"
+
+}
+
 
 vlang(){
 
@@ -3966,6 +3995,10 @@ if [ "$0" == "./suse" ];then
 		elif [ "$2" == "firejail" ] || [ "$2" == "Firejail" ] || \
 			[ "$2" == "FireJail" ];then
 				firejail_remover
+
+		elif [ "$2" == "tiger" ] || [ "$2" == "Tiger" ] || \
+			[ "$2" == "TIGER" ];then
+				tiger_remover
 		else
 			echo "Sorry.App Not Found in Repository"
 		fi
@@ -4979,6 +5012,9 @@ if [ "$0" == "./suse" ];then
 			[ "$2" == "FireJail" ];then
 				firejail
 
+		elif [ "$2" == "tiger" ] || [ "$2" == "Tiger" ] || \
+			[ "$2" == "TIGER" ];then
+				tiger
 		elif [ "$2" == "v" ] || [ "$2" == "vlang" ] || \
 			[ "$2" == "V" ] || [ "$2" == "VLANG" ];then
 				vlang
