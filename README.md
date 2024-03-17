@@ -27,6 +27,10 @@ I wrote this package manager for my daily tasks I am in this philosophy that
 I try to write everything I need myself and I wanted to make it available to others.
 and support and accompany us to make the conditions better for ourselves.
 
+**Latest Update : Sun 17 Mar 2024**
+**Hash : 8c06ac3fc1683913a940b34bf20c8fb74118b4be0c5963265d964003527fb4fe**
+
+
 ### Basic Information
 
 > 1 - Supported Distrubutions : "Leap" and "Tumbleweed"  
