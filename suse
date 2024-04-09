@@ -3489,1550 +3489,1545 @@ man(){
 
 
 
-if [ "$0" == "./suse" ];then
-	if [ "$1" == "--whereis" ];then
-		if [ "$2" == "android_tools" ] || [ "$2" == "android tools" ] || \
-			[ "$2" == "Android Tools" ] || [ "$2" == "Android_Tools" ];then
-				android_tools_repo	
-		
-		elif [ "$2" == "vlc" ] || [ "$2" == "VLC" ];then
-			vlc_repo 
-
-		elif [ "$2" == "vscode" ] || [ "$2" == "VSCODE" ] || \
-			[ "$2" == "code" ] || [ "$2" == "CODE" ] || \
-				[ "$2" == "visual_stdio_code" ] || [ "$2" == "visual stdio code" ];then
-					vscode_repo 
-		elif [ "$2" == "codec" ] || [ "$2" == "CODEC" ] || \
-			[ "$2" == "multimedia codec" ] || [ "$2" == "multimedia_codec" ] || \
-				[ "$2" == "MultiMedia Codec" ] || [ "$2" == "MultiMedia_Codec" ];then
-					codec_repo
-
-		elif [ "$2" == "mariadb" ] || [ "$2" == "Mariadb" ] || \
-			[ "$2" == "mariaDB" ] || [ "$2" == "MariaDB" ];then
-				mariadb_repo
-
-		elif [ "$2" == "postgre" ] || [ "$2" == "Postgre" ] || \
-			[ "$2" == "postgresql" ] || [ "$2" == "postgreSQL" ] || \
-			[ "$2" == "PostgreSQL" ];then
-				postgre_repo
-		elif [ "$2" == "multimedia_codec" ] || [ "$2" == "MultiMedia_Codec" ] || \
-				[ "$2" == "multimediacodec" ] || [ "$2" == "MultimediaCodec" ] || \
-					[ "$2" == "codec" ] || [ "$2" == "Codec" ];then
-						mediacodec_repo
-		elif [ "$2" == "clamAV" ] || [ "$2" == "clamav" ] || \
-			[ "$2" == "CLAMAV" ];then
-				clamav_repo
-
-		fi
-	elif [ "$1" == "--howinstall" ];then
-		if [ "$2" == "android_tools" ] || [ "$2" == "Android_Tools" ];then
-			android_tools_app
-		elif [ "$2" == "mariadb" ] || [ "$2" == "Mariadb" ] || \
-			[ "$2" == "mariaDB" ] || [ "$2" == "MariaDB" ];then
-				mariadb_app
-
-		elif [ "$2" == "postgre" ] || [ "$2" == "Postgre" ] || \
-			[ "$2" == "postgresql" ] || [ "$2" == "postgreSQL" ] || \
-				[ "$2" == "PostgreSQL" ];then
-					postgre_app
-
-		elif [ "$2" == "vlc" ] || [ "$2" == "VLC" ];then
-			vlc_app
-		
-		elif [ "$2" == "vscode" ] || [ "$2" == "VSCODE" ] || \
-			[ "$2" == "code" ] || [ "$2" == "CODE" ] || \
-			[ "$2" == "visual_stdio_code" ] || [ "$2" == "visual stdio code" ];then
-				vscode_app
-		
-		elif [ "$2" == "codec" ] || [ "$2" == "CODEC" ] || \
-			[ "$2" == "multimedia_codec" ] || [ "$2" == "MultiMedia_Codec" ];then
-					codec_app
-		elif [ "$2" == "clamAV" ] || [ "$2" == "clamav" ] || \
-			[ "$2" == "CLAMAV" ];then
-				clamav_app
-		elif [ "$2" == "amd" ] || [ "$2" == "AMD" ] || \
-			[ "$2" == "Android_Malware_Detect" ] || [ "$2" == "android_malware_detect" ] || \
-				[ "$2" == "AndroidMalwareDetect" ];then
-					Android_Malware_Detect_App
-
-		fi
+if [ "$1" == "--whereis" ];then
+	if [ "$2" == "android_tools" ] || [ "$2" == "android tools" ] || \
+		[ "$2" == "Android Tools" ] || [ "$2" == "Android_Tools" ];then
+			android_tools_repo	
 	
-	elif [ "$1" == "--list-app" ];then
-		list_app
+	elif [ "$2" == "vlc" ] || [ "$2" == "VLC" ];then
+		vlc_repo 
 
-	elif [ "$1" == "--clean-unneed" ] || [ "$1" == "--remove-unneed" ] || \
-			[ "$1" == "--purge" ];then
+	elif [ "$2" == "vscode" ] || [ "$2" == "VSCODE" ] || \
+		[ "$2" == "code" ] || [ "$2" == "CODE" ] || \
+			[ "$2" == "visual_stdio_code" ] || [ "$2" == "visual stdio code" ];then
+				vscode_repo 
+	elif [ "$2" == "codec" ] || [ "$2" == "CODEC" ] || \
+		[ "$2" == "multimedia codec" ] || [ "$2" == "multimedia_codec" ] || \
+			[ "$2" == "MultiMedia Codec" ] || [ "$2" == "MultiMedia_Codec" ];then
+				codec_repo
+
+	elif [ "$2" == "mariadb" ] || [ "$2" == "Mariadb" ] || \
+		[ "$2" == "mariaDB" ] || [ "$2" == "MariaDB" ];then
+			mariadb_repo
+
+	elif [ "$2" == "postgre" ] || [ "$2" == "Postgre" ] || \
+		[ "$2" == "postgresql" ] || [ "$2" == "postgreSQL" ] || \
+		[ "$2" == "PostgreSQL" ];then
+			postgre_repo
+	elif [ "$2" == "multimedia_codec" ] || [ "$2" == "MultiMedia_Codec" ] || \
+			[ "$2" == "multimediacodec" ] || [ "$2" == "MultimediaCodec" ] || \
+				[ "$2" == "codec" ] || [ "$2" == "Codec" ];then
+					mediacodec_repo
+	elif [ "$2" == "clamAV" ] || [ "$2" == "clamav" ] || \
+		[ "$2" == "CLAMAV" ];then
+			clamav_repo
+
+	fi
+elif [ "$1" == "--howinstall" ];then
+	if [ "$2" == "android_tools" ] || [ "$2" == "Android_Tools" ];then
+		android_tools_app
+	elif [ "$2" == "mariadb" ] || [ "$2" == "Mariadb" ] || \
+		[ "$2" == "mariaDB" ] || [ "$2" == "MariaDB" ];then
+			mariadb_app
+
+	elif [ "$2" == "postgre" ] || [ "$2" == "Postgre" ] || \
+		[ "$2" == "postgresql" ] || [ "$2" == "postgreSQL" ] || \
+			[ "$2" == "PostgreSQL" ];then
+				postgre_app
+
+	elif [ "$2" == "vlc" ] || [ "$2" == "VLC" ];then
+		vlc_app
+	
+	elif [ "$2" == "vscode" ] || [ "$2" == "VSCODE" ] || \
+		[ "$2" == "code" ] || [ "$2" == "CODE" ] || \
+		[ "$2" == "visual_stdio_code" ] || [ "$2" == "visual stdio code" ];then
+			vscode_app
+	
+	elif [ "$2" == "codec" ] || [ "$2" == "CODEC" ] || \
+		[ "$2" == "multimedia_codec" ] || [ "$2" == "MultiMedia_Codec" ];then
+				codec_app
+	elif [ "$2" == "clamAV" ] || [ "$2" == "clamav" ] || \
+		[ "$2" == "CLAMAV" ];then
+			clamav_app
+	elif [ "$2" == "amd" ] || [ "$2" == "AMD" ] || \
+		[ "$2" == "Android_Malware_Detect" ] || [ "$2" == "android_malware_detect" ] || \
+			[ "$2" == "AndroidMalwareDetect" ];then
+				Android_Malware_Detect_App
+
+	fi
+
+elif [ "$1" == "--list-app" ];then
+	list_app
+
+elif [ "$1" == "--clean-unneed" ] || [ "$1" == "--remove-unneed" ] || \
+		[ "$1" == "--purge" ];then
+			remove_unneeded
+
+elif [ "$1" == "--help" ] || [ "$1" == "--Help" ] || \
+	[ "$1" == "--HELP" ] || [ "$1" == "man" ] || \
+	[ "$1" == "manual" ];then
+		man
+
+elif [ "$1" == "--info" ] || [ "$1" == "--INFO" ] || \
+	[ "$1" == "--Info" ];then
+		info
+
+
+elif [ "$1" == "--search-app" ];then
+	rpm -qa | grep $2
+
+elif [ "$1" == "--update" ];then
+	update
+
+elif [ "$1" == "--upgrade" ];then
+	upgrade
+
+elif [ "$1" == "dist-upgrade" ];then
+	dist_upgrade
+
+
+
+elif [ "$1" == "--app-count" ];then
+	app_count=`rpm -qa | wc -l`
+	echo "Number of Installed App : $app_count"
+
+
+
+elif [ "$1" == "--list-repository" ];then
+		list_repo
+
+
+
+# List Known Apps
+# This part shows the user what software knows about the searched item.
+# Like Security Tools or Image Tools or App name
+elif [ "$1" == "--list" ];then
+	if [ "$2" == "--known" ];then
+		if [ "$3" == "Security-Tools" ] || [ "$3" == "securitytools" ] || [ "$3" == "security-tools" ] || \
+			[ "$3" == "Security_Tools" ] || [ "$3" == "security_tools" ] || \
+			[ "$3" == "SecurityTools" ] || [ "$3" == "securitytools" ];then
+				echo "=> clamAV - Rkhunter - Maldet - Lynis"
+				echo "=> Fail2ban - Firewalld - Nmap - TcpDump - Wireshark "
+				echo "=> WAF ( Web Application Firewall )=> ModSecurity - Nginx-Modsecurity"
+				echo "=> USBGuard - TcpWrappers"
+		elif [ "$3" == "Database" ] || [ "$3" == "database" ];then
+				echo "=> MariaDB - PostgreSQL - SQLite - InfluxDB"
+		elif [ "$3" == "monitoring" ] || [ "$3" == "Monitoring" ];then
+				echo "=> htop - Munin - iptrafng"
+		elif [ "$3" == "Editor" ] || [ "$3" == "editor" ] || \
+			[ "$3" == "editors" ] || [ "$3" == "Editors" ];then
+				echo "=> Vim - VScode"
+		elif [ "$3" == "Massenger" ] || [ "$3" == "massenger" ];then
+			echo "=> Telegram"
+		elif [ "$3" == "Developer-Tools" ] || [ "$3" == "developer-tools" ] || \
+			[ "$3" == "DeveloperTools" ] || [ "$3" == "developertools" ];then
+				echo "=> ohmyzsh "
+				echo "=> vscode - vim - vundle "
+				echo "=> sshfs ( for Mount Server Directory to Your Local system)"
+				echo "=> Docker - OpenStack - Terraform - puppet - Ansible"
+				echo "=> Android-debug-bridge : The Android Debug Bridge is a programming tool used for the debugging of Android-based devices."
+				echo "=> Git - mercurial"
+				echo "=> Preparing the system for Python programming (check Developer Function)"
+				echo "=> Nginx - Apache"
+				echo "=> Tmux : It allows multiple terminal sessions to be accessed simultaneously in a single window. "
+				echo "=> Picocom : s a minimal dumb-terminal emulation program that is great for accessing a serial port based Linux console"
+				
+		elif [ "$3" == "VPN" ] || [ "$3" == "vpn" ];then
+				echo "=> openconnect"
+				echo "=> openvpn"
+		elif [ "$3" == "BasicTools" ] || [ "$3" == "basictools" ] || \
+			 [ "$3" == "Basic-Tools" ] || [ "$3" == "BasicTools" ];then
+				echo " => wget - curl - gcc - git -mercurial"
+		else	
+				echo "$yellow !!!  I did not understand the command you gave for my software list. $yellow !!! $reset"
+				echo "Note :In the $green Future $reset,the man software will add your needs to the script."
+		fi
+	else
+		echo "Did Your Mean --known?"
+		echo "Edit command and Try Again"
+	fi
+
+
+# Remover
+## The uninstaller tries to remove the software along with everything that was added during installation
+## For Exapmle Repositories
+## Finally, it will automatically run the clean_unneeded script
+
+elif [ "$1" == "--remove" ];then
+	if [ "$2" == "mariadb" ] || [ "$2" == "mariaDB" ] || \
+		[ "$2" == "MariaDB" ];then
+			mariadb_remover
+			
+	elif [ "$2" == "postgresql" ] || [ "$2" == "PostgreSQL" ] || \
+		[ "$2" == "postgreSQL" ];then
+			postgre_remover
+			 
+	elif [ "$2" == "adb" ] || [ "$2" == "Android-Dubug-Bridge" ] || \
+		[ "$2" == "ADB" ] || [ "$2" == "Android_Dubug_Bridge" ] || \
+			[ "$2" == "android_dubug_bridge" ] || [ "$2" == "android-dubug-bridge" ] || \
+				[ "$2" == "Android_Tools" ] || [ "$2" == "android_tools" ];then
+						adb_remover
+						
+	
+	elif [ "$2" == "vlc" ] || [ "$2" == "VLC" ];then 
+			vlc_remover
+			
+
+	elif [ "$2" == "vscode" ] || [ "$2" == "code" ] || \
+		[ "$2" == "VScode" ] || [ "$2" == "visual_stdio_code" ];then
+			code_remover
+			
+
+	elif [ "$2" == "clamAV" ] || [ "$2" == "clamav" ];then
+			clamav_remover
+			
+	elif [ "$2" == "git" ] || [ "$2" == "Git" ] || \
+		[ "$2" == "GIT" ];then
+			git_remover
+			
+	elif [ "$2" == "gcc" ] || [ "$2" == "GCC" ] || \
+		[ "$2" == "Gcc" ];then
+			gcc_remover
+			
+	elif [ "$2" == "zsh" ] || [ "$2" == "ZSH" ] || \
+		[ "$2" == "Zsh" ];then
+			zsh_remover
+					
+	
+	elif [ "$2" == "Basic_Tools" ] || [ "$2" == "basic_tools" ] || \
+		[ "$2" == "BasicTools" ] || [ "$2" == "basictools" ];then		
+			basic_tools_remover
+			
+		
+	elif [ "$2" == "ohmyzsh" ] || [ "$2" == "OhMyZsh" ] || \
+		[ "$2" == "oh-my-zsh" ];then
+			ohmyzsh_remover		
+			
+
+	elif [ "$2" == "command_line_tools" ] || [ "$2" == "Command_Line_Tools" ] || \
+		[ "$2" == "CommandLineTools" ] || [ "$2" == "COMMAND_LINE_TOOLS" ];then
+			command_line_tools_remover
+			
+
+	elif [ "$2" == "lshw" ] || [ "$2" == "lshardware" ] || \
+		[ "$2" == "listhardware" ];then
+			sudo zypper -n remove lshw
+			
+			
+	elif [ "$2" == "openconnect" ] || [ "$2" == "open-connect" ] || \
+		[ "$2" == "open_connect" ];then
+			openconnect_remover
+			
+					
+	elif [ "$2" == "openvpn" ] || [ "$2" == "open-vpn" ] || \
+		[ "$2" == "OpenVpn" ];then
+			openvpn_remover
+			
+
+
+	elif [ "$2" == "VIM" ] || [ "$2" == "Vim" ] || \
+		[ "$2" == "vim" ];then
+			
+			vim_remover
+			
+
+	elif [ "$2" == "sqlite" ] || [ "$2" == "SQlite" ] || \
+		[ "$2" == "SQLite" ];then
+			sqlite_remover
+			
+
+	elif [ "$2" == "influx" ] || [ "$2" == "influxdb" ] || \
+		[ "$2" == "InfluxDB" ];then
+			influx_remover
+			
+					
+	elif [ "$2" == "mongoDB" ] || [ "$2" == "mongo" ] || \
+		[ "$2" == "MongoDB" ];then
+			mongodb_remover
+			
+					
+	elif [ "$2" == "nginx" ] || [ "$2" == "Nginx" ] || \
+		[ "$2" == "NGINX" ];then
+			nginx_remover
+			
+	
+	elif [ "$2" == "Apache" ] || [ "$2" == "Apache2" ] || \
+		[ "$2" == "apache" ] || [ "$2" == "apache2" ];then						
+			apache_remover
+			
+
+	elif [ "$2" == "nmap" ] || [ "$2" == "Nmap" ] || \
+		[ "$2" == "NMAP" ];then
+			nmap_remover
+			
+
+	elif [ "$2" == "TcpDump" ] || [ "$2" == "tcpdump" ] || \
+		[ "$2" == "TCPDUMP" ];then
+			tcpdump_remover
+			
+
+	elif [ "$2" == "wireshark" ] || [ "$2" == "Wireshark" ] || \
+		[ "$2" == "WireShark" ];then
+
+			wireshark_remover
+			
+
+	elif [ "$2" == "iptraf" ] || [ "$2" == "iptraf-ng" ] || \
+		[ "$2" == "iptrafng" ];then
+			iptraf_remover
+			
+
+	elif [ "$2" == "network_tools_all" ] || [ "$2" == "Network_Tools_All" ] || \
+		[ "$2" == "NetworkToolsAll" ] || [ "$2" == "nettoolsall" ];then
+			network_tools_remover
+			
+
+
+	elif [ "$2" == "docker" ] || [ "$2" == "Docker" ] || \
+		[ "$2" == "DOCKER" ];then
+			docker_remover
+			
+
+
+	elif [ "$2" == "clamAV" ] || [ "$2" == "clamav" ] || \
+		[ "$2" == "ClamAV" ];then
+			clamav_remover
+			
+
+	elif [ "$2" == "maldet" ] || [ "$2" == "malware_detect" ] || \
+		[ "$2" == "malware-detect" ] || [ "$2" == "Maldet" ] || \
+			[ "$2" == "Malware-Detect" ] || [ "$2" == "LMD" ];then
+				maldet_remover
+				
+
+
+	elif [ "$2" == "rkhunter" ] || [ "$2" == "Rkhunter" ] || \
+		[ "$2" == "RootKitHunter" ] || [ "$2" == "rootkithunter" ];then
+			rkhunter_remover
+			
+
+	elif [ "$2" == "lynis" ] || [ "$2" == "Lynis" ] || \
+		[ "$2" == "LYNIS" ];then
+			lynis_remover
+			
+
+	elif [ "$2" == "AV" ] || [ "$2" == "Antivirus" ] || \
+		[ "$2" == "antivirus" ];then
+			echo "$red This command will remove all antivirus packages from your system $reset"
+			antivirus_remover
+			
+
+	elif [ "$2" == "fail2ban" ] || [ "$2" == "Fail2ban" ] || \
+		[ "$2" == "FAIL2BAN" ];then
+			fail2ban_remover
+				
+
+
+	elif [ "$2" == "tcpwrapper" ] || [ "$2" == "tcp-wrapper" ] || \
+		[ "$2" == "TcpWrapper" ] || [ "$2" == "Tcp-Wrapper" ];then
+			tcpwrapper_remover
+			
+
+
+	elif [ "$2" == "firewalld" ] || [ "$2" == "FirewallD" ] || \
+		[ "$2" == "Firewall-Cmd" ] || [ "$2" == "firewall-cmd" ];then
+			firewalld_remover
+			
+
+	elif [ "$2" == "psad" ] || [ "$2" == "PSad" ] || \
+		[ "$2" == "PSAD" ];then
+			psad_remover
+			
+
+	elif [ "$2" == "network_security" ] || [ "$2" == "Network_Securiey" ] || \
+		[ "$2" == "NetworkSecurity" ];then
+			network_security_remover
+			
+
+	elif [ "$2" == "openssh" ] || [ "$2" == "Openssh" ] || \
+			[ "$2" == "Openssh-server" ] || [ "$2" == "openssh-server" ];then
+				openssh_remover
+				
+	elif [ "$2" == "sshfs" ] || [ "$2" == "SSHFS" ] || \
+			[ "$2" == "fuse-sshfs" ] || [ "$2" == "Fuse-SSHFS" ];then
+				sshfs_remover
+				
+
+	elif [ "$2" == "usbguard" ] || [ "$2" == "USBGuard" ] || \
+		[ "$2" == "usb-guard" ] || [ "$2" == "USB-Guard" ];then
+			usbguard_remover
+			
+
+	elif [ "$2" == "jpegoptim" ] || [ "$2" == "jpgoptim" ] || \
+		[ "$2" == "JpegOptim" ] || [ "$2" == "jpegoptimizer" ] || \
+			[ "$2" == "jpgoptimizer" ];then
+				jpgoptim_remover
+				
+
+
+	elif [ "$2" == "optimpng" ] || [ "$2" == "optipng" ] || \
+		[ "$2" == "optimizepng" ] || [ "$2" == "optimizePNG" ];then
+			optipng_remover
+			
+
+	elif [ "$2" == "exiftool" ] || [ "$2" == "Exif-Tool" ] || \
+		[ "$2" == "ExifTool" ] || [ "$2" == "exiftools" ] || \
+			[ "$2" == "ExifTools" ] || [ "$2" == "Exif-Tools" ];then
+				exiftool_remover
+				
+
+
+	elif [ "$2" == "image-optimizer" ] || [ "$2" == "imageoptimizer" ] || \
+		[ "$2" == "Image-Optmizer" ] || [ "$2" == "Image_Optmizer" ] || \
+			[ "$2" == "image_optmizer" ];then
+				image_optimizer_remover
+				
+
+
+	elif [ "$2" == "telegram" ] || [ "$2" == "Telegram-Desktop" ] || \
+		[ "$2" == "Telegram" ] || [ "$2" == "telegram-desktop" ];then
+			telegram_remover
+			
+
+	elif [ "$2" == "Ansible" ] || [ "$2" == "ansible" ] || \
+		[ "$2" == "ANSIBLE" ];then
+			ansible_remover
+			
+
+	elif [ "$2" == "tuned" ] || [ "$2" == "Tuned" ] || \
+		[ "$2" == ""tuned ];then
+			tuned_remover
+			
+
+	elif [ "$2" == "htop" ] || [ "$2" == "Htop" ];then
+			htop_remover
+			
+
+	elif [ "$2" == "munin" ] || [ "$2" == "Munin" ];then
+			munin_remover
+			
+
+	elif [ "$2" == "terraform" ] || [ "$2" == "Terraform" ] || \
+		[ "$2" == "TERRAFORM" ];then
+			terraform_remover
+			
+
+	elif [ "$2" == "develope" ] || [ "$2" == "Develope" ] || \
+		[ "$2" == "DEVELOPE" ];then
+
+			develope_remover
+			
+
+	elif [ "$2" == "openstack" ] || [ "$2" == "open-stack" ] || \
+		[ "$2" == "OpenStack" ];then
+			openstack_remover
+			
+	
+	# Start of my own software section
+
+	elif [ "$2" == "admin_fstep" ] || [ "$2" == "Admin_Fstep" ] || \
+		[ "$2" == "AdminFstep" ] || [ "$2" == "Admin-Fstep" ];then
+			admin_fstep_remover
+			
+	
+	elif [ "$2" == "wpscan" ] || [ "$2" == "WpScan" ] || \
+		[ "$2" == "wp-scan" ];then
+			wpscan_remover
+			
+
+
+	elif [ "$2" == "kygnus_guard" ] || [ "$2" == "KYGnus_Guard" ] || \
+		[ "$2" == "KYGnusGuard" ] || [ "$2" == "kygnusguard" ];then
+			kygnus_guard	
+			
+
+	elif [ "$2" == "Android_Malware_Detect" ] || [ "$2" == "AndroidMalwareDetect" ] || \
+			[ "$2" == "android_malware_detect" ] || [ "$2" == "AMD" ] || \
+			[ "$2" == "amd" ];then
+				true
+				
+
+	elif [ "$2" == "clone_disk" ] || [ "$2" == "CloneDisk" ] || \
+		[ "$2" == "clone-disk" ] || [ "$2" == "clonedisk" ];then
+			clone_disk_remover
+			
+
+	elif [ "$2" == "perm_check" ] || [ "$2" == "permcheck" ] || \
+		[ "$2" == "PermCheck" ] || [ "$2" == "perm-check" ];then
+			perm_check_remover
+			
+
+
+	elif [ "$2" == "LV" ] || [ "$2" == "LinuxVerification" ];then
+			lv_remover
+			
+
+
+	elif [ "$2" == "fs" ] || [ "$2" == "FS" ];then
+			fs_remover
+			
+
+	elif [ "$2" == "exifremover" ] || [ "$2" == "ExifRemover" ] || \
+		[ "$2" == "exif_remover" ] || [ "$2" == "Exif_Remover" ];then
+			exiremover_remover
+			
+
+	elif [ "$2" == "antideface" ] || [ "$2" == "AntiDeface" ] || \
+		[ "$2" == "Anti-deface" ] || [ "$2" == "anti-deface" ];then
+			antideface_remover
+			
+	
+	elif [ "$2" == "mercurial" ] || [ "$2" == "Mercurial" ];then
+			mercurial_remover
+			
+
+
+	elif [ "$2" == "tmux" ] || [ "$2" == "Tmux" ] || \
+		[ "$2" == "Tmux" ];then
+			tmux_remover
+			
+
+	elif [ "$2" == "picocom" ] || [ "$2" == "Picocom" ] || \
+		[ "$2" == "PICOCOM" ];then
+			picocom_remover
+
+	elif [ "$2" == "firejail" ] || [ "$2" == "Firejail" ] || \
+		[ "$2" == "FireJail" ];then
+			firejail_remover
+
+	elif [ "$2" == "tiger" ] || [ "$2" == "Tiger" ] || \
+		[ "$2" == "TIGER" ];then
+			tiger_remover
+	else
+		echo "Sorry.App Not Found in Repository"
+	fi
+	
+elif [ "$1" == "--remove" ];then
+	if [ "$2" == "mariadb" ] || [ "$2" == "mariaDB" ] || \
+		[ "$2" == "MariaDB" ];then
+			if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+				mariadb_remover
+				remove_unneeded
+			else
+				echo "Do you mean --unneed or --unneeded?"
+				echo "check Check the spelling of the command and try again"
+			fi
+	elif [ "$2" == "postgresql" ] || [ "$2" == "PostgreSQL" ] || \
+		[ "$2" == "postgreSQL" ];then
+			if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+				postgre_remover
+				remove_unneeded 
+			else
+				echo "Do you mean --unneed or --unneeded?"
+				echo "check Check the spelling of the command and try again"
+			fi
+	elif [ "$2" == "adb" ] || [ "$2" == "Android-Dubug-Bridge" ] || \
+		[ "$2" == "ADB" ] || [ "$2" == "Android_Dubug_Bridge" ] || \
+			[ "$2" == "android_dubug_bridge" ] || [ "$2" == "android-dubug-bridge" ] || \
+				[ "$2" == "Android_Tools" ] || [ "$2" == "android_tools" ];then
+					if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+						adb_remover
+						remove_unneeded
+	
+			else
+				echo "Do you mean --unneed or --unneeded?"
+				echo "check Check the spelling of the command and try again"
+			fi
+	elif [ "$2" == "vlc" ] || [ "$2" == "VLC" ];then 
+		if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+			vlc_remover
+			remove_unneeded
+
+		else
+			echo "Do you mean --unneed or --unneeded?"
+			echo "check Check the spelling of the command and try again"
+		fi
+	elif [ "$2" == "vscode" ] || [ "$2" == "code" ] || \
+		[ "$2" == "VScode" ] || [ "$2" == "visual_stdio_code" ];then
+			if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+				code_remover
 				remove_unneeded
 
-	elif [ "$1" == "--help" ] || [ "$1" == "--Help" ] || \
-		[ "$1" == "--HELP" ] || [ "$1" == "man" ] || \
-		[ "$1" == "manual" ];then
-			man
-	
-	elif [ "$1" == "--info" ] || [ "$1" == "--INFO" ] || \
-		[ "$1" == "--Info" ];then
-			info
-
-
-	elif [ "$1" == "--search-app" ];then
-		rpm -qa | grep $2
-
-	elif [ "$1" == "--update" ];then
-		update
-	
-	elif [ "$1" == "--upgrade" ];then
-		upgrade
-
-	elif [ "$1" == "dist-upgrade" ];then
-		dist_upgrade
-
-
-
-	elif [ "$1" == "--app-count" ];then
-		app_count=`rpm -qa | wc -l`
-		echo "Number of Installed App : $app_count"
-
-
-
-	elif [ "$1" == "--list-repository" ];then
-			list_repo
-
-
-
-	# List Known Apps
-	# This part shows the user what software knows about the searched item.
-	# Like Security Tools or Image Tools or App name
-	elif [ "$1" == "--list" ];then
-		if [ "$2" == "--known" ];then
-			if [ "$3" == "Security-Tools" ] || [ "$3" == "securitytools" ] || [ "$3" == "security-tools" ] || \
-				[ "$3" == "Security_Tools" ] || [ "$3" == "security_tools" ] || \
-				[ "$3" == "SecurityTools" ] || [ "$3" == "securitytools" ];then
-					echo "=> clamAV - Rkhunter - Maldet - Lynis"
-					echo "=> Fail2ban - Firewalld - Nmap - TcpDump - Wireshark "
-					echo "=> WAF ( Web Application Firewall )=> ModSecurity - Nginx-Modsecurity"
-					echo "=> USBGuard - TcpWrappers"
-			elif [ "$3" == "Database" ] || [ "$3" == "database" ];then
-					echo "=> MariaDB - PostgreSQL - SQLite - InfluxDB"
-			elif [ "$3" == "monitoring" ] || [ "$3" == "Monitoring" ];then
-					echo "=> htop - Munin - iptrafng"
-			elif [ "$3" == "Editor" ] || [ "$3" == "editor" ] || \
-				[ "$3" == "editors" ] || [ "$3" == "Editors" ];then
-					echo "=> Vim - VScode"
-			elif [ "$3" == "Massenger" ] || [ "$3" == "massenger" ];then
-				echo "=> Telegram"
-			elif [ "$3" == "Developer-Tools" ] || [ "$3" == "developer-tools" ] || \
-				[ "$3" == "DeveloperTools" ] || [ "$3" == "developertools" ];then
-					echo "=> ohmyzsh "
-				       	echo "=> vscode - vim - vundle "
-					echo "=> sshfs ( for Mount Server Directory to Your Local system)"
-					echo "=> Docker - OpenStack - Terraform - puppet - Ansible"
-					echo "=> Android-debug-bridge : The Android Debug Bridge is a programming tool used for the debugging of Android-based devices."
-					echo "=> Git - mercurial"
-					echo "=> Preparing the system for Python programming (check Developer Function)"
-					echo "=> Nginx - Apache"
-					echo "=> Tmux : It allows multiple terminal sessions to be accessed simultaneously in a single window. "
-					echo "=> Picocom : s a minimal dumb-terminal emulation program that is great for accessing a serial port based Linux console"
-					
-			elif [ "$3" == "VPN" ] || [ "$3" == "vpn" ];then
-					echo "=> openconnect"
-					echo "=> openvpn"
-			elif [ "$3" == "BasicTools" ] || [ "$3" == "basictools" ] || \
-				 [ "$3" == "Basic-Tools" ] || [ "$3" == "BasicTools" ];then
-				 	echo " => wget - curl - gcc - git -mercurial"
-			else	
-					echo "$yellow !!!  I did not understand the command you gave for my software list. $yellow !!! $reset"
-					echo "Note :In the $green Future $reset,the man software will add your needs to the script."
+			else
+				echo "Do you mean --unneed or --unneeded?"
+				echo "check Check the spelling of the command and try again"
 			fi
+	elif [ "$2" == "clamAV" ] || [ "$2" == "clamav" ];then
+		if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+			clamav_remover
+			remove_unneeded
+
 		else
-			echo "Did Your Mean --known?"
-			echo "Edit command and Try Again"
+			echo "Do you mean --unneed or --unneeded?"
+			echo "check Check the spelling of the command and try again"
 		fi
-
-
-	# Remover
-	## The uninstaller tries to remove the software along with everything that was added during installation
-	## For Exapmle Repositories
-	## Finally, it will automatically run the clean_unneeded script
-
-	elif [ "$1" == "--remove" ];then
-		if [ "$2" == "mariadb" ] || [ "$2" == "mariaDB" ] || \
-			[ "$2" == "MariaDB" ];then
-				mariadb_remover
-				
-		elif [ "$2" == "postgresql" ] || [ "$2" == "PostgreSQL" ] || \
-			[ "$2" == "postgreSQL" ];then
-				postgre_remover
-				 
-		elif [ "$2" == "adb" ] || [ "$2" == "Android-Dubug-Bridge" ] || \
-			[ "$2" == "ADB" ] || [ "$2" == "Android_Dubug_Bridge" ] || \
-				[ "$2" == "android_dubug_bridge" ] || [ "$2" == "android-dubug-bridge" ] || \
-					[ "$2" == "Android_Tools" ] || [ "$2" == "android_tools" ];then
-							adb_remover
-							
-		
-		elif [ "$2" == "vlc" ] || [ "$2" == "VLC" ];then 
-				vlc_remover
-				
-
-		elif [ "$2" == "vscode" ] || [ "$2" == "code" ] || \
-			[ "$2" == "VScode" ] || [ "$2" == "visual_stdio_code" ];then
-				code_remover
-				
-
-		elif [ "$2" == "clamAV" ] || [ "$2" == "clamav" ];then
-				clamav_remover
-				
-		elif [ "$2" == "git" ] || [ "$2" == "Git" ] || \
-			[ "$2" == "GIT" ];then
+	elif [ "$2" == "git" ] || [ "$2" == "Git" ] || \
+		[ "$2" == "GIT" ];then
+			if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
 				git_remover
-				
-		elif [ "$2" == "gcc" ] || [ "$2" == "GCC" ] || \
-			[ "$2" == "Gcc" ];then
+				remove_unneeded
+
+			else
+				echo "Do you mean --unneed or --unneeded?"
+				echo "check Check the spelling of the command and try again"
+			fi
+	elif [ "$2" == "gcc" ] || [ "$2" == "GCC" ] || \
+		[ "$2" == "Gcc" ];then
+			if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
 				gcc_remover
-				
-		elif [ "$2" == "zsh" ] || [ "$2" == "ZSH" ] || \
-			[ "$2" == "Zsh" ];then
+				remove_unneeded
+
+			else
+				echo "Do you mean --unneed or --unneeded?"
+				echo "check Check the spelling of the command and try again"
+			fi
+	elif [ "$2" == "zsh" ] || [ "$2" == "ZSH" ] || \
+		[ "$2" == "Zsh" ];then
+			if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
 				zsh_remover
-						
-		
-		elif [ "$2" == "Basic_Tools" ] || [ "$2" == "basic_tools" ] || \
-			[ "$2" == "BasicTools" ] || [ "$2" == "basictools" ];then		
+				remove_unneeded		
+	
+			else
+				echo "Do you mean --unneed or --unneeded?"
+				echo "check Check the spelling of the command and try again"
+			fi
+	elif [ "$2" == "Basic_Tools" ] || [ "$2" == "basic_tools" ] || \
+		[ "$2" == "BasicTools" ] || [ "$2" == "basictools" ];then		
+			if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
 				basic_tools_remover
-				
-			
-		elif [ "$2" == "ohmyzsh" ] || [ "$2" == "OhMyZsh" ] || \
-			[ "$2" == "oh-my-zsh" ];then
-				ohmyzsh_remover		
-				
-
-		elif [ "$2" == "command_line_tools" ] || [ "$2" == "Command_Line_Tools" ] || \
-			[ "$2" == "CommandLineTools" ] || [ "$2" == "COMMAND_LINE_TOOLS" ];then
-				command_line_tools_remover
-				
-
-		elif [ "$2" == "lshw" ] || [ "$2" == "lshardware" ] || \
-			[ "$2" == "listhardware" ];then
-				sudo zypper -n remove lshw
-				
-				
-		elif [ "$2" == "openconnect" ] || [ "$2" == "open-connect" ] || \
-			[ "$2" == "open_connect" ];then
-				openconnect_remover
-				
-						
-		elif [ "$2" == "openvpn" ] || [ "$2" == "open-vpn" ] || \
-			[ "$2" == "OpenVpn" ];then
-				openvpn_remover
-				
-
-
-		elif [ "$2" == "VIM" ] || [ "$2" == "Vim" ] || \
-			[ "$2" == "vim" ];then
-				
-				vim_remover
-				
-
-		elif [ "$2" == "sqlite" ] || [ "$2" == "SQlite" ] || \
-			[ "$2" == "SQLite" ];then
-				sqlite_remover
-				
-
-		elif [ "$2" == "influx" ] || [ "$2" == "influxdb" ] || \
-			[ "$2" == "InfluxDB" ];then
-				influx_remover
-				
-						
-		elif [ "$2" == "mongoDB" ] || [ "$2" == "mongo" ] || \
-			[ "$2" == "MongoDB" ];then
-				mongodb_remover
-				
-						
-		elif [ "$2" == "nginx" ] || [ "$2" == "Nginx" ] || \
-			[ "$2" == "NGINX" ];then
-				nginx_remover
-				
+				remove_unneeded
 		
-		elif [ "$2" == "Apache" ] || [ "$2" == "Apache2" ] || \
-			[ "$2" == "apache" ] || [ "$2" == "apache2" ];then						
-				apache_remover
-				
+			else
+				echo "Do you mean --unneed or --unneeded?"
+				echo "check Check the spelling of the command and try again"
+			fi
+	elif [ "$2" == "ohmyzsh" ] || [ "$2" == "OhMyZsh" ] || \
+		[ "$2" == "oh-my-zsh" ];then
+			if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+				ohmyzsh_remover		
+				remove_unneeded
 
-		elif [ "$2" == "nmap" ] || [ "$2" == "Nmap" ] || \
-			[ "$2" == "NMAP" ];then
-				nmap_remover
-				
+			else
+				echo "Do you mean --unneed or --unneeded?"
+				echo "check Check the spelling of the command and try again"
+			fi
+	elif [ "$2" == "command_line_tools" ] || [ "$2" == "Command_Line_Tools" ] || \
+		[ "$2" == "CommandLineTools" ] || [ "$2" == "COMMAND_LINE_TOOLS" ];then
+			if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+				command_line_tools_remover
+				remove_unneeded
 
-		elif [ "$2" == "TcpDump" ] || [ "$2" == "tcpdump" ] || \
-			[ "$2" == "TCPDUMP" ];then
-				tcpdump_remover
-				
-
-		elif [ "$2" == "wireshark" ] || [ "$2" == "Wireshark" ] || \
-			[ "$2" == "WireShark" ];then
-
-				wireshark_remover
-				
-
-		elif [ "$2" == "iptraf" ] || [ "$2" == "iptraf-ng" ] || \
-			[ "$2" == "iptrafng" ];then
-				iptraf_remover
-				
-
-		elif [ "$2" == "network_tools_all" ] || [ "$2" == "Network_Tools_All" ] || \
-			[ "$2" == "NetworkToolsAll" ] || [ "$2" == "nettoolsall" ];then
-				network_tools_remover
-				
-
-
-		elif [ "$2" == "docker" ] || [ "$2" == "Docker" ] || \
-			[ "$2" == "DOCKER" ];then
-				docker_remover
-				
-
-
-		elif [ "$2" == "clamAV" ] || [ "$2" == "clamav" ] || \
-			[ "$2" == "ClamAV" ];then
-				clamav_remover
-				
-
-		elif [ "$2" == "maldet" ] || [ "$2" == "malware_detect" ] || \
-			[ "$2" == "malware-detect" ] || [ "$2" == "Maldet" ] || \
-				[ "$2" == "Malware-Detect" ] || [ "$2" == "LMD" ];then
-					maldet_remover
+			else
+				echo "Do you mean --unneed or --unneeded?"
+				echo "check Check the spelling of the command and try again"
+			fi
+	elif [ "$2" == "lshw" ] || [ "$2" == "lshardware" ] || \
+		[ "$2" == "listhardware" ];then
+			if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+				sudo zypper -n remove lshw
+				remove_unneeded
+			
+			else
+				echo "Do you mean --unneed or --unneeded?"
+				echo "check Check the spelling of the command and try again"
+			fi
+	elif [ "$2" == "openconnect" ] || [ "$2" == "open-connect" ] || \
+		[ "$2" == "open_connect" ];then
+			if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+				openconnect_remover
+				remove_unneeded
 					
+			else
+				echo "Do you mean --unneed or --unneeded?"
+				echo "check Check the spelling of the command and try again"
+			fi
+	elif [ "$2" == "openvpn" ] || [ "$2" == "open-vpn" ] || \
+		[ "$2" == "OpenVpn" ];then
+			if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+				openvpn_remover
+				remove_unneeded
 
 
-		elif [ "$2" == "rkhunter" ] || [ "$2" == "Rkhunter" ] || \
-			[ "$2" == "RootKitHunter" ] || [ "$2" == "rootkithunter" ];then
+			else
+				echo "Do you mean --unneed or --unneeded?"
+				echo "check Check the spelling of the command and try again"
+			fi
+	elif [ "$2" == "VIM" ] || [ "$2" == "Vim" ] || \
+		[ "$2" == "vim" ];then
+			if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+				vim_remover
+				remove_unneeded
+
+			else
+				echo "Do you mean --unneed or --unneeded?"
+				echo "check Check the spelling of the command and try again"
+			fi
+	elif [ "$2" == "sqlite" ] || [ "$2" == "SQlite" ] || \
+		[ "$2" == "SQLite" ];then
+			if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+				sqlite_remover
+				remove_unneeded
+
+			else
+				echo "Do you mean --unneed or --unneeded?"
+				echo "check Check the spelling of the command and try again"
+			fi
+	elif [ "$2" == "influx" ] || [ "$2" == "influxdb" ] || \
+		[ "$2" == "InfluxDB" ];then
+			if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+				influx_remover
+				remove_unneeded
+					
+			else
+				echo "Do you mean --unneed or --unneeded?"
+				echo "check Check the spelling of the command and try again"
+			fi
+	elif [ "$2" == "mongoDB" ] || [ "$2" == "mongo" ] || \
+		[ "$2" == "MongoDB" ];then
+			if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+				mongodb_remover
+				remove_unneeded
+					
+			else
+				echo "Do you mean --unneed or --unneeded?"
+				echo "check Check the spelling of the command and try again"
+			fi
+	elif [ "$2" == "nginx" ] || [ "$2" == "Nginx" ] || \
+		[ "$2" == "NGINX" ];then
+			if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+				nginx_remover
+				remove_unneeded
+	
+			else
+				echo "Do you mean --unneed or --unneeded?"
+				echo "check Check the spelling of the command and try again"
+			fi
+	elif [ "$2" == "Apache" ] || [ "$2" == "Apache2" ] || \
+		[ "$2" == "apache" ] || [ "$2" == "apache2" ];then						
+			if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+				apache_remover
+				remove_unneeded
+
+			else
+				echo "Do you mean --unneed or --unneeded?"
+				echo "check Check the spelling of the command and try again"
+			fi
+	elif [ "$2" == "nmap" ] || [ "$2" == "Nmap" ] || \
+		[ "$2" == "NMAP" ];then
+			if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+				nmap_remover
+				remove_unneeded
+
+			else
+				echo "Do you mean --unneed or --unneeded?"
+				echo "check Check the spelling of the command and try again"
+			fi
+	elif [ "$2" == "TcpDump" ] || [ "$2" == "tcpdump" ] || \
+		[ "$2" == "TCPDUMP" ];then
+			if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+				tcpdump_remover
+				remove_unneeded
+
+			else
+				echo "Do you mean --unneed or --unneeded?"
+				echo "check Check the spelling of the command and try again"
+			fi
+	elif [ "$2" == "wireshark" ] || [ "$2" == "Wireshark" ] || \
+		[ "$2" == "WireShark" ];then
+			if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+				wireshark_remover
+				remove_unneeded
+
+			else
+				echo "Do you mean --unneed or --unneeded?"
+				echo "check Check the spelling of the command and try again"
+			fi
+	elif [ "$2" == "iptraf" ] || [ "$2" == "iptraf-ng" ] || \
+		[ "$2" == "iptrafng" ];then
+			if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+				iptraf_remover
+				remove_unneeded
+
+			else
+				echo "Do you mean --unneed or --unneeded?"
+				echo "check Check the spelling of the command and try again"
+			fi
+	elif [ "$2" == "network_tools_all" ] || [ "$2" == "Network_Tools_All" ] || \
+		[ "$2" == "NetworkToolsAll" ] || [ "$2" == "nettoolsall" ];then
+			if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+				network_tools_remover
+				remove_unneeded
+
+
+			else
+				echo "Do you mean --unneed or --unneeded?"
+				echo "check Check the spelling of the command and try again"
+			fi
+	elif [ "$2" == "docker" ] || [ "$2" == "Docker" ] || \
+		[ "$2" == "DOCKER" ];then
+			if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+				docker_remover
+				remove_unneeded
+
+			else
+				echo "Do you mean --unneed or --unneeded?"
+				echo "check Check the spelling of the command and try again"
+			fi
+	elif [ "$2" == "clamAV" ] || [ "$2" == "clamav" ] || \
+		[ "$2" == "ClamAV" ];then
+			if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+				clamav_remover
+				remove_unneeded
+
+			else
+				echo "Do you mean --unneed or --unneeded?"
+				echo "check Check the spelling of the command and try again"
+			fi
+	elif [ "$2" == "maldet" ] || [ "$2" == "malware_detect" ] || \
+		[ "$2" == "malware-detect" ] || [ "$2" == "Maldet" ] || \
+			[ "$2" == "Malware-Detect" ] || [ "$2" == "LMD" ];then
+					if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+						maldet_remover
+						remove_unneeded
+
+					else
+						echo "Do you mean --unneed or --unneeded?"
+						echo "check Check the spelling of the command and try again"
+					fi
+	elif [ "$2" == "rkhunter" ] || [ "$2" == "Rkhunter" ] || \
+		[ "$2" == "RootKitHunter" ] || [ "$2" == "rootkithunter" ];then
+			if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
 				rkhunter_remover
-				
+				remove_unneeded
 
-		elif [ "$2" == "lynis" ] || [ "$2" == "Lynis" ] || \
-			[ "$2" == "LYNIS" ];then
+			else
+				echo "Do you mean --unneed or --unneeded?"
+				echo "check Check the spelling of the command and try again"
+			fi
+	elif [ "$2" == "lynis" ] || [ "$2" == "Lynis" ] || \
+		[ "$2" == "LYNIS" ];then
+			if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
 				lynis_remover
-				
+				remove_unneeded
 
-		elif [ "$2" == "AV" ] || [ "$2" == "Antivirus" ] || \
-			[ "$2" == "antivirus" ];then
+			else
+				echo "Do you mean --unneed or --unneeded?"
+				echo "check Check the spelling of the command and try again"
+			fi
+	elif [ "$2" == "AV" ] || [ "$2" == "Antivirus" ] || \
+		[ "$2" == "antivirus" ];then
+			if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
 				echo "$red This command will remove all antivirus packages from your system $reset"
 				antivirus_remover
-				
+				remove_unneeded
 
-		elif [ "$2" == "fail2ban" ] || [ "$2" == "Fail2ban" ] || \
-			[ "$2" == "FAIL2BAN" ];then
+			else
+				echo "Do you mean --unneed or --unneeded?"
+				echo "check Check the spelling of the command and try again"
+			fi
+	elif [ "$2" == "fail2ban" ] || [ "$2" == "Fail2ban" ] || \
+		[ "$2" == "FAIL2BAN" ];then
+			if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
 				fail2ban_remover
-					
+				remove_unneeded	
 
 
-		elif [ "$2" == "tcpwrapper" ] || [ "$2" == "tcp-wrapper" ] || \
-			[ "$2" == "TcpWrapper" ] || [ "$2" == "Tcp-Wrapper" ];then
+			else
+				echo "Do you mean --unneed or --unneeded?"
+				echo "check Check the spelling of the command and try again"
+			fi
+	elif [ "$2" == "tcpwrapper" ] || [ "$2" == "tcp-wrapper" ] || \
+		[ "$2" == "TcpWrapper" ] || [ "$2" == "Tcp-Wrapper" ];then
+			if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
 				tcpwrapper_remover
-				
+				remove_unneeded
 
 
-		elif [ "$2" == "firewalld" ] || [ "$2" == "FirewallD" ] || \
-			[ "$2" == "Firewall-Cmd" ] || [ "$2" == "firewall-cmd" ];then
+			else
+				echo "Do you mean --unneed or --unneeded?"
+				echo "check Check the spelling of the command and try again"
+			fi
+	elif [ "$2" == "firewalld" ] || [ "$2" == "FirewallD" ] || \
+		[ "$2" == "Firewall-Cmd" ] || [ "$2" == "firewall-cmd" ];then
+			if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
 				firewalld_remover
-				
+				remove_unneeded
 
-		elif [ "$2" == "psad" ] || [ "$2" == "PSad" ] || \
-			[ "$2" == "PSAD" ];then
+			else
+				echo "Do you mean --unneed or --unneeded?"
+				echo "check Check the spelling of the command and try again"
+			fi
+	elif [ "$2" == "psad" ] || [ "$2" == "PSad" ] || \
+		[ "$2" == "PSAD" ];then
+			if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
 				psad_remover
-				
+				remove_unneeded
 
-		elif [ "$2" == "network_security" ] || [ "$2" == "Network_Securiey" ] || \
-			[ "$2" == "NetworkSecurity" ];then
+			else
+				echo "Do you mean --unneed or --unneeded?"
+				echo "check Check the spelling of the command and try again"
+			fi
+	elif [ "$2" == "network_security" ] || [ "$2" == "Network_Securiey" ] || \
+		[ "$2" == "NetworkSecurity" ];then
+			if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
 				network_security_remover
-				
+				remove_unneeded
 
-		elif [ "$2" == "openssh" ] || [ "$2" == "Openssh" ] || \
-				[ "$2" == "Openssh-server" ] || [ "$2" == "openssh-server" ];then
+			else
+				echo "Do you mean --unneed or --unneeded?"
+				echo "check Check the spelling of the command and try again"
+			fi
+	elif [ "$2" == "openssh" ] || [ "$2" == "Openssh" ] || \
+			[ "$2" == "Openssh-server" ] || [ "$2" == "openssh-server" ];then
+				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
 					openssh_remover
-					
-		elif [ "$2" == "sshfs" ] || [ "$2" == "SSHFS" ] || \
-				[ "$2" == "fuse-sshfs" ] || [ "$2" == "Fuse-SSHFS" ];then
-					sshfs_remover
-					
+					remove_unneeded
+				else
+					echo "Do you mean --unneed or --unneeded?"
+					echo "check Check the spelling of the command and try again"
+				fi
+	elif [ "$2" == "sshfs" ] || [ "$2" == "SSHFS" ] || \
+			[ "$2" == "fuse-sshfs" ] || [ "$2" == "Fuse-SSHFS" ];then
+					if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+						sshfs_remover
+						remove_unneeded
 
-		elif [ "$2" == "usbguard" ] || [ "$2" == "USBGuard" ] || \
-			[ "$2" == "usb-guard" ] || [ "$2" == "USB-Guard" ];then
+					else
+						echo "Do you mean --unneed or --unneeded?"
+						echo "check Check the spelling of the command and try again"
+					fi
+	elif [ "$2" == "usbguard" ] || [ "$2" == "USBGuard" ] || \
+		[ "$2" == "usb-guard" ] || [ "$2" == "USB-Guard" ];then
+			if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
 				usbguard_remover
-				
+				remove_unneeded
 
-		elif [ "$2" == "jpegoptim" ] || [ "$2" == "jpgoptim" ] || \
-			[ "$2" == "JpegOptim" ] || [ "$2" == "jpegoptimizer" ] || \
-				[ "$2" == "jpgoptimizer" ];then
-					jpgoptim_remover
-					
+			else
+				echo "Do you mean --unneed or --unneeded?"
+				echo "check Check the spelling of the command and try again"
+			fi
+	elif [ "$2" == "jpegoptim" ] || [ "$2" == "jpgoptim" ] || \
+		[ "$2" == "JpegOptim" ] || [ "$2" == "jpegoptimizer" ] || \
+			[ "$2" == "jpgoptimizer" ];then
+					if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+						jpgoptim_remover
+						remove_unneeded
 
+					else
+						echo "Do you mean --unneed or --unneeded?"
+						echo "check Check the spelling of the command and try again"
+					fi
 
-		elif [ "$2" == "optimpng" ] || [ "$2" == "optipng" ] || \
-			[ "$2" == "optimizepng" ] || [ "$2" == "optimizePNG" ];then
+	elif [ "$2" == "optimpng" ] || [ "$2" == "optipng" ] || \
+		[ "$2" == "optimizepng" ] || [ "$2" == "optimizePNG" ];then
+			if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
 				optipng_remover
-				
+				remove_unneeded
 
-		elif [ "$2" == "exiftool" ] || [ "$2" == "Exif-Tool" ] || \
-			[ "$2" == "ExifTool" ] || [ "$2" == "exiftools" ] || \
-				[ "$2" == "ExifTools" ] || [ "$2" == "Exif-Tools" ];then
-					exiftool_remover
-					
+			else
+				echo "Do you mean --unneed or --unneeded?"
+				echo "check Check the spelling of the command and try again"
+			fi
+	elif [ "$2" == "exiftool" ] || [ "$2" == "Exif-Tool" ] || \
+		[ "$2" == "ExifTool" ] || [ "$2" == "exiftools" ] || \
+			[ "$2" == "ExifTools" ] || [ "$2" == "Exif-Tools" ];then
+					if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+						exiftool_remover
+						remove_unneeded
+
+					else
+						echo "Do you mean --unneed or --unneeded?"
+						echo "check Check the spelling of the command and try again"
+					fi
+
+	elif [ "$2" == "image-optimizer" ] || [ "$2" == "imageoptimizer" ] || \
+		[ "$2" == "Image-Optmizer" ] || [ "$2" == "Image_Optmizer" ] || \
+			[ "$2" == "image_optmizer" ];then
+					if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+						image_optimizer_remover
+						remove_unneeded
 
 
-		elif [ "$2" == "image-optimizer" ] || [ "$2" == "imageoptimizer" ] || \
-			[ "$2" == "Image-Optmizer" ] || [ "$2" == "Image_Optmizer" ] || \
-				[ "$2" == "image_optmizer" ];then
-					image_optimizer_remover
-					
-
-
-		elif [ "$2" == "telegram" ] || [ "$2" == "Telegram-Desktop" ] || \
-			[ "$2" == "Telegram" ] || [ "$2" == "telegram-desktop" ];then
+					else
+						echo "Do you mean --unneed or --unneeded?"
+						echo "check Check the spelling of the command and try again"
+					fi
+	elif [ "$2" == "telegram" ] || [ "$2" == "Telegram-Desktop" ] || \
+		[ "$2" == "Telegram" ] || [ "$2" == "telegram-desktop" ];then
+			if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
 				telegram_remover
-				
+				remove_unneeded
 
-		elif [ "$2" == "Ansible" ] || [ "$2" == "ansible" ] || \
-			[ "$2" == "ANSIBLE" ];then
+			else
+				echo "Do you mean --unneed or --unneeded?"
+				echo "check Check the spelling of the command and try again"
+			fi
+	elif [ "$2" == "Ansible" ] || [ "$2" == "ansible" ] || \
+		[ "$2" == "ANSIBLE" ];then
+			if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+
 				ansible_remover
-				
+				remove_unneeded
 
-		elif [ "$2" == "tuned" ] || [ "$2" == "Tuned" ] || \
-			[ "$2" == ""tuned ];then
+			else
+				echo "Do you mean --unneed or --unneeded?"
+				echo "check Check the spelling of the command and try again"
+			fi
+	elif [ "$2" == "tuned" ] || [ "$2" == "Tuned" ] || \
+		[ "$2" == ""tuned ];then
+			if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
 				tuned_remover
-				
+				remove_unneeded
 
-		elif [ "$2" == "htop" ] || [ "$2" == "Htop" ];then
-				htop_remover
-				
+			else
+				echo "Do you mean --unneed or --unneeded?"
+				echo "check Check the spelling of the command and try again"
+			fi
+	elif [ "$2" == "htop" ] || [ "$2" == "Htop" ];then
+		if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+			htop_remover
+			remove_unneeded
 
-		elif [ "$2" == "munin" ] || [ "$2" == "Munin" ];then
-				munin_remover
-				
-
-		elif [ "$2" == "terraform" ] || [ "$2" == "Terraform" ] || \
-			[ "$2" == "TERRAFORM" ];then
-				terraform_remover
-				
-
-		elif [ "$2" == "develope" ] || [ "$2" == "Develope" ] || \
-			[ "$2" == "DEVELOPE" ];then
-
-				develope_remover
-				
-
-		elif [ "$2" == "openstack" ] || [ "$2" == "open-stack" ] || \
-			[ "$2" == "OpenStack" ];then
-				openstack_remover
-				
-		
-		# Start of my own software section
-
-		elif [ "$2" == "admin_fstep" ] || [ "$2" == "Admin_Fstep" ] || \
-			[ "$2" == "AdminFstep" ] || [ "$2" == "Admin-Fstep" ];then
-				admin_fstep_remover
-				
-		
-		elif [ "$2" == "wpscan" ] || [ "$2" == "WpScan" ] || \
-			[ "$2" == "wp-scan" ];then
-				wpscan_remover
-				
-
-
-		elif [ "$2" == "kygnus_guard" ] || [ "$2" == "KYGnus_Guard" ] || \
-			[ "$2" == "KYGnusGuard" ] || [ "$2" == "kygnusguard" ];then
-				kygnus_guard	
-				
-
-		elif [ "$2" == "Android_Malware_Detect" ] || [ "$2" == "AndroidMalwareDetect" ] || \
-				[ "$2" == "android_malware_detect" ] || [ "$2" == "AMD" ] || \
-				[ "$2" == "amd" ];then
-					true
-					
-
-		elif [ "$2" == "clone_disk" ] || [ "$2" == "CloneDisk" ] || \
-			[ "$2" == "clone-disk" ] || [ "$2" == "clonedisk" ];then
-				clone_disk_remover
-				
-
-		elif [ "$2" == "perm_check" ] || [ "$2" == "permcheck" ] || \
-			[ "$2" == "PermCheck" ] || [ "$2" == "perm-check" ];then
-				perm_check_remover
-				
-
-
-		elif [ "$2" == "LV" ] || [ "$2" == "LinuxVerification" ];then
-				lv_remover
-				
-
-
-		elif [ "$2" == "fs" ] || [ "$2" == "FS" ];then
-				fs_remover
-				
-
-		elif [ "$2" == "exifremover" ] || [ "$2" == "ExifRemover" ] || \
-			[ "$2" == "exif_remover" ] || [ "$2" == "Exif_Remover" ];then
-				exiremover_remover
-				
-
-		elif [ "$2" == "antideface" ] || [ "$2" == "AntiDeface" ] || \
-			[ "$2" == "Anti-deface" ] || [ "$2" == "anti-deface" ];then
-				antideface_remover
-				
-		
-		elif [ "$2" == "mercurial" ] || [ "$2" == "Mercurial" ];then
-				mercurial_remover
-				
-
-
-		elif [ "$2" == "tmux" ] || [ "$2" == "Tmux" ] || \
-			[ "$2" == "Tmux" ];then
-				tmux_remover
-				
-
-		elif [ "$2" == "picocom" ] || [ "$2" == "Picocom" ] || \
-			[ "$2" == "PICOCOM" ];then
-				picocom_remover
-
-		elif [ "$2" == "firejail" ] || [ "$2" == "Firejail" ] || \
-			[ "$2" == "FireJail" ];then
-				firejail_remover
-
-		elif [ "$2" == "tiger" ] || [ "$2" == "Tiger" ] || \
-			[ "$2" == "TIGER" ];then
-				tiger_remover
 		else
-			echo "Sorry.App Not Found in Repository"
+			echo "Do you mean --unneed or --unneeded?"
+			echo "check Check the spelling of the command and try again"
 		fi
-		
-	elif [ "$1" == "--remove" ];then
-		if [ "$2" == "mariadb" ] || [ "$2" == "mariaDB" ] || \
-			[ "$2" == "MariaDB" ];then
-				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-					mariadb_remover
-					remove_unneeded
-				else
-					echo "Do you mean --unneed or --unneeded?"
-					echo "check Check the spelling of the command and try again"
-				fi
-		elif [ "$2" == "postgresql" ] || [ "$2" == "PostgreSQL" ] || \
-			[ "$2" == "postgreSQL" ];then
-				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-					postgre_remover
-					remove_unneeded 
-				else
-					echo "Do you mean --unneed or --unneeded?"
-					echo "check Check the spelling of the command and try again"
-				fi
-		elif [ "$2" == "adb" ] || [ "$2" == "Android-Dubug-Bridge" ] || \
-			[ "$2" == "ADB" ] || [ "$2" == "Android_Dubug_Bridge" ] || \
-				[ "$2" == "android_dubug_bridge" ] || [ "$2" == "android-dubug-bridge" ] || \
-					[ "$2" == "Android_Tools" ] || [ "$2" == "android_tools" ];then
-						if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-							adb_remover
-							remove_unneeded
-		
-				else
-					echo "Do you mean --unneed or --unneeded?"
-					echo "check Check the spelling of the command and try again"
-				fi
-		elif [ "$2" == "vlc" ] || [ "$2" == "VLC" ];then 
-			if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-				vlc_remover
-				remove_unneeded
+	elif [ "$2" == "munin" ] || [ "$2" == "Munin" ];then
+		if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+			munin_remover
+			remove_unneeded
 
-			else
-				echo "Do you mean --unneed or --unneeded?"
-				echo "check Check the spelling of the command and try again"
-			fi
-		elif [ "$2" == "vscode" ] || [ "$2" == "code" ] || \
-			[ "$2" == "VScode" ] || [ "$2" == "visual_stdio_code" ];then
-				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-					code_remover
-					remove_unneeded
-
-				else
-					echo "Do you mean --unneed or --unneeded?"
-					echo "check Check the spelling of the command and try again"
-				fi
-		elif [ "$2" == "clamAV" ] || [ "$2" == "clamav" ];then
-			if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-				clamav_remover
-				remove_unneeded
-
-			else
-				echo "Do you mean --unneed or --unneeded?"
-				echo "check Check the spelling of the command and try again"
-			fi
-		elif [ "$2" == "git" ] || [ "$2" == "Git" ] || \
-			[ "$2" == "GIT" ];then
-				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-					git_remover
-					remove_unneeded
-
-				else
-					echo "Do you mean --unneed or --unneeded?"
-					echo "check Check the spelling of the command and try again"
-				fi
-		elif [ "$2" == "gcc" ] || [ "$2" == "GCC" ] || \
-			[ "$2" == "Gcc" ];then
-				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-					gcc_remover
-					remove_unneeded
-
-				else
-					echo "Do you mean --unneed or --unneeded?"
-					echo "check Check the spelling of the command and try again"
-				fi
-		elif [ "$2" == "zsh" ] || [ "$2" == "ZSH" ] || \
-			[ "$2" == "Zsh" ];then
-				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-					zsh_remover
-					remove_unneeded		
-		
-				else
-					echo "Do you mean --unneed or --unneeded?"
-					echo "check Check the spelling of the command and try again"
-				fi
-		elif [ "$2" == "Basic_Tools" ] || [ "$2" == "basic_tools" ] || \
-			[ "$2" == "BasicTools" ] || [ "$2" == "basictools" ];then		
-				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-					basic_tools_remover
-					remove_unneeded
-			
-				else
-					echo "Do you mean --unneed or --unneeded?"
-					echo "check Check the spelling of the command and try again"
-				fi
-		elif [ "$2" == "ohmyzsh" ] || [ "$2" == "OhMyZsh" ] || \
-			[ "$2" == "oh-my-zsh" ];then
-				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-					ohmyzsh_remover		
-					remove_unneeded
-
-				else
-					echo "Do you mean --unneed or --unneeded?"
-					echo "check Check the spelling of the command and try again"
-				fi
-		elif [ "$2" == "command_line_tools" ] || [ "$2" == "Command_Line_Tools" ] || \
-			[ "$2" == "CommandLineTools" ] || [ "$2" == "COMMAND_LINE_TOOLS" ];then
-				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-					command_line_tools_remover
-					remove_unneeded
-
-				else
-					echo "Do you mean --unneed or --unneeded?"
-					echo "check Check the spelling of the command and try again"
-				fi
-		elif [ "$2" == "lshw" ] || [ "$2" == "lshardware" ] || \
-			[ "$2" == "listhardware" ];then
-				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-					sudo zypper -n remove lshw
-					remove_unneeded
-				
-				else
-					echo "Do you mean --unneed or --unneeded?"
-					echo "check Check the spelling of the command and try again"
-				fi
-		elif [ "$2" == "openconnect" ] || [ "$2" == "open-connect" ] || \
-			[ "$2" == "open_connect" ];then
-				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-					openconnect_remover
-					remove_unneeded
-						
-				else
-					echo "Do you mean --unneed or --unneeded?"
-					echo "check Check the spelling of the command and try again"
-				fi
-		elif [ "$2" == "openvpn" ] || [ "$2" == "open-vpn" ] || \
-			[ "$2" == "OpenVpn" ];then
-				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-					openvpn_remover
-					remove_unneeded
-
-
-				else
-					echo "Do you mean --unneed or --unneeded?"
-					echo "check Check the spelling of the command and try again"
-				fi
-		elif [ "$2" == "VIM" ] || [ "$2" == "Vim" ] || \
-			[ "$2" == "vim" ];then
-				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-					vim_remover
-					remove_unneeded
-
-				else
-					echo "Do you mean --unneed or --unneeded?"
-					echo "check Check the spelling of the command and try again"
-				fi
-		elif [ "$2" == "sqlite" ] || [ "$2" == "SQlite" ] || \
-			[ "$2" == "SQLite" ];then
-				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-					sqlite_remover
-					remove_unneeded
-
-				else
-					echo "Do you mean --unneed or --unneeded?"
-					echo "check Check the spelling of the command and try again"
-				fi
-		elif [ "$2" == "influx" ] || [ "$2" == "influxdb" ] || \
-			[ "$2" == "InfluxDB" ];then
-				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-					influx_remover
-					remove_unneeded
-						
-				else
-					echo "Do you mean --unneed or --unneeded?"
-					echo "check Check the spelling of the command and try again"
-				fi
-		elif [ "$2" == "mongoDB" ] || [ "$2" == "mongo" ] || \
-			[ "$2" == "MongoDB" ];then
-				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-					mongodb_remover
-					remove_unneeded
-						
-				else
-					echo "Do you mean --unneed or --unneeded?"
-					echo "check Check the spelling of the command and try again"
-				fi
-		elif [ "$2" == "nginx" ] || [ "$2" == "Nginx" ] || \
-			[ "$2" == "NGINX" ];then
-				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-					nginx_remover
-					remove_unneeded
-		
-				else
-					echo "Do you mean --unneed or --unneeded?"
-					echo "check Check the spelling of the command and try again"
-				fi
-		elif [ "$2" == "Apache" ] || [ "$2" == "Apache2" ] || \
-			[ "$2" == "apache" ] || [ "$2" == "apache2" ];then						
-				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-					apache_remover
-					remove_unneeded
-
-				else
-					echo "Do you mean --unneed or --unneeded?"
-					echo "check Check the spelling of the command and try again"
-				fi
-		elif [ "$2" == "nmap" ] || [ "$2" == "Nmap" ] || \
-			[ "$2" == "NMAP" ];then
-				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-					nmap_remover
-					remove_unneeded
-
-				else
-					echo "Do you mean --unneed or --unneeded?"
-					echo "check Check the spelling of the command and try again"
-				fi
-		elif [ "$2" == "TcpDump" ] || [ "$2" == "tcpdump" ] || \
-			[ "$2" == "TCPDUMP" ];then
-				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-					tcpdump_remover
-					remove_unneeded
-
-				else
-					echo "Do you mean --unneed or --unneeded?"
-					echo "check Check the spelling of the command and try again"
-				fi
-		elif [ "$2" == "wireshark" ] || [ "$2" == "Wireshark" ] || \
-			[ "$2" == "WireShark" ];then
-				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-					wireshark_remover
-					remove_unneeded
-
-				else
-					echo "Do you mean --unneed or --unneeded?"
-					echo "check Check the spelling of the command and try again"
-				fi
-		elif [ "$2" == "iptraf" ] || [ "$2" == "iptraf-ng" ] || \
-			[ "$2" == "iptrafng" ];then
-				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-					iptraf_remover
-					remove_unneeded
-
-				else
-					echo "Do you mean --unneed or --unneeded?"
-					echo "check Check the spelling of the command and try again"
-				fi
-		elif [ "$2" == "network_tools_all" ] || [ "$2" == "Network_Tools_All" ] || \
-			[ "$2" == "NetworkToolsAll" ] || [ "$2" == "nettoolsall" ];then
-				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-					network_tools_remover
-					remove_unneeded
-
-
-				else
-					echo "Do you mean --unneed or --unneeded?"
-					echo "check Check the spelling of the command and try again"
-				fi
-		elif [ "$2" == "docker" ] || [ "$2" == "Docker" ] || \
-			[ "$2" == "DOCKER" ];then
-				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-					docker_remover
-					remove_unneeded
-
-				else
-					echo "Do you mean --unneed or --unneeded?"
-					echo "check Check the spelling of the command and try again"
-				fi
-		elif [ "$2" == "clamAV" ] || [ "$2" == "clamav" ] || \
-			[ "$2" == "ClamAV" ];then
-				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-					clamav_remover
-					remove_unneeded
-
-				else
-					echo "Do you mean --unneed or --unneeded?"
-					echo "check Check the spelling of the command and try again"
-				fi
-		elif [ "$2" == "maldet" ] || [ "$2" == "malware_detect" ] || \
-			[ "$2" == "malware-detect" ] || [ "$2" == "Maldet" ] || \
-				[ "$2" == "Malware-Detect" ] || [ "$2" == "LMD" ];then
-						if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-							maldet_remover
-							remove_unneeded
-
-						else
-							echo "Do you mean --unneed or --unneeded?"
-							echo "check Check the spelling of the command and try again"
-						fi
-		elif [ "$2" == "rkhunter" ] || [ "$2" == "Rkhunter" ] || \
-			[ "$2" == "RootKitHunter" ] || [ "$2" == "rootkithunter" ];then
-				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-					rkhunter_remover
-					remove_unneeded
-
-				else
-					echo "Do you mean --unneed or --unneeded?"
-					echo "check Check the spelling of the command and try again"
-				fi
-		elif [ "$2" == "lynis" ] || [ "$2" == "Lynis" ] || \
-			[ "$2" == "LYNIS" ];then
-				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-					lynis_remover
-					remove_unneeded
-
-				else
-					echo "Do you mean --unneed or --unneeded?"
-					echo "check Check the spelling of the command and try again"
-				fi
-		elif [ "$2" == "AV" ] || [ "$2" == "Antivirus" ] || \
-			[ "$2" == "antivirus" ];then
-				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-					echo "$red This command will remove all antivirus packages from your system $reset"
-					antivirus_remover
-					remove_unneeded
-
-				else
-					echo "Do you mean --unneed or --unneeded?"
-					echo "check Check the spelling of the command and try again"
-				fi
-		elif [ "$2" == "fail2ban" ] || [ "$2" == "Fail2ban" ] || \
-			[ "$2" == "FAIL2BAN" ];then
-				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-					fail2ban_remover
-					remove_unneeded	
-
-
-				else
-					echo "Do you mean --unneed or --unneeded?"
-					echo "check Check the spelling of the command and try again"
-				fi
-		elif [ "$2" == "tcpwrapper" ] || [ "$2" == "tcp-wrapper" ] || \
-			[ "$2" == "TcpWrapper" ] || [ "$2" == "Tcp-Wrapper" ];then
-				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-					tcpwrapper_remover
-					remove_unneeded
-
-
-				else
-					echo "Do you mean --unneed or --unneeded?"
-					echo "check Check the spelling of the command and try again"
-				fi
-		elif [ "$2" == "firewalld" ] || [ "$2" == "FirewallD" ] || \
-			[ "$2" == "Firewall-Cmd" ] || [ "$2" == "firewall-cmd" ];then
-				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-					firewalld_remover
-					remove_unneeded
-
-				else
-					echo "Do you mean --unneed or --unneeded?"
-					echo "check Check the spelling of the command and try again"
-				fi
-		elif [ "$2" == "psad" ] || [ "$2" == "PSad" ] || \
-			[ "$2" == "PSAD" ];then
-				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-					psad_remover
-					remove_unneeded
-
-				else
-					echo "Do you mean --unneed or --unneeded?"
-					echo "check Check the spelling of the command and try again"
-				fi
-		elif [ "$2" == "network_security" ] || [ "$2" == "Network_Securiey" ] || \
-			[ "$2" == "NetworkSecurity" ];then
-				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-					network_security_remover
-					remove_unneeded
-
-				else
-					echo "Do you mean --unneed or --unneeded?"
-					echo "check Check the spelling of the command and try again"
-				fi
-		elif [ "$2" == "openssh" ] || [ "$2" == "Openssh" ] || \
-				[ "$2" == "Openssh-server" ] || [ "$2" == "openssh-server" ];then
-					if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-						openssh_remover
-						remove_unneeded
-					else
-						echo "Do you mean --unneed or --unneeded?"
-						echo "check Check the spelling of the command and try again"
-					fi
-		elif [ "$2" == "sshfs" ] || [ "$2" == "SSHFS" ] || \
-				[ "$2" == "fuse-sshfs" ] || [ "$2" == "Fuse-SSHFS" ];then
-						if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-							sshfs_remover
-							remove_unneeded
-
-						else
-							echo "Do you mean --unneed or --unneeded?"
-							echo "check Check the spelling of the command and try again"
-						fi
-		elif [ "$2" == "usbguard" ] || [ "$2" == "USBGuard" ] || \
-			[ "$2" == "usb-guard" ] || [ "$2" == "USB-Guard" ];then
-				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-					usbguard_remover
-					remove_unneeded
-
-				else
-					echo "Do you mean --unneed or --unneeded?"
-					echo "check Check the spelling of the command and try again"
-				fi
-		elif [ "$2" == "jpegoptim" ] || [ "$2" == "jpgoptim" ] || \
-			[ "$2" == "JpegOptim" ] || [ "$2" == "jpegoptimizer" ] || \
-				[ "$2" == "jpgoptimizer" ];then
-						if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-							jpgoptim_remover
-							remove_unneeded
-
-						else
-							echo "Do you mean --unneed or --unneeded?"
-							echo "check Check the spelling of the command and try again"
-						fi
-
-		elif [ "$2" == "optimpng" ] || [ "$2" == "optipng" ] || \
-			[ "$2" == "optimizepng" ] || [ "$2" == "optimizePNG" ];then
-				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-					optipng_remover
-					remove_unneeded
-
-				else
-					echo "Do you mean --unneed or --unneeded?"
-					echo "check Check the spelling of the command and try again"
-				fi
-		elif [ "$2" == "exiftool" ] || [ "$2" == "Exif-Tool" ] || \
-			[ "$2" == "ExifTool" ] || [ "$2" == "exiftools" ] || \
-				[ "$2" == "ExifTools" ] || [ "$2" == "Exif-Tools" ];then
-						if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-							exiftool_remover
-							remove_unneeded
-
-						else
-							echo "Do you mean --unneed or --unneeded?"
-							echo "check Check the spelling of the command and try again"
-						fi
-
-		elif [ "$2" == "image-optimizer" ] || [ "$2" == "imageoptimizer" ] || \
-			[ "$2" == "Image-Optmizer" ] || [ "$2" == "Image_Optmizer" ] || \
-				[ "$2" == "image_optmizer" ];then
-						if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-							image_optimizer_remover
-							remove_unneeded
-
-
-						else
-							echo "Do you mean --unneed or --unneeded?"
-							echo "check Check the spelling of the command and try again"
-						fi
-		elif [ "$2" == "telegram" ] || [ "$2" == "Telegram-Desktop" ] || \
-			[ "$2" == "Telegram" ] || [ "$2" == "telegram-desktop" ];then
-				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-					telegram_remover
-					remove_unneeded
-
-				else
-					echo "Do you mean --unneed or --unneeded?"
-					echo "check Check the spelling of the command and try again"
-				fi
-		elif [ "$2" == "Ansible" ] || [ "$2" == "ansible" ] || \
-			[ "$2" == "ANSIBLE" ];then
-				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-
-					ansible_remover
-					remove_unneeded
-
-				else
-					echo "Do you mean --unneed or --unneeded?"
-					echo "check Check the spelling of the command and try again"
-				fi
-		elif [ "$2" == "tuned" ] || [ "$2" == "Tuned" ] || \
-			[ "$2" == ""tuned ];then
-				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-					tuned_remover
-					remove_unneeded
-
-				else
-					echo "Do you mean --unneed or --unneeded?"
-					echo "check Check the spelling of the command and try again"
-				fi
-		elif [ "$2" == "htop" ] || [ "$2" == "Htop" ];then
-			if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-				htop_remover
-				remove_unneeded
-
-			else
-				echo "Do you mean --unneed or --unneeded?"
-				echo "check Check the spelling of the command and try again"
-			fi
-		elif [ "$2" == "munin" ] || [ "$2" == "Munin" ];then
-			if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-				munin_remover
-				remove_unneeded
-
-			else
-				echo "Do you mean --unneed or --unneeded?"
-				echo "check Check the spelling of the command and try again"
-			fi
-		elif [ "$2" == "terraform" ] || [ "$2" == "Terraform" ] || \
-			[ "$2" == "TERRAFORM" ];then
-					if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-						terraform_remover
-						remove_unneeded
-
-					else
-						echo "Do you mean --unneed or --unneeded?"
-						echo "check Check the spelling of the command and try again"
-					fi
-		elif [ "$2" == "develope" ] || [ "$2" == "Develope" ] || \
-			[ "$2" == "DEVELOPE" ];then
-					if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-
-						develope_remover
-						remove_unneeded
-
-					else
-						echo "Do you mean --unneed or --unneeded?"
-						echo "check Check the spelling of the command and try again"
-					fi
-		elif [ "$2" == "openstack" ] || [ "$2" == "open-stack" ] || \
-			[ "$2" == "OpenStack" ];then
-					if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-						openstack_remover
-						remove_unneeded
-		
-					else
-						echo "Do you mean --unneed or --unneeded?"
-						echo "check Check the spelling of the command and try again"
-					fi
-		# Start of my own software section
-
-		elif [ "$2" == "admin_fstep" ] || [ "$2" == "Admin_Fstep" ] || \
-			[ "$2" == "AdminFstep" ] || [ "$2" == "Admin-Fstep" ];then
-					if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-						admin_fstep_remover
-						remove_unneeded
-		
-					else
-						echo "Do you mean --unneed or --unneeded?"
-						echo "check Check the spelling of the command and try again"
-					fi
-		elif [ "$2" == "wpscan" ] || [ "$2" == "WpScan" ] || \
-			[ "$2" == "wp-scan" ];then
-					if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-						wpscan_remover
-						remove_unneeded
-
-
-					else
-						echo "Do you mean --unneed or --unneeded?"
-						echo "check Check the spelling of the command and try again"
-					fi
-		elif [ "$2" == "kygnus_guard" ] || [ "$2" == "KYGnus_Guard" ] || \
-			[ "$2" == "KYGnusGuard" ] || [ "$2" == "kygnusguard" ];then
-					if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-						kygnus_guard	
-						remove_unneeded
-
-					else
-						echo "Do you mean --unneed or --unneeded?"
-						echo "check Check the spelling of the command and try again"
-					fi
-		elif [ "$2" == "Android_Malware_Detect" ] || [ "$2" == "AndroidMalwareDetect" ] || \
-				[ "$2" == "android_malware_detect" ] || [ "$2" == "AMD" ] || \
-				[ "$2" == "amd" ];then
-						if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-							true
-							#remove_unneeded
-
-						else
-							echo "Do you mean --unneed or --unneeded?"
-							echo "check Check the spelling of the command and try again"
-						fi
-		elif [ "$2" == "clone_disk" ] || [ "$2" == "CloneDisk" ] || \
-			[ "$2" == "clone-disk" ] || [ "$2" == "clonedisk" ];then
-					if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-						clone_disk_remover
-						remove_unneeded
-
-					else
-						echo "Do you mean --unneed or --unneeded?"
-						echo "check Check the spelling of the command and try again"
-					fi
-		elif [ "$2" == "perm_check" ] || [ "$2" == "permcheck" ] || \
-			[ "$2" == "PermCheck" ] || [ "$2" == "perm-check" ];then
-					if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-						perm_check_remover
-						remove_unneeded
-
-
-					else
-						echo "Do you mean --unneed or --unneeded?"
-						echo "check Check the spelling of the command and try again"
-					fi
-		elif [ "$2" == "LV" ] || [ "$2" == "LinuxVerification" ];then
-			if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-				lv_remover
-				remove_unneeded
-
-			else
-				echo "Do you mean --unneed or --unneeded?"
-				echo "check Check the spelling of the command and try again"
-			fi
-
-		elif [ "$2" == "fs" ] || [ "$2" == "FS" ];then
-			if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-				fs_remover
-				remove_unneeded
-
-			else
-				echo "Do you mean --unneed or --unneeded?"
-				echo "check Check the spelling of the command and try again"
-			fi
-		elif [ "$2" == "exifremover" ] || [ "$2" == "ExifRemover" ] || \
-			[ "$2" == "exif_remover" ] || [ "$2" == "Exif_Remover" ];then
-					if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-						exiremover_remover
-						remove_unneeded
-
-					else
-						echo "Do you mean --unneed or --unneeded?"
-						echo "check Check the spelling of the command and try again"
-					fi
-		elif [ "$2" == "antideface" ] || [ "$2" == "AntiDeface" ] || \
-			[ "$2" == "Anti-deface" ] || [ "$2" == "anti-deface" ];then
-					if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-						antideface_remover
-						remove_unneeded
-		
-					else
-						echo "Do you mean --unneed or --unneeded?"
-						echo "check Check the spelling of the command and try again"
-					fi
-		elif [ "$2" == "mercurial" ] || [ "$2" == "Mercurial" ];then
-			if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-				mercurial_remover
-				remove_unneeded
-
-
-			else
-				echo "Do you mean --unneed or --unneeded?"
-				echo "check Check the spelling of the command and try again"
-			fi
-		elif [ "$2" == "tmux" ] || [ "$2" == "Tmux" ] || \
-			[ "$2" == "Tmux" ];then
-					if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-						tmux_remover
-						remove_unneeded
-
-					else
-						echo "Do you mean --unneed or --unneeded?"
-						echo "check Check the spelling of the command and try again"
-					fi
-		elif [ "$2" == "picocom" ] || [ "$2" == "Picocom" ] || \
-			[ "$2" == "PICOCOM" ];then
-					if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
-						picocom_remover
-						remove_unneeded
-					else
-						echo "Do you mean --unneed or --unneeded?"
-						echo "check Check the spelling of the command and try again"
-					fi
 		else
-				echo "Sorry.App Not Found in Repository"
+			echo "Do you mean --unneed or --unneeded?"
+			echo "check Check the spelling of the command and try again"
 		fi
-		
-	elif [ "$1" == "--document" ];then
-		if [ "$2" == "Apache2" ] || [ "$2" == "apache" ];then
-			echo "=> https://doc.opensuse.org/documentation/leap/reference/html/book-reference/cha-apache2.html"
-		elif [ "$2" == "nginx" ];then
-			echo "=> https://www.osradar.com/how-to-install-nginx-on-opensuse-suse-15/"
-		elif [ "$2" == "clamav" ];then
-			echo "=> https://en.opensuse.org/ClamAV"
-			echo "=> https://linuxhint.com/install_clamav_ubuntu/"
-			echo "=> https://github.com/KooshaYeganeh/OpenSuse4Developers#clamav"
-		elif [ "$2" == "tuned" ] || [ "$2" == "Tuned" ];then
-			echo "=> https://doc.opensuse.org/documentation/leap/tuning/single-html/book-tuning/"
-			echo "=> https://www.redhat.com/en/blog/tuning-your-system-tuned"
-			echo "=> https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/monitoring_and_managing_system_status_and_performance/getting-started-with-tuned_monitoring-and-managing-system-status-and-performance"
-		elif [ "$2" == "openstack" ] || [ "$2" == "open_stack" ] || [ "$2" == "OpenStack" ] || [ "$2" == "Open_Stack" ];then
-			echo "=> https://docs.openstack.org/mitaka/install-guide-obs/"
-		elif [ "$2" == "firewalld" ] || [ "$2" == "FirewallD" ] || \
-			[ "$2" == "iptables" ] || [ "$2" == "Iptables" ];then
-				echo "=> https://www.unixmen.com/iptables-vs-firewalld/"
-				echo "=> https://kooshayeganeh.gitbook.io/iptables/"
-				echo "=> https://kooshayeganeh.gitbook.io/firewalld/"
-		elif [ "$2" == "mysql" ] || [ "$2" == "mariaDB" ] || [ "$2" == "MariaDB" ];then
-				echo "=> https://linuxhint.com/backup-mysql-database-using-mysqldump/"
-				echo "=> https://kooshayeganeh.gitbook.io/mariadb-handbooks/"
-		elif [ "$2" == "SQlite" ] || [ "$2" == "sqlite" ] || [ "$2" == "SQLite" ];then
-				echo "=> https://www.sqlitetutorial.net/sqlite-sample-database/"
-		elif [ "$2" == "tcpdump" ] || [ "$2" == "Tcpdump" ];then
-				echo "=> https://linuxize.com/post/tcpdump-command-in-linux/"
-				echo "=> https://danielmiessler.com/study/tcpdump/"
-		elif [ "$2" == "nmap" ] || [ "$2" == "Nmap" ];then
-				echo "=> https://phoenixnap.com/kb/nmap-commands"
-		elif [ "$2" == "tcpwrapper" ] || [ "$2" == "Tcpwrapper" ] || \
-			[ "$2" == "tcpd" ] || [ "$2" == "tcpwrapper" ] || [ "$2" == "TcpWrapper" ];then
-				echo "=> https://www.tecmint.com/secure-linux-tcp-wrappers-hosts-allow-deny-restrict-access/"
-				echo "=> https://ostechnix.com/restrict-access-linux-servers-using-tcp-wrappers/"
-		elif [ "$2" == "usbguard" ] || [ "$2" == "USBguard" ] || [ "$2" == "USBGuard" ];then
-				echo "=> https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/security_guide/sec-using-usbguard"
-		elif [ "$2" == "psad" ] || [ "$2" == "Psad" ];then
-				echo "=> https://www.digitalocean.com/community/tutorials/how-to-use-psad-to-detect-network-intrusion-attempts-on-an-ubuntu-vps"
-		elif [ "$2" == "Docker" ] || [ "$2" == "docker" ];then	
-				echo "=> https://www.digitalocean.com/community/tutorial_collections/how-to-install-and-use-docker"
-				echo "=> https://kooshayeganeh.gitbook.io/docker/"
-		elif [ "$2" == "Ansible" ] || [ "$2" == "ansible" ];then
-				echo "=> https://www.redhat.com/en/technologies/management/ansible/what-is-ansible"
-				echo "=> https://www.digitalocean.com/community/cheatsheets/how-to-use-ansible-cheat-sheet-guide"
-		elif [ "$2" == "vim" ] || [ "$2" == "Vim" ];then
-				echo "=> https://kooshayeganeh.gitbook.io/vim/"
-		elif [ "$2" == "git" ] || [ "$2" == "Git" ];then
-				echo "=> https://kooshayeganeh.gitbook.io/git/"
-		elif [ "$2" == "SeLinux" ] || [ "$2" == "selinux" ];then
-				echo "=> https://kooshayeganeh.gitbook.io/selinux/"
-		fi
+	elif [ "$2" == "terraform" ] || [ "$2" == "Terraform" ] || \
+		[ "$2" == "TERRAFORM" ];then
+				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+					terraform_remover
+					remove_unneeded
 
+				else
+					echo "Do you mean --unneed or --unneeded?"
+					echo "check Check the spelling of the command and try again"
+				fi
+	elif [ "$2" == "develope" ] || [ "$2" == "Develope" ] || \
+		[ "$2" == "DEVELOPE" ];then
+				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
 
-	# INSTALL Block
+					develope_remover
+					remove_unneeded
+
+				else
+					echo "Do you mean --unneed or --unneeded?"
+					echo "check Check the spelling of the command and try again"
+				fi
+	elif [ "$2" == "openstack" ] || [ "$2" == "open-stack" ] || \
+		[ "$2" == "OpenStack" ];then
+				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+					openstack_remover
+					remove_unneeded
 	
+				else
+					echo "Do you mean --unneed or --unneeded?"
+					echo "check Check the spelling of the command and try again"
+				fi
+	# Start of my own software section
+
+	elif [ "$2" == "admin_fstep" ] || [ "$2" == "Admin_Fstep" ] || \
+		[ "$2" == "AdminFstep" ] || [ "$2" == "Admin-Fstep" ];then
+				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+					admin_fstep_remover
+					remove_unneeded
 	
-	elif [ "$1" == "--install" ];then
-		if [ "$2" == "android_debug_bridge" ] || [ "$2" == "adb" ] || \
-			[ "$2" == "Android_Debug_Bridge" ] || [ "$2" == "ADB" ];then
-				android_debug_bridge
-		elif [ "$2" == "vlc" ] || [ "$2" == "VLC" ];then
-			vlc
-
-		elif [ "$2" == "mariadb" ] || [ "$2" == "mariaDB" ] || [ "$2" ==  "MariaDB" ];then
-			mariadb
-
-		elif [ "$2" == "posgresql" ] || [ "$2" == "postgreSQL" ] || [ "$2" ==  "Postgresql" ] || \
-				[ "$2" == "PostgreSQL" ];then
-					postgreSQL_Installler
-		elif [ "$2" == "code" ] || [ "$2" == "vscode" ] || [ "$2" ==  "VSCODE" ] || \
-				[ "$2" == "VScode" ] || [ "$2" == "visual_stdio_code" ];then
-					vscode
-		elif [ "$2" == "codec" ] || [ "$2" == "CODEC" ] || \
-			[ "$2" == "multimedia_codec" ] || [ "$2" == "MultiMedia_Codec" ];then
-				mediacodec
-		elif [ "$2" == "git" ] || [ "$2" == "Git" ] || \
-			[ "$2" == "GIT" ];then
-				git
-		
-		elif [ "$2" == "mercurial" ] || [ "$2" == "Mercurial" ];then
-				mercurial
-
-		elif [ "$2" == "gcc" ] || [ "$2" == "GCC" ] || \
-			[ "$2" == "Gcc" ];then
-					gcc
-		elif [ "$2" == "zsh" ] || [ "$2" == "ZSH" ] || \
-			[ "$2" == "Zsh" ];then
-					zsh		
-		
-		elif [ "$2" == "Basic_Tools" ] || [ "$2" == "basic_tools" ] || \
-			[ "$2" == "BasicTools" ] || [ "$2" == "basictools" ];then		
-				Basic_tools
-			
-		elif [ "$2" == "ohmyzsh" ] || [ "$2" == "OhMyZsh" ] || \
-			[ "$2" == "oh-my-zsh" ];then
-					ohmyzsh			
-
-		elif [ "$2" == "command_line_tools" ] || [ "$2" == "Command_Line_Tools" ] || \
-			[ "$2" == "CommandLineTools" ] || [ "$2" == "COMMAND_LINE_TOOLS" ];then
-					command_line_tools
-		
-		elif [ "$2" == "lshw" ] || [ "$2" == "lshardware" ] || \
-			[ "$2" == "listhardware" ];then
-				lshardware
-		
-		elif [ "$2" == "openconnect" ] || [ "$2" == "open-connect" ] || \
-			[ "$2" == "open_connect" ];then
-					openconnect
-						
-		elif [ "$2" == "openvpn" ] || [ "$2" == "open-vpn" ] || \
-			[ "$2" == "OpenVpn" ];then
-					openvpn
-		elif [ "$2" == "VIM" ] || [ "$2" == "Vim" ] || \
-			[ "$2" == "vim" ];then
-					vim
-		
-		elif [ "$2" == "sqlite" ] || [ "$2" == "SQlite" ] || \
-			[ "$2" == "SQLite" ];then
-				sqlite
-						
-		elif [ "$2" == "influx" ] || [ "$2" == "influxdb" ] || \
-			[ "$2" == "InfluxDB" ];then
-				influx
-						
-		elif [ "$2" == "mongoDB" ] || [ "$2" == "mongo" ] || \
-			[ "$2" == "MongoDB" ];then
-					mongodb
-						
-		elif [ "$2" == "nginx" ] || [ "$2" == "Nginx" ] || \
-			[ "$2" == "NGINX" ];then
-					nginx
-		
-		elif [ "$2" == "Apache" ] || [ "$2" == "Apache2" ] || \
-			[ "$2" == "apache" ] || [ "$2" == "apache2" ];then						
-					apache
+				else
+					echo "Do you mean --unneed or --unneeded?"
+					echo "check Check the spelling of the command and try again"
+				fi
+	elif [ "$2" == "wpscan" ] || [ "$2" == "WpScan" ] || \
+		[ "$2" == "wp-scan" ];then
+				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+					wpscan_remover
+					remove_unneeded
 
 
-		elif [ "$2" == "nmap" ] || [ "$2" == "Nmap" ] || \
-			[ "$2" == "NMAP" ];then
-					nmap
+				else
+					echo "Do you mean --unneed or --unneeded?"
+					echo "check Check the spelling of the command and try again"
+				fi
+	elif [ "$2" == "kygnus_guard" ] || [ "$2" == "KYGnus_Guard" ] || \
+		[ "$2" == "KYGnusGuard" ] || [ "$2" == "kygnusguard" ];then
+				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+					kygnus_guard	
+					remove_unneeded
 
-		elif [ "$2" == "TcpDump" ] || [ "$2" == "tcpdump" ] || \
-			[ "$2" == "TCPDUMP" ];then
-					tcpdump
+				else
+					echo "Do you mean --unneed or --unneeded?"
+					echo "check Check the spelling of the command and try again"
+				fi
+	elif [ "$2" == "Android_Malware_Detect" ] || [ "$2" == "AndroidMalwareDetect" ] || \
+			[ "$2" == "android_malware_detect" ] || [ "$2" == "AMD" ] || \
+			[ "$2" == "amd" ];then
+					if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+						true
+						#remove_unneeded
 
-		elif [ "$2" == "wireshark" ] || [ "$2" == "Wireshark" ] || \
-			[ "$2" == "WireShark" ];then
+					else
+						echo "Do you mean --unneed or --unneeded?"
+						echo "check Check the spelling of the command and try again"
+					fi
+	elif [ "$2" == "clone_disk" ] || [ "$2" == "CloneDisk" ] || \
+		[ "$2" == "clone-disk" ] || [ "$2" == "clonedisk" ];then
+				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+					clone_disk_remover
+					remove_unneeded
 
-				wireshark
-
-		elif [ "$2" == "iptraf" ] || [ "$2" == "iptraf-ng" ] || \
-			[ "$2" == "iptrafng" ];then
-					iptraf
-
-		elif [ "$2" == "network_tools_all" ] || [ "$2" == "Network_Tools_All" ] || \
-			[ "$2" == "NetworkToolsAll" ] || [ "$2" == "nettoolsall" ];then
-				network_tools
-
-
-		elif [ "$2" == "docker" ] || [ "$2" == "Docker" ] || \
-			[ "$2" == "DOCKER" ];then
-					docker
-
-
-		elif [ "$2" == "clamAV" ] || [ "$2" == "clamav" ] || \
-			[ "$2" == "ClamAV" ];then
-					clamav
-
-		elif [ "$2" == "maldet" ] || [ "$2" == "malware_detect" ] || \
-			[ "$2" == "malware-detect" ] || [ "$2" == "Maldet" ] || \
-				[ "$2" == "Malware-Detect" ] || [ "$2" == "LMD" ];then
-						maldet
-
-
-		elif [ "$2" == "rkhunter" ] || [ "$2" == "Rkhunter" ] || \
-			[ "$2" == "RootKitHunter" ] || [ "$2" == "rootkithunter" ];then
-					rkhunter
-
-		elif [ "$2" == "lynis" ] || [ "$2" == "Lynis" ] || \
-			[ "$2" == "LYNIS" ];then
-					lynis
-
-		elif [ "$2" == "AV" ] || [ "$2" == "Antivirus" ] || \
-			[ "$2" == "antivirus" ];then
-					antivirus
-
-		elif [ "$2" == "fail2ban" ] || [ "$2" == "Fail2ban" ] || \
-			[ "$2" == "FAIL2BAN" ];then
-					fail2ban
+				else
+					echo "Do you mean --unneed or --unneeded?"
+					echo "check Check the spelling of the command and try again"
+				fi
+	elif [ "$2" == "perm_check" ] || [ "$2" == "permcheck" ] || \
+		[ "$2" == "PermCheck" ] || [ "$2" == "perm-check" ];then
+				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+					perm_check_remover
+					remove_unneeded
 
 
-		elif [ "$2" == "tcpwrapper" ] || [ "$2" == "tcp-wrapper" ] || \
-			[ "$2" == "TcpWrapper" ] || [ "$2" == "Tcp-Wrapper" ];then
-					tcpwrapper
+				else
+					echo "Do you mean --unneed or --unneeded?"
+					echo "check Check the spelling of the command and try again"
+				fi
+	elif [ "$2" == "LV" ] || [ "$2" == "LinuxVerification" ];then
+		if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+			lv_remover
+			remove_unneeded
 
-
-		elif [ "$2" == "firewalld" ] || [ "$2" == "FirewallD" ] || \
-			[ "$2" == "Firewall-Cmd" ] || [ "$2" == "firewall-cmd" ];then
-					firewalld
-		elif [ "$2" == "psad" ] || [ "$2" == "PSad" ] || \
-			[ "$2" == "PSAD" ];then
-				psad
-
-		elif [ "$2" == "network_security" ] || [ "$2" == "Network_Securiey" ] || \
-			[ "$2" == "NetworkSecurity" ];then
-				network_security
-		
-		elif [ "$2" == "apache_waf" ] || [ "$2" == "Apache_Waf" ] || \
-				[ "$2" == "Apache2_Waf" ] || [ "$2" == "apache2_waf" ] || \
-					[ "$2" == "Apache2Waf" ] || [ "$2" == "apache2waf" ] ;then
-							apache_waf
-
-		elif [ "$2" == "Nginx_Waf" ] || [ "$2" == "nginx_waf" ] || \
-				[ "$2" == "Nginx-waf" ] || [ "$2" == "Nginx-Waf" ] || \
-					[ "$2" == "NginxWaf" ] || [ "$2" == "nginxwaf" ];then
-							nginx_waf
-
-		elif [ "$2" == "openssh" ] || [ "$2" == "Openssh" ] || \
-				[ "$2" == "Openssh-server" ] || [ "$2" == "openssh-server" ];then
-					openssh
-		elif [ "$2" == "sshfs" ] || [ "$2" == "SSHFS" ] || \
-				[ "$2" == "fuse-sshfs" ] || [ "$2" == "Fuse-SSHFS" ];then
-						sshfs
-		elif [ "$2" == "usbguard" ] || [ "$2" == "USBGuard" ] || \
-			[ "$2" == "usb-guard" ] || [ "$2" == "USB-Guard" ];then
-				usbguard
-
-		elif [ "$2" == "jpegoptim" ] || [ "$2" == "jpgoptim" ] || \
-			[ "$2" == "JpegOptim" ] || [ "$2" == "jpegoptimizer" ] || \
-				[ "$2" == "jpgoptimizer" ];then
-					jpg
-
-		elif [ "$2" == "optimpng" ] || [ "$2" == "optipng" ] || \
-			[ "$2" == "optimizepng" ] || [ "$2" == "optimizePNG" ];then
-					png
-
-		elif [ "$2" == "exiftool" ] || [ "$2" == "ExifTool" ] || \
-			[ "$2" == "ExifTools" ] || [ "$2" == "exiftools" ] || \
-				[ "$2" == "Exif-Tools" ] || [ "$2" == "exif-tools" ];then
-					exiftool
-
-
-		elif [ "$2" == "image-optimizer" ] || [ "$2" == "imageoptimizer" ] || \
-			[ "$2" == "Image-Optmizer" ] || [ "$2" == "Image_Optmizer" ] || \
-				[ "$2" == "image_optmizer" ];then
-					image_optimizer
-
-
-		elif [ "$2" == "telegram" ] || [ "$2" == "Telegram-Desktop" ] || \
-			[ "$2" == "Telegram" ] || [ "$2" == "telegram-desktop" ];then
-				telegram
-
-		elif [ "$2" == "Ansible" ] || [ "$2" == "ansible" ] || \
-			[ "$2" == "ANSIBLE" ];then
-				ansible
-
-		elif [ "$2" == "tuned" ] || [ "$2" == "Tuned" ] || \
-			[ "$2" == ""tuned ];then
-				tuned
-
-		elif [ "$2" == "htop" ] || [ "$2" == "Htop" ];then
-				htop
-
-		elif [ "$2" == "munin" ] || [ "$2" == "Munin" ];then
-				munin
-
-		elif [ "$2" == "terraform" ] || [ "$2" == "Terraform" ] || \
-			[ "$2" == "TERRAFORM" ];then
-				terraform
-
-		elif [ "$2" == "develope" ] || [ "$2" == "Develope" ] || \
-			[ "$2" == "DEVELOPE" ];then
-
-				develope
-
-		elif [ "$2" == "openstack" ] || [ "$2" == "open-stack" ] || \
-			[ "$2" == "OpenStack" ];then
-				openstack
-		# Start of my own software section
-
-		elif [ "$2" == "admin_fstep" ] || [ "$2" == "Admin_Fstep" ] || \
-			[ "$2" == "AdminFstep" ] || [ "$2" == "Admin-Fstep" ];then
-
-				admin_fstep
-		
-		elif [ "$2" == "wpscan" ] || [ "$2" == "WpScan" ] || \
-			[ "$2" == "wp-scan" ];then
-				wpscan
-				
-
-
-		elif [ "$2" == "kygnus_guard" ] || [ "$2" == "KYGnus_Guard" ] || \
-			[ "$2" == "KYGnusGuard" ] || [ "$2" == "kygnusguard" ];then
-					
-					kygnus_guard
-
-		elif [ "$2" == "Android_Malware_Detect" ] || [ "$2" == "AndroidMalwareDetect" ] || \
-				[ "$2" == "android_malware_detect" ] || [ "$2" == "AMD" ] || \
-				[ "$2" == "amd" ];then
-					Android_Malware_Detect
-					
-
-		elif [ "$2" == "clone_disk" ] || [ "$2" == "CloneDisk" ] || \
-			[ "$2" == "clone-disk" ] || [ "$2" == "clonedisk" ];then
-					clone_disk
-					
-
-		elif [ "$2" == "perm_check" ] || [ "$2" == "permcheck" ] || \
-			[ "$2" == "PermCheck" ] || [ "$2" == "perm-check" ];then
-					perm_check
-				
-
-
-		elif [ "$2" == "LV" ] || [ "$2" == "LinuxVerification" ];then
-				lv
-				
-
-		elif [ "$2" == "fs" ] || [ "$2" == "FS" ];then
-				fs
-				
-
-		elif [ "$2" == "exifremover" ] || [ "$2" == "ExifRemover" ] || \
-			[ "$2" == "exif_remover" ] || [ "$2" == "Exif_Remover" ];then
-				exifremover
-				
-
-		elif [ "$2" == "antideface" ] || [ "$2" == "AntiDeface" ] || \
-			[ "$2" == "Anti-deface" ] || [ "$2" == "anti-deface" ];then
-				antideface
-				
-		elif [ "$2" == "tmux" ] || [ "$2" == "Tmux" ] || \
-			[ "$2" == "Tmux" ];then
-				tmux
-
-		elif [ "$2" == "picocom" ] || [ "$2" == "Picocom" ] || \
-			[ "$2" == "PICOCOM" ];then
-				picocom
-
-		elif [ "$2" == "firejail" ] || [ "$2" == "Firejail" ] || \
-			[ "$2" == "FireJail" ];then
-				firejail
-
-		elif [ "$2" == "tiger" ] || [ "$2" == "Tiger" ] || \
-			[ "$2" == "TIGER" ];then
-				tiger
-		elif [ "$2" == "v" ] || [ "$2" == "vlang" ] || \
-			[ "$2" == "V" ] || [ "$2" == "VLANG" ];then
-				vlang
-		elif [ "$2" == "v" ] || [ "$2" == "vlang" ] || \
-			[ "$2" == "V" ] || [ "$2" == "VLANG" ];then
-				vlang
 		else
-				echo "Sorry.App Not Found in Repository"
+			echo "Do you mean --unneed or --unneeded?"
+			echo "check Check the spelling of the command and try again"
 		fi
 
+	elif [ "$2" == "fs" ] || [ "$2" == "FS" ];then
+		if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+			fs_remover
+			remove_unneeded
 
+		else
+			echo "Do you mean --unneed or --unneeded?"
+			echo "check Check the spelling of the command and try again"
+		fi
+	elif [ "$2" == "exifremover" ] || [ "$2" == "ExifRemover" ] || \
+		[ "$2" == "exif_remover" ] || [ "$2" == "Exif_Remover" ];then
+				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+					exiremover_remover
+					remove_unneeded
+
+				else
+					echo "Do you mean --unneed or --unneeded?"
+					echo "check Check the spelling of the command and try again"
+				fi
+	elif [ "$2" == "antideface" ] || [ "$2" == "AntiDeface" ] || \
+		[ "$2" == "Anti-deface" ] || [ "$2" == "anti-deface" ];then
+				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+					antideface_remover
+					remove_unneeded
+	
+				else
+					echo "Do you mean --unneed or --unneeded?"
+					echo "check Check the spelling of the command and try again"
+				fi
+	elif [ "$2" == "mercurial" ] || [ "$2" == "Mercurial" ];then
+		if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+			mercurial_remover
+			remove_unneeded
+
+
+		else
+			echo "Do you mean --unneed or --unneeded?"
+			echo "check Check the spelling of the command and try again"
+		fi
+	elif [ "$2" == "tmux" ] || [ "$2" == "Tmux" ] || \
+		[ "$2" == "Tmux" ];then
+				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+					tmux_remover
+					remove_unneeded
+
+				else
+					echo "Do you mean --unneed or --unneeded?"
+					echo "check Check the spelling of the command and try again"
+				fi
+	elif [ "$2" == "picocom" ] || [ "$2" == "Picocom" ] || \
+		[ "$2" == "PICOCOM" ];then
+				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+					picocom_remover
+					remove_unneeded
+				else
+					echo "Do you mean --unneed or --unneeded?"
+					echo "check Check the spelling of the command and try again"
+				fi
 	else
-		echo "I Can't Understand What You Want."
-		echo "You should have entered the install command Please tyr Again with --install"
+			echo "Sorry.App Not Found in Repository"
 	fi
-else
-	echo "Do you mean suse?"
 	
+elif [ "$1" == "--document" ];then
+	if [ "$2" == "Apache2" ] || [ "$2" == "apache" ];then
+		echo "=> https://doc.opensuse.org/documentation/leap/reference/html/book-reference/cha-apache2.html"
+	elif [ "$2" == "nginx" ];then
+		echo "=> https://www.osradar.com/how-to-install-nginx-on-opensuse-suse-15/"
+	elif [ "$2" == "clamav" ];then
+		echo "=> https://en.opensuse.org/ClamAV"
+		echo "=> https://linuxhint.com/install_clamav_ubuntu/"
+		echo "=> https://github.com/KooshaYeganeh/OpenSuse4Developers#clamav"
+	elif [ "$2" == "tuned" ] || [ "$2" == "Tuned" ];then
+		echo "=> https://doc.opensuse.org/documentation/leap/tuning/single-html/book-tuning/"
+		echo "=> https://www.redhat.com/en/blog/tuning-your-system-tuned"
+		echo "=> https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/monitoring_and_managing_system_status_and_performance/getting-started-with-tuned_monitoring-and-managing-system-status-and-performance"
+	elif [ "$2" == "openstack" ] || [ "$2" == "open_stack" ] || [ "$2" == "OpenStack" ] || [ "$2" == "Open_Stack" ];then
+		echo "=> https://docs.openstack.org/mitaka/install-guide-obs/"
+	elif [ "$2" == "firewalld" ] || [ "$2" == "FirewallD" ] || \
+		[ "$2" == "iptables" ] || [ "$2" == "Iptables" ];then
+			echo "=> https://www.unixmen.com/iptables-vs-firewalld/"
+			echo "=> https://kooshayeganeh.gitbook.io/iptables/"
+			echo "=> https://kooshayeganeh.gitbook.io/firewalld/"
+	elif [ "$2" == "mysql" ] || [ "$2" == "mariaDB" ] || [ "$2" == "MariaDB" ];then
+			echo "=> https://linuxhint.com/backup-mysql-database-using-mysqldump/"
+			echo "=> https://kooshayeganeh.gitbook.io/mariadb-handbooks/"
+	elif [ "$2" == "SQlite" ] || [ "$2" == "sqlite" ] || [ "$2" == "SQLite" ];then
+			echo "=> https://www.sqlitetutorial.net/sqlite-sample-database/"
+	elif [ "$2" == "tcpdump" ] || [ "$2" == "Tcpdump" ];then
+			echo "=> https://linuxize.com/post/tcpdump-command-in-linux/"
+			echo "=> https://danielmiessler.com/study/tcpdump/"
+	elif [ "$2" == "nmap" ] || [ "$2" == "Nmap" ];then
+			echo "=> https://phoenixnap.com/kb/nmap-commands"
+	elif [ "$2" == "tcpwrapper" ] || [ "$2" == "Tcpwrapper" ] || \
+		[ "$2" == "tcpd" ] || [ "$2" == "tcpwrapper" ] || [ "$2" == "TcpWrapper" ];then
+			echo "=> https://www.tecmint.com/secure-linux-tcp-wrappers-hosts-allow-deny-restrict-access/"
+			echo "=> https://ostechnix.com/restrict-access-linux-servers-using-tcp-wrappers/"
+	elif [ "$2" == "usbguard" ] || [ "$2" == "USBguard" ] || [ "$2" == "USBGuard" ];then
+			echo "=> https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/security_guide/sec-using-usbguard"
+	elif [ "$2" == "psad" ] || [ "$2" == "Psad" ];then
+			echo "=> https://www.digitalocean.com/community/tutorials/how-to-use-psad-to-detect-network-intrusion-attempts-on-an-ubuntu-vps"
+	elif [ "$2" == "Docker" ] || [ "$2" == "docker" ];then	
+			echo "=> https://www.digitalocean.com/community/tutorial_collections/how-to-install-and-use-docker"
+			echo "=> https://kooshayeganeh.gitbook.io/docker/"
+	elif [ "$2" == "Ansible" ] || [ "$2" == "ansible" ];then
+			echo "=> https://www.redhat.com/en/technologies/management/ansible/what-is-ansible"
+			echo "=> https://www.digitalocean.com/community/cheatsheets/how-to-use-ansible-cheat-sheet-guide"
+	elif [ "$2" == "vim" ] || [ "$2" == "Vim" ];then
+			echo "=> https://kooshayeganeh.gitbook.io/vim/"
+	elif [ "$2" == "git" ] || [ "$2" == "Git" ];then
+			echo "=> https://kooshayeganeh.gitbook.io/git/"
+	elif [ "$2" == "SeLinux" ] || [ "$2" == "selinux" ];then
+			echo "=> https://kooshayeganeh.gitbook.io/selinux/"
+	fi
+
+
+# INSTALL Block
+
+
+elif [ "$1" == "--install" ];then
+	if [ "$2" == "android_debug_bridge" ] || [ "$2" == "adb" ] || \
+		[ "$2" == "Android_Debug_Bridge" ] || [ "$2" == "ADB" ];then
+			android_debug_bridge
+	elif [ "$2" == "vlc" ] || [ "$2" == "VLC" ];then
+		vlc
+
+	elif [ "$2" == "mariadb" ] || [ "$2" == "mariaDB" ] || [ "$2" ==  "MariaDB" ];then
+		mariadb
+
+	elif [ "$2" == "posgresql" ] || [ "$2" == "postgreSQL" ] || [ "$2" ==  "Postgresql" ] || \
+			[ "$2" == "PostgreSQL" ];then
+				postgreSQL_Installler
+	elif [ "$2" == "code" ] || [ "$2" == "vscode" ] || [ "$2" ==  "VSCODE" ] || \
+			[ "$2" == "VScode" ] || [ "$2" == "visual_stdio_code" ];then
+				vscode
+	elif [ "$2" == "codec" ] || [ "$2" == "CODEC" ] || \
+		[ "$2" == "multimedia_codec" ] || [ "$2" == "MultiMedia_Codec" ];then
+			mediacodec
+	elif [ "$2" == "git" ] || [ "$2" == "Git" ] || \
+		[ "$2" == "GIT" ];then
+			git
+	
+	elif [ "$2" == "mercurial" ] || [ "$2" == "Mercurial" ];then
+			mercurial
+
+	elif [ "$2" == "gcc" ] || [ "$2" == "GCC" ] || \
+		[ "$2" == "Gcc" ];then
+				gcc
+	elif [ "$2" == "zsh" ] || [ "$2" == "ZSH" ] || \
+		[ "$2" == "Zsh" ];then
+				zsh		
+	
+	elif [ "$2" == "Basic_Tools" ] || [ "$2" == "basic_tools" ] || \
+		[ "$2" == "BasicTools" ] || [ "$2" == "basictools" ];then		
+			Basic_tools
+		
+	elif [ "$2" == "ohmyzsh" ] || [ "$2" == "OhMyZsh" ] || \
+		[ "$2" == "oh-my-zsh" ];then
+				ohmyzsh			
+
+	elif [ "$2" == "command_line_tools" ] || [ "$2" == "Command_Line_Tools" ] || \
+		[ "$2" == "CommandLineTools" ] || [ "$2" == "COMMAND_LINE_TOOLS" ];then
+				command_line_tools
+	
+	elif [ "$2" == "lshw" ] || [ "$2" == "lshardware" ] || \
+		[ "$2" == "listhardware" ];then
+			lshardware
+	
+	elif [ "$2" == "openconnect" ] || [ "$2" == "open-connect" ] || \
+		[ "$2" == "open_connect" ];then
+				openconnect
+					
+	elif [ "$2" == "openvpn" ] || [ "$2" == "open-vpn" ] || \
+		[ "$2" == "OpenVpn" ];then
+				openvpn
+	elif [ "$2" == "VIM" ] || [ "$2" == "Vim" ] || \
+		[ "$2" == "vim" ];then
+				vim
+	
+	elif [ "$2" == "sqlite" ] || [ "$2" == "SQlite" ] || \
+		[ "$2" == "SQLite" ];then
+			sqlite
+					
+	elif [ "$2" == "influx" ] || [ "$2" == "influxdb" ] || \
+		[ "$2" == "InfluxDB" ];then
+			influx
+					
+	elif [ "$2" == "mongoDB" ] || [ "$2" == "mongo" ] || \
+		[ "$2" == "MongoDB" ];then
+				mongodb
+					
+	elif [ "$2" == "nginx" ] || [ "$2" == "Nginx" ] || \
+		[ "$2" == "NGINX" ];then
+				nginx
+	
+	elif [ "$2" == "Apache" ] || [ "$2" == "Apache2" ] || \
+		[ "$2" == "apache" ] || [ "$2" == "apache2" ];then						
+				apache
+
+
+	elif [ "$2" == "nmap" ] || [ "$2" == "Nmap" ] || \
+		[ "$2" == "NMAP" ];then
+				nmap
+
+	elif [ "$2" == "TcpDump" ] || [ "$2" == "tcpdump" ] || \
+		[ "$2" == "TCPDUMP" ];then
+				tcpdump
+
+	elif [ "$2" == "wireshark" ] || [ "$2" == "Wireshark" ] || \
+		[ "$2" == "WireShark" ];then
+
+			wireshark
+
+	elif [ "$2" == "iptraf" ] || [ "$2" == "iptraf-ng" ] || \
+		[ "$2" == "iptrafng" ];then
+				iptraf
+
+	elif [ "$2" == "network_tools_all" ] || [ "$2" == "Network_Tools_All" ] || \
+		[ "$2" == "NetworkToolsAll" ] || [ "$2" == "nettoolsall" ];then
+			network_tools
+
+
+	elif [ "$2" == "docker" ] || [ "$2" == "Docker" ] || \
+		[ "$2" == "DOCKER" ];then
+				docker
+
+
+	elif [ "$2" == "clamAV" ] || [ "$2" == "clamav" ] || \
+		[ "$2" == "ClamAV" ];then
+				clamav
+
+	elif [ "$2" == "maldet" ] || [ "$2" == "malware_detect" ] || \
+		[ "$2" == "malware-detect" ] || [ "$2" == "Maldet" ] || \
+			[ "$2" == "Malware-Detect" ] || [ "$2" == "LMD" ];then
+					maldet
+
+
+	elif [ "$2" == "rkhunter" ] || [ "$2" == "Rkhunter" ] || \
+		[ "$2" == "RootKitHunter" ] || [ "$2" == "rootkithunter" ];then
+				rkhunter
+
+	elif [ "$2" == "lynis" ] || [ "$2" == "Lynis" ] || \
+		[ "$2" == "LYNIS" ];then
+				lynis
+
+	elif [ "$2" == "AV" ] || [ "$2" == "Antivirus" ] || \
+		[ "$2" == "antivirus" ];then
+				antivirus
+
+	elif [ "$2" == "fail2ban" ] || [ "$2" == "Fail2ban" ] || \
+		[ "$2" == "FAIL2BAN" ];then
+				fail2ban
+
+
+	elif [ "$2" == "tcpwrapper" ] || [ "$2" == "tcp-wrapper" ] || \
+		[ "$2" == "TcpWrapper" ] || [ "$2" == "Tcp-Wrapper" ];then
+				tcpwrapper
+
+
+	elif [ "$2" == "firewalld" ] || [ "$2" == "FirewallD" ] || \
+		[ "$2" == "Firewall-Cmd" ] || [ "$2" == "firewall-cmd" ];then
+				firewalld
+	elif [ "$2" == "psad" ] || [ "$2" == "PSad" ] || \
+		[ "$2" == "PSAD" ];then
+			psad
+
+	elif [ "$2" == "network_security" ] || [ "$2" == "Network_Securiey" ] || \
+		[ "$2" == "NetworkSecurity" ];then
+			network_security
+	
+	elif [ "$2" == "apache_waf" ] || [ "$2" == "Apache_Waf" ] || \
+			[ "$2" == "Apache2_Waf" ] || [ "$2" == "apache2_waf" ] || \
+				[ "$2" == "Apache2Waf" ] || [ "$2" == "apache2waf" ] ;then
+						apache_waf
+
+	elif [ "$2" == "Nginx_Waf" ] || [ "$2" == "nginx_waf" ] || \
+			[ "$2" == "Nginx-waf" ] || [ "$2" == "Nginx-Waf" ] || \
+				[ "$2" == "NginxWaf" ] || [ "$2" == "nginxwaf" ];then
+						nginx_waf
+
+	elif [ "$2" == "openssh" ] || [ "$2" == "Openssh" ] || \
+			[ "$2" == "Openssh-server" ] || [ "$2" == "openssh-server" ];then
+				openssh
+	elif [ "$2" == "sshfs" ] || [ "$2" == "SSHFS" ] || \
+			[ "$2" == "fuse-sshfs" ] || [ "$2" == "Fuse-SSHFS" ];then
+					sshfs
+	elif [ "$2" == "usbguard" ] || [ "$2" == "USBGuard" ] || \
+		[ "$2" == "usb-guard" ] || [ "$2" == "USB-Guard" ];then
+			usbguard
+
+	elif [ "$2" == "jpegoptim" ] || [ "$2" == "jpgoptim" ] || \
+		[ "$2" == "JpegOptim" ] || [ "$2" == "jpegoptimizer" ] || \
+			[ "$2" == "jpgoptimizer" ];then
+				jpg
+
+	elif [ "$2" == "optimpng" ] || [ "$2" == "optipng" ] || \
+		[ "$2" == "optimizepng" ] || [ "$2" == "optimizePNG" ];then
+				png
+
+	elif [ "$2" == "exiftool" ] || [ "$2" == "ExifTool" ] || \
+		[ "$2" == "ExifTools" ] || [ "$2" == "exiftools" ] || \
+			[ "$2" == "Exif-Tools" ] || [ "$2" == "exif-tools" ];then
+				exiftool
+
+
+	elif [ "$2" == "image-optimizer" ] || [ "$2" == "imageoptimizer" ] || \
+		[ "$2" == "Image-Optmizer" ] || [ "$2" == "Image_Optmizer" ] || \
+			[ "$2" == "image_optmizer" ];then
+				image_optimizer
+
+
+	elif [ "$2" == "telegram" ] || [ "$2" == "Telegram-Desktop" ] || \
+		[ "$2" == "Telegram" ] || [ "$2" == "telegram-desktop" ];then
+			telegram
+
+	elif [ "$2" == "Ansible" ] || [ "$2" == "ansible" ] || \
+		[ "$2" == "ANSIBLE" ];then
+			ansible
+
+	elif [ "$2" == "tuned" ] || [ "$2" == "Tuned" ] || \
+		[ "$2" == ""tuned ];then
+			tuned
+
+	elif [ "$2" == "htop" ] || [ "$2" == "Htop" ];then
+			htop
+
+	elif [ "$2" == "munin" ] || [ "$2" == "Munin" ];then
+			munin
+
+	elif [ "$2" == "terraform" ] || [ "$2" == "Terraform" ] || \
+		[ "$2" == "TERRAFORM" ];then
+			terraform
+
+	elif [ "$2" == "develope" ] || [ "$2" == "Develope" ] || \
+		[ "$2" == "DEVELOPE" ];then
+
+			develope
+
+	elif [ "$2" == "openstack" ] || [ "$2" == "open-stack" ] || \
+		[ "$2" == "OpenStack" ];then
+			openstack
+	# Start of my own software section
+
+	elif [ "$2" == "admin_fstep" ] || [ "$2" == "Admin_Fstep" ] || \
+		[ "$2" == "AdminFstep" ] || [ "$2" == "Admin-Fstep" ];then
+
+			admin_fstep
+	
+	elif [ "$2" == "wpscan" ] || [ "$2" == "WpScan" ] || \
+		[ "$2" == "wp-scan" ];then
+			wpscan
+			
+
+
+	elif [ "$2" == "kygnus_guard" ] || [ "$2" == "KYGnus_Guard" ] || \
+		[ "$2" == "KYGnusGuard" ] || [ "$2" == "kygnusguard" ];then
+				
+				kygnus_guard
+
+	elif [ "$2" == "Android_Malware_Detect" ] || [ "$2" == "AndroidMalwareDetect" ] || \
+			[ "$2" == "android_malware_detect" ] || [ "$2" == "AMD" ] || \
+			[ "$2" == "amd" ];then
+				Android_Malware_Detect
+				
+
+	elif [ "$2" == "clone_disk" ] || [ "$2" == "CloneDisk" ] || \
+		[ "$2" == "clone-disk" ] || [ "$2" == "clonedisk" ];then
+				clone_disk
+				
+
+	elif [ "$2" == "perm_check" ] || [ "$2" == "permcheck" ] || \
+		[ "$2" == "PermCheck" ] || [ "$2" == "perm-check" ];then
+				perm_check
+			
+
+
+	elif [ "$2" == "LV" ] || [ "$2" == "LinuxVerification" ];then
+			lv
+			
+
+	elif [ "$2" == "fs" ] || [ "$2" == "FS" ];then
+			fs
+			
+
+	elif [ "$2" == "exifremover" ] || [ "$2" == "ExifRemover" ] || \
+		[ "$2" == "exif_remover" ] || [ "$2" == "Exif_Remover" ];then
+			exifremover
+			
+
+	elif [ "$2" == "antideface" ] || [ "$2" == "AntiDeface" ] || \
+		[ "$2" == "Anti-deface" ] || [ "$2" == "anti-deface" ];then
+			antideface
+			
+	elif [ "$2" == "tmux" ] || [ "$2" == "Tmux" ] || \
+		[ "$2" == "Tmux" ];then
+			tmux
+
+	elif [ "$2" == "picocom" ] || [ "$2" == "Picocom" ] || \
+		[ "$2" == "PICOCOM" ];then
+			picocom
+
+	elif [ "$2" == "firejail" ] || [ "$2" == "Firejail" ] || \
+		[ "$2" == "FireJail" ];then
+			firejail
+
+	elif [ "$2" == "tiger" ] || [ "$2" == "Tiger" ] || \
+		[ "$2" == "TIGER" ];then
+			tiger
+	elif [ "$2" == "v" ] || [ "$2" == "vlang" ] || \
+		[ "$2" == "V" ] || [ "$2" == "VLANG" ];then
+			vlang
+	elif [ "$2" == "v" ] || [ "$2" == "vlang" ] || \
+		[ "$2" == "V" ] || [ "$2" == "VLANG" ];then
+			vlang
+	else
+			echo "Sorry.App Not Found in Repository"
+	fi
+
+
+else
+	echo "I Can't Understand What You Want."
+	echo "You should have entered the install command Please tyr Again with --install"
 fi
 
 
