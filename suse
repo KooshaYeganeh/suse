@@ -624,9 +624,27 @@ postgreSQL_Installler(){
 
 
 
+alizams(){
+
+	# Aliza MS DICOM Viewer 1.9.8 (open source)
+	echo "Medical Software Category"
+	echo "Aliza MS DICOM Viewer (open source)"
+	path=`pwd`
+	cd /tmp 
+	wget https://github.com/AlizaMedicalImaging/AlizaMS/releases/download/v1.9.8/alizams-1.9.8-1.x86_64.rpm
+	sudo rpm -ivh alizams-*
+	echo "alizams Installed on openSUSE"
+	cd $path
+}
 
 
 
+
+alizams_remover(){
+
+	sudo rpm --verbose --erase alizams
+
+}
 
 
 
@@ -3661,6 +3679,10 @@ elif [ "$1" == "--remove" ];then
 	elif [ "$2" == "postgresql" ] || [ "$2" == "PostgreSQL" ] || \
 		[ "$2" == "postgreSQL" ];then
 			postgre_remover
+	
+	elif [ "$2" == "Alizams" ] || [ "$2" == "alizams" ] || \
+		[ "$2" == "ALIZAMS" ];then
+			alizams_remover
 			 
 	elif [ "$2" == "adb" ] || [ "$2" == "Android-Dubug-Bridge" ] || \
 		[ "$2" == "ADB" ] || [ "$2" == "Android_Dubug_Bridge" ] || \
@@ -4734,6 +4756,10 @@ elif [ "$1" == "--install" ];then
 
 	elif [ "$2" == "mariadb" ] || [ "$2" == "mariaDB" ] || [ "$2" ==  "MariaDB" ];then
 		mariadb
+	
+	elif [ "$2" == "Alizams" ] || [ "$2" == "alizams" ] || \
+		[ "$2" == "ALIZAMS" ];then
+			alizams
 
 	elif [ "$2" == "posgresql" ] || [ "$2" == "postgreSQL" ] || [ "$2" ==  "Postgresql" ] || \
 			[ "$2" == "PostgreSQL" ];then
@@ -5014,9 +5040,6 @@ elif [ "$1" == "--install" ];then
 	elif [ "$2" == "tiger" ] || [ "$2" == "Tiger" ] || \
 		[ "$2" == "TIGER" ];then
 			tiger
-	elif [ "$2" == "v" ] || [ "$2" == "vlang" ] || \
-		[ "$2" == "V" ] || [ "$2" == "VLANG" ];then
-			vlang
 	elif [ "$2" == "v" ] || [ "$2" == "vlang" ] || \
 		[ "$2" == "V" ] || [ "$2" == "VLANG" ];then
 			vlang
