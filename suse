@@ -647,6 +647,137 @@ alizams_remover(){
 }
 
 
+weasis(){
+
+	# Download Weasis DICOM Viewer
+	wget https://github.com/nroduit/Weasis/releases/download/v4.4.0/weasis-4.4.0-1.x86_64.rpm
+
+	sudo rpm -ivh weasis*
+
+}
+
+weasis_remover(){
+	sudo zypper -n remover weasis
+}
+
+
+
+
+netdata() {
+    # Install Netdata
+    sudo zypper -n install netdata
+
+    # Check if Nginx is installed
+    check_nginx=$(whereis nginx | cut -d" " -f2)
+    
+    # Configure Netdata
+    sudo sh -c 'cat > /etc/netdata/netdata.conf <<EOF
+[global]
+    run as user = netdata
+    page cache size = 32
+    dbengine multihost disk space = 256
+    bind to = 0.0.0.0
+EOF'
+
+    # Nginx configuration
+    nginx_config='
+upstream netdata {
+    server 127.0.0.1:19999;
+    keepalive 64;
+}
+
+server {
+    listen 80;
+    server_name netdata.techviewleo.com;
+
+    location / {
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Host $host;
+        proxy_set_header X-Forwarded-Server $host;
+        proxy_pass http://netdata;
+        proxy_http_version 1.1;
+        proxy_pass_request_headers on;
+        proxy_set_header Connection "keep-alive";
+        proxy_store off;
+    }
+}'
+
+    if [ "$check_nginx" == "/usr/sbin/nginx" ]; then
+        echo "$nginx_config" | sudo tee /etc/nginx/conf.d/netdata.conf
+    else
+        # Install Nginx if not installed
+        sudo zypper -n install nginx
+        echo "$nginx_config" | sudo tee /etc/nginx/conf.d/netdata.conf
+    fi
+
+    # Restart Nginx to apply the new configuration
+    sudo systemctl restart nginx
+
+    # Wait for a moment to ensure services are started
+    sleep 2
+
+    # Output success message
+    echo "Netdata Installer Successfully [ OK ]"
+    echo "Netdata Running at localhost:19999"
+}
+
+
+
+
+netdata_remover(){
+
+	sudo zypper -n remove netdata
+}
+
+
+
+
+
+slicer() {
+    SLICER_DIR="/home/$USER/SLICER"
+    SLICER_TARBALL="Slicer-5.6.2-linux-amd64.tar.gz"
+    SLICER_URL="https://download.slicer.org/bitstream/660f92ed30e435b0e355f1a4"
+    SLICER_INSTALL_DIR="$SLICER_DIR/Slicer-5.6.2-linux-amd64"
+    SLICER_EXECUTABLE="$SLICER_INSTALL_DIR/Slicer"
+
+    # Check if the SLICER directory exists
+    if [ -d "$SLICER_DIR" ];then
+        echo "slicer Directory EXISTS"
+    else
+        mkdir -p "$SLICER_DIR"
+        echo "Created slicer directory"
+    fi
+
+    # Navigate to the SLICER directory
+    cd "$SLICER_DIR" || { echo "Failed to navigate to $SLICER_DIR"; exit 1; }
+
+    # Download the Slicer tarball
+    wget -O "$SLICER_TARBALL" "$SLICER_URL" || { echo "Failed to download Slicer tarball"; exit 1; }
+
+    # Extract the tarball
+    tar xfv "$SLICER_TARBALL" || { echo "Failed to extract $SLICER_TARBALL"; exit 1; }
+
+    # Navigate to the extracted directory
+    cd "$SLICER_INSTALL_DIR" || { echo "Failed to navigate to $SLICER_INSTALL_DIR"; exit 1; }
+
+    # Create a symbolic link in /usr/bin
+    sudo ln -s "$SLICER_EXECUTABLE" /usr/bin/slicer || { echo "Failed to create symbolic link"; exit 1; }
+
+    # Output success message
+    echo "slicer Installed Successfully [ OK ]"
+}
+
+
+
+
+
+
+slicer_remover(){
+
+	sudo rm -rvf /home/$USER/SLICER
+	sudo rm /usr/bin/slicer
+
+}
 
 
 # clean unneeded
@@ -4020,6 +4151,14 @@ elif [ "$1" == "--remove" ];then
 	elif [ "$2" == "tiger" ] || [ "$2" == "Tiger" ] || \
 		[ "$2" == "TIGER" ];then
 			tiger_remover
+	
+	elif [ "$2" == "netdata" ] || [ "$2" == "Netdata" ] || \
+		[ "$2" == "NETDATA" ];then
+			netdata_remover
+
+	elif [ "$2" == "slicer" ] || [ "$2" == "Slicer" ] || \
+		[ "$2" == "SLICER" ];then
+			sclier_remover
 	else
 		echo "Sorry.App Not Found in Repository"
 	fi
@@ -4087,6 +4226,26 @@ elif [ "$1" == "--remove" ];then
 		[ "$2" == "GIT" ];then
 			if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
 				git_remover
+				remove_unneeded
+
+			else
+				echo "Do you mean --unneed or --unneeded?"
+				echo "check Check the spelling of the command and try again"
+			fi
+	elif [ "$2" == "slicer" ] || [ "$2" == "Slicer" ] || \
+		[ "$2" == "SLICER" ];then
+			if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+				slicer_remover
+				remove_unneeded
+
+			else
+				echo "Do you mean --unneed or --unneeded?"
+				echo "check Check the spelling of the command and try again"
+			fi
+	elif [ "$2" == "netdata" ] || [ "$2" == "Netdata" ] || \
+		[ "$2" == "NETDATA" ];then
+			if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+				netdata_remover
 				remove_unneeded
 
 			else
@@ -4741,6 +4900,8 @@ elif [ "$1" == "--document" ];then
 			echo "=> https://kooshayeganeh.gitbook.io/git/"
 	elif [ "$2" == "SeLinux" ] || [ "$2" == "selinux" ];then
 			echo "=> https://kooshayeganeh.gitbook.io/selinux/"
+	elif [ "$2" == "Netdata" ] || [ "$2" == "netdata" ];then
+			echo "=> https://techviewleo.com/how-to-monitor-debian-server-using-netdata/"
 	fi
 
 
@@ -5043,6 +5204,13 @@ elif [ "$1" == "--install" ];then
 	elif [ "$2" == "v" ] || [ "$2" == "vlang" ] || \
 		[ "$2" == "V" ] || [ "$2" == "VLANG" ];then
 			vlang
+	
+	elif [ "$2" == "netdata" ] || [ "$2" == "NETDATA" ];then
+			netdata
+	
+	elif [ "$2" == "slicer" ] || [ "$2" == "SLICER" ] || \
+		[ "$2" == "Slicer" ];then
+			slicer
 	else
 			echo "Sorry.App Not Found in Repository"
 	fi
