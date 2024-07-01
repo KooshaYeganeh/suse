@@ -53,7 +53,7 @@ and support and accompany us to make the conditions better for ourselves.
 ## Install
 
 ```
-./Install
+cd /tmp && https://github.com/KooshaYeganeh/suse/archive/refs/heads/main.zip && unzip main.zip && cd suse-main && sudo rpm -ivh suse-0.0.2.noarch.rpm && cd && echo "suse Package Manager Installed [ OK ]"
 ```
 
 ## Basic Tutorial
