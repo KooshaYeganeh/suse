@@ -1518,6 +1518,8 @@ apache_remover(){
 }
 
 
+
+
 # Network Tools
 
 
@@ -1647,6 +1649,31 @@ network_tools_remover(){
 
 }
 
+
+
+
+# Transmitic
+
+transmitic_installer(){
+
+	cd ~/Downloads
+	wget https://github.com/transmitic/transmitic/releases/download/v0.16.0/transmitic_v0.16.0_linux_portable.zip
+	unzip transmitic_v*
+	cd /usr/bin
+	sudo ln -s ~/Downloads/transmitic_v0.16.0_linux/transmitic transmitic
+	echo "transmitic Installed Successfullt [ OK ]"
+
+}
+
+
+
+transmitic_remover(){
+
+	sudo rm /usr/bin/transmitic
+	rm -rvf ~/Downloads/transmitic_*
+	echo "transmitic removed [ OK ]"
+
+}
 
 
 docker(){
@@ -4155,6 +4182,8 @@ elif [ "$1" == "--remove" ];then
 	elif [ "$2" == "netdata" ] || [ "$2" == "Netdata" ] || \
 		[ "$2" == "NETDATA" ];then
 			netdata_remover
+	elif [ "$2" == "transmitic" ] || [ "$2" == "Transmitic" ];then
+			transmitic_remover
 
 	elif [ "$2" == "slicer" ] || [ "$2" == "Slicer" ] || \
 		[ "$2" == "SLICER" ];then
@@ -4902,6 +4931,9 @@ elif [ "$1" == "--document" ];then
 			echo "=> https://kooshayeganeh.gitbook.io/selinux/"
 	elif [ "$2" == "Netdata" ] || [ "$2" == "netdata" ];then
 			echo "=> https://techviewleo.com/how-to-monitor-debian-server-using-netdata/"
+	elif [ "$2" == "Transmitic" ] || [ "$2" == "transmitic" ];then
+			echo "=> https://transmitic.net/"
+			
 	fi
 
 
@@ -5207,6 +5239,8 @@ elif [ "$1" == "--install" ];then
 	
 	elif [ "$2" == "netdata" ] || [ "$2" == "NETDATA" ];then
 			netdata
+	elif [ "$2" == "transmitic" ] || [ "$2" == "Transmitic" ];then
+		transmitic_installer
 	
 	elif [ "$2" == "slicer" ] || [ "$2" == "SLICER" ] || \
 		[ "$2" == "Slicer" ];then
