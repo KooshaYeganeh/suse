@@ -1661,6 +1661,7 @@ transmitic_installer(){
 	unzip transmitic_v*
 	cd /usr/bin
 	sudo ln -s ~/Downloads/transmitic_v0.16.0_linux/transmitic transmitic
+	cd
 	echo "transmitic Installed Successfullt [ OK ]"
 
 }
@@ -1672,6 +1673,27 @@ transmitic_remover(){
 	sudo rm /usr/bin/transmitic
 	rm -rvf ~/Downloads/transmitic_*
 	echo "transmitic removed [ OK ]"
+
+}
+
+
+
+dcp_installer(){
+
+	cd ~/Downloads
+	wget https://github.com/tom-james-watson/dat-cp/releases/download/0.7.4/dcp-0.7.4-linux-x64.zip
+	sudo mv dcp-0.7.4-linux-x64/dcp dcp-0.7.4-linux-x64/node-64.node /usr/local/bin
+	cd
+
+	echo "dcp Installed [ OK ]"
+}
+
+
+dcp_remover(){
+
+	sudo rm -rvf ~/Downloads/dcp*
+	sudo rm /usr/local/bin dcp-0.7.4-linux-x64/dcp dcp-0.7.4-linux-x64/node-64.node
+	echo "dcp Removed [ OK ]"
 
 }
 
@@ -4184,6 +4206,8 @@ elif [ "$1" == "--remove" ];then
 			netdata_remover
 	elif [ "$2" == "transmitic" ] || [ "$2" == "Transmitic" ];then
 			transmitic_remover
+	elif [ "$2" == "dcp" ] || [ "$2" == "Dcp" ];then
+			dcp_remover
 
 	elif [ "$2" == "slicer" ] || [ "$2" == "Slicer" ] || \
 		[ "$2" == "SLICER" ];then
@@ -4933,6 +4957,9 @@ elif [ "$1" == "--document" ];then
 			echo "=> https://techviewleo.com/how-to-monitor-debian-server-using-netdata/"
 	elif [ "$2" == "Transmitic" ] || [ "$2" == "transmitic" ];then
 			echo "=> https://transmitic.net/"
+	elif [ "$2" == "Dcp" ] || [ "$2" == "dcp" ];then
+			echo "=> https://www.tecmint.com/dcp-copy-files-between-linux-servers/"
+			
 			
 	fi
 
@@ -5241,6 +5268,8 @@ elif [ "$1" == "--install" ];then
 			netdata
 	elif [ "$2" == "transmitic" ] || [ "$2" == "Transmitic" ];then
 		transmitic_installer
+	elif [ "$2" == "dcp" ] || [ "$2" == "Dcp" ];then
+		dcp_installer
 	
 	elif [ "$2" == "slicer" ] || [ "$2" == "SLICER" ] || \
 		[ "$2" == "Slicer" ];then
