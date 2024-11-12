@@ -780,6 +780,23 @@ slicer_remover(){
 }
 
 
+
+maltrail_inataller(){
+
+	cd /home/$USER
+	sudo zypper install gcc gcc-c++ git libpcap-devel python3-devel python3-pip procps schedtool
+	sudo pip3 install pcapy-ng
+	git clone --depth 1 https://github.com/stamparm/maltrail.git
+	echo "Maltrail Downloaded in /home/$USER/maltrail"
+
+}
+
+
+maltrail_remover(){
+
+	sudo rm -rvf /home/$USER/maltrail
+
+}
 # clean unneeded
 
 remove_unneeded(){
@@ -4899,6 +4916,15 @@ elif [ "$1" == "--remove" ];then
 					echo "Do you mean --unneed or --unneeded?"
 					echo "check Check the spelling of the command and try again"
 				fi
+	elif [ "$2" == "maltrail" ] || [ "$2" == "Maltrail" ] || \
+		[ "$2" == "MALTRAIL" ];then
+				if [ "$3" == "--unneed" ] || [ "$3" == "--unneeded" ];then
+					maltrail_remover
+					remove_unneeded
+				else
+					echo "Do you mean --unneed or --unneeded?"
+					echo "check Check the spelling of the command and try again"
+				fi
 	else
 			echo "Sorry.App Not Found in Repository"
 	fi
@@ -4959,12 +4985,15 @@ elif [ "$1" == "--document" ];then
 			echo "=> https://transmitic.net/"
 	elif [ "$2" == "Dcp" ] || [ "$2" == "dcp" ];then
 			echo "=> https://www.tecmint.com/dcp-copy-files-between-linux-servers/"
+	elif [ "$2" == "maltrail" ] || [ "$2" == "Maltrail" ];then
+			echo "=> https://github.com/stamparm/maltrail"
+			echo "=> https://kooshayeganeh.github.io/Maltrail_style.html"
 			
 			
 	fi
 
 
-# INSTALL Block
+# INSTALL
 
 
 elif [ "$1" == "--install" ];then
@@ -5274,6 +5303,10 @@ elif [ "$1" == "--install" ];then
 	elif [ "$2" == "slicer" ] || [ "$2" == "SLICER" ] || \
 		[ "$2" == "Slicer" ];then
 			slicer
+
+	elif [ "$2" == "maltrail" ] || [ "$2" == "Maltrail" ] || \
+		[ "$2" == "MALTRAIL" ];then
+			maltrail_installer
 	else
 			echo "Sorry.App Not Found in Repository"
 	fi
